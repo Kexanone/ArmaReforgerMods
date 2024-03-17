@@ -1,0 +1,8 @@
+GameProject {
+ ID "GarbageCollectorPatch"
+ GUID "5F0913BAAC69ABF5"
+ TITLE "GarbageCollectorPatch"
+ Dependencies {
+  "58D0FB3206B6F859"
+ }
+}

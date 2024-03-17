@@ -1,8 +1,22 @@
 GameProject {
  ID "FriendlyPlayerMarker"
  GUID "5E92F5A4A1B75A75"
- TITLE "Friendly Player Marker"
+ TITLE "PVE Player Map Markers"
  Dependencies {
   "58D0FB3206B6F859"
+ }
+ Configurations {
+  GameProjectConfig PC {
+  }
+  GameProjectConfig XBOX_ONE {
+  }
+  GameProjectConfig XBOX_SERIES {
+  }
+  GameProjectConfig PS4 {
+  }
+  GameProjectConfig PS5 {
+  }
+  GameProjectConfig HEADLESS {
+  }
  }
 }

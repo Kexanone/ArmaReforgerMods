@@ -1,0 +1,8 @@
+GameProject {
+ ID "KeepAbandonedVehicles"
+ GUID "60E2D7E5A20FABEB"
+ TITLE "Keep Abandoned Vehicles"
+ Dependencies {
+  "58D0FB3206B6F859"
+ }
+}

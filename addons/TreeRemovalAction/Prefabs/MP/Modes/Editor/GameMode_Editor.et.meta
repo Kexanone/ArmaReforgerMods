@@ -1,0 +1,15 @@
+MetaFileClass {
+ Name "{D2DE7F43D48A3667}Prefabs/MP/Modes/Editor/GameMode_Editor.et"
+ Configurations {
+  EntityTemplateResourceClass PC {
+  }
+  EntityTemplateResourceClass XBOX_ONE : PC {
+  }
+  EntityTemplateResourceClass XBOX_SERIES : PC {
+  }
+  EntityTemplateResourceClass PS4 : PC {
+  }
+  EntityTemplateResourceClass HEADLESS : PC {
+  }
+ }
+}

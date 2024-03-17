@@ -1,0 +1,9 @@
+SCR_GameModeCampaign : "{0F307326459A1395}Prefabs/MP/Modes/GameMode_Base.et" {
+ ID "56B2B479C6B96951"
+ components {
+  SCR_SaveLoadComponent "{58FA739CBE3E9FC5}" {
+   m_Struct SCR_MissionStruct "{5C6E86B1D6F0EC89}" {
+   }
+  }
+ }
+}

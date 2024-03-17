@@ -1,0 +1,15 @@
+MetaFileClass {
+ Name "{DB53C99497C2DDBA}Configs/NameTags/NametagSingle.conf"
+ Configurations {
+  CONFResourceClass PC {
+  }
+  CONFResourceClass XBOX_ONE : PC {
+  }
+  CONFResourceClass XBOX_SERIES : PC {
+  }
+  CONFResourceClass PS4 : PC {
+  }
+  CONFResourceClass HEADLESS : PC {
+  }
+ }
+}

@@ -1,0 +1,30 @@
+SCR_BaseGameMode {
+ ID "56B2B479C6B96951"
+ components {
+  SCR_NotificationSenderComponent "{56FA84B04BE7D4C0}" {
+   m_aInstigatorEventNotificationKeys {
+    RSA_InstigatorEventNotificationKeys "{5D7B3BE3249E4BAA}" {
+     m_UnknownOnPlayerNotificationKey RSA_PLAYER_INCAPACITATED
+     m_UnknownOnPossessedNotificationKey RSA_POSSESSED_INCAPACITATED
+     m_PlayerOnPlayerNotificationKey RSA_PLAYER_INCAPACITATED_PLAYER
+     m_PlayerOnPossessedNotificationKey RSA_PLAYER_INCAPACITATED_POSSESSED
+     m_PossessedOnPlayerNotificationKey RSA_POSSESSED_INCAPACITATED_PLAYER
+     m_PossessedOnPossessedNotificationKey RSA_POSSESSED_INCAPACITATED_POSSESSED
+     m_AIOnPlayerNotificationKey RSA_AI_INCAPACITATED_PLAYER
+     m_AIOnPossessedNotificationKey RSA_AI_INCAPACITATED_POSSESSED
+    }
+    RSA_InstigatorEventNotificationKeys "{5D7B3BE3228798F0}" {
+     m_InstigatorEventKey REVIVED
+     m_UnknownOnPlayerNotificationKey RSA_PLAYER_REVIVED
+     m_UnknownOnPossessedNotificationKey RSA_POSSESSED_REVIVED
+     m_PlayerOnPlayerNotificationKey RSA_PLAYER_REVIVED_PLAYER
+     m_PlayerOnPossessedNotificationKey RSA_PLAYER_REVIVED_POSSESSED
+     m_PossessedOnPlayerNotificationKey RSA_POSSESSED_REVIVED_PLAYER
+     m_PossessedOnPossessedNotificationKey RSA_POSSESSED_REVIVED_POSSESSED
+     m_AIOnPlayerNotificationKey RSA_AI_REVIVED_PLAYER
+     m_AIOnPossessedNotificationKey RSA_AI_REVIVED_POSSESSED
+    }
+   }
+  }
+ }
+}

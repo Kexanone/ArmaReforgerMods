@@ -1,0 +1,8 @@
+GameProject {
+ ID "MedicalNotifications"
+ GUID "5EE51BF388E35B44"
+ TITLE "Medical Notifications"
+ Dependencies {
+  "58D0FB3206B6F859"
+ }
+}

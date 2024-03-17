@@ -1,0 +1,123 @@
+//------------------------------------------------------------------------------------------------
+modded class SCR_NotificationSenderComponent : SCR_BaseGameModeComponent
+{
+	//------------------------------------------------------------------------------------------------
+	protected void RSA_OnPlayerLifeStateChangedServer(ENotification notificationId, int subjectPlayerId, int instigatorId = 0)
+	{
+		RSA_OnPlayerLifeStateChangedLocal(notificationId, subjectPlayerId, instigatorId);
+		Rpc(RSA_OnPlayerLifeStateChangedLocal, notificationId, subjectPlayerId, instigatorId);
+	}
+	
+	//------------------------------------------------------------------------------------------------
+	[RplRpc(RplChannel.Reliable, RplRcver.Broadcast)]
+	protected void RSA_OnPlayerLifeStateChangedLocal(ENotification notificationId, int subjectPlayerId, int instigatorId)
+	{
+		SCR_EditorManagerEntity editorManager = SCR_EditorManagerEntity.GetInstance();
+		if (editorManager && !editorManager.IsLimited() && editorManager.IsOpened())
+		{
+			SCR_NotificationsComponent.SendLocalUnlimitedEditor(notificationId, subjectPlayerId);
+		}
+		else if (m_iReceiveKillFeedType == EKillFeedReceiveType.ALL)
+		{
+			SCR_NotificationsComponent.SendLocal(notificationId, instigatorId, subjectPlayerId);
+
+		}
+		else if (m_iReceiveKillFeedType == EKillFeedReceiveType.ALLIES_ONLY)
+		{
+			Faction localFaction = m_FactionManager.GetLocalPlayerFaction();
+			if (!localFaction)
+				return;
+			
+			Faction subjectFaction = m_FactionManager.GetPlayerFaction(subjectPlayerId);
+			if (!subjectFaction)
+				return;
+			
+			if (!localFaction.IsFactionEnemy(subjectFaction))
+				return;
+			
+			SCR_NotificationsComponent.SendLocal(notificationId, instigatorId, subjectPlayerId);
+
+		}
+		else if (m_iReceiveKillFeedType == EKillFeedReceiveType.SAME_FACTION_ONLY)
+		{
+			Faction localFaction = m_FactionManager.GetLocalPlayerFaction();
+			if (!localFaction)
+				return;
+			
+			Faction subjectFaction = m_FactionManager.GetPlayerFaction(subjectPlayerId);
+			if (!subjectFaction || localFaction != subjectFaction)
+				return;
+	
+			SCR_NotificationsComponent.SendLocal(notificationId, instigatorId, subjectPlayerId);
+
+		}
+		else if (m_iReceiveKillFeedType == EKillFeedReceiveType.GROUP_ONLY)
+		{
+			SCR_GroupsManagerComponent groupManager = SCR_GroupsManagerComponent.GetInstance();
+			if (!groupManager)
+				return;
+						
+			SCR_AIGroup localGroup = SCR_AIGroup.Cast(groupManager.GetPlayerGroup(SCR_PlayerController.GetLocalPlayerId()));
+			if (!localGroup || !localGroup.IsPlayerInGroup(subjectPlayerId))
+				return;
+			
+			SCR_NotificationsComponent.SendLocal(notificationId, instigatorId, subjectPlayerId);
+
+		}
+		else if (m_iReceiveKillFeedType == EKillFeedReceiveType.ENEMIES_ONLY)
+		{
+			Faction localFaction = m_FactionManager.GetLocalPlayerFaction();
+			if (!localFaction)
+				return;
+			
+			Faction subjectFaction = m_FactionManager.GetPlayerFaction(subjectPlayerId);
+			if (!subjectFaction)
+				return;
+			
+			if (!localFaction.IsFactionFriendly(subjectFaction))
+				return;
+			
+			SCR_NotificationsComponent.SendLocal(notificationId, instigatorId, subjectPlayerId);
+
+		};
+	}
+	
+	//------------------------------------------------------------------------------------------------
+	void RSA_OnPlayerIncapacitatedServer(int playerId, Instigator instigator)
+	{
+		if (m_iKillFeedType == EKillFeedType.DISABLED)
+			return;
+		
+		InstigatorType instigatorType = instigator.GetInstigatorType();
+		
+		if (m_iKillFeedType == EKillFeedType.UNKNOWN_KILLER || instigatorType == InstigatorType.INSTIGATOR_NONE)
+		{
+			RSA_OnPlayerLifeStateChangedServer(ENotification.RSA_PLAYER_INCAPACITATED, playerId);
+		}
+		else if (instigatorType == InstigatorType.INSTIGATOR_PLAYER)
+		{
+			RSA_OnPlayerLifeStateChangedServer(ENotification.RSA_PLAYER_INCAPACITATED_PLAYER, playerId, instigator.GetInstigatorPlayerID());
+		}
+		else
+		{
+			IEntity instigatorEntity = instigator.GetInstigatorEntity();
+			if (!instigatorEntity)
+				return;
+			
+			RplComponent rpl =  RplComponent.Cast(instigatorEntity.FindComponent(RplComponent));
+			if (!rpl)
+				return;
+						
+			RSA_OnPlayerLifeStateChangedServer(ENotification.RSA_AI_INCAPACITATED_PLAYER, playerId, rpl.Id());
+		}
+	}
+	
+	//------------------------------------------------------------------------------------------------
+	void RSA_OnPlayerRevivedServer(int playerId, Instigator instigator)
+	{
+		if (m_iKillFeedType == EKillFeedType.DISABLED)
+			return;
+		
+		RSA_OnPlayerLifeStateChangedServer(ENotification.RSA_PLAYER_REVIVED, playerId);
+	}
+}

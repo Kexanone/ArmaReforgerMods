@@ -2,7 +2,7 @@
 
 Repository for my personal Arma Reforger mods, except game modes and terrains.
 
-## List of mods:
+## List of Mods
 - [Avalanche](addons/Avalanche)
 - [Disable GM Dynamic Simulation](addons/DisableGMDynamicSimulation)
 - [Garbage Collector Patch](addons/GarbageCollectorPatch)

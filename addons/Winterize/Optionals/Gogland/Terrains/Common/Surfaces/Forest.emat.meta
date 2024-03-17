@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{83A50F6FFCA704E0}Terrains/Common/Surfaces/Forest.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+  EMATResourceClass Xbox : PC {
+  }
+ }
+}

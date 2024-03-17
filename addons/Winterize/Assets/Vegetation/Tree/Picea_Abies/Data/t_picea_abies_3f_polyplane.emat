@@ -1,0 +1,5 @@
+MatPBRTreeCrown : "{649DDAD114413E2B}Assets/Vegetation/Tree/Picea_Abies/Data/t_picea_abies_3f_polyplane.emat" {
+ Color 0.791 0.791 0.791 1
+ BCRMap "{486789ED6AB13C00}Terrains/Common/Surfaces/Data/AF_PackedSnow_01_BCR.edds"
+ EnableColorization 0
+}

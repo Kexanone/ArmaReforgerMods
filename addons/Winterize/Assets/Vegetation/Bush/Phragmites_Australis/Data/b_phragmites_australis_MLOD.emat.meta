@@ -1,0 +1,15 @@
+MetaFileClass {
+ Name "{EC7FCCAD2F26E27F}Assets/Vegetation/Bush/Phragmites_Australis/Data/b_phragmites_australis_MLOD.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

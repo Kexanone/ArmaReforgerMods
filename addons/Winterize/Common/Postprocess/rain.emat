@@ -1,0 +1,29 @@
+RainEffect : "{FA4DE95A7276143D}Common/Postprocess/rain.emat" {
+ RefractionStrength 1
+ RefractionZeroDist 500
+ RainColorCoef 1 1 1 1
+ RainColorIntensity 2
+ Speed 2
+ MaxDivergence 0.045
+ SunRaysIntensity 0
+ RipplesNewEnabled 0
+ RipplesNewUseNewSim 0
+ RipplesNewMaxDistance 0
+ RipplesNewCountMin 0
+ RipplesNewCountMax 0
+ RipplesNewSizeMax 1
+ RipplesNewHeightMin 0.01
+ RipplesNewHeightMax 0.01
+ RipplesNewSpeed 1
+ WetnessFadeStart 0
+ WetnessFadeSize 0
+ WetnessMinObjRadius 0
+ WetnessMinObjSideSize 0
+ SplashesEnabled 0
+ CloseSpeedCoef 1
+ CloseRandomizeDirMax 0.04
+ CloseRandomizeDirWindSpeedMax 2.7
+ DropSizeX 0.05
+ DropSizeY 0.05
+ DistantRainEnabled 0
+}

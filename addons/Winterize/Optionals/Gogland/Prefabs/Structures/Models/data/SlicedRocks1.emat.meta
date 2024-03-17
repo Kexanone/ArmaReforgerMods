@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{F6885AD1E4C50E35}Optionals/Gogland/Prefabs/Structures/Models/data/SlicedRocks1.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+  EMATResourceClass Xbox : PC {
+  }
+ }
+}

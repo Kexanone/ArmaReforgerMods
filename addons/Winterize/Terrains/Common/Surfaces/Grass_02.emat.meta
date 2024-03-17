@@ -1,0 +1,15 @@
+MetaFileClass {
+ Name "{6D66BEE83536BCE9}Terrains/Common/Surfaces/Grass_02.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

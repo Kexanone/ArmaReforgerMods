@@ -1,0 +1,15 @@
+MetaFileClass {
+ Name "{31DD25B5E8A3BB73}Assets/Decals/Dirt/TireTracks/Data/Decal_Tracks_01.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

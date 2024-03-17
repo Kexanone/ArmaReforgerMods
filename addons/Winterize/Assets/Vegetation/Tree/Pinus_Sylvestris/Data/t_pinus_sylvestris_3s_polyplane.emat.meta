@@ -1,0 +1,15 @@
+MetaFileClass {
+ Name "{044E5241EE7BA517}Assets/Vegetation/Tree/Pinus_Sylvestris/Data/t_pinus_sylvestris_3s_polyplane.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

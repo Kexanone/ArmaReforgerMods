@@ -1,0 +1,15 @@
+MetaFileClass {
+ Name "{797F5B17FA18BEE7}Assets/Structures/Infrastructure/Roads/Data/TrailForest_01.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

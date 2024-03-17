@@ -1,0 +1,15 @@
+MetaFileClass {
+ Name "{7A494E84AF441271}Assets/Rocks/Granite/Data/GraniteBeachStone_01_Fucus.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

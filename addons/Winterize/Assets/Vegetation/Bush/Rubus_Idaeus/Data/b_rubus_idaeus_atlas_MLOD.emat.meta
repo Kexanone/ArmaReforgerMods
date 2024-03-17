@@ -1,0 +1,15 @@
+MetaFileClass {
+ Name "{D058A243977B076A}Assets/Vegetation/Bush/Rubus_Idaeus/Data/b_rubus_idaeus_atlas_MLOD.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

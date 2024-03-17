@@ -1,0 +1,15 @@
+MetaFileClass {
+ Name "{0C974AE1BEFBC984}Assets/Vegetation/Bush/Juniperus_Communis/Data/b_juniperus_communis_0_polyplane.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

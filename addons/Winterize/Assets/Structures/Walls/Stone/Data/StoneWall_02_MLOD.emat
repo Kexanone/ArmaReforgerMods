@@ -1,0 +1,4 @@
+MatPBRBasic : "{5ACA43C19F1686B5}Assets/Structures/Walls/Stone/Data/StoneWall_02_MLOD.emat" {
+ Color 0.791 0.791 0.791 1
+ BCRMap "{486789ED6AB13C00}Terrains/Common/Surfaces/Data/AF_PackedSnow_01_BCR.edds"
+}

@@ -1,0 +1,15 @@
+MetaFileClass {
+ Name "{698E718CABAD9293}Assets/Vegetation/Bush/Juniperus_Communis/Data/b_juniperus_communis_atlas_MLOD.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

@@ -1,0 +1,15 @@
+MetaFileClass {
+ Name "{119C7F8027817B59}Assets/Vegetation/Tree/Salix_Fragilis/Data/t_salix_fragilis_2s_polyplane.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

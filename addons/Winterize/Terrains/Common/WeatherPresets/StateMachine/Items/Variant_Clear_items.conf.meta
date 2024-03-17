@@ -1,0 +1,15 @@
+MetaFileClass {
+ Name "{22BB8FE416F87D7B}Terrains/Common/WeatherPresets/StateMachine/Items/Variant_Clear_items.conf"
+ Configurations {
+  CONFResourceClass PC {
+  }
+  CONFResourceClass XBOX_ONE : PC {
+  }
+  CONFResourceClass XBOX_SERIES : PC {
+  }
+  CONFResourceClass PS4 : PC {
+  }
+  CONFResourceClass HEADLESS : PC {
+  }
+ }
+}

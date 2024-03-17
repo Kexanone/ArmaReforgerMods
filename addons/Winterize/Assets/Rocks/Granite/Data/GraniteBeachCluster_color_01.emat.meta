@@ -1,0 +1,15 @@
+MetaFileClass {
+ Name "{208EC339D65E3933}Assets/Rocks/Granite/Data/GraniteBeachCluster_color_01.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

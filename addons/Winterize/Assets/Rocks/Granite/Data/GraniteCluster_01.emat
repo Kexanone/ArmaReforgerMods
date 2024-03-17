@@ -1,0 +1,7 @@
+MatPBRBasic : "{F91EF4F5C90B9DF8}Assets/Rocks/Granite/Data/GraniteCluster_01.emat" {
+ Color 0.791 0.791 0.791 1
+ SurfaceProperties "{B5515B69D91D6939}Common/Materials/Game/snow.gamemat"
+ PorosityScale 0.5
+ BCRMap "{486789ED6AB13C00}Terrains/Common/Surfaces/Data/AF_PackedSnow_01_BCR.edds"
+ NormalPower 1.49
+}

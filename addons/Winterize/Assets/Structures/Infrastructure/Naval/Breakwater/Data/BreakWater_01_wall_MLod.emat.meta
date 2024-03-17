@@ -1,0 +1,15 @@
+MetaFileClass {
+ Name "{86AD68DEB08CBDEB}Assets/Structures/Infrastructure/Naval/Breakwater/Data/BreakWater_01_wall_MLod.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

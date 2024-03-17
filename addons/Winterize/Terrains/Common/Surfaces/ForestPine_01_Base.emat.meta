@@ -1,0 +1,15 @@
+MetaFileClass {
+ Name "{B065B644DA70652D}Terrains/Common/Surfaces/ForestPine_01_Base.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

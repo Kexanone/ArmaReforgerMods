@@ -1,0 +1,11 @@
+Tree : "{D7163D1B571F4C0C}Prefabs/Vegetation/Core/Bush_Base.et" {
+ ID "2272273384468550"
+ components {
+  MeshObject "{545B01F41F2EA5C4}" {
+   Enabled 0
+  }
+  RigidBody "{4EFA6762916D17E5}" {
+   Enabled 0
+  }
+ }
+}

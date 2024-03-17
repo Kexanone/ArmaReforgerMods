@@ -1,0 +1,15 @@
+MetaFileClass {
+ Name "{2A721DECB3095776}Assets/Vegetation/Bush/Phragmites_Australis/Data/b_phragmites_australis_1_polyplane.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

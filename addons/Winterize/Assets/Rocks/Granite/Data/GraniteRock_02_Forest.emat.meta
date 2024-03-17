@@ -1,0 +1,15 @@
+MetaFileClass {
+ Name "{975C40C2561E6514}Assets/Rocks/Granite/Data/GraniteRock_02_Forest.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

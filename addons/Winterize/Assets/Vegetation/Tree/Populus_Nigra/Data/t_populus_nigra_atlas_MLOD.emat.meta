@@ -1,0 +1,15 @@
+MetaFileClass {
+ Name "{899DA4DC80CF10CD}Assets/Vegetation/Tree/Populus_Nigra/Data/t_populus_nigra_atlas_MLOD.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

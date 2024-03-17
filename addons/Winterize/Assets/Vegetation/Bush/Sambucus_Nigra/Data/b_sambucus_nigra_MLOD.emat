@@ -1,0 +1,4 @@
+MatPBRTreeCrown : "{C7C25CE8CC780836}Assets/Vegetation/Bush/Sambucus_Nigra/Data/b_sambucus_nigra_MLOD.emat" {
+ Color 0.468 0.468 0.468 1
+ BCRMap "{486789ED6AB13C00}Terrains/Common/Surfaces/Data/AF_PackedSnow_01_BCR.edds"
+}

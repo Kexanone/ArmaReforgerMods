@@ -1,0 +1,15 @@
+MetaFileClass {
+ Name "{2DAF9BE4B144B3A3}Assets/Vegetation/Plant/Carduus_acanthoides/Data/p_Carduus_acanthoides_polyplane.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

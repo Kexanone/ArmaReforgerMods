@@ -1,0 +1,15 @@
+MetaFileClass {
+ Name "{BD0C5CFA94B043CD}Assets/Decals/Dirt/Footprints/Data/Dirt_Footprints_02.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

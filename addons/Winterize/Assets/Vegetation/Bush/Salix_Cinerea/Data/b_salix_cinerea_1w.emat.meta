@@ -1,0 +1,15 @@
+MetaFileClass {
+ Name "{D5B2118166E27021}Assets/Vegetation/Bush/Salix_Cinerea/Data/b_salix_cinerea_1w.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

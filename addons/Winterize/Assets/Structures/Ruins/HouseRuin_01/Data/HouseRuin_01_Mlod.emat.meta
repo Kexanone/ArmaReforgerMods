@@ -1,0 +1,15 @@
+MetaFileClass {
+ Name "{D7105FF9CB7357BE}Assets/Structures/Ruins/HouseRuin_01/Data/HouseRuin_01_Mlod.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

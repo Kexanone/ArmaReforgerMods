@@ -1,0 +1,8 @@
+TerrainMaterial : "{3B5878DF248574C3}Terrains/Common/Surfaces/ForestConiferous_02.emat" {
+ BCRMap "{486789ED6AB13C00}Terrains/Common/Surfaces/Data/AF_PackedSnow_01_BCR.edds"
+ NHOMap "{6F50C2A969F77A17}Terrains/Common/Surfaces/Data/AF_PackedSnow_01_NHO.edds"
+ MiddleColor 1 1 1 1
+ BCRMiddleMap "{486789ED6AB13C00}Terrains/Common/Surfaces/Data/AF_PackedSnow_01_BCR.edds"
+ NHOMiddleMap "{6F50C2A969F77A17}Terrains/Common/Surfaces/Data/AF_PackedSnow_01_NHO.edds"
+ PorosityScale 0.5
+}

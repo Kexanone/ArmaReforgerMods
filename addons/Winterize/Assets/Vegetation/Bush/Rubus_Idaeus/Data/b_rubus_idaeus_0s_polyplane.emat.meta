@@ -1,0 +1,15 @@
+MetaFileClass {
+ Name "{3ADF3932D9F3900E}Assets/Vegetation/Bush/Rubus_Idaeus/Data/b_rubus_idaeus_0s_polyplane.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

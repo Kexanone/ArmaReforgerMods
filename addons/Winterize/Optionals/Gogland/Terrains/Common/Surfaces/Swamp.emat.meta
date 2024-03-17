@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{CEA4A797E84CDCF3}Terrains/Common/Surfaces/Swamp.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+  EMATResourceClass Xbox : PC {
+  }
+ }
+}

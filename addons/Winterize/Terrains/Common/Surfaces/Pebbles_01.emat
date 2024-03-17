@@ -1,0 +1,6 @@
+TerrainMaterial : "{40CBF63A64D1D184}Terrains/Common/Surfaces/Pebbles_01.emat" {
+ SurfaceProperties "{B5515B69D91D6939}Common/Materials/Game/snow.gamemat"
+ BCRMap "{486789ED6AB13C00}Terrains/Common/Surfaces/Data/AF_PackedSnow_01_BCR.edds"
+ NHOMiddleMap "{486789ED6AB13C00}Terrains/Common/Surfaces/Data/AF_PackedSnow_01_BCR.edds"
+ PorosityScale 0.5
+}

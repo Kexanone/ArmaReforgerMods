@@ -1,0 +1,7 @@
+TerrainMaterial : "{C46E7B12213D58DE}Terrains/Common/Surfaces/Grass_03_coastal.emat" {
+ SurfaceProperties "{B5515B69D91D6939}Common/Materials/Game/snow.gamemat"
+ PlantMat ""
+ ClutterConfig ""
+ MiddleColor 0.791 0.791 0.791 1
+ PorosityScale 0.5
+}

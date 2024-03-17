@@ -1,0 +1,15 @@
+MetaFileClass {
+ Name "{B09FAE07D5F2B429}Terrains/Common/Surfaces/AF_IceField_02.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

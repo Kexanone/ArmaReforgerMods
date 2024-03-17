@@ -1,0 +1,5 @@
+MatPBRTreeCrown : "{8CA1B9CAD17DF220}Assets/Vegetation/Tree/Betula_Pendula/Data/t_betula_pendula_1sw_polyplane.emat" {
+ Color 0.791 0.791 0.791 1
+ BCRMap "{486789ED6AB13C00}Terrains/Common/Surfaces/Data/AF_PackedSnow_01_BCR.edds"
+ EnableColorization 0
+}

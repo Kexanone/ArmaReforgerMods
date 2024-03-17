@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{A81B86A203110CB1}Assets/Clutter/Vegetation/Plant/Picea_abies/Data/c_picea_abies_mini_polyplane.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+  EMATResourceClass Xbox : PC {
+  }
+ }
+}

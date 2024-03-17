@@ -1,0 +1,7 @@
+MatPBR2Layers : "{208EC339D65E3933}Assets/Rocks/Granite/Data/GraniteBeachCluster_color_01.emat" {
+ Color 0.791 0.791 0.791 1
+ BCRMap "{486789ED6AB13C00}Terrains/Common/Surfaces/Data/AF_PackedSnow_01_BCR.edds"
+ GlobalMCMap "{486789ED6AB13C00}Terrains/Common/Surfaces/Data/AF_PackedSnow_01_BCR.edds"
+ Color2 0.791 0.791 0.791 1
+ BCRMap2 "{486789ED6AB13C00}Terrains/Common/Surfaces/Data/AF_PackedSnow_01_BCR.edds"
+}

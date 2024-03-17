@@ -1,0 +1,15 @@
+MetaFileClass {
+ Name "{B81083D5153194FE}Assets/Vegetation/Tree/Alnus_Glutinosa/Data/t_alnus_glutinosa_3s_polyplane.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

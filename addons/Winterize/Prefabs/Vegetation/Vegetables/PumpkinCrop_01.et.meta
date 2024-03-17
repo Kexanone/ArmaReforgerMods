@@ -1,0 +1,15 @@
+MetaFileClass {
+ Name "{84D41925E6153AAF}Prefabs/Vegetation/Vegetables/PumpkinCrop_01.et"
+ Configurations {
+  EntityTemplateResourceClass PC {
+  }
+  EntityTemplateResourceClass XBOX_ONE : PC {
+  }
+  EntityTemplateResourceClass XBOX_SERIES : PC {
+  }
+  EntityTemplateResourceClass PS4 : PC {
+  }
+  EntityTemplateResourceClass HEADLESS : PC {
+  }
+ }
+}

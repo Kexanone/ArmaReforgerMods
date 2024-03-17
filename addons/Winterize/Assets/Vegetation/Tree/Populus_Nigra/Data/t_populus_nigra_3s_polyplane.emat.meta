@@ -1,0 +1,15 @@
+MetaFileClass {
+ Name "{C7D00A8E6067E8EE}Assets/Vegetation/Tree/Populus_Nigra/Data/t_populus_nigra_3s_polyplane.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

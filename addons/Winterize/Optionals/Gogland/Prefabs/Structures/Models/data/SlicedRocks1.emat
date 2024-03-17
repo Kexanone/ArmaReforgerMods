@@ -1,0 +1,4 @@
+MatPBRMulti : "{F6885AD1E4C50E35}Prefabs/Structures/Models/data/SlicedRocks1.emat" {
+ Color_4 0.791 0.791 0.791 1
+ BCR_4 "{486789ED6AB13C00}Terrains/Common/Surfaces/Data/AF_PackedSnow_01_BCR.edds"
+}

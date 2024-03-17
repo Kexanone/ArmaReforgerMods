@@ -1,0 +1,15 @@
+MetaFileClass {
+ Name "{B87F67F70C7423ED}Assets/Rocks/Granite/Data/GraniteRock_01.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

@@ -1,0 +1,13 @@
+TerrainMaterial : "{996EF97038EBD49D}Terrains/Common/Surfaces/Grass_03.emat" {
+ SurfaceProperties "{B5515B69D91D6939}Common/Materials/Game/snow.gamemat"
+ BCRMap "{486789ED6AB13C00}Terrains/Common/Surfaces/Data/AF_PackedSnow_01_BCR.edds"
+ NHOMap "{6F50C2A969F77A17}Terrains/Common/Surfaces/Data/AF_PackedSnow_01_NHO.edds"
+ SatMapBlend 0
+ PlantMat ""
+ ClutterConfig ""
+ DebugColor 1 1 1 1
+ MiddleColor 0.791 0.791 0.791 1
+ BCRMiddleMap "{486789ED6AB13C00}Terrains/Common/Surfaces/Data/AF_PackedSnow_01_BCR.edds"
+ NHOMiddleMap "{6F50C2A969F77A17}Terrains/Common/Surfaces/Data/AF_PackedSnow_01_NHO.edds"
+ PorosityScale 0.5
+}

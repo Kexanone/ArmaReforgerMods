@@ -1,0 +1,4 @@
+MatPBRMulti : "{258B022909BC568C}Assets/Rocks/Granite/Data/GraniteRock_01_Forest.emat" {
+ Color_3 0.791 0.791 0.791 1
+ BCR_3 "{486789ED6AB13C00}Terrains/Common/Surfaces/Data/AF_PackedSnow_01_BCR.edds"
+}

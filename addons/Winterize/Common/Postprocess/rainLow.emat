@@ -1,0 +1,8 @@
+RainEffect : "{D3E32E11C5116D9E}Common/Postprocess/rainLow.emat" {
+ RipplesNewUseNewSim 0
+ WetnessOverride 1
+ WetnessFadeStart 0
+ WetnessFadeSize 0
+ WetnessMinObjRadius 0
+ WetnessMinObjSideSize 0
+}

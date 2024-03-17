@@ -1,0 +1,5 @@
+MatPBRTreeCrown : "{07F03A934CC76C44}Assets/Vegetation/Tree/Pinus_Sylvestris/Data/t_pinus_sylvestris_1f_polyplane.emat" {
+ Color 0.791 0.791 0.791 1
+ BCRMap "{486789ED6AB13C00}Terrains/Common/Surfaces/Data/AF_PackedSnow_01_BCR.edds"
+ EnableColorization 0
+}

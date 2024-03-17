@@ -1,0 +1,15 @@
+MetaFileClass {
+ Name "{6C121A51D12D3E78}Assets/Decals/Dirt/Patch/Data/Decal_DirtPatch_02.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

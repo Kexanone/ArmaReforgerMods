@@ -1,0 +1,15 @@
+MetaFileClass {
+ Name "{12C19530316D2CD5}Terrains/Common/WeatherPresets/StateMachine/Variants/Variant_Snow_Stratus.conf"
+ Configurations {
+  CONFResourceClass PC {
+  }
+  CONFResourceClass XBOX_ONE : PC {
+  }
+  CONFResourceClass XBOX_SERIES : PC {
+  }
+  CONFResourceClass PS4 : PC {
+  }
+  CONFResourceClass HEADLESS : PC {
+  }
+ }
+}

@@ -1,0 +1,4 @@
+MatPBRTreeCrown : "{8BE3E4E8EE656513}Assets/Vegetation/Plant/Artemisia_Vulgaris/Data/p_Artemisia_vulgaris_polyplane.emat" {
+ Color 0.791 0.791 0.791 1
+ BCRMap "{486789ED6AB13C00}Terrains/Common/Surfaces/Data/AF_PackedSnow_01_BCR.edds"
+}

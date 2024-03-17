@@ -1,0 +1,4 @@
+MatPBR2Layers : "{859313D02FB08237}Assets/Rocks/Granite/Data/GraniteBeachStone_02_Fucus.emat" {
+ Color2 0.791 0.791 0.791 1
+ BCRMap2 "{486789ED6AB13C00}Terrains/Common/Surfaces/Data/AF_PackedSnow_01_BCR.edds"
+}

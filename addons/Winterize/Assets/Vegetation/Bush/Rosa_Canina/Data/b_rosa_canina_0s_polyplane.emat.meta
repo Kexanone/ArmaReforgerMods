@@ -1,0 +1,15 @@
+MetaFileClass {
+ Name "{4B84CC826E1F9108}Assets/Vegetation/Bush/Rosa_Canina/Data/b_rosa_canina_0s_polyplane.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

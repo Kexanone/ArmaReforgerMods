@@ -1,0 +1,15 @@
+MetaFileClass {
+ Name "{0321085373CFFA4F}Assets/Structures/Infrastructure/Roads/Data/TrailDirt_01.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

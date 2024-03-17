@@ -1,0 +1,15 @@
+MetaFileClass {
+ Name "{0F9569F8DEEFAB88}Assets/Vegetation/Tree/Picea_Abies/Data/t_picea_abies_3f_higher_polyplane.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

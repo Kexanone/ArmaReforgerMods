@@ -1,0 +1,4 @@
+TerrainMaterial : "{B09FAE07D5F2B429}Terrains/Common/Surfaces/AF_IceField_02.emat" {
+ BCRMap "{486789ED6AB13C00}Terrains/Common/Surfaces/Data/AF_PackedSnow_01_BCR.edds"
+ BCRMiddleMap "{486789ED6AB13C00}Terrains/Common/Surfaces/Data/AF_PackedSnow_01_BCR.edds"
+}

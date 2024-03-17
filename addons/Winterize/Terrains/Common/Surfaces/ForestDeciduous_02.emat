@@ -1,0 +1,8 @@
+TerrainMaterial : "{4671DD9C64710D9A}Terrains/Common/Surfaces/ForestDeciduous_02.emat" {
+ SurfaceProperties "{B5515B69D91D6939}Common/Materials/Game/snow.gamemat"
+ BCRMap "{486789ED6AB13C00}Terrains/Common/Surfaces/Data/AF_PackedSnow_01_BCR.edds"
+ NHOMap "{6F50C2A969F77A17}Terrains/Common/Surfaces/Data/AF_PackedSnow_01_NHO.edds"
+ MiddleColor 1 1 1 1
+ BCRMiddleMap "{486789ED6AB13C00}Terrains/Common/Surfaces/Data/AF_PackedSnow_01_BCR.edds"
+ NHOMiddleMap "{6F50C2A969F77A17}Terrains/Common/Surfaces/Data/AF_PackedSnow_01_NHO.edds"
+}

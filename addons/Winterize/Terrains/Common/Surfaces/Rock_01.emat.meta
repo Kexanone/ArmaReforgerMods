@@ -1,0 +1,15 @@
+MetaFileClass {
+ Name "{F606AF5AE35A6C4C}Terrains/Common/Surfaces/Rock_01.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

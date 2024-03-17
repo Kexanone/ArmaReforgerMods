@@ -1,0 +1,4 @@
+MatPBRBasic : "{A4E317D0C157A947}Assets/Props/Military/Antennas/Antenna_RC292_01/Data/Trailer_01_Metals.emat" {
+ Color 0.644 0.644 0.644 1
+ BCRMap "{486789ED6AB13C00}Terrains/Common/Surfaces/Data/AF_PackedSnow_01_BCR.edds"
+}

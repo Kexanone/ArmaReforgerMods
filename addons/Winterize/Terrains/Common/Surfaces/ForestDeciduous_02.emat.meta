@@ -1,0 +1,15 @@
+MetaFileClass {
+ Name "{4671DD9C64710D9A}Terrains/Common/Surfaces/ForestDeciduous_02.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

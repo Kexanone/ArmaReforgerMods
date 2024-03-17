@@ -1,0 +1,15 @@
+MetaFileClass {
+ Name "{CDE85F7FADAEE447}Assets/Vegetation/Bush/Corylus_Avellana/Data/b_corylus_avellana_1l_polyplane.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

@@ -1,0 +1,15 @@
+MetaFileClass {
+ Name "{A4E317D0C157A947}Assets/Props/Military/Antennas/Antenna_RC292_01/Data/Trailer_01_Metals.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

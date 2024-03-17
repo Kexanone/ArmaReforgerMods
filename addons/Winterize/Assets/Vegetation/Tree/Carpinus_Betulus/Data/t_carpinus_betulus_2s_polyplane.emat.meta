@@ -1,0 +1,15 @@
+MetaFileClass {
+ Name "{5CF3CAE58C0674F6}Assets/Vegetation/Tree/Carpinus_Betulus/Data/t_carpinus_betulus_2s_polyplane.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

@@ -1,0 +1,15 @@
+MetaFileClass {
+ Name "{29A5DC6F9FF3A7F2}Assets/Vegetation/Plant/Urtica_dioica/Data/p_Urtica_dioica_0s_polyplane.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

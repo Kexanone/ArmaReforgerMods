@@ -1,0 +1,15 @@
+MetaFileClass {
+ Name "{589B2D15A98A5546}Assets/Vegetation/Tree/Betula_Pendula/Data/t_betula_pendula_3s_polyplane.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

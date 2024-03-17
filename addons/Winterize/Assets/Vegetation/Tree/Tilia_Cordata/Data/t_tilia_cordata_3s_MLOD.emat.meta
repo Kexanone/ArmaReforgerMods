@@ -1,0 +1,15 @@
+MetaFileClass {
+ Name "{547C7DCCB7E27555}Assets/Vegetation/Tree/Tilia_Cordata/Data/t_tilia_cordata_3s_MLOD.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

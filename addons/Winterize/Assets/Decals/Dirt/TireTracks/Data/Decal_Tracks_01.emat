@@ -1,0 +1,6 @@
+MatPBRDecal : "{31DD25B5E8A3BB73}Assets/Decals/Dirt/TireTracks/Data/Decal_Tracks_01.emat" {
+ SurfaceProperties "{B5515B69D91D6939}Common/Materials/Game/snow.gamemat"
+ Color 0.644 0.644 0.644 1
+ BCRMap "{486789ED6AB13C00}Terrains/Common/Surfaces/Data/AF_PackedSnow_01_BCR.edds"
+ PorosityScale 0.5
+}

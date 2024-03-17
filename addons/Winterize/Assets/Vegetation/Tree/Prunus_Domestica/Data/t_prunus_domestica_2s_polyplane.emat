@@ -1,0 +1,4 @@
+MatPBRTreeCrown : "{B4A3B743F50FE057}Assets/Vegetation/Tree/Prunus_Domestica/Data/t_prunus_domestica_2s_polyplane.emat" {
+ Color 0.791 0.791 0.791 1
+ BCRMap "{486789ED6AB13C00}Terrains/Common/Surfaces/Data/AF_PackedSnow_01_BCR.edds"
+}

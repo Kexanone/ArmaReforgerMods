@@ -1,0 +1,15 @@
+KSC_DestroyObjectTask {
+ ID "60AC95C7820DB665"
+ components {
+  SCR_MapDescriptorComponent "{60AC95C7820DB788}" {
+   VisibleOnMap 0
+   MainType Task
+  }
+ }
+ coords 1356.394 1.677 1054.424
+ m_sName "#KSC-Task_Destroy_Name"
+ m_sDescription "#KSC-Task_Destroy_Description"
+ m_sMapIconName "Icon_Task_Sabotage"
+ m_sTaskListIconName "Icon_Task_Sabotage"
+ m_sIconImageset "{10C0A9A305E8B3A4}UI/Imagesets/Tasks/Task_Icons.imageset"
+}

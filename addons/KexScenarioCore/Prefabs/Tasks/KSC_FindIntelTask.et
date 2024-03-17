@@ -1,0 +1,15 @@
+KSC_PickUpItemTask {
+ ID "60ACDAA587B091FC"
+ components {
+  SCR_MapDescriptorComponent "{60ACDAA587B09102}" {
+   VisibleOnMap 0
+   MainType Task
+  }
+ }
+ coords 1356.394 1.677 1054.424
+ m_sName "#KSC-Task_FindIntel_Name"
+ m_sDescription "#KSC-Task_FindIntel_Description"
+ m_sMapIconName "Icon_Task_Search"
+ m_sTaskListIconName "Icon_Task_Search"
+ m_sIconImageset "{10C0A9A305E8B3A4}UI/Imagesets/Tasks/Task_Icons.imageset"
+}

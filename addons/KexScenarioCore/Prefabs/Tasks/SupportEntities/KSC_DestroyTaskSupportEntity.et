@@ -1,0 +1,4 @@
+KSC_DestroyObjectTaskSupportEntity : "{F927E136363469D2}Prefabs/Tasks/SupportEntities/BaseTaskSupportEntity.et" {
+ ID "5A0AA0B3355390E7"
+ m_sTaskPrefab "{F39180AC02F2AEFD}Prefabs/Tasks/KSC_DestroyTask.et"
+}

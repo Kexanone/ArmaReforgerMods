@@ -1,0 +1,15 @@
+MetaFileClass {
+ Name "{A28627583BCD816D}worlds/KSC/MissionRotation/MissionRotation.ent"
+ Configurations {
+  ENTResourceClass PC {
+  }
+  ENTResourceClass XBOX_ONE : PC {
+  }
+  ENTResourceClass XBOX_SERIES : PC {
+  }
+  ENTResourceClass PS4 : PC {
+  }
+  ENTResourceClass HEADLESS : PC {
+  }
+ }
+}

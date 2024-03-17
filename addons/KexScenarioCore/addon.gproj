@@ -1,0 +1,8 @@
+GameProject {
+ ID "KexScenarioCore"
+ GUID "5ED61DC0AFE17E8E"
+ TITLE "Kex Scenario Core"
+ Dependencies {
+  "58D0FB3206B6F859"
+ }
+}

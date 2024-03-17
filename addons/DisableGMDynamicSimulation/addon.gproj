@@ -1,0 +1,8 @@
+GameProject {
+ ID "DisableGMDynamicSimulation"
+ GUID "60B2AD8092C4C94A"
+ TITLE "Disable GM Dynamic Simulation"
+ Dependencies {
+  "58D0FB3206B6F859"
+ }
+}

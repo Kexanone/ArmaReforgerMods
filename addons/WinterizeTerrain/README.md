@@ -13,5 +13,6 @@ Workshop: https://reforger.armaplatform.com/workshop/6088438E8ED8BB2A
 
 ### Acknowledgments
 
-- Snowy weather presets were copied from BI's C&H - Snowball Fight 2023 mod (https://reforger.armaplatform.com/workshop/5F02BE2E93634E0A-C%2526H-SnowballFight2023)
+- Snowy weather presets were copied from `BI's C&H - Snowball Fight 2023` mod (https://reforger.armaplatform.com/workshop/5F02BE2E93634E0A-C%2526H-SnowballFight2023)
 - The snow texture was created by Brian, owner of "Free PBR" (https://freepbr.com/about-free-pbr/)
+- Thanks to KIOK for the tips on retexturing rocks.

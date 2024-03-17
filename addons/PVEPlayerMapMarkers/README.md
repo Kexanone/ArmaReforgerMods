@@ -1,7 +1,8 @@
-# Player Map Markers
+# PVE Player Map Markers
 
 Marks players and vehicles occupied by players on the map.
-Inspired by the conventions used in Arma 3 Mike Force.
+Inspired by the conventions used by Spoffy in Mike Force in Arma 3.
 
-Feedback tracker:  https://github.com/Kexanone/PlayerMapMarkers/issues</br>
-Change logs: https://github.com/Kexanone/PlayerMapMarkers/releases
+Feedback tracker: https://github.com/Kexanone/ArmaReforgerMods/issues<br>
+Source Code: https://github.com/Kexanone/ArmaReforgerMods/tree/main/addons/PVEPlayerMapMarkers<br>
+Workshop: https://reforger.armaplatform.com/workshop/5E92F5A4A1B75A75

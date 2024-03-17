@@ -1,7 +1,7 @@
 GameProject {
- ID "NoSupplySupport"
+ ID "NoSupplySystem"
  GUID "5EE472B0F295A124"
- TITLE "No Supply Support"
+ TITLE "No Supply System"
  Dependencies {
   "58D0FB3206B6F859"
  }

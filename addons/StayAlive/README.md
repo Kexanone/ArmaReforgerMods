@@ -1,7 +1,8 @@
 # Stay Alive
 
-While this mod is active, players will always fall unconscious before they die.<br>
-See [`main-forever`](https://github.com/Revive-System/StayAlive/tree/main-forever) branch for a version where players can never die.
+While this mod is active, players will always fall unconscious before they die.
+Use "Stay Alive Forever" instead if you want that players can never die.
 
-Feedback tracker:  https://github.com/Revive-System/StayAlive/issues</br>
-Change logs: https://github.com/Revive-System/StayAlive/releases
+Feedback tracker: https://github.com/Kexanone/ArmaReforgerMods/issues<br>
+Source Code: https://github.com/Kexanone/ArmaReforgerMods/tree/main/addons/StayAlive<br>
+Workshop: https://reforger.armaplatform.com/workshop/5EE4F56A883654EB

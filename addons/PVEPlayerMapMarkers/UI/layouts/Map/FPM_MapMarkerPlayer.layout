@@ -1,0 +1,192 @@
+FrameWidgetClass {
+ Name "rootFrame"
+ Slot FrameWidgetSlot "{5D2691F3AE61A7FC}" {
+  Anchor 0 0 0 0
+  PositionX 0
+  OffsetLeft 0
+  PositionY 0
+  OffsetTop 0
+  SizeX 66
+  OffsetRight -66
+  SizeY 66
+  OffsetBottom -66
+  Alignment 0.5 0.5
+ }
+ "Z Order" 60
+ Clipping False
+ "Ignore Cursor" 0
+ components {
+  FPM_MapMarkerPlayerComponent "{5E1080762760D857}" {
+  }
+ }
+ {
+  TextWidgetClass "{60B6984B2F4091BA}" {
+   Name "MarkerText"
+   Slot FrameWidgetSlot "{5F0E93C07EC242E0}" {
+    Anchor 0.5 0 0.5 0
+    OffsetLeft 0
+    PositionY 4
+    OffsetTop 4
+    SizeX 100
+    OffsetRight -100
+    SizeY 20
+    OffsetBottom -24
+    Alignment 0.5 1
+   }
+   Clipping False
+   Color 0 0.001 0 1
+   Text ""
+   "Font Size" 20
+   "Min Font Size" 20
+   "Horizontal Alignment" Center
+   FontProperties FontProperties "{5D2693726AAD1299}" {
+    Font "{3E7733BAC8C831F6}UI/Fonts/RobotoCondensed/RobotoCondensed_Regular.fnt"
+    Bold 1
+    ShadowSize 3
+   }
+  }
+  ImageWidgetClass "{60B6984B2F4091B8}" {
+   Name "MarkerIcon"
+   Slot FrameWidgetSlot "{5F0E93C065A8881F}" {
+    Anchor 0.5 0.5 0.5 0.5
+    PositionX 0
+    OffsetLeft 0
+    PositionY 0
+    OffsetTop 0
+    OffsetRight -100
+    OffsetBottom -30
+    Alignment 0.5 0.5
+    SizeToContent 1
+   }
+   Clipping False
+   Texture "{2EFEA2AF1F38E7F0}UI/Textures/Icons/icons_wrapperUI-64.imageset"
+   Image "exclamationCircle"
+   Size 56 56
+  }
+  FrameWidgetClass "{60B6984B2F4091C7}" {
+   Name "MembershipIcon"
+   Slot FrameWidgetSlot "{5F0E93C1F41D1516}" {
+    Anchor 0 0.5 0 0.5
+    PositionX 0
+    OffsetLeft 0
+    OffsetTop 0
+    SizeX 100
+    OffsetRight -100
+    SizeY 30
+    OffsetBottom -30
+    Alignment 0.4 0.5
+    SizeToContent 1
+   }
+   {
+    ImageWidgetClass "{60B6984B2F4091C6}" {
+     Name "OwnSquadBackground"
+     Slot FrameWidgetSlot "{5F0E93EEA4FFA3F9}" {
+      Anchor 0.5 0 0.5 0
+      OffsetLeft 0
+      PositionY 0
+      OffsetTop 0
+      SizeX 100
+      OffsetRight -100
+      SizeY 30
+      OffsetBottom -30
+      Alignment 0.5 0
+      SizeToContent 1
+     }
+     "Is Visible" 0
+     Clipping False
+     Color 0 0 0 1
+     Texture "{3262679C50EF4F01}UI/Textures/Icons/icons_wrapperUI.imageset"
+     Image "pie100"
+     Size 40 40
+     MaskImage "pie100"
+     "Shadow Offset" 0 0
+     "Shadow Size Increase" 0 0
+    }
+    ImageWidgetClass "{60B6984B2F4091C5}" {
+     Name "OwnSquadIcon"
+     Slot FrameWidgetSlot "{5F0E93EB5A382C43}" {
+      Anchor 0.5 0 0.5 0
+      OffsetLeft 0
+      PositionY 0
+      OffsetTop 0
+      SizeX 100
+      OffsetRight -100
+      SizeY 30
+      OffsetBottom -30
+      Alignment 0.5 0
+      SizeToContent 1
+     }
+     "Is Visible" 0
+     Clipping False
+     Texture "{3262679C50EF4F01}UI/Textures/Icons/icons_wrapperUI.imageset"
+     Image "squad"
+     Size 40 40
+     "Shadow Offset" 0 0
+     "Shadow Size Increase" 0 0
+    }
+    ImageWidgetClass "{60B6984B2F4091C4}" {
+     Name "OwnSquadIconGlow"
+     Slot FrameWidgetSlot "{5F02A163762C88D1}" {
+      Anchor 0.5 0 0.5 0
+      OffsetLeft 0
+      PositionY 0
+      OffsetTop 0
+      SizeX 32
+      OffsetRight -32
+      SizeY 32
+      OffsetBottom -32
+      Alignment 0.5 0
+      SizeToContent 1
+     }
+     "Is Visible" 0
+     Opacity 0.5
+     Clipping False
+     Color 0 0 0 1
+     Texture "{00FE3DBDFD15227B}UI/Textures/Icons/icons_wrapperUI-glow.imageset"
+     Image "squad"
+     Size 40 40
+     "Shadow Offset" 0 0
+     "Shadow Size Increase" 0 0
+    }
+   }
+  }
+  SizeLayoutWidgetClass "{60B6984B2F4091C2}" {
+   Name "SymbolWidget"
+   Slot FrameWidgetSlot "{5F0E93C1FC876F17}" {
+    Anchor 0.5 0.5 0.5 0.5
+    OffsetLeft 0
+    OffsetTop 0
+    SizeX 100
+    OffsetRight -100
+    SizeY 30
+    OffsetBottom -30
+    Alignment 0.5 0.5
+    SizeToContent 1
+   }
+   "Is Enabled" 0
+   "Is Visible" 0
+   Clipping False
+   AllowWidthOverride 1
+   WidthOverride 56
+   AllowHeightOverride 1
+   HeightOverride 56
+   {
+    OverlayWidgetClass "{60B6984B2F4091C1}" {
+     Name "SymbolOverlay"
+     Slot AlignableSlot "{5DB880D509AA11C2}" {
+      HorizontalAlign 3
+      VerticalAlign 3
+     }
+     components {
+      SCR_MilitarySymbolUIComponent "{5DB880D56B45FA22}" {
+       m_MilitarySymbol SCR_MilitarySymbol "{5DB880D56FF1176A}" {
+        m_Identity BLUFOR
+        m_Icons INFANTRY
+       }
+      }
+     }
+    }
+   }
+  }
+ }
+}

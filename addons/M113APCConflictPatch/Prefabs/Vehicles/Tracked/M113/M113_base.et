@@ -1,6 +1,51 @@
 Tank : "{8A883ABED22B6E27}Prefabs/Vehicles/Core/Tracked_Base.et" {
  ID "BBCBA43A9778AE21"
  components {
+  SCR_EditableVehicleComponent "{50DEB7C26B5EB312}" {
+   m_UIInfo SCR_EditableVehicleUIInfo "{5298E609432D192D}" {
+   }
+  }
+  SCR_ResourceComponent "{5F06BE4BEDF907A6}" {
+   m_aContainers {
+    SCR_ResourceContainer "{5F06BE4BEDF907A5}" {
+     m_eResourceRights FACTION
+     m_eStorageType CARGO_VEHICLE
+     m_fResourceValueCurrent 0
+     m_fResourceValueMax 0
+    }
+   }
+   m_aEncapsulators {
+    SCR_ResourceEncapsulator "{5F06BE4BEDF907AB}" {
+     m_sDebugName "Encapsulator - M113 APC"
+     m_eResourceRights ALL
+     m_ContainerQueue SCR_ResourceEncapsulatorContainerQueue "{5DB8993B72033255}" : "{F214C17E1F29E70A}Configs/Resources/Supplies/ContainerQueues/Encapsulator/Queue_Encapsulator_Vehicle.conf" {
+     }
+     m_aActions {
+      SCR_ResourceEncapsulatorActionChangeDecay "{5F06BE4BEDF907AF}" {
+      }
+      SCR_ResourceEncapsulatorActionChangeGain "{5F06BE4BEDF90C87}" {
+      }
+      SCR_ResourceEncapsulatorActionChangeOnEmptyBehavior "{5F06BE4BEDF90C85}" {
+       m_eOnEmptyBehavior HIDE
+      }
+      SCR_ResourceEncapsulatorActionChangeResourceValue "{5F06BE4BEDF90CBA}" {
+      }
+     }
+    }
+   }
+   m_aConsumers {
+    SCR_ResourceConsumer "{5DB8993B61039C32}" : "{4126DC9D9F44E513}Configs/Resources/Supplies/Consumers/Consumer_VehicleLoad.conf" {
+    }
+    SCR_ResourceConsumer "{5DB8993B6063034B}" : "{3FF0B8C036F14239}Configs/Resources/Supplies/Consumers/Consumer_VehicleUnload.conf" {
+    }
+   }
+   m_aGenerators {
+    SCR_ResourceGenerator "{5DB8993B7DFF6220}" : "{48782547A13061E2}Configs/Resources/Supplies/Generators/Generator_VehicleLoad.conf" {
+    }
+    SCR_ResourceGenerator "{5DB8993B7C0C789E}" : "{F8496BD9E1CE43B3}Configs/Resources/Supplies/Generators/Generator_VehicleUnload.conf" {
+    }
+   }
+  }
   SCR_UniversalInventoryStorageComponent "{5E78B2EECD014A90}" {
    Attributes SCR_ItemAttributeCollection "{5E78B2EECD014A91}" {
     ItemDisplayName SCR_InventoryUIInfo "{5E78B2EECD014A92}" {
@@ -96,47 +141,6 @@ Tank : "{8A883ABED22B6E27}Prefabs/Vehicles/Core/Tracked_Base.et" {
       Name "#AR-Supplies_Vehicle_Unload"
       Description "#AR-Supplies_Vehicle_Unload_Long"
      }
-    }
-   }
-  }
-  SCR_ResourceComponent "{5F06BE4BEDF907A6}" {
-   m_aContainers {
-    SCR_ResourceContainer "{5F06BE4BEDF907A5}" {
-     m_eResourceRights FACTION
-     m_eStorageType CARGO_VEHICLE
-     m_fResourceValueCurrent 0
-     m_fResourceValueMax 0
-    }
-   }
-   m_aEncapsulators {
-    SCR_ResourceEncapsulator "{5F06BE4BEDF907AB}" {
-     m_sDebugName "Encapsulator - M113 APC"
-     m_eResourceRights ALL
-     m_ContainerQueue SCR_ResourceEncapsulatorContainerQueue "{5DB8993B72033255}" : "{F214C17E1F29E70A}Configs/Resources/Supplies/ContainerQueues/Encapsulator/Queue_Encapsulator_Vehicle.conf" {
-     }
-     m_aActions {
-      SCR_ResourceEncapsulatorActionChangeDecay "{5F06BE4BEDF907AF}" {
-      }
-      SCR_ResourceEncapsulatorActionChangeGain "{5F06BE4BEDF90C87}" {
-      }
-      SCR_ResourceEncapsulatorActionChangeOnEmptyBehavior "{5F06BE4BEDF90C85}" {
-       m_eOnEmptyBehavior HIDE
-      }
-      SCR_ResourceEncapsulatorActionChangeResourceValue "{5F06BE4BEDF90CBA}" {
-      }
-     }
-    }
-   }
-   m_aConsumers {
-    SCR_ResourceConsumer "{5DB8993B61039C32}" : "{4126DC9D9F44E513}Configs/Resources/Supplies/Consumers/Consumer_VehicleLoad.conf" {
-    }
-    SCR_ResourceConsumer "{5DB8993B6063034B}" : "{3FF0B8C036F14239}Configs/Resources/Supplies/Consumers/Consumer_VehicleUnload.conf" {
-    }
-   }
-   m_aGenerators {
-    SCR_ResourceGenerator "{5DB8993B7DFF6220}" : "{48782547A13061E2}Configs/Resources/Supplies/Generators/Generator_VehicleLoad.conf" {
-    }
-    SCR_ResourceGenerator "{5DB8993B7C0C789E}" : "{F8496BD9E1CE43B3}Configs/Resources/Supplies/Generators/Generator_VehicleUnload.conf" {
     }
    }
   }

@@ -1,0 +1,20 @@
+GameProject {
+ ID "StayAlive"
+ GUID "5EE4F56A883654EB"
+ TITLE "Stay Alive"
+ Dependencies {
+  "58D0FB3206B6F859" "60E2F3F9883D688C"
+ }
+ Configurations {
+  GameProjectConfig PC {
+  }
+  GameProjectConfig XBOX_ONE {
+  }
+  GameProjectConfig XBOX_SERIES {
+  }
+  GameProjectConfig PS4 {
+  }
+  GameProjectConfig HEADLESS {
+  }
+ }
+}

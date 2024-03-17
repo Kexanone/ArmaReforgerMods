@@ -1,0 +1,20 @@
+GameProject {
+ ID "NoSupplySupport"
+ GUID "5EE472B0F295A124"
+ TITLE "No Supply Support"
+ Dependencies {
+  "58D0FB3206B6F859"
+ }
+ Configurations {
+  GameProjectConfig PC {
+  }
+  GameProjectConfig XBOX_ONE {
+  }
+  GameProjectConfig XBOX_SERIES {
+  }
+  GameProjectConfig PS4 {
+  }
+  GameProjectConfig HEADLESS {
+  }
+ }
+}

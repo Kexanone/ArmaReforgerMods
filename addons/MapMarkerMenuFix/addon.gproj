@@ -1,0 +1,8 @@
+GameProject {
+ ID "MMMF"
+ GUID "609E8CAD8A403EA6"
+ TITLE "MMMF"
+ Dependencies {
+  "58D0FB3206B6F859"
+ }
+}

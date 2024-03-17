@@ -1,0 +1,11 @@
+ParticleEffectEntity {
+ ID "60842718D21BCF2F"
+ components {
+  Hierarchy "{6084273C429431AA}" {
+  }
+ }
+ PlayInEditor 0
+ UseFrameEvent 1
+ DeleteWhenStopped 1
+ EffectPath "{904340D4664FF0B3}Assets/AF_Avalanche.ptc"
+}

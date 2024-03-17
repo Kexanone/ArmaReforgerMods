@@ -1,0 +1,25 @@
+AF_AvalancheFrontEntity {
+ ID "60842737F2E238F7"
+ components {
+  SoundComponent "{608C3370BA0A9494}" {
+   Filenames {
+    "{5778792C20C16354}Sounds/Environment/AF_Environment_Avalanche.acp"
+   }
+  }
+  MeshObject "{608427387FBA30F0}" {
+   Object "{8F67745B78C9D689}Assets/AF_AvalancheFront.xob"
+  }
+  RigidBody "{6084273BAA9431F5}" {
+   Active Active
+   LinearDamping 0.1
+   AngularDamping 0.1
+   ModelGeometry 1
+  }
+  RplComponent "{6084273BB79978FF}" {
+  }
+  Hierarchy "{6084273C4E37D2F1}" {
+  }
+ }
+ Flags 0
+ m_sEmitterName "{57B2E4903383A5BE}Assets/AF_AvalancheParticleEmitter.et"
+}

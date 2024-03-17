@@ -1,0 +1,221 @@
+AudioClass {
+ signals {
+  SignalClass {
+   id 22541
+   name "Signal 22"
+   tl -104.444 104.444
+   res "{9DEC40DAE4E5212C}Sounds/_SharedData/Signals/OneSignal/Trigger.sig"
+   inputsport {
+    1
+   }
+   outputsport {
+    2
+   }
+   inputvalues {
+    0
+   }
+   inputvaluesmin {
+    0
+   }
+   inputvaluesmax {
+    1
+   }
+  }
+ }
+ sounds {
+  SoundClass {
+   id 7177
+   name "SOUND_AF_AVALANCHE"
+   version 0
+   tl 123.056 -67.917
+   ins {
+    ConnectionsClass connections {
+     id 0
+     links {
+      ConnectionClass connection {
+       id 22541
+       port 2
+      }
+     }
+    }
+    ConnectionsClass connections {
+     id 64
+     links {
+      ConnectionClass connection {
+       id 5138
+       port 65
+      }
+     }
+    }
+   }
+   pi {
+    1
+   }
+   outState 4107
+   outStatePort 79879
+   speedOfSoundSimulation 1
+  }
+ }
+ mixers {
+  MixerClass {
+   id 4107
+   name "OutputState 4"
+   version 4
+   tl 343 -59
+   res "{B764D803219C775E}Sounds/FinalMix.afm"
+   ins {
+    ConnectionsClass connections {
+     id 79879
+     links {
+      ConnectionClass connection {
+       id 7177
+       port 65
+      }
+     }
+    }
+   }
+   pi {
+    65536
+   }
+   path "{B764D803219C775E}Sounds/FinalMix.afm"
+   inputs {
+    "ANM_Footsteps" "ANM_Voice" "WPN_Handling" "WPN_Shots" "WPN_Explosions" "WNP_BulletHits" "CHAR" "ENV_AMB_2D" "VEH_Animations" "Impacts" "Dialogue" "Music" "ENV_Doors" "VEH_Engine" "VEH_Tires" "VON" "SFX" "SFX_Reverb" "VON_Reverb" "Dialogue_Reverb" "Impacts_EXT" "ENV_AMB_3D" "WPN_SonicCracks" "CHAR_Gear" "PA" "SFX_Reverb_Exterior" "UI" "ENV_AMB_3D_Reverb_Exterior" "SFX_Direct"
+   }
+  }
+ }
+ shaders {
+  ShaderClass {
+   id 5138
+   name "Shader 5"
+   version 5
+   tl -113 -66
+   ins {
+    ConnectionsClass connections {
+     id 0
+     links {
+      ConnectionClass connection {
+       id 9244
+       port 65
+      }
+     }
+    }
+    ConnectionsClass connections {
+     id 1
+     links {
+      ConnectionClass connection {
+       id 11283
+       port 65
+      }
+     }
+    }
+    ConnectionsClass connections {
+     id 2
+     links {
+      ConnectionClass connection {
+       id 14357
+       port 65
+      }
+     }
+    }
+    ConnectionsClass connections {
+     id 64
+     links {
+      ConnectionClass connection {
+       id 15364
+       port 65
+      }
+     }
+    }
+   }
+   pi {
+    7
+   }
+  }
+ }
+ amplitudes {
+  AmplitudeClass {
+   id 11283
+   name "Amplitude 11"
+   version 5
+   tl -354 30.5
+   curve Custom
+   AttenuationCurve {
+    CurvePoint "1" {
+     Y 1
+    }
+    CurvePoint "2" {
+     X 50
+     Y 1
+    }
+    CurvePoint "3" {
+     X 150
+     Y 0.4
+    }
+    CurvePoint "4" {
+     X 300
+     Y 0.15
+    }
+    CurvePoint "5" {
+     X 400
+     Y 0.1
+    }
+    CurvePoint "6" {
+     X 925.23358
+     Y 0.07101
+    }
+    CurvePoint "7" {
+     X 999.99994
+    }
+   }
+  }
+ }
+ frequency {
+  FrequencyClass {
+   id 14357
+   name "Frequency 14"
+   version 5
+   tl -362 143
+   enableDistanceAtt 1
+   terrainEffects 1
+  }
+ }
+ banks_local {
+  BankLocalClass {
+   id 15364
+   name "Bank 15"
+   version 0
+   tl -356.5 -183.111
+   Volume 12
+   "Volume variance" 2
+   Pitch -24
+   "Random start offset" 1
+   "Fade in time" 3000
+   "Fade out time" 10000
+   Samples {
+    AudioBankSampleClass Sample {
+     Filename "{3E393F2196E407FB}Sounds/Environment/Ambients/2D_Wind/Environment_Wind_Meadow_Mid_LP.wav"
+    }
+   }
+  }
+ }
+ spatialities {
+  SpatialityClass {
+   id 9244
+   name "Spatiality 9"
+   version 5
+   tl -358 -73
+   SpatialFactorSource Curve
+   SFCurve {
+    CurvePoint "1" {
+     Y 0.0058
+    }
+    CurvePoint "2" {
+     X 1
+     Y 1
+    }
+   }
+  }
+ }
+ version 1
+ sourcesLimit 5
+}

@@ -1,0 +1,24 @@
+EffectDef {
+ Version 1
+ Emitters {
+  EmitterDef Emitter_01 {
+   ShapeType Sphere
+   ConeAngle 0 0 0
+   ConeAngleRndRange 0
+   Occlusion 12
+   MaxNum 100
+   BirthRate 10
+   Material "{DDF190C42C13577B}Particles/_Materials/Gas/AF_Avalanche_Cloud_01.emat"
+   SizeMultiplier 45
+   ScaleX 1
+   RandomAngle 1
+   Velocity 1
+   Lifetime 105
+   LifetimeRND 30
+   Size {
+    0 0.1 0.018 1 1 1
+   }
+   Repeat 0
+  }
+ }
+}

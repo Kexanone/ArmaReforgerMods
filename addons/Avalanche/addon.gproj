@@ -1,0 +1,8 @@
+GameProject {
+ ID "Avalanche"
+ GUID "6086A1019430BE61"
+ TITLE "Avalanche"
+ Dependencies {
+  "58D0FB3206B6F859"
+ }
+}

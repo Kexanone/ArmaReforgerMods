@@ -1,0 +1,11 @@
+GenericEntity : "{9B5FF7EECAD376FA}Prefabs/Weapons/Warheads/Warhead_Base.et" {
+ ID "9D9BE68EA2672F76"
+ components {
+  BaseTriggerComponent "{55129E81CBAA1390}" {
+   PROJECTILE_EFFECTS {
+    AF_AvalancheTriggerEffect "{608ED16E43A1FB3C}" {
+    }
+   }
+  }
+ }
+}

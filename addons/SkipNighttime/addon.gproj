@@ -1,0 +1,20 @@
+GameProject {
+ ID "SkipNighttime"
+ GUID "5D1362468BB7BAB6"
+ TITLE "Skip Nighttime"
+ Dependencies {
+  "58D0FB3206B6F859"
+ }
+ Configurations {
+  GameProjectConfig PC {
+  }
+  GameProjectConfig XBOX_ONE {
+  }
+  GameProjectConfig XBOX_SERIES {
+  }
+  GameProjectConfig PS4 {
+  }
+  GameProjectConfig HEADLESS {
+  }
+ }
+}

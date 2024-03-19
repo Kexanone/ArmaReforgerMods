@@ -85,6 +85,9 @@ class FPM_MapMarkerEntryPlayer : SCR_MapMarkerEntryDynamic
 				effectiveCommander = occupant;
 			
 			FPM_MapMarkerPlayer marker = m_mPlayerMarkers[playerId];
+			if (!marker)
+				continue;
+			
 			bool isEffectiveCommander = (occupant == effectiveCommander);
 			marker.SetGlobalVisible(isEffectiveCommander);
 			

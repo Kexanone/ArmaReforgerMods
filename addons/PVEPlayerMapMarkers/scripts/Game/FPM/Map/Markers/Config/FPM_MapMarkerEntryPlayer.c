@@ -2,13 +2,13 @@
 [BaseContainerProps(), SCR_MapMarkerTitle()]
 class FPM_MapMarkerEntryPlayer : SCR_MapMarkerEntryDynamic
 {
-	protected ref map<int, FPM_MapMarkerPlayer> m_mPlayerMarkers = new map<int, FPM_MapMarkerPlayer>();
+	protected ref map<IEntity, FPM_MapMarkerPlayer> m_mPlayerMarkers = new map<IEntity, FPM_MapMarkerPlayer>();
 	
 	//------------------------------------------------------------------------------------------------
 	//! Register marker here so it can be fetched from the map
 	void CreateMarker(int playerId, IEntity player)
 	{
-		if (m_mPlayerMarkers.Contains(playerId) || !player)
+		if (!player || m_mPlayerMarkers.Contains(player))
 			return;
 		
 		FPM_MapMarkerPlayer marker = FPM_MapMarkerPlayer.Cast(m_MarkerMgr.InsertDynamicMarker(SCR_EMapMarkerType.FPM_PLAYER, player));
@@ -43,17 +43,17 @@ class FPM_MapMarkerEntryPlayer : SCR_MapMarkerEntryDynamic
 		
 		marker.SetGlobalText(GetGame().GetPlayerManager().GetPlayerName(playerId));
 		marker.SetGlobalVisible(true);
-		m_mPlayerMarkers.Insert(playerId, marker);
+		m_mPlayerMarkers.Insert(player, marker);
 	}
 	
 	//------------------------------------------------------------------------------------------------
-	void DeleteMarker(int playerId)
+	void DeleteMarker(IEntity player)
 	{
-		FPM_MapMarkerPlayer marker = m_mPlayerMarkers.Get(playerId);
+		FPM_MapMarkerPlayer marker = m_mPlayerMarkers.Get(player);
 		if (marker)
 			m_MarkerMgr.RemoveDynamicMarker(marker);
 		
-		m_mPlayerMarkers.Remove(playerId);
+		m_mPlayerMarkers.Remove(player);
 	}
 	
 	//------------------------------------------------------------------------------------------------
@@ -69,15 +69,12 @@ class FPM_MapMarkerEntryPlayer : SCR_MapMarkerEntryDynamic
 	//------------------------------------------------------------------------------------------------
 	protected void OnControlledEntityChangedServer(int playerId, IEntity from, IEntity to)
 	{
-		if (!to)
-			return;
-				
 		SCR_PlayerController playerController = SCR_PlayerController.Cast(GetGame().GetPlayerManager().GetPlayerController(playerId));
 		if (!playerController || playerController.IsPossessing())
 			return;
 		
 		// Delete marker of previous body first
-		DeleteMarker(playerId);
+		DeleteMarker(from);
 		CreateMarker(playerId, to);
 	}
 	
@@ -101,7 +98,7 @@ class FPM_MapMarkerEntryPlayer : SCR_MapMarkerEntryDynamic
 			if (!effectiveCommander)
 				effectiveCommander = occupant;
 			
-			FPM_MapMarkerPlayer marker = m_mPlayerMarkers[playerId];
+			FPM_MapMarkerPlayer marker = m_mPlayerMarkers[occupant];
 			if (!marker)
 				continue;
 			
@@ -174,7 +171,7 @@ class FPM_MapMarkerEntryPlayer : SCR_MapMarkerEntryDynamic
 		
 		// Reset the marker for the player that exits
 		int playerId = GetGame().GetPlayerManager().GetPlayerIdFromControlledEntity(playerCharacter);
-		FPM_MapMarkerPlayer marker = m_mPlayerMarkers[playerId];
+		FPM_MapMarkerPlayer marker = m_mPlayerMarkers[playerCharacter];
 		marker.SetGlobalText(GetGame().GetPlayerManager().GetPlayerName(playerId));
 		marker.SetGlobalSymbolIcons(EMilitarySymbolIcon.INFANTRY);
 		marker.SetGlobalVisible(true);
@@ -182,22 +179,16 @@ class FPM_MapMarkerEntryPlayer : SCR_MapMarkerEntryDynamic
 	
 	//------------------------------------------------------------------------------------------------
 	protected void OnPlayerDisconnected(int playerId, KickCauseCode cause, int timeout)
-	{		
-		DeleteMarker(playerId);
+	{
+		IEntity player = GetGame().GetPlayerManager().GetPlayerControlledEntity(playerId);
+		DeleteMarker(player);
 	}
 	
 	//------------------------------------------------------------------------------------------------
 	protected void OnPlayerDeleted(int playerId, IEntity player)
 	{		
-		DeleteMarker(playerId);
+		DeleteMarker(player);
 	}
-	
-	//------------------------------------------------------------------------------------------------
-	//! Update marker target, will trigger creation of a marker if within map
-	protected void UpdateMarkerTarget(int playerId)
-	{		
-		FPM_MapMarkerPlayer marker = m_mPlayerMarkers.Get(playerId);
-	} 
 	
 	//------------------------------------------------------------------------------------------------
 	override SCR_EMapMarkerType GetMarkerType()

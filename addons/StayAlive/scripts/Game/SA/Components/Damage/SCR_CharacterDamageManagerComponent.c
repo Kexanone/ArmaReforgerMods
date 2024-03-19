@@ -7,6 +7,9 @@ modded class SCR_CharacterDamageManagerComponent : SCR_DamageManagerComponent
 	//! Add handlers for protecting players that fall unconscious
 	override void SA_Initialize(IEntity owner)
 	{
+		if (m_bSA_Initialized)
+			return;
+		
 		super.SA_Initialize(owner);
 		
 		SCR_CharacterControllerComponent charCtrl = SCR_CharacterControllerComponent.Cast(owner.FindComponent(SCR_CharacterControllerComponent));

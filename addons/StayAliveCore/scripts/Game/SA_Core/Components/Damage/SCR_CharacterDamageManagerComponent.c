@@ -9,6 +9,9 @@ modded class SCR_CharacterDamageManagerComponent : SCR_DamageManagerComponent
 	//! Initialize variables
 	void SA_Initialize(IEntity owner)
 	{
+		if (m_bSA_Initialized)
+			return;
+		
 		m_pSA_HealthHitZone = SCR_CharacterHealthHitZone.Cast(GetHitZoneByName("Health"));
 		m_fSA_CriticalHealth = m_pSA_HealthHitZone.GetDamageStateThreshold(ECharacterHealthState.CRITICAL);
 		m_bSA_Initialized = true;

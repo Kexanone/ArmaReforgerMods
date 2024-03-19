@@ -6,13 +6,9 @@ class FPM_MapMarkerEntryPlayer : SCR_MapMarkerEntryDynamic
 	
 	//------------------------------------------------------------------------------------------------
 	//! Register marker here so it can be fetched from the map
-	void CreateMarker(int playerId)
+	void CreateMarker(int playerId, IEntity player)
 	{
-		if (m_mPlayerMarkers.Contains(playerId))
-			return;
-		
-		IEntity player = GetGame().GetPlayerManager().GetPlayerControlledEntity(playerId);
-		if (!player)
+		if (m_mPlayerMarkers.Contains(playerId) || !player)
 			return;
 		
 		FPM_MapMarkerPlayer marker = FPM_MapMarkerPlayer.Cast(m_MarkerMgr.InsertDynamicMarker(SCR_EMapMarkerType.FPM_PLAYER, player));
@@ -36,7 +32,11 @@ class FPM_MapMarkerEntryPlayer : SCR_MapMarkerEntryDynamic
 		if (!core)
 			return;
 		
-		Faction faction = SCR_FactionManager.SGetPlayerFaction(playerId);
+		SCR_ChimeraCharacter playerCharacter = SCR_ChimeraCharacter.Cast(player);
+		if (!playerCharacter)
+			return;
+		
+		Faction faction = playerCharacter.GetFaction();
 		if (faction)
 			marker.SetFaction(faction);
 		
@@ -57,11 +57,28 @@ class FPM_MapMarkerEntryPlayer : SCR_MapMarkerEntryDynamic
 	}
 	
 	//------------------------------------------------------------------------------------------------
-	protected void OnPlayerSpawned(int playerId, IEntity player)
+	protected void OnPlayerConnected(int playerId)
 	{
+		SCR_PlayerController playerController = SCR_PlayerController.Cast(GetGame().GetPlayerManager().GetPlayerController(playerId));
+		if (!playerController)
+			return;
+		
+		playerController.m_FPM_OnControlledEntityChangedServer.Insert(OnControlledEntityChangedServer);
+	}
+
+	//------------------------------------------------------------------------------------------------
+	protected void OnControlledEntityChangedServer(int playerId, IEntity from, IEntity to)
+	{
+		if (!to)
+			return;
+				
+		SCR_PlayerController playerController = SCR_PlayerController.Cast(GetGame().GetPlayerManager().GetPlayerController(playerId));
+		if (!playerController || playerController.IsPossessing())
+			return;
+		
 		// Delete marker of previous body first
 		DeleteMarker(playerId);
-		CreateMarker(playerId);
+		CreateMarker(playerId, to);
 	}
 	
 	//------------------------------------------------------------------------------------------------
@@ -197,7 +214,7 @@ class FPM_MapMarkerEntryPlayer : SCR_MapMarkerEntryDynamic
 		if (!gameMode)
 			return;
 		
-		gameMode.GetOnPlayerSpawned().Insert(OnPlayerSpawned);
+		gameMode.GetOnPlayerConnected().Insert(OnPlayerConnected);
 		gameMode.GetOnPlayerDisconnected().Insert(OnPlayerDisconnected);
 		gameMode.GetOnPlayerDeleted().Insert(OnPlayerDeleted);
 	}

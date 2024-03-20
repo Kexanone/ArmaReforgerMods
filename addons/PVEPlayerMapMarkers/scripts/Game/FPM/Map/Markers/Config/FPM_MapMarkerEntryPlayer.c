@@ -79,7 +79,7 @@ class FPM_MapMarkerEntryPlayer : SCR_MapMarkerEntryDynamic
 	}
 	
 	//------------------------------------------------------------------------------------------------
-	protected void UpdatePlayerMarkersInVehicle(Vehicle vehicle)
+	protected void UpdatePlayerMarkersInVehicle(Vehicle vehicle, IEntity excludedOccupant = null)
 	{
 		SCR_BaseCompartmentManagerComponent compartmentManager = SCR_BaseCompartmentManagerComponent.Cast(vehicle.FindComponent(SCR_BaseCompartmentManagerComponent));
 		if (!compartmentManager)
@@ -88,9 +88,16 @@ class FPM_MapMarkerEntryPlayer : SCR_MapMarkerEntryDynamic
 		array<IEntity> occupants = {};
 		compartmentManager.GetOccupants(occupants);
 		
+		int passengerCount = occupants.Count() - 1;
+		if (excludedOccupant)
+			passengerCount--;
+		
 		IEntity effectiveCommander;
 		foreach (IEntity occupant : occupants)
 		{
+			if (occupant == excludedOccupant)
+				continue;
+			
 			int playerId = GetGame().GetPlayerManager().GetPlayerIdFromControlledEntity(occupant);
 			if (!playerId)
 				continue;
@@ -106,20 +113,20 @@ class FPM_MapMarkerEntryPlayer : SCR_MapMarkerEntryDynamic
 			marker.SetGlobalVisible(isEffectiveCommander);
 			
 			if (isEffectiveCommander)
-				UpdateEffectiveCommanderMarker(marker, GetGame().GetPlayerManager().GetPlayerName(playerId), vehicle, occupants.Count() - 1);
+				UpdateEffectiveCommanderMarker(marker, GetGame().GetPlayerManager().GetPlayerName(playerId), vehicle, passengerCount);
 		};
 	}
 	
 	//------------------------------------------------------------------------------------------------
-	protected void UpdateEffectiveCommanderMarker(FPM_MapMarkerPlayer marker, string commanderName, Vehicle vehicle, int extraOccupantCount)
+	protected void UpdateEffectiveCommanderMarker(FPM_MapMarkerPlayer marker, string commanderName, Vehicle vehicle, int passengerCount)
 	{
 		SCR_EditableVehicleComponent edit = SCR_EditableVehicleComponent.Cast(vehicle.FindComponent(SCR_EditableVehicleComponent));
 		if (!edit)
 			return;;
 				
-		if (extraOccupantCount > 0)
+		if (passengerCount > 0)
 		{
-			marker.SetGlobalText(string.Format("%1 (%2) +%3", edit.GetDisplayName(), commanderName, extraOccupantCount));
+			marker.SetGlobalText(string.Format("%1 (%2) +%3", edit.GetDisplayName(), commanderName, passengerCount));
 		}
 		else
 		{
@@ -167,7 +174,7 @@ class FPM_MapMarkerEntryPlayer : SCR_MapMarkerEntryDynamic
 		if (!vehicle)
 			return;
 		
-		UpdatePlayerMarkersInVehicle(vehicle);
+		UpdatePlayerMarkersInVehicle(vehicle, playerCharacter);
 		
 		// Reset the marker for the player that exits
 		int playerId = GetGame().GetPlayerManager().GetPlayerIdFromControlledEntity(playerCharacter);

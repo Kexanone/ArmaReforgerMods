@@ -179,6 +179,9 @@ class FPM_MapMarkerEntryPlayer : SCR_MapMarkerEntryDynamic
 		// Reset the marker for the player that exits
 		int playerId = GetGame().GetPlayerManager().GetPlayerIdFromControlledEntity(playerCharacter);
 		FPM_MapMarkerPlayer marker = m_mPlayerMarkers[playerCharacter];
+		if (!marker)
+			return;
+		
 		marker.SetGlobalText(GetGame().GetPlayerManager().GetPlayerName(playerId));
 		marker.SetGlobalSymbolIcons(EMilitarySymbolIcon.INFANTRY);
 		marker.SetGlobalVisible(true);

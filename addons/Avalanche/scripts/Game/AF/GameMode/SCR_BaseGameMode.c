@@ -57,7 +57,7 @@ modded class SCR_BaseGameMode : BaseGameMode
 	
 	//------------------------------------------------------------------------------------------------
 	//! Slope has to be at least 30° and the location needs to be far enough from previous positions
-	protected bool AF_CanLaunchAvalanche(vector pos)
+	bool AF_CanLaunchAvalanche(vector pos)
 	{
 		vector surfaceNormal = SCR_TerrainHelper.GetTerrainNormal(pos);
 		if (Math.RAD2DEG * Math.Acos(vector.Dot(Vector(0, 1, 0), surfaceNormal)) < m_fAF_SlopeAngle)

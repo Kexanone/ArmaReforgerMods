@@ -28,10 +28,6 @@ class FPM_MapMarkerEntryPlayer : SCR_MapMarkerEntryDynamic
 		compartmentAccess.GetOnPlayerCompartmentEnter().Insert(OnPlayerEnterCompartment);
 		compartmentAccess.GetOnPlayerCompartmentExit().Insert(OnPlayerExitCompartment);
 		
-		SCR_GroupIdentityCore core = SCR_GroupIdentityCore.Cast(SCR_GroupIdentityCore.GetInstance(SCR_GroupIdentityCore));
-		if (!core)
-			return;
-		
 		SCR_ChimeraCharacter playerCharacter = SCR_ChimeraCharacter.Cast(player);
 		if (!playerCharacter)
 			return;
@@ -41,9 +37,21 @@ class FPM_MapMarkerEntryPlayer : SCR_MapMarkerEntryDynamic
 			marker.SetFaction(faction);
 		
 		
-		marker.SetGlobalText(GetGame().GetPlayerManager().GetPlayerName(playerId));
+		marker.SetGlobalText(GetPlayerNameWithRank(playerId, player));
 		marker.SetGlobalVisible(true);
 		m_mPlayerMarkers.Insert(player, marker);
+	}
+	
+	//------------------------------------------------------------------------------------------------
+	string GetPlayerNameWithRank(int playerId, IEntity player)
+	{
+		string name = GetGame().GetPlayerManager().GetPlayerName(playerId);
+		
+		string rank = SCR_CharacterRankComponent.GetCharacterRankNameShort(player);
+		if (rank)
+			return string.Format("%1 %2", rank, name);
+		
+		return name;
 	}
 	
 	//------------------------------------------------------------------------------------------------
@@ -118,7 +126,7 @@ class FPM_MapMarkerEntryPlayer : SCR_MapMarkerEntryDynamic
 			marker.SetGlobalVisible(isEffectiveCommander);
 			
 			if (isEffectiveCommander)
-				UpdateEffectiveCommanderMarker(marker, GetGame().GetPlayerManager().GetPlayerName(playerId), vehicle, passengerCount);
+				UpdateEffectiveCommanderMarker(marker, GetPlayerNameWithRank(playerId, occupant), vehicle, passengerCount);
 		};
 	}
 	
@@ -187,9 +195,31 @@ class FPM_MapMarkerEntryPlayer : SCR_MapMarkerEntryDynamic
 		if (!marker)
 			return;
 		
-		marker.SetGlobalText(GetGame().GetPlayerManager().GetPlayerName(playerId));
+		marker.SetGlobalText(GetPlayerNameWithRank(playerId, playerCharacter));
 		marker.SetGlobalSymbolIcons(EMilitarySymbolIcon.INFANTRY);
 		marker.SetGlobalVisible(true);
+	}
+	
+	//------------------------------------------------------------------------------------------------
+	void OnRankChanged(SCR_ECharacterRank oldRank, SCR_ECharacterRank newRank, notnull IEntity owner, bool silent)
+	{
+		SCR_CompartmentAccessComponent compartmentAccess = SCR_CompartmentAccessComponent.Cast(owner.FindComponent(SCR_CompartmentAccessComponent));
+		if (!compartmentAccess)
+			return;
+		
+		Vehicle vehicle = Vehicle.Cast(compartmentAccess.GetVehicle());
+		if (vehicle)
+		{
+			UpdatePlayerMarkersInVehicle(vehicle);
+			return;
+		}
+
+		FPM_MapMarkerPlayer marker = m_mPlayerMarkers[owner];
+		if (!marker)
+			return;
+		
+		int playerId = GetGame().GetPlayerManager().GetPlayerIdFromControlledEntity(owner);
+		marker.SetGlobalText(GetPlayerNameWithRank(playerId, owner));
 	}
 	
 	//------------------------------------------------------------------------------------------------
@@ -223,6 +253,7 @@ class FPM_MapMarkerEntryPlayer : SCR_MapMarkerEntryDynamic
 		gameMode.GetOnPlayerConnected().Insert(OnPlayerConnected);
 		gameMode.GetOnPlayerDisconnected().Insert(OnPlayerDisconnected);
 		gameMode.GetOnPlayerDeleted().Insert(OnPlayerDeleted);
+		SCR_CharacterRankComponent.s_OnRankChanged.Insert(OnRankChanged);
 	}
 	
 	//------------------------------------------------------------------------------------------------

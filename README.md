@@ -12,7 +12,7 @@ Repository for my personal Arma Reforger mods, except game modes and terrains.
 - [Map Marker Menu Fix](addons/MapMarkerMenuFix)
 - [Medical Notifications](addons/MedicalNotifications)
 - [No Supply System](addons/NoSupplySystem)
-- [PVE Player Map Markers](addons/PVEPlayerMapMarkers)
+- [Player Map Markers](addons/PlayerMapMarkers)
 - [Skip Nighttime](addons/SkipNighttime)
 - [Stay Alive](addons/StayAlive)
 - [Stay Alive Forever](addons/StayAliveForever)

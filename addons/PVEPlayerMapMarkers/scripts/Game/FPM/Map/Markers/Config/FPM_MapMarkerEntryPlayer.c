@@ -85,19 +85,24 @@ class FPM_MapMarkerEntryPlayer : SCR_MapMarkerEntryDynamic
 		if (!compartmentManager)
 			return;
 				
+		array<BaseCompartmentSlot> compartments = {};
+		compartmentManager.GetCompartments(compartments);
 		array<IEntity> occupants = {};
-		compartmentManager.GetOccupants(occupants);
 		
+		foreach (BaseCompartmentSlot compartment : compartments)
+		{
+			IEntity occupant = compartment.GetOccupant();
+			// Switching seats can lead to an occupant being in two compartments simultaneously
+			// So we have to make sure to only insert them once
+			if (occupant && occupant != excludedOccupant && !occupants.Contains(occupant))
+				occupants.Insert(occupant);
+		}
+
 		int passengerCount = occupants.Count() - 1;
-		if (excludedOccupant)
-			passengerCount--;
 		
 		IEntity effectiveCommander;
 		foreach (IEntity occupant : occupants)
 		{
-			if (occupant == excludedOccupant)
-				continue;
-			
 			int playerId = GetGame().GetPlayerManager().GetPlayerIdFromControlledEntity(occupant);
 			if (!playerId)
 				continue;

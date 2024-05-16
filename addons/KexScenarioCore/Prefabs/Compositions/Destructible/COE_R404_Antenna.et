@@ -1,0 +1,48 @@
+StaticModelEntity : "{B9AEDBE988F20A1A}Prefabs/Structures/Infrastructure/Towers/AntennaR404_01/AntennaR404_01.et" {
+ ID "50D67C36F43527FE"
+ components {
+  SCR_DestructionMultiPhaseComponent "{5A5ED31B16298711}" {
+   Enabled 1
+  }
+  SCR_EditableEntityComponent "{5E750EB265ED97F9}" {
+   m_UIInfo SCR_EditableEntityUIInfo "{5E750EB26E7B7D9B}" {
+    Name "R-404 Antenna"
+    m_aAuthoredLabels {
+     5 90 9350
+    }
+   }
+   m_bAutoRegister ALWAYS
+  }
+  Hierarchy "{61597E8A4A9C406F}" {
+  }
+ }
+ coords 876.486 39 2630.279
+ angleY -51
+ {
+  GenericEntity {
+   ID "5A02CEDA4E289A85"
+   components {
+    LightSourceVisualizationObject "{5A02839A0D5BE210}" {
+     Color 1 0.082 0.082 1
+     LV 8
+    }
+   }
+  }
+  GenericEntity : "{60AA21344D68BACE}Prefabs/Structures/Military/CamoNets/Soviet/CamoNet_Medium_Top_Soviet.et" {
+   ID "5E72D220F909E335"
+   coords 2.734 0 -4.504
+   angleY 41
+  }
+  GenericEntity : "{F15B99F6B06E7200}Prefabs/Structures/Military/Radar/ApproachRadar_RPL5_01/ApproachRadar_RPL5_01_generator.et" {
+   ID "5E72D220F909E331"
+   components {
+    Hierarchy "{61594608E7B95813}" {
+    }
+   }
+   coords 1.582 0 -1.968
+   angleX 0.464
+   angleY 90.978
+   angleZ -1.946
+  }
+ }
+}

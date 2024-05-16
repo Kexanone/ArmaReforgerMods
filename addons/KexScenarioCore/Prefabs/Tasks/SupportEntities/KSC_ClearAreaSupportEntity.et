@@ -1,0 +1,6 @@
+KSC_ClearAreaTaskSupportEntity {
+ ID "6152FE9535A93F3A"
+ coords 2.553 3.901 3.179
+ m_sTaskPrefab "{37913C6494E5B74A}Prefabs/Tasks/KSC_ClearAreaTask.et"
+ m_sTriggerPrefabName "{EEBDAE0AC376C688}Prefabs/ScenarioFramework/Triggers/KSC_TriggerDominance.et"
+}

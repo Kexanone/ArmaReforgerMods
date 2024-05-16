@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{FEF3026624C3C17F}Prefabs/ScenarioFramework/Triggers/KSC_PlayerEscapeTrigger.et"
+ Configurations {
+  EntityTemplateResourceClass PC {
+  }
+  EntityTemplateResourceClass XBOX_ONE : PC {
+  }
+  EntityTemplateResourceClass XBOX_SERIES : PC {
+  }
+  EntityTemplateResourceClass PS4 : PC {
+  }
+  EntityTemplateResourceClass PS5 : PC {
+  }
+  EntityTemplateResourceClass HEADLESS : PC {
+  }
+ }
+}

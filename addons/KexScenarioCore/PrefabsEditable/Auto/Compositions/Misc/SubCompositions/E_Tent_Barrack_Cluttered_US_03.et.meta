@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{BD3DF750992DA33E}PrefabsEditable/Auto/Compositions/Misc/SubCompositions/E_Tent_Barrack_Cluttered_US_03.et"
+ Configurations {
+  EntityTemplateResourceClass PC {
+  }
+  EntityTemplateResourceClass XBOX_ONE : PC {
+  }
+  EntityTemplateResourceClass XBOX_SERIES : PC {
+  }
+  EntityTemplateResourceClass PS4 : PC {
+  }
+  EntityTemplateResourceClass PS5 : PC {
+  }
+  EntityTemplateResourceClass HEADLESS : PC {
+  }
+ }
+}

@@ -1,0 +1,77 @@
+StaticModelEntity : "{2BC7C6DE43AC49E2}Prefabs/Structures/Military/Radar/ApproachRadar_RPL5_01/ApproachRadar_RPL5_01_short.et" {
+ ID "56ACD1C4DB91DB10"
+ components {
+  SCR_EditableEntityComponent "{5E750EB2C92285BF}" {
+   m_UIInfo SCR_EditableEntityUIInfo "{5E750EB20581E8AB}" {
+    Name "RPL-5 Radar"
+    m_aAuthoredLabels {
+     5 90 9350
+    }
+   }
+   m_bAutoRegister ALWAYS
+  }
+  RplComponent "{5E74ED8A5CD70F5A}" {
+  }
+  Hierarchy "{61597E8A29C994B1}" {
+  }
+ }
+ coords 1392.12 0 2148.93
+ angleY -36.522
+ {
+  GenericEntity : "{A528F04F41F2A2D0}Prefabs/Structures/Military/Radar/ApproachRadar_RPL5_01/ApproachRadar_RPL5_01_on.et" {
+   ID "5E6F0D978F666455"
+   components {
+    Hierarchy "{5E7118921C644E7D}" {
+    }
+   }
+   coords -0.088 1.088 0
+   {
+    GenericEntity : "{B526FBF1999025E5}Prefabs/Structures/Military/Radar/ApproachRadar_RPL5_01/ApproachRadar_RPL5_01_cables_short.et" {
+     ID "5E6F0D978F666451"
+     components {
+      SignalsManagerComponent "{5A5B46889896D4F3}" {
+       Enabled 0
+      }
+      RplComponent "{5624A88DC2D9928D}" {
+       Enabled 1
+      }
+      Hierarchy "{61597E8A0445BD04}" {
+      }
+     }
+     coords 0 -1.087 0
+    }
+   }
+  }
+  GenericEntity : "{F15B99F6B06E7200}Prefabs/Structures/Military/Radar/ApproachRadar_RPL5_01/ApproachRadar_RPL5_01_generator.et" {
+   ID "5E6F0D978F666450"
+   components {
+    SignalsManagerComponent "{5A50CBEAD73E05FB}" {
+     Enabled 0
+    }
+    RplComponent "{5624A88DC2D9928D}" {
+     Enabled 1
+    }
+    Hierarchy "{6159460810FEB457}" {
+    }
+   }
+   coords 5.68 0 -5.221
+   angleY 90
+   {
+    GenericEntity : "{FCAEC0CB2F8FF8BD}Prefabs/Structures/Military/Radar/ApproachRadar_Prop_Base.et" {
+     ID "5E6F0D978F666459"
+     components {
+      MeshObject "{5872F0EB7FA40561}" {
+       Object "{B7A2D182981478C0}Assets/Structures/Military/Radar/ApproachRadar_01/ApproachRadar_RPL5_01_generator_antenna.xob"
+      }
+      RplComponent "{5624A88DC2D9928D}" {
+       Enabled 1
+      }
+      Hierarchy "{61597E8A25CAF47C}" {
+      }
+     }
+     coords 0 0 0
+    }
+   }
+  }
+ }
+}

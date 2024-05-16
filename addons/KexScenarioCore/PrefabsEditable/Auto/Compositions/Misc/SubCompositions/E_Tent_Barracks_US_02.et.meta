@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{90652A7C293F44E1}PrefabsEditable/Auto/Compositions/Misc/SubCompositions/E_Tent_Barracks_US_02.et"
+ Configurations {
+  EntityTemplateResourceClass PC {
+  }
+  EntityTemplateResourceClass XBOX_ONE : PC {
+  }
+  EntityTemplateResourceClass XBOX_SERIES : PC {
+  }
+  EntityTemplateResourceClass PS4 : PC {
+  }
+  EntityTemplateResourceClass PS5 : PC {
+  }
+  EntityTemplateResourceClass HEADLESS : PC {
+  }
+ }
+}

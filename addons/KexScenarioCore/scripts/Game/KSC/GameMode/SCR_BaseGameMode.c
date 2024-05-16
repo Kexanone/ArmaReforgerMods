@@ -5,6 +5,15 @@ modded class SCR_BaseGameMode : BaseGameMode
 	[Attribute(defvalue: "{15DE7F09D7319797}Configs/Mission/MissionRotation.conf", desc: "Conflig file that specifies the mission rotation")]
 	protected ResourceName m_sKSC_MissionRotationConfig;
 	
+	[Attribute(desc: "Configurations for locations, terrain and building slots")]
+	protected ref KSC_WorldSlotsConfig m_pKSC_WorldSlotsConfig;
+	
+	//------------------------------------------------------------------------------------------------
+	KSC_WorldSlotsConfig KSC_GetWorldSlotsConfig()
+	{
+		return m_pKSC_WorldSlotsConfig;
+	}
+	
 	//------------------------------------------------------------------------------------------------
 	//! Same as SCR_BaseGameMode.OnGameModeEnd, but schedule change of scenario instead of restart
 	override protected void OnGameModeEnd(SCR_GameModeEndData endData)

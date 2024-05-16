@@ -1,0 +1,12 @@
+StaticModelEntity : "{2158926839D195F3}Prefabs/Compositions/Misc/SubCompositions/Tent_Barrack_Cluttered_US_04.et" {
+ ID "527AC119B710AE74"
+ components {
+  SCR_EditableEntityComponent "{5EF0B7B086827BBF}" {
+   m_UIInfo SCR_EditableEntityUIInfo "{5298E609432D192D}" {
+    m_aAuthoredLabels {
+     5 90 9351
+    }
+   }
+  }
+ }
+}

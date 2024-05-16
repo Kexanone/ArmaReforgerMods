@@ -1,0 +1,22 @@
+GenericEntity : "{6D56FED1E55A8F84}Prefabs/Items/Misc/IntelligenceFolder_E_01/IntelligenceFolder_E_01.et" {
+ ID "508AB2013EEE1E00"
+ components {
+  InventoryItemComponent "{5222EB4D0C73006B}" {
+   Attributes SCR_ItemAttributeCollection "{5222EB4D0A2B466B}" {
+    ItemDisplayName UIInfo "{5222EB4D07D865FA}" {
+     Name "#KSC-Item_IntelFolder_Name"
+     Description "#KSC-Item_IntelFolder_Description"
+    }
+   }
+  }
+  SCR_EditableSystemComponent "{61597E9D8A2E24ED}" {
+   m_UIInfo SCR_EditableEntityUIInfo "{61597E9D80465441}" {
+    Name "#KSC-Item_IntelFolder_Name"
+    Description "#KSC-Item_IntelFolder_Description"
+    Icon "{ADBB2339EDD1ED95}UI/Textures/Editor/EditableEntities/Base/EditableEntity_Base.edds"
+   }
+   m_bAutoRegister ALWAYS
+   m_Flags 2049
+  }
+ }
+}

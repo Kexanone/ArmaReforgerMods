@@ -1,0 +1,16 @@
+StaticModelEntity : "{BCF54BF42D61C77E}Prefabs/Structures/Core/Tower_Base.et" {
+ ID "50D67C36F43527FE"
+ components {
+  SCR_DestructionMultiPhaseComponent "{5A5ED31B16298711}" {
+   "Additional hit zones" {
+    SCR_HitZone Default {
+    }
+   }
+   m_fBaseHealth 300
+   m_aDamagePhases {
+    SCR_DamagePhaseData "{5A5ED31835D3219A}" {
+    }
+   }
+  }
+ }
+}

@@ -1,9 +1,16 @@
+enum KSC_EBuildingPosQueryState
+{
+	SUCCESS,
+	FAIL,
+	RUNNING
+}
+
 //------------------------------------------------------------------------------------------------
 class KSC_BuildingPosQuery : Managed
 {
 	protected AIGroup m_pProbe;
-	protected CoverManagerComponent m_pCoverManager;
-	protected CoverQueryComponent m_pCoverQuery;
+	protected ChimeraCoverManagerComponent m_pCoverManager;
+	protected AIPathfindingComponent m_pPathFinding;
 	protected ref CoverQueryProperties m_QueryProps;
 	protected NavmeshWorldComponent m_pNavmesh;
 	protected IEntity m_pBuilding;
@@ -30,8 +37,8 @@ class KSC_BuildingPosQuery : Managed
 			return;
 		
 		m_pNavmesh = pathfinding.GetNavmeshComponent();
-		m_pCoverQuery = CoverQueryComponent.Cast(m_pProbe.FindComponent(CoverQueryComponent));
-		m_pCoverManager = CoverManagerComponent.Cast(GetGame().GetAIWorld().FindComponent(CoverManagerComponent));
+		m_pPathFinding = AIPathfindingComponent.Cast(m_pProbe.FindComponent(AIPathfindingComponent));
+		m_pCoverManager = ChimeraCoverManagerComponent.Cast(GetGame().GetAIWorld().FindComponent(CoverManagerComponent));
 		CreateCoverQueryProps();
 	}
 	
@@ -57,7 +64,7 @@ class KSC_BuildingPosQuery : Managed
 		m_QueryProps.m_fScoreWeightDistance = 1.0;
 		m_QueryProps.m_bCheckVisibility = false;
 		m_QueryProps.m_bSelectHighestScore = false;
-		m_QueryProps.m_iMaxCoversToCheck = SCR_CoverQueryComponent.MAX_COVERS_LOW_PRIORITY;
+		m_QueryProps.m_iMaxCoversToCheck = SCR_AIFindCover.MAX_COVERS_LOW_PRIORITY;
 		m_QueryProps.m_fScoreWeightNavmeshRay = 50;
 	}
 	
@@ -81,10 +88,10 @@ class KSC_BuildingPosQuery : Managed
 	protected void RandomQueryAttempt()
 	{
 		vector outPos, outDir;
-		ECoverSearchState result = QueryPos(m_vCurrentQueryPos, outPos, outDir);
+		KSC_EBuildingPosQueryState result = QueryPos(m_vCurrentQueryPos, outPos, outDir);
 		switch (result)
 		{
-			case ECoverSearchState.SUCCESS:
+			case KSC_EBuildingPosQueryState.SUCCESS:
 			{	
 				m_aPositions.Insert(outPos);
 				m_aDirections.Insert(outDir);
@@ -92,7 +99,7 @@ class KSC_BuildingPosQuery : Managed
 				break;
 			};
 			
-			case ECoverSearchState.FAIL:
+			case KSC_EBuildingPosQueryState.FAIL:
 			{
 				m_vCurrentQueryPos = GetRandomPosInBounds();
 				break;
@@ -122,35 +129,33 @@ class KSC_BuildingPosQuery : Managed
 	
 	//------------------------------------------------------------------------------------------------
 	//! Return true if a position was found
-	protected ECoverSearchState QueryPos(vector queryPos, out vector outPos, out vector outDir)
+	protected KSC_EBuildingPosQueryState QueryPos(vector queryPos, out vector outPos, out vector outDir)
 	{
 		// Make sure the navmesh tile is loaded
 		if (m_pNavmesh.IsTileRequested(queryPos))
-			return ECoverSearchState.RUNNING;
+			return KSC_EBuildingPosQueryState.RUNNING;
 		
 		if (!m_pNavmesh.IsTileLoaded(queryPos))
 		{
 			m_pNavmesh.LoadTileIn(queryPos);
-			return ECoverSearchState.RUNNING;
+			return KSC_EBuildingPosQueryState.RUNNING;
 		};
 		
 		// Get closest point on navmesh
 		m_pNavmesh.GetReachablePoint(queryPos, QUERY_RADIUS, queryPos);
 		
 		m_QueryProps.m_vSectorPos = queryPos;
-		m_QueryProps.m_vAgentPos = queryPos;
 		m_QueryProps.m_vThreatPos = queryPos; // Threat pos is not provided here, it's a basic query in radius
 		
 		int tilex, tiley, coverId;
-		ECoverSearchState result = m_pCoverQuery.GetBestCover("Soldiers", m_QueryProps, outPos, outDir, tilex, tiley, coverId);
-		if (result != ECoverSearchState.SUCCESS)
-			return result;
+		if (!m_pCoverManager.GetBestCover("Soldiers", m_pPathFinding, m_QueryProps, outPos, outDir, tilex, tiley, coverId))
+			return KSC_EBuildingPosQueryState.FAIL;
 		
 		outDir -= outPos;
 		outDir[1] = 0;
 		outDir.Normalize();
 		m_pCoverManager.SetOccupiedCover(tilex, tiley, coverId, true);
-		return ECoverSearchState.SUCCESS;
+		return KSC_EBuildingPosQueryState.SUCCESS;
 	}
 	
 	//------------------------------------------------------------------------------------------------

@@ -38,6 +38,7 @@ class FPM_MapMarkerEntryPlayer : SCR_MapMarkerEntryDynamic
 		
 		
 		marker.SetGlobalText(GetPlayerNameWithRank(playerId, player));
+		marker.SetGlobalSymbolIcons(EMilitarySymbolIcon.INFANTRY);
 		marker.SetGlobalVisible(true);
 		m_mPlayerMarkers.Insert(player, marker);
 	}

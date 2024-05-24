@@ -28,20 +28,19 @@ modded class SCR_CharacterControllerComponent : CharacterControllerComponent
 	}
 	
 	//------------------------------------------------------------------------------------------------
-	void RSA_MedicalFeed_OnLifeStateChanged(ECharacterLifeState lifeState)
+	void RSA_MedicalFeed_OnLifeStateChanged(ECharacterLifeState previousLifeState, ECharacterLifeState newLifeState)
 	{
-		if (lifeState == m_iRSA_PreviousLifeState)
+		if (newLifeState == m_iRSA_PreviousLifeState)
 			return;
 		
-		switch (lifeState)
+		switch (newLifeState)
 		{
 			// Add protection handler when revived
 			case ECharacterLifeState.ALIVE:
 			{
-				Print(GetOwner() == m_pRSA_LastMedic);
 				m_pRSA_NotificationSender.OnControllableRevived(GetOwner(), m_pRSA_LastMedic);
 				break;
-			};
+			}
 			
 			// Schedule removal of protection handler when falling unconscious
 			case ECharacterLifeState.INCAPACITATED:
@@ -49,9 +48,9 @@ modded class SCR_CharacterControllerComponent : CharacterControllerComponent
 				m_pRSA_NotificationSender.OnControllableIncapacitated(GetOwner(), m_pRSA_DamageManagers.GetInstigator().GetInstigatorEntity());
 				m_pRSA_LastMedic = null;
 				break;
-			};
-		};
+			}
+		}
 		
-		m_iRSA_PreviousLifeState = lifeState;
+		m_iRSA_PreviousLifeState = newLifeState;
 	}
 }

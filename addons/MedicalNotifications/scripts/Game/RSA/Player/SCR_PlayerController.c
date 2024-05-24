@@ -6,7 +6,10 @@ modded class SCR_PlayerController : PlayerController
 	{
 		super.OnControlledEntityChanged(from, to);
 		
-		if (!Replication.IsServer() || !to || m_bIsPossessing)
+		if (Replication.IsRunning() && !Replication.IsServer())
+			return;
+		
+		if (!to || m_bIsPossessing)
 			return;
 
 		SCR_CharacterControllerComponent charCtrl = SCR_CharacterControllerComponent.Cast(to.FindComponent(SCR_CharacterControllerComponent));

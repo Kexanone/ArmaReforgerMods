@@ -84,4 +84,33 @@ class KSC_FactionManager : SCR_FactionManager
 				GetFactionEntityListWithLabels(GetAssociatedVanillaFaction(faction), catalogType, labels, entityNames);
 		}	
 	}
+	
+	//------------------------------------------------------------------------------------------------
+	SCR_EScenarioFrameworkMarkerCustomColor GetMarkerCustomColorEntry(Faction faction)
+	{
+		string factionKey;
+		faction = GetAssociatedVanillaFaction(faction);
+		if (faction)
+			factionKey = faction.GetFactionKey();
+		
+		switch (factionKey)
+		{
+			case "US":
+			{
+				return SCR_EScenarioFrameworkMarkerCustomColor.BLUFOR;
+			}
+			
+			case "USSR":
+			{
+				return SCR_EScenarioFrameworkMarkerCustomColor.OPFOR;
+			}
+			
+			case "FIA":
+			{
+				return SCR_EScenarioFrameworkMarkerCustomColor.INDEPENDENT;
+			}
+		}
+		
+		return SCR_EScenarioFrameworkMarkerCustomColor.REFORGER_ORANGE;
+	}
 }

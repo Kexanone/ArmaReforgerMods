@@ -118,9 +118,20 @@ class KSC_WorldTools
 		return (m_fNearestDistanceSq != 0);
 	}
 	
+	static string GetBaseWorldName()
+	{
+		string worldName = FilePath.StripExtension(FilePath.StripPath(GetGame().GetWorldFile()));
+		int start = 1 + worldName.LastIndexOf("_");
+		
+		if (start <= 0)
+			return worldName;
+		
+		return worldName.Substring(start, worldName.Length() - start);
+	}
+	
 	//------------------------------------------------------------------------------------------------
 	//! Get the name of the nearest location
-	LocalizedString GetLocationName(vector pos)
+	static LocalizedString GetLocationName(vector pos)
 	{
 		SCR_EditableEntityCore core = SCR_EditableEntityCore.Cast(SCR_EditableEntityCore.GetInstance(SCR_EditableEntityCore));
 		if (!core)
@@ -131,5 +142,63 @@ class KSC_WorldTools
 			return string.Empty;
 		
 		return nearestLocation.GetDisplayName();
+	}
+	
+	protected static typename s_tExcludedType;
+	
+	//------------------------------------------------------------------------------------------------
+	static bool TraceCuboid(vector center, vector size, TraceFlags flags = TraceFlags.ENTS | TraceFlags.OCEAN, typename excludedType = typename.Empty, BaseWorld world = null)
+	{
+		if (!world)
+			world = GetGame().GetWorld();
+		
+		s_tExcludedType = excludedType;
+		
+		TraceParam params = new TraceParam();
+		params.Flags = flags;
+		
+		array<vector> dirs = {
+			// Body diagonals
+			size / 2,
+			Vector(-size[0], size[1], size[2]) / 2,
+			Vector(size[0], -size[1], size[2]) / 2,
+			Vector(size[0], size[1], -size[2]) / 2,
+			// Edge midpoints connecting diagonals
+			Vector(size[0], size[1], 0) / 2,
+			Vector(size[0], -size[1], 0) / 2,
+			Vector(size[0], 0, size[2]) / 2,
+			Vector(size[0], 0, -size[2]) / 2,
+			Vector(0, size[1], size[2]) / 2,
+			Vector(0, -size[1], size[2]) / 2,
+			// Face center connecting segements
+			Vector(size[0], 0, 0) / 2,
+			Vector(0, size[1], 0) / 2,
+			Vector(0, 0, size[2]) / 2
+		};
+		
+		foreach (vector dir : dirs)
+		{
+			params.Start = center + dir;
+			params.End = center - dir;
+			if (world.TraceMove(params, TraceCuboidFilter) < 1)
+				return false;
+		}
+		
+		return true;
+	}
+	
+	//------------------------------------------------------------------------------------------------
+	protected static bool TraceCuboidFilter(notnull IEntity entity)
+	{
+		if (s_tExcludedType == typename.Empty)
+			return true;
+		
+		return !entity.Type().IsInherited(s_tExcludedType);
+	}
+	
+	//------------------------------------------------------------------------------------------------
+	static bool IsPosEmpty(vector pos, float emptyRadius = 0.5, float emptyHeight = 2)
+	{
+		return SCR_WorldTools.TraceCylinder(pos + Vector(0, emptyHeight/2, 0), emptyRadius, emptyHeight);
 	}
 }

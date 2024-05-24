@@ -1,3 +1,4 @@
+/*
 //------------------------------------------------------------------------------------------------
 class KSC_VehicleSpawnManagerComponentClass : SCR_BaseGameModeComponentClass
 {
@@ -70,7 +71,7 @@ class KSC_VehicleSpawnManagerComponent : SCR_BaseGameModeComponent
 			};
 			
 			// Respawn if engine has been drowned
-			VehicleControllerComponent_SA vehicleController = VehicleControllerComponent_SA.Cast(vehicle.FindComponent(VehicleControllerComponent_SA));
+			VehicleControllerComponent vehicleController = VehicleControllerComponent.Cast(vehicle.FindComponent(VehicleControllerComponent));
 			if (vehicleController && vehicleController.GetEngineDrowned())
 			{
 				slot.ScheduleRespawn();
@@ -119,3 +120,4 @@ class KSC_VehicleSpawnManagerComponent : SCR_BaseGameModeComponent
 		m_aManagedSlots.Insert(slot);
 	}
 };
+*/

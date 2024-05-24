@@ -31,4 +31,18 @@ class KSC_AIHelper
 		
 		charCtrlComponent.SetStanceChange(stanceChange);
 	}
+	
+	//------------------------------------------------------------------------------------------------
+	static AIGroup GetGroup(IEntity char)
+	{
+		ChimeraAIControlComponent aiCtrl = ChimeraAIControlComponent.Cast(char.FindComponent(ChimeraAIControlComponent));
+		if (!aiCtrl)
+			return null;
+		
+		AIAgent agent = aiCtrl.GetAIAgent();
+		if (!agent)
+			return null;
+		
+		return agent.GetParentGroup();
+	}
 }

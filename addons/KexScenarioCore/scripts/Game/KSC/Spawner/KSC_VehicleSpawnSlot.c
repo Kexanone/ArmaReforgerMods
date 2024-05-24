@@ -1,3 +1,4 @@
+/*
 //------------------------------------------------------------------------------------------------
 class KSC_VehicleSpawnSlotClass : GenericEntityClass
 {
@@ -209,3 +210,4 @@ class KSC_VehicleSpawnSlot : GenericEntity
 	}
 #endif
 }
+*/

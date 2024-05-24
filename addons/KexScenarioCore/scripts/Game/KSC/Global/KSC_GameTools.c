@@ -2,6 +2,20 @@
 //! Tools for spawning entities
 class KSC_GameTools
 {
+	protected static EAISkill s_eAISkill = EAISkill.REGULAR;
+	
+	//------------------------------------------------------------------------------------------------
+	static void SetAISkill(EAISkill skill)
+	{
+		s_eAISkill = skill;
+	}
+	
+	//------------------------------------------------------------------------------------------------
+	static EAISkill GetAISkill()
+	{
+		return s_eAISkill;
+	}
+	
 	//------------------------------------------------------------------------------------------------
 	//! Spawn prefab with the given transform
 	static IEntity SpawnPrefab(ResourceName name, vector transform[4])
@@ -72,7 +86,33 @@ class KSC_GameTools
 	// Spawn a group prefab
 	static AIGroup SpawnGroupPrefab(ResourceName name, vector pos = vector.Zero, float rotation = 0)
 	{
-		return AIGroup.Cast(SpawnPrefab(name, pos, rotation));
+		AIGroup group = AIGroup.Cast(SpawnPrefab(name, pos, rotation));
+		
+		array<AIAgent> agents = {};
+		group.GetAgents(agents);
+		foreach (AIAgent agent : agents)
+		{
+			SCR_AICombatComponent combatComponent = SCR_AICombatComponent.Cast(agent.GetControlledEntity().FindComponent(SCR_AICombatComponent));
+			combatComponent.SetAISkill(s_eAISkill);
+		}
+		
+		return group;
+	}
+	
+	protected static const string GROUP_BASE_PREFAB_NAME = "{000CD338713F2B5A}Prefabs/AI/Groups/Group_Base.et";
+	
+	//------------------------------------------------------------------------------------------------
+	// Spawn a single character
+	static SCR_ChimeraCharacter SpawnCharacterPrefab(ResourceName name, vector pos = vector.Zero, float rotation = 0)
+	{
+		SCR_ChimeraCharacter char = SCR_ChimeraCharacter.Cast(SpawnPrefab(name, pos, rotation));
+		SCR_AICombatComponent combatComponent = SCR_AICombatComponent.Cast(char.FindComponent(SCR_AICombatComponent));
+		combatComponent.SetAISkill(s_eAISkill);
+		
+		SCR_AIGroup group = SCR_AIGroup.Cast(SpawnGroupPrefab(GROUP_BASE_PREFAB_NAME, pos, rotation));
+		group.SetFaction(char.GetFaction());
+		group.AddAIEntityToGroup(char);
+		return char;
 	}
 	
 	//------------------------------------------------------------------------------------------------

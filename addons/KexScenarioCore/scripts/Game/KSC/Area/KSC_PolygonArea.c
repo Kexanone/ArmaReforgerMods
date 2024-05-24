@@ -1,7 +1,9 @@
 //------------------------------------------------------------------------------------------------
 class KSC_PolygonArea : KSC_AreaBase
 {
-	protected ref array<float> m_aPolygon;
+	ref array<float> m_aPolygon;
+	protected bool m_bBoundBoxComputed = false;
+	protected vector m_vBoundBoxMins, m_vBoundBoxMaxs;
 	
 	//------------------------------------------------------------------------------------------------
 	void KSC_PolygonArea(array<float> polygon)
@@ -26,29 +28,38 @@ class KSC_PolygonArea : KSC_AreaBase
 	//------------------------------------------------------------------------------------------------
 	override void GetBoundBox(out vector mins, out vector maxs)
 	{
-		if (m_aPolygon.Count() < 2)
-			return;
-		
-		GetGame().GetWorld().GetBoundBox(mins, maxs);
-		mins[0] = m_aPolygon[0];
-		maxs[0] = m_aPolygon[0];
-		mins[2] = m_aPolygon[1];
-		maxs[2] = m_aPolygon[1];
-				
-		foreach (int i, float x : m_aPolygon)
+		if (!m_bBoundBoxComputed)
 		{
-			if (i % 2)
+			if (m_aPolygon.Count() < 2)
+				return;
+			
+			GetGame().GetWorld().GetBoundBox(m_vBoundBoxMins, m_vBoundBoxMaxs);
+			m_vBoundBoxMins[0] = m_aPolygon[0];
+			m_vBoundBoxMaxs[0] = m_aPolygon[0];
+			m_vBoundBoxMins[2] = m_aPolygon[1];
+			m_vBoundBoxMaxs[2] = m_aPolygon[1];
+					
+			foreach (int i, float x : m_aPolygon)
 			{
-				// i is even
-				mins[0] = Math.Min(mins[0], m_aPolygon[i]);
-				maxs[0] = Math.Max(maxs[0], m_aPolygon[i]);
+				if (i % 2 == 0)
+				{
+					// i is even
+					m_vBoundBoxMins[0] = Math.Min(m_vBoundBoxMins[0], m_aPolygon[i]);
+					m_vBoundBoxMaxs[0] = Math.Max(m_vBoundBoxMaxs[0], m_aPolygon[i]);
+				}
+				else
+				{
+					// i is odd
+					m_vBoundBoxMins[2] = Math.Min(m_vBoundBoxMins[2], m_aPolygon[i]);
+					m_vBoundBoxMaxs[2] = Math.Max(m_vBoundBoxMaxs[2], m_aPolygon[i]);
+				}
 			}
-			else
-			{
-				// i is odd
-				mins[2] = Math.Min(mins[2], m_aPolygon[i]);
-				maxs[2] = Math.Max(maxs[2], m_aPolygon[i]);
-			};
-		};
+			
+			m_bBoundBoxComputed = true;
+		}
+		
+		// vector makes copies for assignments
+		mins = m_vBoundBoxMins;
+		maxs = m_vBoundBoxMaxs;
 	}
 }

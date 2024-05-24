@@ -1,9 +1,0 @@
-enum KSC_ETaskType
-{
-	CLEAR_AREA,
-	DEFEND_AREA,
-	DESTROY,
-	KILL,
-	FIND_INTEL,
-	EXFIL
-}

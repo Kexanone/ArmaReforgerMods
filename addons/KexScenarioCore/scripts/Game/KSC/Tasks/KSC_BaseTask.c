@@ -21,6 +21,12 @@ class KSC_BaseTask : SCR_BaseTask
 	}
 	
 	//------------------------------------------------------------------------------------------------
+	KSC_BaseTaskSupportEntity GetSupportEntity()
+	{
+		return m_pSupportEntity;
+	}
+	
+	//------------------------------------------------------------------------------------------------
 	//! Show pop-up notification when task's state has been changed
 	//! Based on SCR_EditorTask.PopUpNotification
 	protected void PopUpNotification(string prefix)

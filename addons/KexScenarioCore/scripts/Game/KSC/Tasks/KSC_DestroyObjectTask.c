@@ -39,7 +39,7 @@ class KSC_DestroyObjectTask : KSC_KillTask
 		if (!m_pSubject || !m_pSupportEntity)
 			return;
 		
-		VehicleControllerComponent_SA vehicleController = VehicleControllerComponent_SA.Cast(m_pSubject.FindComponent(VehicleControllerComponent_SA));
+		VehicleControllerComponent vehicleController = VehicleControllerComponent.Cast(m_pSubject.FindComponent(VehicleControllerComponent));
 		if (vehicleController && vehicleController.GetEngineDrowned())
 		{
 			m_pSupportEntity.FinishTask(this);

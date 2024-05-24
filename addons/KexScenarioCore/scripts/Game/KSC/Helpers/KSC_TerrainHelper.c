@@ -30,4 +30,30 @@ class KSC_TerrainHelper
 	{
 		return GetSlope(pos) < maxAngle;
 	}
+	
+	//------------------------------------------------------------------------------------------------
+	static ResourceName GetSurfaceMaterial(vector pos)
+	{
+		pos[1] = SCR_TerrainHelper.GetTerrainY(pos);
+		TraceParam params = new TraceParam();
+		params.Flags = TraceFlags.WORLD;
+		params.Start = pos + 0.01 * vector.Up;
+		params.End = pos - 0.01 * vector.Up;
+		GetGame().GetWorld().TraceMove(params, null);
+		return params.TraceMaterial;
+	}
+	
+	//------------------------------------------------------------------------------------------------
+	static bool SurfaceIsRoad(vector pos)
+	{
+		ResourceName material = GetSurfaceMaterial(pos);
+		return material.IndexOf("Road_") >= 0;
+	}
+	
+	//------------------------------------------------------------------------------------------------
+	static bool SurfaceIsRunway(vector pos)
+	{
+		ResourceName material = GetSurfaceMaterial(pos);
+		return material.IndexOf("Runway") >= 0;
+	}
 }

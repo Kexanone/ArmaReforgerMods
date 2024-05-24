@@ -1,0 +1,4 @@
+SCR_TimedWaypoint : "{A88F0B6CF25BD1DE}Prefabs/AI/Waypoints/AIWaypoint_Scout.et" {
+ ID "51F6BCFD78CB388E"
+ CompletionRadius 10
+}

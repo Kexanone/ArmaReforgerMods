@@ -38,4 +38,31 @@ class KSC_AITasks
 		wpCycle.SetWaypoints(wpList);
 		group.AddWaypoint(wpCycle);
 	}
+	
+	//------------------------------------------------------------------------------------------------
+	static void Defend(AIGroup group, vector pos, float radius = 50)
+	{
+		AIWaypoint wp = KSC_GameTools.SpawnWaypointPrefab("{93291E72AC23930F}Prefabs/AI/Waypoints/AIWaypoint_Defend.et", pos);
+		wp.SetCompletionRadius(radius);
+		group.AddWaypoint(wp);
+	}
+	
+	//------------------------------------------------------------------------------------------------
+	static void Defend(AIGroup group, KSC_AreaBase area, float radius = 50)
+	{
+		int attempts = 0;
+		
+		while (attempts < s_iMaxAttempts)
+		{
+			vector pos = area.SamplePointInArea();
+			pos[1] = SCR_TerrainHelper.GetTerrainY(pos);
+			if (!KSC_TerrainHelper.SurfaceIsWater(pos) &&  KSC_WorldTools.IsPosEmpty(pos))
+			{
+				Defend(group, pos, radius);
+				break;
+			}
+			
+			attempts++;
+		}
+	}
 }

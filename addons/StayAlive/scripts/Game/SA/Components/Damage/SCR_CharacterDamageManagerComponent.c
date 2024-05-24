@@ -5,12 +5,12 @@ modded class SCR_CharacterDamageManagerComponent : SCR_DamageManagerComponent
 
 	//-----------------------------------------------------------------------------------------------------------
 	//! Add handlers for protecting players that fall unconscious
-	override void SA_Initialize(IEntity owner)
+	override void SA_Activate(IEntity owner)
 	{
-		if (m_bSA_Initialized)
+		if (m_bSA_Active)
 			return;
 		
-		super.SA_Initialize(owner);
+		super.SA_Activate(owner);
 		
 		SCR_CharacterControllerComponent charCtrl = SCR_CharacterControllerComponent.Cast(owner.FindComponent(SCR_CharacterControllerComponent));
 		if (!charCtrl)
@@ -18,6 +18,23 @@ modded class SCR_CharacterDamageManagerComponent : SCR_DamageManagerComponent
 		
 		charCtrl.m_OnLifeStateChanged.Insert(SA_OnLifeStateChanged);
 		m_pSA_HealthHitZone.SA_EnableProtection(true);
+	}
+	
+	//-----------------------------------------------------------------------------------------------------------
+	//! Remove handlers for protecting players that fall unconscious
+	override void SA_Deactivate(IEntity owner)
+	{
+		if (!m_bSA_Active)
+			return;
+		
+		super.SA_Deactivate(owner);
+		
+		SCR_CharacterControllerComponent charCtrl = SCR_CharacterControllerComponent.Cast(owner.FindComponent(SCR_CharacterControllerComponent));
+		if (!charCtrl)
+			return;
+		
+		charCtrl.m_OnLifeStateChanged.Remove(SA_OnLifeStateChanged);
+		m_pSA_HealthHitZone.SA_EnableProtection(false);
 	}
 	
 	//-----------------------------------------------------------------------------------------------------------

@@ -11,6 +11,13 @@ modded class SCR_PlayerController : PlayerController
 		
 		SCR_CharacterDamageManagerComponent damageManager = SCR_CharacterDamageManagerComponent.Cast(to.FindComponent(SCR_CharacterDamageManagerComponent));
 		if (damageManager)
-			damageManager.SA_Initialize(to);
+			damageManager.SA_Activate(to);
+		
+		if (!from)
+			return;
+		
+		damageManager = SCR_CharacterDamageManagerComponent.Cast(from.FindComponent(SCR_CharacterDamageManagerComponent));
+		if (damageManager)
+			damageManager.SA_Deactivate(from);
 	}
 }

@@ -1,4 +1,5 @@
 //-----------------------------------------------------------------------------------------------------------
+//! Use KSC_RefQueue instead if you need strong references to T
 class KSC_Queue<Class T> : Managed
 {
 	protected ref array<T> m_aQueue = {};
@@ -19,8 +20,14 @@ class KSC_Queue<Class T> : Managed
 	T Pop()
 	{
 		T item = m_aQueue[0];
-		m_aQueue.Remove(0);
+		m_aQueue.RemoveOrdered(0);
 		return item;
+	}
+	
+	//-----------------------------------------------------------------------------------------------------------
+	T Front()
+	{
+		return m_aQueue[0];
 	}
 	
 	//-----------------------------------------------------------------------------------------------------------
@@ -39,6 +46,62 @@ class KSC_Queue<Class T> : Managed
 	void Debug()
 	{
 		PrintFormat( "KSC_Queue count: %1", Count());
+
+		for (int i = 0; i < Count(); i++)
+		{
+			PrintFormat("[%1] => %2", i, string.ToString(m_aQueue[i]));
+		}
+	}
+}
+
+//-----------------------------------------------------------------------------------------------------------
+//! Same as KSC_Queue, but has strong references to T
+class KSC_RefQueue<Class T> : Managed
+{
+	protected ref array<ref T> m_aQueue = {};
+	
+	//-----------------------------------------------------------------------------------------------------------
+	void Push(T item)
+	{
+		m_aQueue.Insert(item);
+	}
+	
+	//-----------------------------------------------------------------------------------------------------------
+	void PushAll(array<T> items)
+	{
+		m_aQueue.InsertAll(items);
+	}
+	
+	//-----------------------------------------------------------------------------------------------------------
+	T Pop()
+	{
+		T item = m_aQueue[0];
+		m_aQueue.RemoveOrdered(0);
+		return item;
+	}
+	
+	//-----------------------------------------------------------------------------------------------------------
+	T Front()
+	{
+		return m_aQueue[0];
+	}
+	
+	//-----------------------------------------------------------------------------------------------------------
+	bool IsEmpty()
+	{
+		return m_aQueue.IsEmpty();
+	}
+	
+	//-----------------------------------------------------------------------------------------------------------
+	int Count()
+	{
+		return m_aQueue.Count();
+	}
+	
+	//------------------------------------------------------------------------------------------------
+	void Debug()
+	{
+		PrintFormat( "KSC_RefQueue count: %1", Count());
 
 		for (int i = 0; i < Count(); i++)
 		{

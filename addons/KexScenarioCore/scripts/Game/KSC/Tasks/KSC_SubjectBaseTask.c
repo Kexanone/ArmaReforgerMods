@@ -34,9 +34,9 @@ class KSC_SubjectBaseTask : KSC_BaseTask
 	
 	//------------------------------------------------------------------------------------------------
 	//! Detach subject handlers
-	override void Finish(bool showMsg = true)
+	override protected void CleanUp()
 	{
-		super.Finish(showMsg);
+		super.CleanUp();
 		
 		if (m_pSubject)
 			DetachSubjectHandlers();

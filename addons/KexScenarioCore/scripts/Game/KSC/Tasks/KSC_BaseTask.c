@@ -11,6 +11,7 @@ class KSC_BaseTask : SCR_BaseTask
 	protected string m_sFormatParam2 = string.Empty;
 	protected string m_sFormatParam3 = string.Empty;
 	protected ref ScriptInvoker m_OnStateChanged;
+	protected ref ScriptInvoker m_OnCleanUp;
 	protected KSC_BaseTaskSupportEntity m_pSupportEntity;
 	
 	
@@ -109,7 +110,7 @@ class KSC_BaseTask : SCR_BaseTask
 	}
 	
 	//------------------------------------------------------------------------------------------------
-	//! Show pop-up notification when task is cencelled
+	//! Show pop-up notification when task is canceled
 	//! Based on SCR_EditorTask.Cancel
 	override void Cancel(bool showMsg = true)
 	{
@@ -122,7 +123,23 @@ class KSC_BaseTask : SCR_BaseTask
 	}
 	
 	//------------------------------------------------------------------------------------------------
-	protected void CleanUp() {};
+	//! Clean up gets triggered on authority after the task has been completed, failed or canceled
+	//! and when it gets deleted.
+	protected void CleanUp()
+	{
+		if (m_OnCleanUp)
+			m_OnCleanUp.Invoke(this);
+	}
+	
+	//------------------------------------------------------------------------------------------------
+	//! Get script invoker for when cleaning up
+	ScriptInvoker GetOnCleanUp()
+	{
+		if (!m_OnCleanUp)
+			m_OnCleanUp = new ScriptInvoker();
+		
+		return m_OnCleanUp;
+	}
 	
 	//------------------------------------------------------------------------------------------------
 	//! Get script invoker for when the task state has changed
@@ -180,6 +197,7 @@ class KSC_BaseTask : SCR_BaseTask
 	//------------------------------------------------------------------------------------------------
 	void ~KSC_BaseTask()
 	{
-		CleanUp();
+		if (Replication.IsServer())
+			CleanUp();
 	}
 }

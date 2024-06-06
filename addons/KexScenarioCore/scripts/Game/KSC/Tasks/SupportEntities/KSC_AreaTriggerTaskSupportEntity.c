@@ -24,8 +24,17 @@ class KSC_AreaTriggerTaskSupportEntity : KSC_BaseTaskSupportEntity
 		trigger.SetSphereRadius(radius);
 		trigger.EnablePeriodicQueries(false);
 		task.SetTrigger(trigger);
+		task.GetOnCleanUp().Insert(DeleteTrigger);
 		// Start of queries has to be delayed, otherwise the trigger gets completed before the AI spawns
 		GetGame().GetCallqueue().CallLater(trigger.EnablePeriodicQueries, 10000, false, true);
 		return task;
+	}
+	
+	//------------------------------------------------------------------------------------------------
+	protected void DeleteTrigger(KSC_AreaTriggerTask task)
+	{
+		SCR_BaseTriggerEntity trigger = task.GetTrigger();
+		if (trigger)
+			SCR_EntityHelper.DeleteEntityAndChildren(trigger);
 	}
 }

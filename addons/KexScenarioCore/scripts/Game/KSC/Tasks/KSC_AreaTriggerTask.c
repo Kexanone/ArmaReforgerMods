@@ -18,8 +18,10 @@ class KSC_AreaTriggerTask : KSC_BaseTask
 	//------------------------------------------------------------------------------------------------
 	override protected void CleanUp()
 	{
+		super.CleanUp();
+		
 		if (m_pTrigger)
-			SCR_EntityHelper.DeleteEntityAndChildren(m_pTrigger);
+			m_pTrigger.GetOnActivate().Remove(OnTriggerActivate);
 	}
 	
 	//------------------------------------------------------------------------------------------------

@@ -4,7 +4,7 @@ class KSC_DestroyObjectTaskClass : KSC_KillTaskClass
 }
 
 //------------------------------------------------------------------------------------------------
-//! This task gets completed when the subject has been destroyed or drowned
+//! This task gets completed when the subject has been destroyed or its engine drowned
 class KSC_DestroyObjectTask : KSC_KillTask
 {
 	[Attribute(defvalue: "5", desc: "Timeout in seconds for checking whether the subject's engine is drowned")]
@@ -43,6 +43,6 @@ class KSC_DestroyObjectTask : KSC_KillTask
 		if (vehicleController && vehicleController.GetEngineDrowned())
 		{
 			m_pSupportEntity.FinishTask(this);
-		};
+		}
 	}
 }

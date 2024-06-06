@@ -81,21 +81,16 @@ class KSC_GameTools
 		
 		return vehicle;
 	}
-	
+		
 	//------------------------------------------------------------------------------------------------
 	// Spawn a group prefab
 	static AIGroup SpawnGroupPrefab(ResourceName name, vector pos = vector.Zero, float rotation = 0)
 	{
-		AIGroup group = AIGroup.Cast(SpawnPrefab(name, pos, rotation));
-		
-		array<AIAgent> agents = {};
-		group.GetAgents(agents);
-		foreach (AIAgent agent : agents)
-		{
-			SCR_AICombatComponent combatComponent = SCR_AICombatComponent.Cast(agent.GetControlledEntity().FindComponent(SCR_AICombatComponent));
-			combatComponent.SetAISkill(s_eAISkill);
-		}
-		
+		SCR_AIGroup group = SCR_AIGroup.Cast(SpawnPrefab(name, pos, rotation));
+		KSC_SpawnGroupHelperComponent spawnGroupHelper = KSC_SpawnGroupHelperComponent.Cast(group.FindComponent(KSC_SpawnGroupHelperComponent));
+		spawnGroupHelper.SetSkill(s_eAISkill);
+		spawnGroupHelper.SetCenter(pos);
+		spawnGroupHelper.Enable(true);
 		return group;
 	}
 	

@@ -1,0 +1,7 @@
+SCR_AIGroup {
+ ID "0000000000000001"
+ components {
+  KSC_SpawnGroupHelperComponent "{61717DA53B6DD88B}" {
+  }
+ }
+}

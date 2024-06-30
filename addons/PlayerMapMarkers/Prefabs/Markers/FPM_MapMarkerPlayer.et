@@ -2,7 +2,7 @@ FPM_MapMarkerPlayer {
  ID "60B68CC2D818F5FB"
  components {
   RplComponent "{60B68CC2D818F500}" {
-   SpatialTracking 0
+   SpatialRelevancy 0
   }
  }
  Flags 0

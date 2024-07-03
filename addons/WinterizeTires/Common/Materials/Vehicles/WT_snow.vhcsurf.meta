@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{7AB4588E05E65CFA}Common/Materials/Vehicles/WT_snow.vhcsurf"
+ Configurations {
+  ContactSurfaceResourceClass PC {
+  }
+  ContactSurfaceResourceClass XBOX_ONE : PC {
+  }
+  ContactSurfaceResourceClass XBOX_SERIES : PC {
+  }
+  ContactSurfaceResourceClass PS4 : PC {
+  }
+  ContactSurfaceResourceClass PS5 : PC {
+  }
+  ContactSurfaceResourceClass HEADLESS : PC {
+  }
+ }
+}

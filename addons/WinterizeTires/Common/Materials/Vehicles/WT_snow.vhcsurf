@@ -1,0 +1,6 @@
+ContactSurface : "{6B5EC3AFF18C367F}Common/Materials/Vehicles/snow.vhcsurf" {
+ FrictionNonTread 0.5
+ FrictionTread 0.5
+ RollingResistance 10
+ RollingDrag 25
+}

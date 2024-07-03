@@ -1,0 +1,3 @@
+GameMaterial : "{912C78728F5E6761}Common/Materials/Game/Core/frost_base.gamemat" {
+ "Vehicle contact surface" "{7AB4588E05E65CFA}Common/Materials/Vehicles/WT_snow.vhcsurf"
+}

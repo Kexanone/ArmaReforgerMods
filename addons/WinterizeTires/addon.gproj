@@ -1,0 +1,8 @@
+GameProject {
+ ID "WinterizeTires"
+ GUID "6152E2EBAA392F36"
+ TITLE "Winterize Tires"
+ Dependencies {
+  "58D0FB3206B6F859"
+ }
+}

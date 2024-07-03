@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{A5C8C136BAE868DF}Configs/Slots/KhanhTrung/KSC_Slots_KhanhTrung.conf"
+ Configurations {
+  CONFResourceClass PC {
+  }
+  CONFResourceClass XBOX_ONE : PC {
+  }
+  CONFResourceClass XBOX_SERIES : PC {
+  }
+  CONFResourceClass PS4 : PC {
+  }
+  CONFResourceClass PS5 : PC {
+  }
+  CONFResourceClass HEADLESS : PC {
+  }
+ }
+}

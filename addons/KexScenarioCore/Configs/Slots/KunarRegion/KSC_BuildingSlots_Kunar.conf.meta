@@ -1,5 +1,5 @@
 MetaFileClass {
- Name "{56A8DE1C07949D7B}Configs/Slots/Eden/KSC_BuildingSlots_Kunar.conf"
+ Name "{56A8DE1C07949D7B}Configs/Slots/KunarRegion/KSC_BuildingSlots_Kunar.conf"
  Configurations {
   CONFResourceClass PC {
   }
@@ -12,8 +12,6 @@ MetaFileClass {
   CONFResourceClass PS5 : PC {
   }
   CONFResourceClass HEADLESS : PC {
-  }
-  CONFResourceClass Xbox : PC {
   }
  }
 }

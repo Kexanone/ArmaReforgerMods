@@ -47,5 +47,5 @@ class EM_Utils
 		params.Transform[3] = pos;
 		Resource res = Resource.Load(moduleName);	
 		return GetGame().SpawnEntityPrefab(res, null, params);
-	};
+	}
 }

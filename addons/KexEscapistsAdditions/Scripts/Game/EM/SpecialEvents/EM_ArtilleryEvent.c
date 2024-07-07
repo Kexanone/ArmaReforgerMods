@@ -30,10 +30,10 @@ class EM_ArtilleryEvent : EM_SpecialEventBase
 			return;
 		
 		m_vCenter = m_pTarget.GetOrigin();
-		
+				
 		for (int i; i < 3; i++)
 		{
-			GetGame().GetCallqueue().CallLater(SpawnSiren, i * m_RNG.RandInt(1000, 3000));
+			GetGame().GetCallqueue().CallLater(SpawnSiren, 3000 + i * m_RNG.RandInt(1000, 3000));
 		}
 		
 		GetGame().GetCallqueue().CallLater(StartBarrage, 25000);

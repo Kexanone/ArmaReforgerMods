@@ -35,6 +35,34 @@ class EM_SpecialEventsSystem : GameSystem
 	//------------------------------------------------------------------------------------------------
 	void SelectEvent()
 	{
-		m_aSpecialEvents.GetRandomElement().Run();
+		EM_SpecialEventBase evt = m_aSpecialEvents.GetRandomElement();
+		
+		LocalizedString message = evt.GetNotificationMessage();
+		if (!message.IsEmpty())
+			ShowNotification(message);
+		
+		evt.Run();
+	}
+	
+	//------------------------------------------------------------------------------------------------
+	void ShowNotification(LocalizedString message)
+	{
+		PlayerManager plrManager = GetGame().GetPlayerManager();
+
+		array<int> playerIds = {};
+		plrManager.GetPlayers(playerIds);
+
+		foreach (int id : playerIds)
+		{
+			PlayerController controller = plrManager.GetPlayerController(id);
+			if (!id)
+				continue;
+
+			ESCT_EscapistsNetworkComponent networkComponent = ESCT_EscapistsNetworkComponent.Cast(controller.FindComponent(ESCT_EscapistsNetworkComponent));
+			if (!networkComponent)
+				continue;
+
+			networkComponent.EM_ShowSpecialEventNotification(message);
+		}
 	}
 }

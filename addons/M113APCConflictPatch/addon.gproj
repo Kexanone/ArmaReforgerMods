@@ -1,8 +1,0 @@
-GameProject {
- ID "M113APCConflictPatch"
- GUID "5EF124428C6BF0D5"
- TITLE "M113 APC - Conflict Patch"
- Dependencies {
-  "5E5C154FEE1094BB" "58D0FB3206B6F859"
- }
-}

@@ -6,18 +6,62 @@ class KSC_Clustering_Exporter : Managed
 	protected ref map<typename, ref FileHandle> m_mStreams = new map<typename, ref FileHandle>();
 	
 	//------------------------------------------------------------------------------------------------
-	void Run(array<typename> types = null)
+	void Run(array<typename> types = null, array<ref array<float>> rectangles = null, bool negatePlacement=false)
 	{
 		m_sWorldName = FilePath.StripExtension(FilePath.StripPath(GetGame().GetWorldFile()));
 		FileIO.MakeDirectory(m_sWorldName);
 		ExportObjects(types);
-		ExportTerrain();
-
+		
+		if (rectangles)
+			ExportTerrain(rectangles, negatePlacement);
+		else
+			ExportTerrain(negatePlacement);
 	}
 	
 	//------------------------------------------------------------------------------------------------
-	protected void ExportTerrain()
+	void ExportTerrain(bool negatePlacement=false)
 	{
+		BaseWorld world = GetGame().GetWorld();
+		vector mins, maxs;
+		world.GetBoundBox(mins, maxs);
+		array<ref array<float>> rectangles = {{mins[0], mins[2], maxs[0], maxs[2]}};
+		ExportTerrain(rectangles, negatePlacement);
+	}
+	
+	//------------------------------------------------------------------------------------------------
+	void ExportTerrain(array<ref array<float>> rectangles, bool negatePlacement=false)
+	{
+		array<int> idxListRoad = {}, idxListPlacement = {};
+
+		foreach (array<float> rectangle : rectangles)
+		{
+			int xMin = Math.Round(rectangle[0]);
+			int zMin = Math.Round(rectangle[1]);
+			int xMax = Math.Round(rectangle[2]);
+			int zMax = Math.Round(rectangle[3]);
+			
+			for (int x = xMin; x <= xMax; x++)
+			{
+				for (int z = zMin; z <= zMax; z++)
+				{
+					vector pos = Vector(x, 0, z);
+					pos[1] = SCR_TerrainHelper.GetTerrainY(pos);
+					
+					if (KSC_TerrainHelper.SurfaceIsRoad(pos))
+					{
+						idxListRoad.Insert(x);
+						idxListRoad.Insert(z);
+					}
+					
+					if (IsPlacement(pos) ^ negatePlacement)
+					{
+						idxListPlacement.Insert(x);
+						idxListPlacement.Insert(z);
+					}
+				}
+			}
+		}
+		
 		BaseWorld world = GetGame().GetWorld();
 		vector mins, maxs;
 		world.GetBoundBox(mins, maxs);
@@ -25,28 +69,6 @@ class KSC_Clustering_Exporter : Managed
 		int xMax = Math.Round(maxs[0]);
 		int zMin = Math.Round(mins[2]);
 		int zMax = Math.Round(maxs[2]);
-		array<int> idxListRoad = {}, idxListPlacement = {};
-		
-		for (int x = xMin; x <= xMax; x++)
-		{
-			for (int z = zMin; z <= zMax; z++)
-			{
-				vector pos = Vector(x, 0, z);
-				pos[1] = SCR_TerrainHelper.GetTerrainY(pos);
-				
-				if (KSC_TerrainHelper.SurfaceIsRoad(pos))
-				{
-					idxListRoad.Insert(x);
-					idxListRoad.Insert(z);
-				}
-				
-				if (IsPlacement(pos))
-				{
-					idxListPlacement.Insert(x);
-					idxListPlacement.Insert(z);
-				}
-			}
-		}
 		
 		PrintFormat("%1 %2 %3 %4 %5", xMin, xMax - xMin + 1, zMin, zMax - zMin + 1, idxListRoad.Count() / 2);
 		FileHandle streamRoad = FileIO.OpenFile(m_sWorldName + "/" + "Road.bin", FileMode.WRITE);

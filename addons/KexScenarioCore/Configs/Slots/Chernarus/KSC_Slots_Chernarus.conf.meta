@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{4FAE946D365ECED5}Configs/Slots/Chernarus/KSC_Slots_Chernarus.conf"
+ Configurations {
+  CONFResourceClass PC {
+  }
+  CONFResourceClass XBOX_ONE : PC {
+  }
+  CONFResourceClass XBOX_SERIES : PC {
+  }
+  CONFResourceClass PS4 : PC {
+  }
+  CONFResourceClass PS5 : PC {
+  }
+  CONFResourceClass HEADLESS : PC {
+  }
+ }
+}

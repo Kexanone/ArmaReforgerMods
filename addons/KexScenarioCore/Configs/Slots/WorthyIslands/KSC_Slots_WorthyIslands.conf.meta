@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{0452ABCFA5EA8C95}Configs/Slots/WorthyIslands/KSC_Slots_WorthyIslands.conf"
+ Configurations {
+  CONFResourceClass PC {
+  }
+  CONFResourceClass XBOX_ONE : PC {
+  }
+  CONFResourceClass XBOX_SERIES : PC {
+  }
+  CONFResourceClass PS4 : PC {
+  }
+  CONFResourceClass PS5 : PC {
+  }
+  CONFResourceClass HEADLESS : PC {
+  }
+ }
+}

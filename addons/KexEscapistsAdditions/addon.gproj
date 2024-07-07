@@ -1,0 +1,22 @@
+GameProject {
+ ID "KexEscapistsAdditions"
+ GUID "61CD68B8FAE0164C"
+ TITLE "Kex's Escapists Additions"
+ Dependencies {
+  "5F16D7E4A1CBE075" "5994AD5A9F33BE57" "58D0FB3206B6F859"
+ }
+ Configurations {
+  GameProjectConfig PC {
+  }
+  GameProjectConfig XBOX_ONE {
+  }
+  GameProjectConfig XBOX_SERIES {
+  }
+  GameProjectConfig PS4 {
+  }
+  GameProjectConfig PS5 {
+  }
+  GameProjectConfig HEADLESS {
+  }
+ }
+}

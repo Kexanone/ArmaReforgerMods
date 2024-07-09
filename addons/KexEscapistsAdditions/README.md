@@ -4,6 +4,7 @@ Adds special events from my old [Escape Game Mode](https://reforger.armaplatform
 
 Available events:
 - [x] Artillery barrage
+- [ ] Helicopter flyby
 - [ ] Death squad
 
 Feedback tracker: https://github.com/Kexanone/ArmaReforgerMods/issues<br>

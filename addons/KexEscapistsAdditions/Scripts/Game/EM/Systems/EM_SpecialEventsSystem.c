@@ -16,18 +16,19 @@ class EM_SpecialEventsSystem : GameSystem
 	{
 		super.OnInit();
 		
-		// Attach event handlers
-		foreach (EM_SpecialEventBase e : m_aSpecialEvents)
+		// Remove disabled events
+		for (int i = m_aSpecialEvents.Count() - 1; i >= 0; i--)
 		{
-			e.GetOnCompleted().Insert(OnEventCompleted);
+			if (!m_aSpecialEvents[i].IsEnabled())
+				m_aSpecialEvents.RemoveOrdered(i);
 		}
 		
-		OnEventCompleted();
+		ESCT_EscapistsGameMode.GetGameMode().GetEscapistsManager().GetOnDoorUnlock().Insert(ScheduleNextEvent);
 	}
 	
 	//------------------------------------------------------------------------------------------------
 	//! Schedule next event
-	protected void OnEventCompleted()
+	protected void ScheduleNextEvent()
 	{
 		GetGame().GetCallqueue().CallLater(SelectEvent, Math.RandomIntInclusive(m_fMinTimeout*60000, m_fMaxTimeout*60000));
 	}
@@ -35,13 +36,18 @@ class EM_SpecialEventsSystem : GameSystem
 	//------------------------------------------------------------------------------------------------
 	void SelectEvent()
 	{
-		EM_SpecialEventBase evt = m_aSpecialEvents.GetRandomElement();
+		if (ESCT_GameStateManagerComponent.GetInstance().GetGameState() > ESCT_EGameState.Prison)
+		{
+			EM_SpecialEventBase evt = m_aSpecialEvents.GetRandomElement();
+			
+			LocalizedString message = evt.GetNotificationMessage();
+			if (!message.IsEmpty())
+				ShowNotification(message);
+			
+			evt.Run();
+		}
 		
-		LocalizedString message = evt.GetNotificationMessage();
-		if (!message.IsEmpty())
-			ShowNotification(message);
-		
-		evt.Run();
+		ScheduleNextEvent();
 	}
 	
 	//------------------------------------------------------------------------------------------------

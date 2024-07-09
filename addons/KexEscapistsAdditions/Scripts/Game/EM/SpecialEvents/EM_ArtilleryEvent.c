@@ -65,15 +65,12 @@ class EM_ArtilleryEvent : EM_SpecialEventBase
 	protected void SpawnRound()
 	{
 		float radius = m_fRadius * Math.RandomFloat01();
-		float angle = 360 * Math.RandomFloat01();
+		float angle = Math.PI2 * Math.RandomFloat01();
 		vector pos = m_vCenter + radius * Vector(Math.Cos(angle), 0, Math.Sin(angle));
 		EM_Utils.SpawnEntity(m_sRoundResName, pos);
 		m_iRoundsFired++;
 		
 		if (m_iRoundsFired >= m_iNumberOfRounds)
-		{
 			GetGame().GetCallqueue().Remove(SpawnRound);
-			OnCompleted();
-		}
 	}
 }

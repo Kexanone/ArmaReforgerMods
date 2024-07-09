@@ -4,23 +4,19 @@ class EM_SpecialEventBase : ScriptAndConfig
 	[Attribute(desc: "Notification message")]
 	protected LocalizedString m_sNotificationMessage;
 	
-	protected ref ScriptInvoker m_OnCompleted = new ScriptInvoker();
-	
+	[Attribute(defvalue: "true", desc: "Notification message")]
+	protected bool m_bEnabled;
+		
 	//------------------------------------------------------------------------------------------------
 	void Run();
 	
 	//------------------------------------------------------------------------------------------------
-	protected void OnCompleted()
+	bool IsEnabled()
 	{
-		m_OnCompleted.Invoke();
+		return m_bEnabled;
 	}
 	
 	//------------------------------------------------------------------------------------------------
-	ScriptInvoker GetOnCompleted()
-	{
-		return m_OnCompleted;
-	}
-	
 	LocalizedString GetNotificationMessage()
 	{
 		return m_sNotificationMessage;

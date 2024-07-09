@@ -1,0 +1,131 @@
+Vehicle : "{DDDD9B51F1234DF3}Prefabs/Vehicles/Helicopters/UH1H/UH1H_armed.et" {
+ ID "5DB688595BAB2FD7"
+ components {
+  SCR_HelicopterSoundComponent "{5A7CE769E7A9C43E}" {
+   Filenames +{
+   }
+  }
+  EM_AmbientFlybyComponent "{61CF75955CAD8FD5}" {
+  }
+  SCR_BaseCompartmentManagerComponent "{20FB66C5DCB8DF72}" {
+   CompartmentSlots {
+    PilotCompartmentSlot PilotCompartment {
+     m_DefaultOccupantData SCR_DefaultOccupantData "{61D0004219F3A11C}" {
+      m_sDefaultOccupantPrefab "{42A502E3BB727CEB}Prefabs/Characters/Factions/BLUFOR/US_Army/Character_US_HeliPilot.et"
+     }
+    }
+   }
+  }
+  SCR_EditableVehicleComponent "{50DEB7C26B5EB312}" {
+   m_UIInfo SCR_EditableEntityUIInfo "{5298E609432D192D}" {
+    Name "#AR-Vehicle_UH1H_Armed_Name"
+    m_aAuthoredLabels +{
+    }
+    m_EntityBudgetCost {
+     SCR_EntityBudgetValue "{5EDC86E4AF8908B6}" {
+      m_Value 1500
+     }
+     SCR_EntityBudgetValue "{5EE71CA1677C234F}" {
+     }
+     SCR_EntityBudgetValue "{5EF07CE9B4A73374}" {
+      m_BudgetType RANK_LIEUTENANT
+      m_Value 4
+     }
+    }
+   }
+  }
+  SCR_UniversalInventoryStorageComponent "{5E1E994304F0E0D3}" {
+   MultiSlots {
+    MultiSlotConfiguration "{60F686523ED8885E}" {
+     SlotTemplate InventoryStorageSlot MGammo {
+      Prefab "{423D78F865E8AF8A}Prefabs/Weapons/Magazines/Box_762x51_M60_500rnd_2Ball_1Tracer.et"
+     }
+     NumSlots 2
+    }
+   }
+  }
+  VehicleHelicopterSimulation "{51FAEE57F7DA270E}" {
+   Simulation Helicopter "{51FAED9EF37A2D29}" {
+    Engine HelicopterEngine "{51FAED9EF37A2D2B}" {
+     StartUpTime 0
+    }
+   }
+  }
+  SlotManagerComponent "{55BCE45E438E4CFF}" {
+   Slots {
+    RegisteringComponentSlotInfo Seat_Gunners {
+     Prefab "{0A5C688A2A1E7548}Prefabs/Vehicles/Helicopters/UH1H/VehParts/Seats/VehPart_UH1H_seats_gunners_dummy.et"
+    }
+    RegisteringComponentSlotInfo Seat_Cargo {
+     Prefab "{5C4D9B53495B219A}Prefabs/Vehicles/Helicopters/UH1H/VehParts/Seats/VehPart_UH1H_seats_cargo_openDoor.et"
+    }
+    RegisteringComponentSlotInfo Mount {
+     Prefab "{C74AFD1DC392E729}Prefabs/Vehicles/Helicopters/UH1H/VehParts/UH1H_SubsystemBeams.et"
+     RegisterDamage 1
+    }
+    RegisteringComponentSlotInfo GunnerLeft {
+     PivotID "snap_gunner_left"
+     Prefab "{273A9AE09880628E}Prefabs/Vehicles/Helicopters/UH1H/VehParts/WeapSystems/UH1H_M60D_gunner_left.et"
+     RegisterActions 1
+     RegisterControllers 1
+     RegisterCompartments 1
+    }
+    RegisteringComponentSlotInfo GunnerRight {
+     PivotID "snap_gunner_right"
+     Prefab "{7F99E6708A781708}Prefabs/Vehicles/Helicopters/UH1H/VehParts/WeapSystems/UH1H_M60D_gunner_right.et"
+     RegisterActions 1
+     RegisterControllers 1
+     RegisterCompartments 1
+    }
+   }
+  }
+  ActionsManagerComponent "{C97BE5489221AE18}" {
+   ActionContexts {
+    UserActionContext "{5CAAA44AC4FC9278}" {
+     Position PointInfo "{5CAAA44AC4FC927E}" {
+      PivotID "Scene_Root"
+      Offset -1.23 1.45 1
+      Angles 0 -90 0
+     }
+     Radius 0.7
+     Height 2
+    }
+    UserActionContext "{5CAAA44AC4FC004C}" {
+     Position PointInfo "{5CAAA44AC4FDFE5C}" {
+      PivotID "Scene_Root"
+      Offset 1.23 1.45 1
+      Angles 0 90 0
+     }
+     Radius 0.7
+     Height 2
+    }
+    UserActionContext "{612EAEE8D85308D9}" {
+     ContextName "door_gunner_l"
+     Position PointInfo "{612EAEE8C3B99CBA}" {
+      Offset -1.5 1.6 0
+      Angles 0 -90 0
+     }
+     Omnidirectional 0
+    }
+    UserActionContext "{612EAEE8DB2BEA54}" {
+     ContextName "door_gunner_r"
+     Position PointInfo "{612EAEE8C3B99CBA}" {
+      Offset 1.5 1.6 0
+      Angles 0 90 0
+     }
+     Height 0
+     Omnidirectional 0
+    }
+   }
+  }
+  VehicleAnimationComponent "{50B80BCCBF0B33C8}" {
+   AnimGraph "{BB2C380F68964876}Assets/Vehicles/Helicopters/UH1H/workspace/UH1H_Armed.agr"
+   AnimInstance "{3D635D71F43E5689}Assets/Vehicles/Helicopters/UH1H/workspace/UH1H_Armed_vehicle.asi"
+   AnimInjection AnimationAttachmentInfo "{50B80BCCA6210E6D}" {
+    AnimGraph "{BB2C380F68964876}Assets/Vehicles/Helicopters/UH1H/workspace/UH1H_Armed.agr"
+    AnimInstance "{AF1BA65D1709F749}Assets/Vehicles/Helicopters/UH1H/workspace/UH1H_Armed_player.asi"
+   }
+  }
+ }
+ coords -50 80 -1400
+}

@@ -46,12 +46,17 @@ class KSC_SubjectBaseTask : KSC_BaseTask
 	//! Put here handlers change the task's state based on the subject's state
 	protected void AttachSubjectHandlers()
 	{
+		SCR_GarbageSystem garbageSystem = SCR_GarbageSystem.GetByEntityWorld(m_pSubject);
+		if (garbageSystem)
+			garbageSystem.Withdraw(m_pSubject);
 	}
 	
 	//------------------------------------------------------------------------------------------------
 	//! Remove here the handlers that got attached in AttachSubjectHandlers
 	protected void DetachSubjectHandlers()
-	{
+	{		SCR_GarbageSystem garbageSystem = SCR_GarbageSystem.GetByEntityWorld(m_pSubject);
+		if (garbageSystem)
+			garbageSystem.Insert(m_pSubject);
 	}
 	
 	//------------------------------------------------------------------------------------------------

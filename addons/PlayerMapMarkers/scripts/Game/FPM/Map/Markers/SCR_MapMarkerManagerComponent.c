@@ -48,8 +48,11 @@ modded class SCR_MapMarkerManagerComponent : SCR_BaseGameModeComponent
 	// Decides if a marker should be shown to a given player based on factors such as faction, group, and ownership of the marker.
 	static bool ShouldRenderMapMarkerForPlayer(int playerId, int markerOwnerId)
 	{
-		bool isPlayerMemberOfMarkerOwnerFaction = SCR_FactionManager.SGetPlayerFaction(playerId) == SCR_FactionManager.SGetPlayerFaction(markerOwnerId);
-		bool isPlayerFactionFriendlyToSelf = SCR_FactionManager.SGetPlayerFaction(playerId).IsFactionFriendly(SCR_FactionManager.SGetPlayerFaction(playerId));
+		Faction playerFaction = SCR_FactionManager.SGetPlayerFaction(playerId);
+		Faction markerOwnerFaction = SCR_FactionManager.SGetPlayerFaction(markerOwnerId);
+
+		bool isPlayerMemberOfMarkerOwnerFaction = playerFaction == markerOwnerFaction;
+		bool isPlayerFactionFriendlyToSelf = playerFaction.IsFactionFriendly(playerFaction);
 		
 		SCR_GroupsManagerComponent groupManager = SCR_GroupsManagerComponent.GetInstance();
 		SCR_AIGroup playerGroup = groupManager.GetPlayerGroup(playerId)	;
@@ -60,8 +63,8 @@ modded class SCR_MapMarkerManagerComponent : SCR_BaseGameModeComponent
 		bool isPlayerOwnerOfMarker = playerId == markerOwnerId;
 		
 		bool shouldRenderMapMarker =
-			isPlayerOwnerOfMarker 												 // Always show the player their own position 
-			|| isPlayerMemberOfMarkerOwnerGroup  									 // On free-for-all factions, only show group members
+			isPlayerOwnerOfMarker 												 	  // Always show the player their own position 
+			|| isPlayerMemberOfMarkerOwnerGroup  									  // On free-for-all factions, only show group members
 			|| (isPlayerFactionFriendlyToSelf && isPlayerMemberOfMarkerOwnerFaction); // On team factions, always show teammates
 		
 		return shouldRenderMapMarker;

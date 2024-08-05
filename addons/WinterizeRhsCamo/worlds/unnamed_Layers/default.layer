@@ -1,0 +1,186 @@
+SCR_MapEntity MapEntity : "{731564B66F91B107}Prefabs/World/Game/MapEntity.et" {
+ coords 114.399 1 110.482
+ {
+  CommentEntity {
+   coords 0 1 0
+   m_Comment "MapEntity: "\
+   "Set up map textures"
+   m_Color 0 0 0
+   m_FaceCamera 1
+   m_TextBackground 1
+   m_BackgroundColor 1 0.6 0
+   m_BackgroundTransparency 0
+  }
+ }
+}
+SCR_AIWorld SCR_AIWorld : "{E0A05C76552E7F58}Prefabs/AI/SCR_AIWorld.et" {
+ coords 114.399 1 109.482
+ {
+  CommentEntity {
+   coords 0 1 0
+   m_Comment "SCR_AIWorld: "\
+   "Configure navigation mesh"
+   m_Color 0 0 0
+   m_FaceCamera 1
+   m_TextBackground 1
+   m_BackgroundColor 1 0.6 0
+   m_BackgroundTransparency 0
+  }
+ }
+}
+PerceptionManager PerceptionManager : "{028DAEAD63E056BE}Prefabs/World/Game/PerceptionManager.et" {
+ coords 114.399 1 108.482
+}
+SCR_GameModeEditor GameMode_Editor_Full : "{DA3986AF1B5032B7}Prefabs/MP/Modes/Editor/GameMode_Editor_Full.et" {
+ coords 114.399 1 107.482
+ {
+  SCR_FactionManager "613AD35B54C67EF9" {
+   ID "56E685E92F1B7E7A"
+   Factions {
+    SCR_Faction "{5CC8DE37E1FF0F7A}" {
+     m_bIsPlayable 1
+    }
+   }
+  }
+ }
+}
+GameEntity : "{0708DA31C996DD8F}Prefabs/Characters/Uniforms/Crye_Pants/crye_pants_marpat_snow.et" {
+ coords 115.228 1 104.944
+}
+SCR_SpawnPoint : "{0CAE96554C7FEB3D}PrefabsEditable/SpawnPoints/E_SpawnPoint_US_USMC.et" {
+ coords 115.943 1 108.914
+ angleY 90
+}
+SCR_ChimeraCharacter : "{0CC861F88F205BDB}Prefabs/Characters/Factions/BLUFOR/RHS_USAF/RHS_USAF_USMC_MEF/Character_RHS_USAF_USMC_TL.et" {
+ coords 119.714 1 115.388
+}
+GenericEntity : "{115B814BA42CF5FA}PrefabsEditable/Auto/Systems/Arsenal/ArsenalBoxes/USSR/E_ArsenalBox_RHS.et" {
+ coords 118.582 1 111.627
+}
+$grp GameEntity : "{14D5AD0EE8925F45}Prefabs/Characters/HeadGear/Helmet_ECH/Headgear_ECH_cover_snow.et" {
+ {
+  coords 115.211 1 104.289
+ }
+ {
+  coords 117.681 1 114.747
+ }
+}
+SCR_ChimeraCharacter : "{1B908DA68DDD0BFC}Prefabs/Characters/Factions/OPFOR/RHS_RF_MSV/Flora/Character_RF_MSV_AT.et" {
+ coords 122.399 1 113.992
+}
+GenericEntity : "{314C0961EF3B6787}PrefabsEditable/Auto/Systems/Arsenal/ArsenalBoxes/US/E_ArsenalBox_USMC.et" {
+ coords 118.123 1 107.061
+}
+SCR_ChimeraCharacter : "{3967948B72443B25}Prefabs/Characters/Factions/BLUFOR/RHS_USAF/RHS_USAF_USMC_MEF/Character_RHS_USAF_USMC_BaseLoadout.et" {
+ coords 111.812 1 114.46
+}
+SCR_ChimeraCharacter : "{3B167AFE3D75631C}Prefabs/Characters/Factions/OPFOR/RHS_RF_MSV/EMR/Character_RF_MSV_EMR_Rifleman.et" {
+ coords 120.292 1 115.073
+}
+$grp GameEntity : "{48B672D4830641E3}Prefabs/Characters/HeadGear/Helmet_ECH/Helmet_ECH_lc_c_snow.et" {
+ {
+  coords 115.743 1 104.849
+ }
+ {
+  components {
+   BaseLoadoutClothComponent "{5112706CD4157AF8}" {
+    Slots {
+     RHS_LoadoutSlotInfo NVG {
+      Angles 0 180 0
+      Prefab "{B385064A383A384B}Prefabs/Items/Equipment/Nightvision/PVS14/NVG_PVS14Dual_WP.et"
+     }
+    }
+   }
+  }
+  coords 117.118 1 115.308
+ }
+ {
+  coords 118.219 1 114.601
+ }
+}
+SCR_ChimeraCharacter : "{4E448FFA42302009}Prefabs/Characters/Factions/BLUFOR/RHS_US_USMC/Character_US_USMC_SL.et" {
+ coords 119.847 1 113.702
+}
+GameEntity : "{6F23FBC40945B33F}Prefabs/Characters/HeadGear/Helmet_MICH_ACH/Helmet_MICH_SHROUD_Cov_Marpat_snow.et" {
+ coords 117.938 1 114.572
+}
+SCR_ChimeraCharacter : "{7C76B1BB6C6E7EA5}Prefabs/Characters/Factions/OPFOR/RHS_RF_MSV/EMR/Character_RF_MSV_EMR_AAT.et" {
+ coords 122.29 1 113.005
+}
+SCR_ChimeraCharacter : "{7F333C03AF1F712B}Prefabs/Characters/Factions/BLUFOR/RHS_US_USMC/Character_US_USMC_Rifleman.et" {
+ coords 114.249 1 112.284
+}
+GenericEntity : "{A4963CF827220C0D}Prefabs/Items/Equipment/Backpacks/FILBE_Backpack_snow.et" {
+ components {
+  SCR_UniversalInventoryStorageComponent "{5222CB03A40528FA}" {
+   Attributes SCR_ItemAttributeCollection "{5222CB039E9715D1}" {
+    CustomAttributes {
+     PreviewRenderAttributes "{52BCBDD2B54658EC}" {
+      PreviewWornModel 1
+     }
+    }
+   }
+  }
+ }
+ coords 116.235 1 104.149
+}
+SCR_ChimeraCharacter : "{AE2E93B28352053F}Prefabs/Characters/Factions/BLUFOR/RHS_USAF/RHS_USAF_USMC_MEF/Character_RHS_USAF_USMC_LAT.et" {
+ coords 113.872 1 114.147
+}
+GameEntity : "{C150FB930ED15F29}Prefabs/Characters/Uniforms/Crye_Shirt/Jacket_Crye_Combat_Shirt_MARPAT_snow.et" {
+ components {
+  SCR_UniversalInventoryStorageComponent "{5222CB01D5B9A306}" {
+   Attributes SCR_ItemAttributeCollection "{5222CB01245CDF32}" {
+    CustomAttributes {
+     PreviewRenderAttributes "{555292467DA11B7C}" {
+      PreviewWornModel 1
+     }
+    }
+   }
+  }
+ }
+ coords 114.427 1 104.218
+}
+GenericEntity : "{C1AB654F77ABA58B}PrefabsEditable/Auto/Props/Military/Compositions/US/E_ArsenalBox_US.et" {
+ coords 120.242 1 108.684
+ angleY 90
+}
+SCR_ChimeraCharacter : "{C6F7F2BC064B01F1}Prefabs/Characters/Factions/OPFOR/RHS_RF_MSV/EMR/Character_RF_MSV_EMR_AT.et" {
+ coords 121.468 1 112.168
+}
+SCR_ChimeraCharacter : "{C86E7F3E46F6A05A}Prefabs/Characters/Factions/OPFOR/RHS_RF_MSV/Flora/Character_RF_MSV_AAT.et" {
+ coords 120.812 1 115.844
+}
+SCR_ChimeraCharacter : "{CB4B1645B748D5D4}Prefabs/Characters/Factions/BLUFOR/RHS_USAF/RHS_USAF_USMC_MEF/Character_RHS_USAF_USMC_Rifleman.et" {
+ coords 113.086 1 112.317
+}
+SCR_ChimeraCharacter : "{D774AFD56F8E7B1F}Prefabs/Characters/Factions/BLUFOR/RHS_US_USMC/Character_US_USMC_Base.et" {
+ components {
+  BaseLoadoutManagerComponent "{520EA1D2DB11821E}" {
+   Slots {
+    LoadoutSlotInfo Hat {
+     Prefab "{48B672D4830641E3}Prefabs/Characters/HeadGear/Helmet_ECH/Helmet_ECH_lc_c_snow.et"
+    }
+   }
+  }
+ }
+ coords 115.952 1 111.776
+}
+GameEntity : "{E319701076AF6C79}Prefabs/Characters/HeadGear/Helmet_MICH_ACH/Helmet_ACH_SHROUD_m81.et" {
+ components {
+  BaseLoadoutClothComponent "{5112706CD4157AF8}" {
+   Slots {
+    RHS_LoadoutSlotInfo NVG {
+     Prefab "{B385064A383A384B}Prefabs/Items/Equipment/Nightvision/PVS14/NVG_PVS14Dual_WP.et"
+    }
+   }
+  }
+ }
+ coords 116.706 1 115.503
+}
+SCR_ChimeraCharacter : "{F13D06392307FA6A}Prefabs/Characters/Factions/OPFOR/RHS_AFRF/MSV/VKPO_Summer/Character_RHS_RF_MSV_VKPO_S_AMG.et" {
+ coords 120.728 1 110.845
+}
+SCR_ChimeraCharacter : "{F6C906607BA8741A}Prefabs/Characters/Factions/OPFOR/RHS_RF_MSV/EMR/Character_RF_MSV_EMR_AMG.et" {
+ coords 120.601 1 111.793
+}

@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{E723FEBDCA02AE87}Assets/Characters/Vests/Vest_Ratnik_6B45/data/ratnik_6b45_close_na.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

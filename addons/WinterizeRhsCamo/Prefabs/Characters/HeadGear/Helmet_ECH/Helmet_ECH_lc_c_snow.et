@@ -1,0 +1,19 @@
+GameEntity : "{DF5E987AB3924A0A}Prefabs/Characters/HeadGear/Helmet_ECH/Helmet_ECH_lc_c.et" {
+ ID "50D485E1435D6C72"
+ components {
+  RHS_ClothNodeStorageComponent "{5DB13C5777E6E695}" {
+   Attributes SCR_ItemAttributeCollection "{5DB13C5760610D64}" {
+    ItemDisplayName UIInfo "{5DB13C575E2AFE37}" {
+     Name "#RHS-Headgear_ECH_lc_Name (MARPAT-S)"
+    }
+   }
+  }
+  BaseLoadoutClothComponent "{5112706CD4157AF8}" {
+   Slots {
+    RHS_LoadoutSlotInfo MeshCover {
+     Prefab "{14D5AD0EE8925F45}Prefabs/Characters/HeadGear/Helmet_ECH/Headgear_ECH_cover_snow.et"
+    }
+   }
+  }
+ }
+}

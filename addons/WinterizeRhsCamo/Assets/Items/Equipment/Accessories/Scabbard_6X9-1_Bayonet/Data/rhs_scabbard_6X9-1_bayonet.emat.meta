@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{C473B936B93C9760}Assets/Items/Equipment/Accessories/Scabbard_6X9-1_Bayonet/Data/rhs_scabbard_6X9-1_bayonet.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

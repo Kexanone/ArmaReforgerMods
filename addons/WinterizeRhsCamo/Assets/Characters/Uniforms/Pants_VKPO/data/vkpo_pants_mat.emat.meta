@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{ECE6D2BEFD2F9D14}Assets/Characters/Uniforms/Pants_VKPO/data/vkpo_pants_mat.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

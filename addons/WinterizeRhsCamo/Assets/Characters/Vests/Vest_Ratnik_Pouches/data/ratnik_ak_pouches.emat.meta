@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{BFAF25262EB328E4}Assets/Characters/Vests/Vest_Ratnik_Pouches/data/ratnik_ak_pouches.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

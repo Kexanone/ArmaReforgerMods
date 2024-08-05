@@ -1,0 +1,25 @@
+GameEntity : "{7DF25380BEFEA3A0}Prefabs/Characters/Uniforms/Crye_Pants/crye_pants_marpat.et" {
+ ID "5104869D194C6243"
+ components {
+  SCR_UniversalInventoryStorageComponent "{5222CB01D5B9A306}" {
+   Attributes SCR_ItemAttributeCollection "{5222CB01245CDF32}" {
+    ItemDisplayName UIInfo "{5222CB0109A04AB2}" {
+     Name "G3 Battle Pant (MARPAT-S)"
+    }
+    CustomAttributes {
+     PreviewRenderAttributes "{555292467DA11B7C}" {
+      PreviewWornModel 1
+     }
+    }
+   }
+  }
+  BaseLoadoutClothComponent "{5104869D194C627A}" {
+   WornMaterialsOverride {
+    "{E0E3F03753699F99}Assets/Characters/Uniforms/Crye_Combat_Pants/Data/crye_trousers_snow.emat"
+   }
+   ItemMaterialsOverride {
+    "{E0E3F03753699F99}Assets/Characters/Uniforms/Crye_Combat_Pants/Data/crye_trousers_snow.emat"
+   }
+  }
+ }
+}

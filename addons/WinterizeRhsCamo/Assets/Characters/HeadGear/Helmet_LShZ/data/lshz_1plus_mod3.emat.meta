@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{3FA65DAB4A5A02C9}Assets/Characters/HeadGear/Helmet_LShZ/data/lshz_1plus_mod3.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

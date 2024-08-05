@@ -1,0 +1,22 @@
+GenericEntity : "{48602F57998AB597}Prefabs/Items/Equipment/Backpacks/FILBE_Backpack.et" {
+ ID "511E9C6ADE70F798"
+ components {
+  SCR_UniversalInventoryStorageComponent "{5222CB03A40528FA}" {
+   Attributes SCR_ItemAttributeCollection "{5222CB039E9715D1}" {
+    CustomAttributes {
+     PreviewRenderAttributes "{52BCBDD2B54658EC}" {
+      PreviewWornModel 1
+     }
+    }
+   }
+  }
+  BaseLoadoutClothComponent "{511E9C6ADE70F7BB}" {
+   WornMaterialsOverride {
+    "{A8666D424B613EF2}Assets/Items/Equipment/Backpacks/FILBE_BackPack/Data/FILBE_snow.emat"
+   }
+   ItemMaterialsOverride {
+    "{A8666D424B613EF2}Assets/Items/Equipment/Backpacks/FILBE_BackPack/Data/FILBE_snow.emat"
+   }
+  }
+ }
+}

@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{518018467F03165E}Assets/Items/Equipment/Accessories/ETool_MPL50/Data/ETool_MPL50_carrier_EMR.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

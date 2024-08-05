@@ -1,0 +1,28 @@
+GameEntity : "{6C51FC9775C601E5}Prefabs/Characters/HeadGear/Helmet_ECH/Headgear_ECH_cover_base.et" {
+ ID "5112706CD4157AC7"
+ components {
+  InventoryItemComponent "{5244E4431E28A759}" {
+   Attributes SCR_ItemAttributeCollection "{52C8D601873E6784}" {
+    ItemDisplayName UIInfo "{52C8D60185955516}" {
+     Name "ECH S Helmet Cover"
+    }
+   }
+  }
+  MeshObject "{5112706CD4157AE0}" {
+   Materials {
+    MaterialAssignClass "{613B3ADFE753BB1C}" {
+     SourceMaterial "6b7cover"
+     AssignedMaterial "{8D01E68401B9864C}Assets/Characters/HeadGear/Helmet_ECH/data/ECH_LowCut_Cover_snow.emat"
+    }
+   }
+  }
+  BaseLoadoutClothComponent "{5112706CD4157AF8}" {
+   WornMaterialsOverride {
+    "{8D01E68401B9864C}Assets/Characters/HeadGear/Helmet_ECH/data/ECH_LowCut_Cover_snow.emat"
+   }
+   ItemMaterialsOverride {
+    "{8D01E68401B9864C}Assets/Characters/HeadGear/Helmet_ECH/data/ECH_LowCut_Cover_snow.emat"
+   }
+  }
+ }
+}

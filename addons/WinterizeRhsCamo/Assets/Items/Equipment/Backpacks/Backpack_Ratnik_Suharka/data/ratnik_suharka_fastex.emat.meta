@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{3FF9EC2EB29976B3}Assets/Items/Equipment/Backpacks/Backpack_Ratnik_Suharka/data/ratnik_suharka_fastex.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

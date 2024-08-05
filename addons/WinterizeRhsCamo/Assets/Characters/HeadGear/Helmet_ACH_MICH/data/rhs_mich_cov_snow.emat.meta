@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{297526AAF6C4747A}Assets/Characters/HeadGear/Helmet_ACH_MICH/data/rhs_mich_cov_snow.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

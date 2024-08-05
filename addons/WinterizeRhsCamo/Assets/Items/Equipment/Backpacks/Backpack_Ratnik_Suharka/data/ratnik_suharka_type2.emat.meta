@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{78F84D4DB4C5A0E0}Assets/Items/Equipment/Backpacks/Backpack_Ratnik_Suharka/data/ratnik_suharka_type2.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

@@ -1,0 +1,25 @@
+GameEntity : "{9EFEE32C346C9F26}Prefabs/Characters/HeadGear/Helmet_MICH_ACH/Helmet_MICH_SHROUD_Cov_MarpatWD.et" {
+ ID "50D485E1435D6C72"
+ components {
+  RHS_ClothNodeStorageComponent "{5DB13C5777E6E695}" {
+   Attributes SCR_ItemAttributeCollection "{5DB13C5760610D64}" {
+    ItemDisplayName UIInfo "{5DB13C575E2AFE37}" {
+     Name "LWH (MARPAT-S/#RHS-Attachment_Shroud)"
+    }
+    CustomAttributes {
+     PreviewRenderAttributes "{5DB13C57226FEA81}" {
+      PreviewWornModel 1
+     }
+    }
+   }
+  }
+  BaseLoadoutClothComponent "{5112706CD4157AF8}" {
+   WornMaterialsOverride {
+    "" "{297526AAF6C4747A}Assets/Characters/HeadGear/Helmet_ACH_MICH/data/rhs_mich_cov_snow.emat"
+   }
+   ItemMaterialsOverride {
+    "" "{297526AAF6C4747A}Assets/Characters/HeadGear/Helmet_ACH_MICH/data/rhs_mich_cov_snow.emat"
+   }
+  }
+ }
+}

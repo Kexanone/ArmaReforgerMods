@@ -1,0 +1,33 @@
+GameEntity : "{BCC6A98B87FC466A}Prefabs/Characters/Uniforms/Crye_Shirt/Jacket_Crye_Combat_Shirt_MARPAT.et" {
+ ID "5104869D194C6243"
+ components {
+  MeshObject "{5104869D194C6262}" {
+   Materials {
+    MaterialAssignClass "{5F22F64A1FB2F61C}" {
+     SourceMaterial "Crye_longsleeve_multicam"
+     AssignedMaterial "{7C9A5515B750C25D}Assets/Characters/Uniforms/Crye_Combat_Shirt/Data/Crye_longsleeve_MARPAT_snow.emat"
+    }
+   }
+  }
+  SCR_UniversalInventoryStorageComponent "{5222CB01D5B9A306}" {
+   Attributes SCR_ItemAttributeCollection "{5222CB01245CDF32}" {
+    ItemDisplayName UIInfo "{5222CB0109A04AB2}" {
+     Name "G3 Battle Shirt (MARPAT-S)"
+    }
+    CustomAttributes {
+     PreviewRenderAttributes "{555292467DA11B7C}" {
+      PreviewWornModel 1
+     }
+    }
+   }
+  }
+  BaseLoadoutClothComponent "{5104869D194C627A}" {
+   WornMaterialsOverride {
+    "{7C9A5515B750C25D}Assets/Characters/Uniforms/Crye_Combat_Shirt/Data/Crye_longsleeve_MARPAT_snow.emat"
+   }
+   ItemMaterialsOverride {
+    "{7C9A5515B750C25D}Assets/Characters/Uniforms/Crye_Combat_Shirt/Data/Crye_longsleeve_MARPAT_snow.emat"
+   }
+  }
+ }
+}

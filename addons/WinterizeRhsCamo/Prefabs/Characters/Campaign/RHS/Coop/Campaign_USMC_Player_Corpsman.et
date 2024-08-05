@@ -1,0 +1,18 @@
+SCR_ChimeraCharacter : "{A3AC876D9E4CC3A1}Prefabs/Characters/Campaign/RHS/Coop/Campaign_USMC_Player.et" {
+ ID "520EC961A090BBD5"
+ components {
+  BaseLoadoutManagerComponent "{520EA1D2DB11821E}" {
+   Slots {
+    LoadoutSlotInfo Hat {
+     Prefab "{48B672D4830641E3}Prefabs/Characters/HeadGear/Helmet_ECH/Helmet_ECH_lc_c_snow.et"
+    }
+    LoadoutSlotInfo Jacket {
+     Prefab "{C150FB930ED15F29}Prefabs/Characters/Uniforms/Crye_Shirt/Jacket_Crye_Combat_Shirt_MARPAT_Snow.et"
+    }
+    LoadoutSlotInfo Pants {
+     Prefab "{0708DA31C996DD8F}Prefabs/Characters/Uniforms/Crye_Pants/crye_pants_marpat_sbow.et"
+    }
+   }
+  }
+ }
+}

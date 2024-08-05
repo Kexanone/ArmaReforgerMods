@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{14D5AD0EE8925F45}Prefabs/Characters/HeadGear/Helmet_ECH/Headgear_ECH_cover_snow.et"
+ Configurations {
+  EntityTemplateResourceClass PC {
+  }
+  EntityTemplateResourceClass XBOX_ONE : PC {
+  }
+  EntityTemplateResourceClass XBOX_SERIES : PC {
+  }
+  EntityTemplateResourceClass PS4 : PC {
+  }
+  EntityTemplateResourceClass PS5 : PC {
+  }
+  EntityTemplateResourceClass HEADLESS : PC {
+  }
+ }
+}

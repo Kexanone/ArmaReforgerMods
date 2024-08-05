@@ -1,0 +1,22 @@
+GameProject {
+ ID "WinterizeRhsCamo"
+ GUID "613978E1AB3EE360"
+ TITLE "Winterize RHS Camo"
+ Dependencies {
+  "595F2BF2F44836FB" "58D0FB3206B6F859"
+ }
+ Configurations {
+  GameProjectConfig PC {
+  }
+  GameProjectConfig XBOX_ONE {
+  }
+  GameProjectConfig XBOX_SERIES {
+  }
+  GameProjectConfig PS4 {
+  }
+  GameProjectConfig PS5 {
+  }
+  GameProjectConfig HEADLESS {
+  }
+ }
+}

@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{C8CB526DAF7B22E7}Assets/Items/Equipment/Accessories/ETool_MPL50/Data/ETool_MPL50_carrier.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

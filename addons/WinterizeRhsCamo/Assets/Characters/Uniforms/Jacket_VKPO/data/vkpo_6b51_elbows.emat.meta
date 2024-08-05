@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{EC61326DF5EE08B4}Assets/Characters/Uniforms/Jacket_VKPO/data/vkpo_6b51_elbows.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

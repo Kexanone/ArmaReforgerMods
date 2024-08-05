@@ -2,8 +2,11 @@
 class KSC_CompositionHelper
 {
 	//------------------------------------------------------------------------------------------------
-	static void GetChildrenByXobSubstring(IEntity composition, string substr, inout notnull array<IEntity> matches, bool recursive = true)
+	static void GetChildrenByXobSubstring(IEntity composition, string substr, inout notnull array<IEntity> matches, bool recursive = true, bool caseSensitive = true)
 	{
+		if (!caseSensitive)
+			substr.ToLower();
+		
 		IEntity child = composition.GetChildren();
 		while (child)
 		{
@@ -11,8 +14,16 @@ class KSC_CompositionHelper
 				GetChildrenByXobSubstring(child, substr, matches, recursive);
 			
 			VObject vObject = child.GetVObject();
-			if (vObject && vObject.GetResourceName().IndexOf(substr) >= 0)
-				matches.Insert(child);
+			if (vObject)
+			{
+				ResourceName resName = vObject.GetResourceName();
+				
+				if (!caseSensitive)
+					resName.ToLower();
+				
+				if (resName.IndexOf(substr) >= 0)
+					matches.Insert(child);
+			}
 			
 			child = child.GetSibling();
 		}

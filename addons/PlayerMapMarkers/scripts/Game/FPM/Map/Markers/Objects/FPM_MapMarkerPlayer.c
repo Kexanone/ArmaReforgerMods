@@ -25,6 +25,9 @@ class FPM_MapMarkerPlayer : SCR_MapMarkerEntity
 	[RplProp(onRplName: "InitializeColor")]
 	protected int m_iColorAlive;
 	
+	[RplProp()]
+	protected int m_iPlayerId;
+	
 	//------------------------------------------------------------------------------------------------
 	override protected void EOnInit(IEntity owner)
 	{
@@ -135,5 +138,17 @@ class FPM_MapMarkerPlayer : SCR_MapMarkerEntity
 		m_iColorAlive = faction.GetFactionColor().PackToInt();
 		InitializeColor();
 		Replication.BumpMe();
+	}
+	
+	//------------------------------------------------------------------------------------------------
+	int GetPlayerId()
+	{
+		return m_iPlayerId;
+	}
+	
+	//------------------------------------------------------------------------------------------------
+	void SetPlayerId(int playerId)
+	{
+		m_iPlayerId = playerId;
 	}
 }

@@ -14,7 +14,9 @@ class FPM_MapMarkerEntryPlayer : SCR_MapMarkerEntryDynamic
 		FPM_MapMarkerPlayer marker = FPM_MapMarkerPlayer.Cast(m_MarkerMgr.InsertDynamicMarker(SCR_EMapMarkerType.FPM_PLAYER, player));
 		if (!marker)
 			return;
-		
+	
+		marker.SetPlayerId(playerId);
+			
 		SCR_CharacterControllerComponent charCtrl = SCR_CharacterControllerComponent.Cast(player.FindComponent(SCR_CharacterControllerComponent));
 		if (!charCtrl)
 			return;
@@ -35,7 +37,6 @@ class FPM_MapMarkerEntryPlayer : SCR_MapMarkerEntryDynamic
 		Faction faction = playerCharacter.GetFaction();
 		if (faction)
 			marker.SetFaction(faction);
-		
 		
 		marker.SetGlobalText(GetPlayerNameWithRank(playerId, player));
 		marker.SetGlobalSymbolIcons(EMilitarySymbolIcon.INFANTRY);

@@ -1,4 +1,5 @@
-modded class SCR_GroupsManagerComponent
+//------------------------------------------------------------------------------------------------
+modded class SCR_GroupsManagerComponent : SCR_BaseGameModeComponent
 {
 	//------------------------------------------------------------------------------------------------
 	//! Force update of remaining group members' marker streaming rules when someone leaves the group
@@ -25,7 +26,7 @@ modded class SCR_GroupsManagerComponent
 	}
 	
 	//------------------------------------------------------------------------------------------------
-	private void UpdateMarkerStreamRulesForAllGroupMembers(SCR_AIGroup group)
+	protected void UpdateMarkerStreamRulesForAllGroupMembers(SCR_AIGroup group)
 	{
 		SCR_MapMarkerManagerComponent mapMarkerManager = SCR_MapMarkerManagerComponent.GetInstance();
 		

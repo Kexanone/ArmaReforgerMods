@@ -11,15 +11,25 @@ modded class SCR_MapMarkerManagerComponent : SCR_BaseGameModeComponent
 			if (!dynamicMarker)
 				continue;
 			
-			// Cast to FPM so we can get the player this marker is associated with
 			FPM_MapMarkerPlayer fpmMarker = FPM_MapMarkerPlayer.Cast(dynamicMarker);
-			if (!fpmMarker)
-				continue;
-			
-			PlayerController playerController = GetGame().GetPlayerManager().GetPlayerController(playerID);
-			bool shouldStreamOut = !ShouldRenderMapMarkerForPlayer(playerID, fpmMarker.GetPlayerId());
-			
-			HandleStreamOut(fpmMarker, playerController, shouldStreamOut);
+			if (fpmMarker != null)
+			{
+				// If SCR_MapMarkerEntity is successfully cast to FPM_MapMarkerPlayer, handle it as such.
+				PlayerController playerController = GetGame().GetPlayerManager().GetPlayerController(playerID);
+				bool shouldStreamOut = !ShouldRenderMapMarkerForPlayer(playerID, fpmMarker.GetPlayerId());
+				
+				HandleStreamOut(fpmMarker, playerController, shouldStreamOut);
+			}
+			else
+			{
+ 				// Otherwise, handle the entity as a SCR_MapMarkerEntity as it is in vanilla.
+				Faction markerFaction = dynamicMarker.GetFaction();
+				
+				if (!markerFaction || markerFaction == SCR_FactionManager.SGetPlayerFaction(playerID))
+					HandleStreamOut(dynamicMarker, GetGame().GetPlayerManager().GetPlayerController(playerID), false);
+				else
+					HandleStreamOut(dynamicMarker, GetGame().GetPlayerManager().GetPlayerController(playerID), true);
+			}
 		};
 	}
 	

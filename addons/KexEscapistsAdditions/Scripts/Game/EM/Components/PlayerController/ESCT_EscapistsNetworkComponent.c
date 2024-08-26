@@ -15,8 +15,8 @@ modded class ESCT_EscapistsNetworkComponent : ScriptComponent
 		ResourceName imageSet = "{12BA7AE37121F768}UI/Textures/Icons/icons_wrapperUI-96.imageset";
 		string iconName = "warning";
 		float scale = 2;
-		ESCT_GameConfigComponent gameConfig = ESCT_GameConfigComponent.GetInstance();
-		ESCT_EnemyFaction faction = gameConfig.GetOccupyingFaction();	
+		ESCT_FactionManager factionManager = ESCT_FactionManager.Cast(GetGame().GetFactionManager());
+		ESCT_Faction faction = factionManager.GetEnemyFaction();	
 		string title = WidgetManager.Translate("#Escapists-Support_Generic_Title", faction.GetFactionName());
 		title = string.Format("<color rgba='196,2,52,255'>%1</color>", title);
 		LocalizedString resultSubtitle = message + "<br/><br/>" + string.Format("<image set='%1' name='%2' scale='%3'/>", imageSet, iconName, scale);

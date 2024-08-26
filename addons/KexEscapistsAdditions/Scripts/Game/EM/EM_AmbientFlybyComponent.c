@@ -70,7 +70,7 @@ class EM_AmbientFlybyComponent : ScriptComponent
 		foreach (IEntity character : spawnedCharacters)
 		{
 			SCR_CompartmentAccessComponent compartmentAccess = 	SCR_CompartmentAccessComponent.Cast(character.FindComponent(SCR_CompartmentAccessComponent));
-			if (compartmentAccess.GetCompartment().GetType() == ECompartmentType.PILOT)
+			if (compartmentAccess.GetCompartment() && compartmentAccess.GetCompartment().GetType() == ECompartmentType.PILOT)
 			{
 				SCR_CharacterControllerComponent characterController = SCR_CharacterControllerComponent.Cast(character.FindComponent(SCR_CharacterControllerComponent));
 				characterController.m_OnLifeStateChanged.Insert(OnPilotLifeStateChanged);

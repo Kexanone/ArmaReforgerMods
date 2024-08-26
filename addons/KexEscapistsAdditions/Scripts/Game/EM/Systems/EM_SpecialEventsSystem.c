@@ -23,7 +23,7 @@ class EM_SpecialEventsSystem : GameSystem
 				m_aSpecialEvents.RemoveOrdered(i);
 		}
 		
-		ESCT_EscapistsGameMode.GetGameMode().GetEscapistsManager().GetOnDoorUnlock().Insert(ScheduleNextEvent);
+		ESCT_EscapistsGameMode.GetGameMode().GetEscapistsManager().GetOnRunStart().Insert(ScheduleNextEvent);
 	}
 	
 	//------------------------------------------------------------------------------------------------
@@ -36,16 +36,13 @@ class EM_SpecialEventsSystem : GameSystem
 	//------------------------------------------------------------------------------------------------
 	void SelectEvent()
 	{
-		if (ESCT_GameStateManagerComponent.GetInstance().GetGameState() > ESCT_EGameState.Prison)
-		{
-			EM_SpecialEventBase evt = m_aSpecialEvents.GetRandomElement();
-			
-			LocalizedString message = evt.GetNotificationMessage();
-			if (!message.IsEmpty())
-				ShowNotification(message);
-			
-			evt.Run();
-		}
+		EM_SpecialEventBase evt = m_aSpecialEvents.GetRandomElement();
+		
+		LocalizedString message = evt.GetNotificationMessage();
+		if (!message.IsEmpty())
+			ShowNotification(message);
+		
+		evt.Run();
 		
 		ScheduleNextEvent();
 	}

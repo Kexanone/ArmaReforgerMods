@@ -19,7 +19,6 @@ class EM_ArtilleryEvent : EM_SpecialEventBase
 	protected int m_iRoundsFired;
 	protected IEntity m_pTarget;
 	protected vector m_vCenter;
-	private ref RandomGenerator m_RNG = new RandomGenerator();
 	
 	//------------------------------------------------------------------------------------------------
 	override void Run()
@@ -33,7 +32,7 @@ class EM_ArtilleryEvent : EM_SpecialEventBase
 				
 		for (int i; i < 3; i++)
 		{
-			GetGame().GetCallqueue().CallLater(SpawnSiren, 3000 + i * m_RNG.RandInt(1000, 3000));
+			GetGame().GetCallqueue().CallLater(SpawnSiren, 3000 + i * Math.RandomIntInclusive(1000, 3000));
 		}
 		
 		GetGame().GetCallqueue().CallLater(StartBarrage, 25000);
@@ -48,7 +47,7 @@ class EM_ArtilleryEvent : EM_SpecialEventBase
 			m_vCenter = m_pTarget.GetOrigin();
 		}
 		
-		vector pos = m_RNG.GenerateRandomPointInRadius(1000, 1500, m_vCenter);
+		vector pos = SCR_Math2D.GenerateRandomPointInRadius(1000, 1500, m_vCenter);
 		pos[1] = SCR_TerrainHelper.GetTerrainY(pos);
 		IEntity siren = EM_Utils.SpawnEntity(m_sSirenResName, pos);
 		GetGame().GetCallqueue().CallLater(SCR_EntityHelper.DeleteEntityAndChildren, 73100, false, siren);
@@ -64,9 +63,8 @@ class EM_ArtilleryEvent : EM_SpecialEventBase
 	//------------------------------------------------------------------------------------------------
 	protected void SpawnRound()
 	{
-		float radius = m_fRadius * Math.RandomFloat01();
-		float angle = Math.PI2 * Math.RandomFloat01();
-		vector pos = m_vCenter + radius * Vector(Math.Cos(angle), 0, Math.Sin(angle));
+		vector pos = SCR_Math2D.GenerateRandomPointInRadius(0, m_fRadius, m_vCenter, false);
+		pos[1] = SCR_TerrainHelper.GetTerrainY(pos);
 		EM_Utils.SpawnEntity(m_sRoundResName, pos);
 		m_iRoundsFired++;
 		

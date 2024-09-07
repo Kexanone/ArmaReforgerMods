@@ -1,6 +1,9 @@
 SCR_BaseTaskManager : "{87208DAD6F3C0DE2}Prefabs/MP/Managers/Tasks/TaskManager_Editor.et" {
  ID "56DEB09946BD23E3"
  {
+  KSC_BuildTaskSupportEntity : "{18A4942943FCAB26}Prefabs/Tasks/SupportEntities/KSC_BuildSupportEntity.et" {
+   ID "624EE48CC053812E"
+  }
   KSC_FindIntelTaskSupportEntity : "{7C8E66579F350F67}Prefabs/Tasks/SupportEntities/KSC_FindIntelTaskSupportEntity.et" {
    ID "60ACDAA52E1095B3"
    coords 0 0 0

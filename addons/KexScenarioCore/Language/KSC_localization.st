@@ -17,6 +17,22 @@ StringTable {
    Author "kex"
    LastChanged "kex"
   }
+  CustomStringTableItem "{624EF04DA8276D64}" {
+   Id "KSC-Task_Build_Description"
+   Target_en_us "Build the specified structure in the area."
+   Target_de_de "Baue die angegebene Struktur in dem Gebiet."
+   Modified 1649340715
+   Author "Kexanone"
+   LastChanged "Kexanone"
+  }
+  CustomStringTableItem "{624EF04DB6865394}" {
+   Id "KSC-Task_Build_Name"
+   Target_en_us "Build %1"
+   Target_de_de "Baue %1"
+   Modified 1649340600
+   Author "Kexanone"
+   LastChanged "Kexanone"
+  }
   CustomStringTableItem "{61530DEFF898BB6E}" {
    Id "KSC-Task_ClearArea_Description"
    Target_en_us "Clear the specified area."

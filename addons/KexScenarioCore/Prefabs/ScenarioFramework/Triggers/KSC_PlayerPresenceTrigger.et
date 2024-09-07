@@ -1,0 +1,13 @@
+KSC_PlayerPresenceTriggerEntity {
+ ID "6244E5CD052AE34F"
+ coords 172.5 1.001 233.506
+ TriggerShapeType Sphere
+ SphereRadius 50
+ ShapeColor 1 0.672 0.672 0.329
+ TriggerActivationType "All changes"
+ PeriodicQueries 1
+ UpdatePeriod 2
+ ClassesFilter {
+  "SCR_ChimeraCharacter" "Vehicle"
+ }
+}

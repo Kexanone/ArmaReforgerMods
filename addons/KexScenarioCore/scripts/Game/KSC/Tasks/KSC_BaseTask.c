@@ -30,7 +30,7 @@ class KSC_BaseTask : SCR_BaseTask
 	//------------------------------------------------------------------------------------------------
 	//! Show pop-up notification when task's state has been changed
 	//! Based on SCR_EditorTask.PopUpNotification
-	protected void PopUpNotification(string prefix)
+	void PopUpNotification(string prefix)
 	{
 		//--- Get player faction (prioritize respawn faction, because it's defined even when player is waiting for respawn)
 		Faction playerFaction;

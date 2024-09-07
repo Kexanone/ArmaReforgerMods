@@ -8,7 +8,7 @@ StaticModelEntity : "{B9AEDBE988F20A1A}Prefabs/Structures/Infrastructure/Towers/
    m_UIInfo SCR_EditableEntityUIInfo "{5E750EB26E7B7D9B}" {
     Name "R-404 Antenna"
     m_aAuthoredLabels {
-     5 90 9350
+     5 90 13000
     }
    }
    m_bAutoRegister ALWAYS

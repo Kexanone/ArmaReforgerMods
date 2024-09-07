@@ -4,7 +4,7 @@ StaticModelEntity : "{1C6CB7504CBD1CC4}Prefabs/Compositions/Misc/SubCompositions
   SCR_EditableEntityComponent "{5EF0B7B08795E5C3}" {
    m_UIInfo SCR_EditableEntityUIInfo "{5298E609432D192D}" {
     m_aAuthoredLabels {
-     5 90 9351
+     5 90 13001
     }
    }
   }

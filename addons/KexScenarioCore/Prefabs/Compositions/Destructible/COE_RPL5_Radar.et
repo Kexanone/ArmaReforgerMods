@@ -5,7 +5,7 @@ StaticModelEntity : "{2BC7C6DE43AC49E2}Prefabs/Structures/Military/Radar/Approac
    m_UIInfo SCR_EditableEntityUIInfo "{5E750EB20581E8AB}" {
     Name "RPL-5 Radar"
     m_aAuthoredLabels {
-     5 90 9350
+     5 90 13000
     }
    }
    m_bAutoRegister ALWAYS

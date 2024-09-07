@@ -1,0 +1,15 @@
+KSC_BuildTask {
+ ID "623B1951A3187274"
+ components {
+  SCR_MapDescriptorComponent "{623B1951A3187267}" {
+   VisibleOnMap 0
+   MainType Task
+  }
+ }
+ coords 1356.394 1.677 1054.424
+ m_sName "#KSC-Task_Build_Name"
+ m_sDescription "#KSC-Task_Build_Description"
+ m_sMapIconName "Icon_Task_Build"
+ m_sTaskListIconName "Icon_Task_Build"
+ m_sIconImageset "{10C0A9A305E8B3A4}UI/Imagesets/Tasks/Task_Icons.imageset"
+}

@@ -12,13 +12,12 @@ modded class SCR_MapMarkerManagerComponent : SCR_BaseGameModeComponent
 				continue;
 			
 			FPM_MapMarkerPlayer fpmMarker = FPM_MapMarkerPlayer.Cast(dynamicMarker);
-			if (fpmMarker != null)
+			if (fpmMarker)
 			{
 				// If SCR_MapMarkerEntity is successfully cast to FPM_MapMarkerPlayer, handle it as such.
 				PlayerController playerController = GetGame().GetPlayerManager().GetPlayerController(playerID);
-				bool shouldStreamOut = !ShouldRenderMapMarkerForPlayer(playerID, fpmMarker.GetPlayerId());
-				
-				HandleStreamOut(fpmMarker, playerController, shouldStreamOut);
+				bool showMarker = FPM_ShouldShowMarkerForPlayer(fpmMarker, playerID);
+				HandleStreamOut(fpmMarker, playerController, !showMarker);
 			}
 			else
 			{
@@ -30,53 +29,64 @@ modded class SCR_MapMarkerManagerComponent : SCR_BaseGameModeComponent
 				else
 					HandleStreamOut(dynamicMarker, GetGame().GetPlayerManager().GetPlayerController(playerID), true);
 			}
-		};
+		}
 	}
 	
 	//------------------------------------------------------------------------------------------------
 	//! Similar to vanilla SetMarkerStreamRules, but with more advanced logic to determine whether to stream a marker
 	override void SetMarkerStreamRules(notnull SCR_MapMarkerEntity marker)
 	{
-		array<int> players = {};
-		GetGame().GetPlayerManager().GetPlayers(players);
-		
-		// Cast to FPM so we can get the player this marker is associated with
+		// If marker can be casted to FPM marker, we do our own handling
 		FPM_MapMarkerPlayer fpmMarker = FPM_MapMarkerPlayer.Cast(marker);
 		if (!fpmMarker)
-			return;
+			return super.SetMarkerStreamRules(marker);
+		
+		array<int> players = {};
+		GetGame().GetPlayerManager().GetPlayers(players);
 		
 		foreach (int playerId : players)
 		{
 			PlayerController playerController = GetGame().GetPlayerManager().GetPlayerController(playerId);
-			bool shouldStreamOut = !ShouldRenderMapMarkerForPlayer(playerId, fpmMarker.GetPlayerId());
-			
-			HandleStreamOut(fpmMarker, playerController, shouldStreamOut);
+			bool showMarker = FPM_ShouldShowMarkerForPlayer(fpmMarker, playerId);
+			HandleStreamOut(fpmMarker, playerController, !showMarker);
 		}
 	}
 	
 	//------------------------------------------------------------------------------------------------
 	// Decides if a marker should be shown to a given player based on factors such as faction, group, and ownership of the marker.
-	static bool ShouldRenderMapMarkerForPlayer(int playerId, int markerOwnerId)
+	static bool FPM_ShouldShowMarkerForPlayer(FPM_MapMarkerPlayer marker, int playerId)
 	{
+		int markerOwnerId = marker.GetPlayerId();
+		
 		Faction playerFaction = SCR_FactionManager.SGetPlayerFaction(playerId);
+		if (!playerFaction)
+			return false;
+		
 		Faction markerOwnerFaction = SCR_FactionManager.SGetPlayerFaction(markerOwnerId);
-
-		bool isPlayerMemberOfMarkerOwnerFaction = playerFaction == markerOwnerFaction;
-		bool isPlayerFactionFriendlyToSelf = playerFaction.IsFactionFriendly(playerFaction);
+		if (!markerOwnerFaction)
+			return false;
+		
+		// Always show the player their own position
+		if (playerId == markerOwnerId)
+			return true;
+		
+		// Only show other players of the same faction if it's not free-for-all
+		if ((playerFaction == markerOwnerFaction) && playerFaction.IsFactionFriendly(playerFaction))
+			return true;
 		
 		SCR_GroupsManagerComponent groupManager = SCR_GroupsManagerComponent.GetInstance();
-		SCR_AIGroup playerGroup = groupManager.GetPlayerGroup(playerId)	;
+		if (!groupManager)
+			return false;
+		
+		SCR_AIGroup playerGroup = groupManager.GetPlayerGroup(playerId);
+		if (!playerGroup)
+			return false;
+		
 		SCR_AIGroup markerOwnerGroup = groupManager.GetPlayerGroup(markerOwnerId);
+		if (!markerOwnerGroup)
+			return false;
 		
-		bool isPlayerMemberOfMarkerOwnerGroup = playerGroup == markerOwnerGroup && playerGroup != null && markerOwnerGroup != null;
-		
-		bool isPlayerOwnerOfMarker = playerId == markerOwnerId;
-		
-		bool shouldRenderMapMarker =
-			isPlayerOwnerOfMarker 												 	  // Always show the player their own position 
-			|| isPlayerMemberOfMarkerOwnerGroup  									  // On free-for-all factions, only show group members
-			|| (isPlayerFactionFriendlyToSelf && isPlayerMemberOfMarkerOwnerFaction); // On team factions, always show teammates
-		
-		return shouldRenderMapMarker;
+		// In case of free-for-all we only show group members
+		return (playerGroup == markerOwnerGroup);
 	}
 }

@@ -148,6 +148,7 @@ class FPM_MapMarkerEntryPlayer : SCR_MapMarkerEntryDynamic
 			marker.SetGlobalText(string.Format("%1 (%2)", edit.GetDisplayName(), commanderName));
 		};
 		
+		EMilitarySymbolDimension dimension = EMilitarySymbolDimension.LAND;
 		EMilitarySymbolIcon icons = 0;
 				
 		SCR_EditableEntityUIInfo entityUIInfo = SCR_EditableEntityUIInfo.Cast(edit.GetInfo());
@@ -164,14 +165,16 @@ class FPM_MapMarkerEntryPlayer : SCR_MapMarkerEntryDynamic
 		}
 		else if (entityUIInfo.HasEntityLabel(EEditableEntityLabel.VEHICLE_HELICOPTER))
 		{
+			dimension = EMilitarySymbolDimension.AIR;
 			icons = EMilitarySymbolIcon.ROTARY_WING;
 		}
 		else if (entityUIInfo.HasEntityLabel(EEditableEntityLabel.VEHICLE_AIRPLANE))
 		{
+			dimension = EMilitarySymbolDimension.AIR;
 			icons = EMilitarySymbolIcon.FIXED_WING;
-		};
+		}
 		
-		marker.SetGlobalSymbolIcons(icons);
+		marker.SetGlobalSymbolIcons(icons, dimension);
 	}
 	
 	//------------------------------------------------------------------------------------------------

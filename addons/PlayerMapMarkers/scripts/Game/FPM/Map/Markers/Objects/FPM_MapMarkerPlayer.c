@@ -59,9 +59,10 @@ class FPM_MapMarkerPlayer : SCR_MapMarkerEntity
 	}
 	
 	//------------------------------------------------------------------------------------------------
-	void SetGlobalSymbolIcons(EMilitarySymbolIcon icons)
+	void SetGlobalSymbolIcons(EMilitarySymbolIcon icons, EMilitarySymbolDimension dimension = EMilitarySymbolDimension.LAND)
 	{
 		m_Symbol.SetIcons(icons);
+		m_Symbol.SetDimension(dimension);
 		OnUpdateSymbol();
 		Replication.BumpMe();
 	}

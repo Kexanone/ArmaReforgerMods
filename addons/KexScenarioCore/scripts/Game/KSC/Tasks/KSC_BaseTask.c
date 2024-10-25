@@ -182,6 +182,7 @@ class KSC_BaseTask : SCR_BaseTask
 		writer.WriteString(m_sFormatParam1);
 		writer.WriteString(m_sFormatParam2);
 		writer.WriteString(m_sFormatParam3);
+		writer.WriteBool(m_bIsPriority);
 	}
 	
 	//------------------------------------------------------------------------------------------------
@@ -192,6 +193,7 @@ class KSC_BaseTask : SCR_BaseTask
 		reader.ReadString(m_sFormatParam1);
 		reader.ReadString(m_sFormatParam2);
 		reader.ReadString(m_sFormatParam3);
+		reader.ReadBool(m_bIsPriority);
 	}
 	
 	//------------------------------------------------------------------------------------------------

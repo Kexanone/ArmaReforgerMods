@@ -13,6 +13,9 @@ StaticModelEntity : "{B9AEDBE988F20A1A}Prefabs/Structures/Infrastructure/Towers/
    }
    m_bAutoRegister ALWAYS
   }
+  SCR_MapDescriptorComponent "{56F2C33183C309B2}" {
+   Enabled 0
+  }
   Hierarchy "{61597E8A4A9C406F}" {
   }
  }

@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{2633E9A64363D82F}Assets/Clutter/Vegetation/Plant/Coppice/Data/c_coppice_deciduous_polyplane.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{BF1869EB95FF249C}Assets/Clutter/Vegetation/Plant/Vaccinium_myrtillus/Data/c_Vaccinium_myrtillus_01_polyplane.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

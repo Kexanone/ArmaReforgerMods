@@ -1,0 +1,4 @@
+MatPBRTreeCrown : "{2A41A8F18541D7DE}Assets/Clutter/Vegetation/Plant/Dryopteris_filix-mas/Data/c_Dryopteris_filix-mas_polyplane.emat" {
+ BCRMap "{486789ED6AB13C00}Terrains/Common/Surfaces/Data/AF_PackedSnow_01_BCR.edds"
+ EnableColorization 0
+}

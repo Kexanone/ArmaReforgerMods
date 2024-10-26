@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{938B34351E82D5F6}Assets/Clutter/Vegetation/Plant/Coppice/Data/c_coppice_con_01_polyplane.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{DBB906C0EE3F9EA9}Assets/Clutter/Vegetation/Plant/Calluna_vulgaris/Data/c_calluna_vulgaris_02_polyplane.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

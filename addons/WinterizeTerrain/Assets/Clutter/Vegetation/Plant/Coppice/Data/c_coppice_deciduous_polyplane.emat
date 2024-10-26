@@ -1,0 +1,4 @@
+MatPBRTreeCrown : "{2633E9A64363D82F}Assets/Clutter/Vegetation/Plant/Coppice/Data/c_coppice_deciduous_polyplane.emat" {
+ BCRMap "{486789ED6AB13C00}Terrains/Common/Surfaces/Data/AF_PackedSnow_01_BCR.edds"
+ EnableColorization 0
+}

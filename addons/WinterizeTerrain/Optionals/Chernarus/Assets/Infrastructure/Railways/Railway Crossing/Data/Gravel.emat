@@ -1,0 +1,5 @@
+MatPBRMulti : "{0C29BF91F7D8EE2C}Assets/Infrastructure/Railways/Railway Crossing/Data/Gravel.emat" {
+ BCR_3 "{486789ED6AB13C00}Terrains/Common/Surfaces/Data/AF_PackedSnow_01_BCR.edds"
+ BCR_2 "{486789ED6AB13C00}Terrains/Common/Surfaces/Data/AF_PackedSnow_01_BCR.edds"
+ BCR_1 "{486789ED6AB13C00}Terrains/Common/Surfaces/Data/AF_PackedSnow_01_BCR.edds"
+}

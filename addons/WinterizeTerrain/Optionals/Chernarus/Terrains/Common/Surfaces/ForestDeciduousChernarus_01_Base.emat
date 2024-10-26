@@ -1,0 +1,10 @@
+TerrainMaterial : "{63677C900861D4DD}Terrains/Common/Surfaces/ForestDeciduousChernarus_01_Base.emat" {
+ SpecularIBL 0.791 0.791 0.791 1
+ BCRMap "{486789ED6AB13C00}Terrains/Common/Surfaces/Data/AF_PackedSnow_01_BCR.edds"
+ NHOMap "{6F50C2A969F77A17}Terrains/Common/Surfaces/Data/AF_PackedSnow_01_NHO.edds"
+ PlantMat ""
+ ClutterConfig ""
+ MiddleColor 0.791 0.791 0.791 1
+ BCRMiddleMap "{486789ED6AB13C00}Terrains/Common/Surfaces/Data/AF_PackedSnow_01_BCR.edds"
+ NHOMiddleMap "{6F50C2A969F77A17}Terrains/Common/Surfaces/Data/AF_PackedSnow_01_NHO.edds"
+}

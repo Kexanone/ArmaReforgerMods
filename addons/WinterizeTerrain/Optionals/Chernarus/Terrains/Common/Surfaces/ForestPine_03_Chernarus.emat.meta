@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{317F0F3B4742839C}Terrains/Common/Surfaces/ForestPine_03_Chernarus.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{66F0B2F5FE0520A7}Optionals/Chernarus/Assets/Infrastructure/Railways/Railway Bend/Data/Gravel.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

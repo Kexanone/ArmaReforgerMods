@@ -3,7 +3,6 @@ class KSC_TerrainHelper
 {
 	//------------------------------------------------------------------------------------------------
 	//! Returns true if the terrain surface is below the water surface
-	//! DOES NOT WORK FOR LAKES YET
 	static bool SurfaceIsWater(vector pos)
 	{
 		pos[1] = GetGame().GetWorld().GetSurfaceY(pos[0], pos[2]);

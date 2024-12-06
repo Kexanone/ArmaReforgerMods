@@ -8,6 +8,7 @@ Repository for my personal Arma Reforger mods, except game modes and terrains.
 - [Disable GM Dynamic Simulation](addons/DisableGMDynamicSimulation)
 - [Garbage Collector Patch](addons/GarbageCollectorPatch)
 - [Keep Abandoned Vehicles](addons/KeepAbandonedVehicles)
+- [Keep Ragdoll Pose](addons/KeepRagdollPose)
 - [Kex Escapists Additions](addons/KexEscapistsAdditions)
 - [Kex Scenario Core](addons/KexScenarioCore)
 - [Map Marker Menu Fix](addons/MapMarkerMenuFix)

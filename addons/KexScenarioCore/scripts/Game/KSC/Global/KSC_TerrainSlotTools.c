@@ -2,12 +2,10 @@
 class KSC_TerrainSlotTools
 {
 	static ref map<EEditableEntityLabel, float> s_mSlotRadii;
-	protected static SCR_BaseGameMode s_pGameMode;
 	
 	//------------------------------------------------------------------------------------------------
 	protected static void Init()
 	{
-		s_pGameMode = SCR_BaseGameMode.Cast(GetGame().GetGameMode());
 		s_mSlotRadii = new map<EEditableEntityLabel, float>();
 		s_mSlotRadii[EEditableEntityLabel.SLOT_FLAT_SMALL] = 7;
 		s_mSlotRadii[EEditableEntityLabel.SLOT_FLAT_MEDIUM] = 14;
@@ -20,7 +18,7 @@ class KSC_TerrainSlotTools
 	//------------------------------------------------------------------------------------------------
 	static IEntity SpawnInRandomFlatSlot(ResourceName prefabName, inout map<EEditableEntityLabel, ref array<vector>> terrainSlots, EEditableEntityLabel slotLabel = EEditableEntityLabel.SLOT_FLAT_SMALL, vector centerPos = vector.Zero)
 	{
-		if (!s_pGameMode)
+		if (!s_mSlotRadii)
 			Init();
 		
 		return SpawnInRandomSlot(prefabName, terrainSlots, slotLabel, doCutTrees: true, centerPos: centerPos, numHeadings: 4);
@@ -29,7 +27,7 @@ class KSC_TerrainSlotTools
 	//------------------------------------------------------------------------------------------------
 	static IEntity SpawnInRandomRoadSlot(ResourceName prefabName, inout map<EEditableEntityLabel, ref array<vector>> terrainSlots, EEditableEntityLabel slotLabel = EEditableEntityLabel.SLOT_ROAD_MEDIUM, vector centerPos = vector.Zero)
 	{
-		if (!s_pGameMode)
+		if (!s_mSlotRadii)
 			Init();
 		
 		return SpawnInRandomSlot(prefabName, terrainSlots, slotLabel, doCutTrees: true, centerPos: centerPos, numHeadings: 2);
@@ -78,14 +76,16 @@ class KSC_TerrainSlotTools
 			
 			if (!trees.IsEmpty())
 			{
-				array<vector> treePositions = {};
-				treePositions.Reserve(trees.Count());
+				array<EntityID> treeIDs = {};
+				treeIDs.Reserve(trees.Count());
 				foreach (IEntity tree : trees)
 				{
-					treePositions.Insert(tree.GetOrigin());
+					treeIDs.Insert(tree.GetID());
 				}
-			
-				s_pGameMode.ACE_DeleteEntitiesAtPositionsGlobal(treePositions);	
+				
+				ACE_LoadtimeEntityManager entityManager = ACE_LoadtimeEntityManager.GetInstance();
+				if (entityManager)
+					entityManager.DeleteEntitiesByIdGlobal(treeIDs);	
 			}
 		}		
 
@@ -95,7 +95,7 @@ class KSC_TerrainSlotTools
 	//------------------------------------------------------------------------------------------------
 	static bool GetRandomParkingSlot(out vector pos, out float rotation, inout map<EEditableEntityLabel, ref array<vector>> terrainSlots)
 	{
-		if (!s_pGameMode)
+		if (!s_mSlotRadii)
 			Init();
 		
 		array<EEditableEntityLabel> labels = {EEditableEntityLabel.SLOT_ROAD_SMALL, EEditableEntityLabel.SLOT_ROAD_MEDIUM, EEditableEntityLabel.SLOT_ROAD_LARGE};
@@ -131,7 +131,7 @@ class KSC_TerrainSlotTools
 	//------------------------------------------------------------------------------------------------
 	static bool GetRandomTerrainSlot(out vector slot, inout map<EEditableEntityLabel, ref array<vector>> terrainSlots, EEditableEntityLabel slotLabel, bool doBlock = true)
 	{
-		if (!s_pGameMode)
+		if (!s_mSlotRadii)
 			Init();
 		
 		array<vector> slots = {};
@@ -152,7 +152,7 @@ class KSC_TerrainSlotTools
 	//------------------------------------------------------------------------------------------------
 	static void BlockSlots(inout map<EEditableEntityLabel, ref array<vector>> terrainSlots, vector center, float radius)
 	{
-		if (!s_pGameMode)
+		if (!s_mSlotRadii)
 			Init();
 		
 		foreach (EEditableEntityLabel label, array<vector> slots :  terrainSlots)

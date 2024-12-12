@@ -267,5 +267,38 @@ modded class SCR_NotificationSenderComponent : SCR_BaseGameModeComponent
 			else 
 				SCR_NotificationsComponent.SendLocalUnlimitedEditor(notificationKeys.m_UnknownOnPossessedNotificationKey, playerId);
 		}
-	};
-};
+	}
+	
+	// Old BI method that no longer exists in the vanilla code base
+	//---- REFACTOR NOTE START: Checks if character was killed by a vehicle. Don't think this is needed any more ----
+	//------------------------------------------------------------------------------------------------
+	protected SCR_EditableCharacterComponent GetKillerFromVehicle(IEntity veh, bool pilot)
+	{
+		BaseCompartmentManagerComponent compartmentManager = BaseCompartmentManagerComponent.Cast(veh.FindComponent(BaseCompartmentManagerComponent));
+			
+		if (!compartmentManager)
+			return null;
+		
+		array<BaseCompartmentSlot> compartments = {};
+		
+		for (int i = 0, compart = compartmentManager.GetCompartments(compartments); i < compart; i++)
+		{
+			BaseCompartmentSlot slot = compartments[i];
+			
+			if (pilot && slot.Type() == PilotCompartmentSlot)
+			{
+				if (slot.GetOccupant())
+					return SCR_EditableCharacterComponent.Cast(slot.GetOccupant().FindComponent(SCR_EditableCharacterComponent));
+			}
+			else if (!pilot && slot.Type() == TurretCompartmentSlot)
+			{
+				if (slot.GetOccupant())
+					return SCR_EditableCharacterComponent.Cast(slot.GetOccupant().FindComponent(SCR_EditableCharacterComponent));
+			}
+		}
+		
+		return null;
+	}
+	
+	//---- REFACTOR NOTE END ----
+}

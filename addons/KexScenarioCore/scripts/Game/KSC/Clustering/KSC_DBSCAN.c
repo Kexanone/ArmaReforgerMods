@@ -6,7 +6,7 @@ class KSC_DBSCAN<Class Features> : Managed
 {
 	protected float m_fEps;
 	protected int m_iMinSamples;
-	protected array<int> m_aLabels;
+	protected ref array<int> m_aLabels;
 	protected int m_iNumLabels;
 	
 	//------------------------------------------------------------------------------------------------
@@ -20,7 +20,7 @@ class KSC_DBSCAN<Class Features> : Managed
 	//! Preforms DBSCAN on the given samples and returns the instance of the model
 	//! \param[in] X is the array of the samples
 	//! \return array of integers, which represent the cluster labels
-	KSC_DBSCAN Fit(array<Features> X)
+	KSC_DBSCAN<Features> Fit(array<Features> X)
 	{
 		m_aLabels = {};
 		m_aLabels.Reserve(X.Count());
@@ -36,7 +36,7 @@ class KSC_DBSCAN<Class Features> : Managed
 		{
 			// Skip sample if it already has been assigned to a cluster
 			if (m_aLabels[idx] >= 0)
-				return;
+				return this;
 			
 			ExpandCluster(idx, X);
 		}
@@ -51,11 +51,17 @@ class KSC_DBSCAN<Class Features> : Managed
 	array<int> FitPredict(array<Features> X)
 	{
 		Fit(X);
-		return m_iNumLabels;
+		return m_aLabels;
 	}
 	
 	//------------------------------------------------------------------------------------------------
 	array<int> GetLabels()
+	{
+		return m_aLabels;
+	}
+	
+	//------------------------------------------------------------------------------------------------
+	int GetNumClusters()
 	{
 		return m_iNumLabels;
 	}

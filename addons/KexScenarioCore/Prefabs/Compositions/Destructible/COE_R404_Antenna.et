@@ -2,7 +2,7 @@ StaticModelEntity : "{B9AEDBE988F20A1A}Prefabs/Structures/Infrastructure/Towers/
  ID "50D67C36F43527FE"
  components {
   SCR_DestructionMultiPhaseComponent "{5A5ED31B16298711}" {
-   Enabled 1
+   m_fBaseHealth 1000
   }
   SCR_EditableEntityComponent "{5E750EB265ED97F9}" {
    m_UIInfo SCR_EditableEntityUIInfo "{5E750EB26E7B7D9B}" {

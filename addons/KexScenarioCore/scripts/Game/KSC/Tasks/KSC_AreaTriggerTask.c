@@ -11,6 +11,9 @@ class KSC_AreaTriggerTask : KSC_BaseTask
 	//------------------------------------------------------------------------------------------------
 	protected void OnTriggerActivate()
 	{
+		if (m_pTrigger)
+			m_pTrigger.GetOnActivate().Remove(OnTriggerActivate);
+		
 		if (m_pSupportEntity)
 			m_pSupportEntity.FinishTask(this);
 	}

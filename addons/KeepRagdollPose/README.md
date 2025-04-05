@@ -1,6 +1,6 @@
 # Keep Ragdoll Pose
 
-Makes that incapacitated characters keep their ragdoll pose and adds user actions for bringing them in supine and recovery positions.
+Makes that incapacitated characters keep their ragdoll pose.
 
 Feedback tracker: https://github.com/Kexanone/ArmaReforgerMods/issues<br>
 Source Code: https://github.com/Kexanone/ArmaReforgerMods/tree/main/addons/KeepRagdollPose<br>

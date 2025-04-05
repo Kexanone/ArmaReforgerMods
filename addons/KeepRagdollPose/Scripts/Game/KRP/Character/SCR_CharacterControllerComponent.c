@@ -1,12 +1,11 @@
 //------------------------------------------------------------------------------------------------
-//! Remove second chance handling of basic medical
 modded class SCR_CharacterControllerComponent : CharacterControllerComponent
 {
-	[RplProp(onRplName: "KRP_OnUnconsciousPoseChanged")]
-	protected KRP_EUnconsciousPose m_eUnconsciousPose;
+	[RplProp(onRplName: "KRP_OnToggleRagdollPose")]
+	protected bool m_bKRP_RagdollPoseEnabled = false;
 	
 	//------------------------------------------------------------------------------------------------
-	protected void KRP_OnUnconsciousPoseChanged()
+	protected void KRP_OnToggleRagdollPose()
 	{		
 		SCR_ChimeraCharacter char = SCR_ChimeraCharacter.Cast(GetOwner());
 		if (!char)
@@ -21,55 +20,55 @@ modded class SCR_CharacterControllerComponent : CharacterControllerComponent
 		if (!animComponent)
 			return;
 		
-		animComponent.SetVariableInt(animComponent.BindVariableInt("UnconsciousPose"), m_eUnconsciousPose);
+		animComponent.SetVariableBool(animComponent.BindVariableBool("KRP_RagdollPose"), m_bKRP_RagdollPoseEnabled);
 	}
 	
 	//------------------------------------------------------------------------------------------------
-	//! Register unconscious pose changes in the animation graph
-	protected override void OnAnimationEvent(AnimationEventID animEventType, AnimationEventID animUserString, int intParam, float timeFromStart, float timeToEnd)
+	//! Add/remove second chance when life state changes
+	override void OnLifeStateChanged(ECharacterLifeState previousLifeState, ECharacterLifeState newLifeState)
 	{
-		super.OnAnimationEvent(animEventType, animUserString, intParam, timeFromStart, timeToEnd);
+		super.OnLifeStateChanged(previousLifeState, newLifeState);
+		
+		if (newLifeState != ECharacterLifeState.INCAPACITATED)
+			return;
 		
 		SCR_ChimeraCharacter char = SCR_ChimeraCharacter.Cast(GetOwner());
 		if (!char)
 			return;
 		
 		RplComponent rpl = char.GetRplComponent();
-		if (!rpl || rpl.Role() != RplRole.Authority)
+		if (!rpl || rpl.IsProxy())
 			return;
 		
-		CharacterAnimationComponent animComponent = char.GetAnimationComponent();
-		if (!animComponent)
-			return;
-		
-		if (animEventType != animComponent.BindEvent("KRP_Event_UnconsciousPoseChange"))
-			return;
-		
-		if (intParam == m_eUnconsciousPose)
-			return;
-		
-		KRP_Reposition(intParam);
+		KRP_ToggleRagdollPose(true);
 	}
 	
 	//------------------------------------------------------------------------------------------------
-	void KRP_Reposition(KRP_EUnconsciousPose pose)
+	void KRP_ToggleRagdollPose(bool enabled)
 	{
-		m_eUnconsciousPose = pose;
+		m_bKRP_RagdollPoseEnabled = enabled;
 		Replication.BumpMe();
-		KRP_OnUnconsciousPoseChanged();
-	}
-	
-	//------------------------------------------------------------------------------------------------
-	KRP_EUnconsciousPose KRP_GetUnconsciousPose()
-	{
-		return m_eUnconsciousPose;
+		KRP_OnToggleRagdollPose();
 	}
 }
 
 //------------------------------------------------------------------------------------------------
-enum KRP_EUnconsciousPose
+modded class ACE_Medical_RepositionUserAction : ScriptedUserAction
 {
-	NONE = 0,
-	BACK = 4,
-	RECOVERY = 5
+	//------------------------------------------------------------------------------------------------
+	override void PerformAction(IEntity pOwnerEntity, IEntity pUserEntity)
+	{
+		super.PerformAction(pOwnerEntity, pUserEntity);
+		
+		SCR_ChimeraCharacter ownerChar = SCR_ChimeraCharacter.Cast(pOwnerEntity);
+		if (!ownerChar)
+			return;
+		
+		SCR_CharacterControllerComponent ownerController = SCR_CharacterControllerComponent.Cast(ownerChar.GetCharacterController());
+		if (!ownerController)
+			return;
+		
+		ownerController.KRP_ToggleRagdollPose(false);
+	}
 }
+

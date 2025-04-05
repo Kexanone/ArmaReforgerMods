@@ -1,0 +1,8 @@
+AnimSrcGraph {
+ ControlTemplate AnimSrcGCT "{5190AC4BE1BF436F}" {
+  Variables {
+   AnimSrcGCTVarBool KRP_RagdollPose {
+   }
+  }
+ }
+}

@@ -74,6 +74,9 @@ class FPM_MapMarkerEntryPlayer : SCR_MapMarkerEntryDynamic
 			return;
 		
 		playerController.m_FPM_OnControlledEntityChangedServer.Insert(OnControlledEntityChangedServer);
+
+		// Force initial visibility check for players reconnecting
+		SCR_MapMarkerManagerComponent.GetInstance().SetStreamRulesForPlayer(playerId);
 	}
 
 	//------------------------------------------------------------------------------------------------

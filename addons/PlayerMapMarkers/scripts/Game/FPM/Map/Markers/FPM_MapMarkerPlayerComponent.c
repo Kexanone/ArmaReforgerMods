@@ -1,6 +1,9 @@
 //------------------------------------------------------------------------------------------------
 class FPM_MapMarkerPlayerComponent : SCR_MapMarkerDynamicWComponent
 {
+	[Attribute("0", desc: "Allow clicking player markers to open the group menu", category: "FPM Markers")]
+	protected bool m_bAllowOpenGroupMenu;
+
 	protected bool m_bIsSymbolMode;
 	protected Widget m_wSymbolRoot;
 	protected Widget m_wSymbolOverlay;
@@ -76,9 +79,10 @@ class FPM_MapMarkerPlayerComponent : SCR_MapMarkerDynamicWComponent
 	{
 		if (button != 0)	// LMB only
 			return true;
-		
-		GetGame().OpenGroupMenu();
-		
+
+		if (m_bAllowOpenGroupMenu)
+			GetGame().OpenGroupMenu();
+
 		return true;
 	}
 }

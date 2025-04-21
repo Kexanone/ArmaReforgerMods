@@ -1,6 +1,19 @@
 //------------------------------------------------------------------------------------------------
 modded class SCR_MapMarkerManagerComponent : SCR_BaseGameModeComponent
 {
+	[Attribute("0", desc: "Enable free-for-all (PvP) mode — markers only visible to groupmates", category: "FPM Markers")]
+	protected bool m_bIsFreeForAll;
+
+	void SetFreeForAll(bool state)
+	{
+		m_bIsFreeForAll = state;
+	}
+
+	bool IsFreeForAll()
+	{
+		return m_bIsFreeForAll;
+	}
+
 	//------------------------------------------------------------------------------------------------
 	//! Similar to vanilla SetStreamRulesForPlayer, but added exception handling when marker is null and more advanced logic to determine whether to stream a marker
 	override void SetStreamRulesForPlayer(int playerID)
@@ -69,24 +82,23 @@ modded class SCR_MapMarkerManagerComponent : SCR_BaseGameModeComponent
 		// Always show the player their own position
 		if (playerId == markerOwnerId)
 			return true;
-		
-		// Only show other players of the same faction if it's not free-for-all
-		if ((playerFaction == markerOwnerFaction) && playerFaction.IsFactionFriendly(playerFaction))
-			return true;
-		
-		SCR_GroupsManagerComponent groupManager = SCR_GroupsManagerComponent.GetInstance();
-		if (!groupManager)
+
+		SCR_MapMarkerManagerComponent markerMgr = SCR_MapMarkerManagerComponent.GetInstance();
+		if (!markerMgr)
 			return false;
-		
-		SCR_AIGroup playerGroup = groupManager.GetPlayerGroup(playerId);
-		if (!playerGroup)
-			return false;
-		
-		SCR_AIGroup markerOwnerGroup = groupManager.GetPlayerGroup(markerOwnerId);
-		if (!markerOwnerGroup)
-			return false;
-		
-		// In case of free-for-all we only show group members
-		return (playerGroup == markerOwnerGroup);
+
+		if (markerMgr.IsFreeForAll())
+		{
+			SCR_GroupsManagerComponent groupManager = SCR_GroupsManagerComponent.GetInstance();
+			if (!groupManager)
+				return false;
+
+			SCR_AIGroup playerGroup = groupManager.GetPlayerGroup(playerId);
+			SCR_AIGroup markerOwnerGroup = groupManager.GetPlayerGroup(markerOwnerId);
+
+			return (playerGroup && markerOwnerGroup && playerGroup == markerOwnerGroup);
+		}
+
+		return playerFaction == markerOwnerFaction;
 	}
 }

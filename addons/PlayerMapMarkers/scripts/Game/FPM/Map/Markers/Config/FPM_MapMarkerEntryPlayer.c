@@ -30,11 +30,16 @@ class FPM_MapMarkerEntryPlayer : SCR_MapMarkerEntryDynamic
 		compartmentAccess.GetOnPlayerCompartmentEnter().Insert(OnPlayerEnterCompartment);
 		compartmentAccess.GetOnPlayerCompartmentExit().Insert(OnPlayerExitCompartment);
 		
-		SCR_ChimeraCharacter playerCharacter = SCR_ChimeraCharacter.Cast(player);
-		if (!playerCharacter)
+		
+		PlayerController playerController = GetGame().GetPlayerManager().GetPlayerController(playerId);
+		if (!playerController)
 			return;
 		
-		Faction faction = playerCharacter.GetFaction();
+		SCR_PlayerFactionAffiliationComponent factionAffiliation = SCR_PlayerFactionAffiliationComponent.Cast(playerController.FindComponent(SCR_PlayerFactionAffiliationComponent));
+		if (!factionAffiliation)
+			return;
+		
+		Faction faction = factionAffiliation.GetAffiliatedFaction();
 		if (faction)
 			marker.SetFaction(faction);
 		
@@ -228,6 +233,20 @@ class FPM_MapMarkerEntryPlayer : SCR_MapMarkerEntryDynamic
 	}
 	
 	//------------------------------------------------------------------------------------------------
+	protected void OnPlayerFactionChanged(int playerId, SCR_PlayerFactionAffiliationComponent playerComponent, Faction faction)
+	{
+		IEntity playerChar = GetGame().GetPlayerManager().GetPlayerControlledEntity(playerId);
+		if (!playerChar)
+			return;
+		
+		FPM_MapMarkerPlayer marker = m_mPlayerMarkers[playerChar];
+		if (!marker)
+			return;
+		
+		marker.SetFaction(faction);
+	}
+	
+	//------------------------------------------------------------------------------------------------
 	protected void OnPlayerDisconnected(int playerId, KickCauseCode cause, int timeout)
 	{
 		IEntity player = GetGame().GetPlayerManager().GetPlayerControlledEntity(playerId);
@@ -259,6 +278,10 @@ class FPM_MapMarkerEntryPlayer : SCR_MapMarkerEntryDynamic
 		gameMode.GetOnPlayerDisconnected().Insert(OnPlayerDisconnected);
 		gameMode.GetOnPlayerDeleted().Insert(OnPlayerDeleted);
 		SCR_CharacterRankComponent.s_OnRankChanged.Insert(OnRankChanged);
+		
+		SCR_FactionManager factionManager = SCR_FactionManager.Cast(GetGame().GetFactionManager());
+		if (factionManager)
+			factionManager.GetOnPlayerFactionChanged_S().Insert(OnPlayerFactionChanged);
 	}
 	
 	//------------------------------------------------------------------------------------------------

@@ -134,7 +134,12 @@ class FPM_MapMarkerPlayer : SCR_MapMarkerEntity
 		if (!ruleSet)
 			return;
 		
+		// Back up icons and dimension, as they get lost when changing the faction
+		EMilitarySymbolIcon icons = m_Symbol.GetIcons();
+		EMilitarySymbolDimension dimension = m_Symbol.GetDimension();
 		ruleSet.UpdateSymbol(m_Symbol, SCR_Faction.Cast(faction));
+		m_Symbol.SetIcons(icons);
+		m_Symbol.SetDimension(dimension);
 		OnUpdateSymbol();
 		m_iColorAlive = faction.GetFactionColor().PackToInt();
 		InitializeColor();

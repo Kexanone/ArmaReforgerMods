@@ -70,15 +70,4 @@ class FPM_MapMarkerPlayerComponent : SCR_MapMarkerDynamicWComponent
 			SetTextVisible(m_bIsHovered);
 		};
 	}
-	
-	//------------------------------------------------------------------------------------------------
-	override bool OnMouseButtonDown(Widget w, int x, int y, int button)
-	{
-		if (button != 0)	// LMB only
-			return true;
-		
-		GetGame().OpenGroupMenu();
-		
-		return true;
-	}
 }

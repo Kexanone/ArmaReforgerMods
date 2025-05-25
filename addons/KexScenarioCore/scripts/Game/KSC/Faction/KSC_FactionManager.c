@@ -49,11 +49,11 @@ class KSC_FactionManager : SCR_FactionManager
 	//------------------------------------------------------------------------------------------------
 	void GetFactionEntityListWithLabel(Faction faction, EEntityCatalogType catalogType, EEditableEntityLabel label, out notnull array<ResourceName> entityNames)
 	{
-		GetFactionEntityListWithLabels(faction, catalogType, {label}, entityNames);
+		GetFactionEntityListWithLabels(faction, catalogType, {label}, {}, entityNames);
 	}
 	
 	//------------------------------------------------------------------------------------------------
-	void GetFactionEntityListWithLabels(Faction faction, EEntityCatalogType catalogType, notnull array<EEditableEntityLabel> labels, out notnull array<ResourceName> entityNames)
+	void GetFactionEntityListWithLabels(Faction faction, EEntityCatalogType catalogType, notnull array<EEditableEntityLabel> includedLabels,  notnull array<EEditableEntityLabel> excludedLabels, out notnull array<ResourceName> entityNames)
 	{
 		SCR_Faction scriptedFaction = SCR_Faction.Cast(faction);
 		if (!scriptedFaction)
@@ -63,7 +63,7 @@ class KSC_FactionManager : SCR_FactionManager
 		
 		SCR_EntityCatalog catalog = scriptedFaction.GetFactionEntityCatalogOfType(catalogType);
 		if (catalog)
-			catalog.GetFullFilteredEntityListWithLabels(entries, labels);
+			catalog.GetFullFilteredEntityListWithLabels(entries, includedLabels, excludedLabels);
 		
 		if (!entries.IsEmpty())
 		{
@@ -81,7 +81,7 @@ class KSC_FactionManager : SCR_FactionManager
 		else
 		{
 			if (!IsVanillaFaction(faction))
-				GetFactionEntityListWithLabels(GetAssociatedVanillaFaction(faction), catalogType, labels, entityNames);
+				GetFactionEntityListWithLabels(GetAssociatedVanillaFaction(faction), catalogType, includedLabels, excludedLabels, entityNames);
 		}	
 	}
 	

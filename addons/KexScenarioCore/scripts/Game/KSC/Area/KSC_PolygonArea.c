@@ -12,6 +12,20 @@ class KSC_PolygonArea : KSC_AreaBase
 	}
 	
 	//------------------------------------------------------------------------------------------------
+	static KSC_PolygonArea FromPoints(array<vector> points)
+	{
+		array<float> polygon = {};
+		
+		foreach (vector point : points)
+		{
+			polygon.Insert(point[0]);
+			polygon.Insert(point[2]);
+		}
+		
+		return new KSC_PolygonArea(polygon);
+	}
+	
+	//------------------------------------------------------------------------------------------------
 	override bool IsPointInArea(vector pos)
 	{
 		return Math2D.IsPointInPolygon(m_aPolygon, pos[0], pos[2]);

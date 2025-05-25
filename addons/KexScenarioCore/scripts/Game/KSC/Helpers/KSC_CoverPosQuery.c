@@ -65,7 +65,7 @@ class KSC_BuildingPosQuery : Managed
 		m_QueryProps.m_bCheckVisibility = false;
 		m_QueryProps.m_bSelectHighestScore = false;
 		m_QueryProps.m_iMaxCoversToCheck = SCR_AIFindCover.MAX_COVERS_LOW_PRIORITY;
-		m_QueryProps.m_fScoreWeightNavmeshRay = 50;
+		//m_QueryProps.m_fScoreWeightNavmeshRay = 50;
 	}
 	
 	//------------------------------------------------------------------------------------------------

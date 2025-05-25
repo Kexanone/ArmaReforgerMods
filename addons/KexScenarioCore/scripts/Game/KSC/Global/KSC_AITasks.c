@@ -65,4 +65,45 @@ class KSC_AITasks
 			attempts++;
 		}
 	}
+	
+	//------------------------------------------------------------------------------------------------
+	static void SearchAndDestroy(AIGroup group, vector pos, float radius = 30)
+	{
+		AIWaypoint wp = KSC_GameTools.SpawnWaypointPrefab("{B3E7B8DC2BAB8ACC}Prefabs/AI/Waypoints/AIWaypoint_SearchAndDestroy.et", pos);
+		wp.SetCompletionRadius(radius);
+		group.AddWaypoint(wp);
+	}
+	
+	//------------------------------------------------------------------------------------------------
+	static void GetIn(IEntity vehicle, AIGroup group)
+	{
+		SCR_BoardingEntityWaypoint wp = SCR_BoardingEntityWaypoint.Cast(KSC_GameTools.SpawnWaypointPrefab("{712F4795CF8B91C7}Prefabs/AI/Waypoints/AIWaypoint_GetIn.et", vehicle.GetOrigin()));
+		wp.SetEntity(vehicle);
+		group.AddWaypoint(wp);
+	}
+	
+	//------------------------------------------------------------------------------------------------
+	//! To Do: Reset LOD after completion
+	static void ArtillerySupport(IEntity vehicle, AIGroup group, vector pos, SCR_EAIArtilleryAmmoType ammoType, int shotCount)
+	{
+		KSC_GroupHelper.EnableAILODs(SCR_AIGroup.Cast(group), false);
+		GetIn(vehicle, group);
+		SCR_AIWaypointArtillerySupport wp = SCR_AIWaypointArtillerySupport.Cast(KSC_GameTools.SpawnWaypointPrefab("{C524700A27CFECDD}Prefabs/AI/Waypoints/AIWaypoint_ArtillerySupport.et", pos));
+		group.AddWaypoint(wp);
+		wp.SetAmmoType(ammoType);
+		wp.SetTargetShotCount(shotCount);
+		wp.SetActive(true);
+	}
+	
+	//------------------------------------------------------------------------------------------------
+	static void RemoveAll(AIGroup group)
+	{
+		array<AIWaypoint> wps = {};
+		group.GetWaypoints(wps);
+		
+		foreach (AIWaypoint wp : wps)
+		{
+			group.RemoveWaypoint(wp);
+		}
+	}
 }

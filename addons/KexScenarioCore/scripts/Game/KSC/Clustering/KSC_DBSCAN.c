@@ -81,7 +81,7 @@ class KSC_DBSCAN<Class Features> : Managed
 			
 			array<int> neighbors = GetNeighbors(idx, X);
 			// Do not add neighbors if it's not a core point
-			if (neighbors.Count() < m_iMinSamples)
+			if (neighbors.Count() < m_iMinSamples - 1)
 				continue;
 			
 			foreach (int neighbor : neighbors)
@@ -101,7 +101,8 @@ class KSC_DBSCAN<Class Features> : Managed
 			}
 		}
 		
-		m_iNumLabels++;
+		if (initialSampleAssignedToCluster)
+			m_iNumLabels++;
 	}
 	
 	//------------------------------------------------------------------------------------------------

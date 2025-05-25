@@ -13,7 +13,5 @@ MetaFileClass {
   }
   CONFResourceClass HEADLESS : PC {
   }
-  CONFResourceClass Xbox : PC {
-  }
  }
 }

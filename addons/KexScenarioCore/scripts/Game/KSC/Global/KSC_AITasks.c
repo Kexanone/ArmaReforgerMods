@@ -24,7 +24,7 @@ class KSC_AITasks
 			pos[1] = SCR_TerrainHelper.GetTerrainY(pos);
 			if (vector.Distance(prevPos, pos) >= minDistance && !KSC_TerrainHelper.SurfaceIsWater(pos) &&  KSC_WorldTools.IsPosEmpty(pos))
 			{
-				AIWaypoint wp = KSC_GameTools.SpawnWaypointPrefab("{22A875E30470BD4F}Prefabs/AI/Waypoints/AIWaypoint_Patrol.et", pos);
+				AIWaypoint wp = KSC_GameTools.SpawnWaypointPrefab("{C0A9A9B589802A5B}PrefabsEditable/Auto/AI/Waypoints/E_AIWaypoint_Patrol.et", pos);
 				group.AddWaypoint(wp);
 				wpList.Insert(wp);
 				prevPos = pos;
@@ -34,15 +34,15 @@ class KSC_AITasks
 			attempts++;
 		}
 		
-		AIWaypointCycle wpCycle = AIWaypointCycle.Cast(KSC_GameTools.SpawnWaypointPrefab("{35BD6541CBB8AC08}Prefabs/AI/Waypoints/AIWaypoint_Cycle.et", prevPos));
-		wpCycle.SetWaypoints(wpList);
-		group.AddWaypoint(wpCycle);
+		SCR_EditableGroupComponent editableGroup = SCR_EditableGroupComponent.Cast(SCR_EditableGroupComponent.GetEditableEntity(group));
+		if (editableGroup)
+			editableGroup.EnableCycledWaypoints(true);
 	}
 	
 	//------------------------------------------------------------------------------------------------
 	static void Defend(AIGroup group, vector pos, float radius = 50)
 	{
-		AIWaypoint wp = KSC_GameTools.SpawnWaypointPrefab("{93291E72AC23930F}Prefabs/AI/Waypoints/AIWaypoint_Defend.et", pos);
+		AIWaypoint wp = KSC_GameTools.SpawnWaypointPrefab("{D9C14ECEC9772CC6}PrefabsEditable/Auto/AI/Waypoints/E_AIWaypoint_Defend.et", pos);
 		wp.SetCompletionRadius(radius);
 		group.AddWaypoint(wp);
 	}
@@ -69,7 +69,7 @@ class KSC_AITasks
 	//------------------------------------------------------------------------------------------------
 	static void SearchAndDestroy(AIGroup group, vector pos, float radius = 30)
 	{
-		AIWaypoint wp = KSC_GameTools.SpawnWaypointPrefab("{B3E7B8DC2BAB8ACC}Prefabs/AI/Waypoints/AIWaypoint_SearchAndDestroy.et", pos);
+		AIWaypoint wp = KSC_GameTools.SpawnWaypointPrefab("{EE9A99488B40628B}PrefabsEditable/Auto/AI/Waypoints/E_AIWaypoint_SearchAndDestroy.et", pos);
 		wp.SetCompletionRadius(radius);
 		group.AddWaypoint(wp);
 	}
@@ -77,7 +77,7 @@ class KSC_AITasks
 	//------------------------------------------------------------------------------------------------
 	static void GetIn(IEntity vehicle, AIGroup group)
 	{
-		SCR_BoardingEntityWaypoint wp = SCR_BoardingEntityWaypoint.Cast(KSC_GameTools.SpawnWaypointPrefab("{712F4795CF8B91C7}Prefabs/AI/Waypoints/AIWaypoint_GetIn.et", vehicle.GetOrigin()));
+		SCR_BoardingEntityWaypoint wp = SCR_BoardingEntityWaypoint.Cast(KSC_GameTools.SpawnWaypointPrefab("{2E6D3ABB8094159A}PrefabsEditable/Auto/AI/Waypoints/E_AIWaypoint_GetIn.et", vehicle.GetOrigin()));
 		wp.SetEntity(vehicle);
 		group.AddWaypoint(wp);
 	}
@@ -88,7 +88,7 @@ class KSC_AITasks
 	{
 		KSC_GroupHelper.EnableAILODs(SCR_AIGroup.Cast(group), false);
 		GetIn(vehicle, group);
-		SCR_AIWaypointArtillerySupport wp = SCR_AIWaypointArtillerySupport.Cast(KSC_GameTools.SpawnWaypointPrefab("{C524700A27CFECDD}Prefabs/AI/Waypoints/AIWaypoint_ArtillerySupport.et", pos));
+		SCR_AIWaypointArtillerySupport wp = SCR_AIWaypointArtillerySupport.Cast(KSC_GameTools.SpawnWaypointPrefab("{6ED320498A60081C}PrefabsEditable/Auto/AI/Waypoints/E_AIWaypoint_ArtillerySupport.et", pos));
 		group.AddWaypoint(wp);
 		wp.SetAmmoType(ammoType);
 		wp.SetTargetShotCount(shotCount);

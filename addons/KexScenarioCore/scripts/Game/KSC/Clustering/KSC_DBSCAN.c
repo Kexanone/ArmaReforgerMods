@@ -36,7 +36,7 @@ class KSC_DBSCAN<Class Features> : Managed
 		{
 			// Skip sample if it already has been assigned to a cluster
 			if (m_aLabels[idx] >= 0)
-				return this;
+				continue;
 			
 			ExpandCluster(idx, X);
 		}

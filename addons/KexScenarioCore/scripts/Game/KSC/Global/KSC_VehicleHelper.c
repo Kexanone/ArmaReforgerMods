@@ -2,7 +2,7 @@
 class KSC_VehicleHelper
 {
 	//------------------------------------------------------------------------------------------------
-	static array<SCR_AIGroup> GetOccupantGroups(IEntity vehicle)
+	static array<SCR_AIGroup> GetOccupantGroups(notnull IEntity vehicle)
 	{
 		SCR_BaseCompartmentManagerComponent compartmentManager = SCR_BaseCompartmentManagerComponent.Cast(vehicle.FindComponent(SCR_BaseCompartmentManagerComponent));
 		if (!compartmentManager)

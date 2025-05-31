@@ -48,7 +48,7 @@ class KSC_SubjectBaseTask : KSC_BaseTask
 	{
 		SCR_GarbageSystem garbageSystem = SCR_GarbageSystem.GetByEntityWorld(m_pSubject);
 		if (garbageSystem)
-			garbageSystem.Withdraw(m_pSubject);
+			garbageSystem.UpdateBlacklist(m_pSubject, true);
 	}
 	
 	//------------------------------------------------------------------------------------------------
@@ -56,7 +56,7 @@ class KSC_SubjectBaseTask : KSC_BaseTask
 	protected void DetachSubjectHandlers()
 	{		SCR_GarbageSystem garbageSystem = SCR_GarbageSystem.GetByEntityWorld(m_pSubject);
 		if (garbageSystem)
-			garbageSystem.Insert(m_pSubject);
+			garbageSystem.UpdateBlacklist(m_pSubject, false);
 	}
 	
 	//------------------------------------------------------------------------------------------------

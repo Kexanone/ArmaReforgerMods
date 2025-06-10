@@ -6,7 +6,7 @@ SCR_ChimeraCharacter : "{DE3786C0C6C978D4}Prefabs/Characters/Factions/INDFOR/FIA
     Name "#AR-Role_Officer"
     m_sFaction "FIA"
     m_aAuthoredLabels + {
-     13000
+     42
     }
    }
   }

@@ -44,6 +44,11 @@ class KSC_AITasks
 	{
 		AIWaypoint wp = KSC_GameTools.SpawnWaypointPrefab("{D9C14ECEC9772CC6}PrefabsEditable/Auto/AI/Waypoints/E_AIWaypoint_Defend.et", pos);
 		wp.SetCompletionRadius(radius);
+		
+		SCR_WaypointAreaMeshComponent areaMeshComponent = SCR_WaypointAreaMeshComponent.Cast(wp.FindComponent(SCR_WaypointAreaMeshComponent));
+		if (areaMeshComponent)
+			areaMeshComponent.GenerateAreaMesh();
+		
 		group.AddWaypoint(wp);
 	}
 	

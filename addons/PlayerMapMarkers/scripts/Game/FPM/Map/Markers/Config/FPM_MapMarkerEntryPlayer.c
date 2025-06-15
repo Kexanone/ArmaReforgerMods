@@ -43,6 +43,11 @@ class FPM_MapMarkerEntryPlayer : SCR_MapMarkerEntryDynamic
 		if (faction)
 			marker.SetFaction(faction);
 		
+		SCR_GroupsManagerComponent groupManager = SCR_GroupsManagerComponent.GetInstance();
+		SCR_AIGroup aiGroup = groupManager.GetPlayerGroup(playerId);
+		if (aiGroup)
+			marker.SetGroupId(aiGroup.GetGroupID());
+		
 		marker.SetGlobalText(GetPlayerNameWithRank(playerId, player));
 		marker.SetGlobalSymbolIcons(EMilitarySymbolIcon.INFANTRY);
 		marker.SetGlobalVisible(true);
@@ -266,6 +271,30 @@ class FPM_MapMarkerEntryPlayer : SCR_MapMarkerEntryDynamic
 	}
 	
 	//------------------------------------------------------------------------------------------------
+	protected void OnGroupJoined(SCR_AIGroup group, int playerID)
+	{
+		IEntity ent = GetGame().GetPlayerManager().GetPlayerControlledEntity(playerID);
+		if (ent)
+		{
+			FPM_MapMarkerPlayer marker = m_mPlayerMarkers.Get(ent);
+			if (marker)
+				marker.SetGroupId(group.GetGroupID());
+		}
+	}
+	
+	//------------------------------------------------------------------------------------------------
+	protected  void OnGroupLeft(SCR_AIGroup group, int playerID)
+	{
+		IEntity ent = GetGame().GetPlayerManager().GetPlayerControlledEntity(playerID);
+		if (ent)
+		{
+			FPM_MapMarkerPlayer marker = m_mPlayerMarkers.Get(ent);
+			if (marker)
+				marker.SetGroupId(-1);
+		}
+	}
+	
+	//------------------------------------------------------------------------------------------------
 	override void InitServerLogic()
 	{
 		super.InitServerLogic();
@@ -282,6 +311,9 @@ class FPM_MapMarkerEntryPlayer : SCR_MapMarkerEntryDynamic
 		SCR_FactionManager factionManager = SCR_FactionManager.Cast(GetGame().GetFactionManager());
 		if (factionManager)
 			factionManager.GetOnPlayerFactionChanged_S().Insert(OnPlayerFactionChanged);
+		
+		SCR_AIGroup.GetOnPlayerAdded().Insert(OnGroupJoined);
+		SCR_AIGroup.GetOnPlayerRemoved().Insert(OnGroupLeft);
 	}
 	
 	//------------------------------------------------------------------------------------------------

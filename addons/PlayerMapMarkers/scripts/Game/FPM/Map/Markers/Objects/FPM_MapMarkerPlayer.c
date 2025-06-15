@@ -10,6 +10,7 @@ class FPM_MapMarkerPlayer : SCR_MapMarkerEntity
 {
 	protected static const ref const Color COLOR_INCAPACITATED = Color.FromInt(0xFFFF3636);
 	protected static const ref const Color COLOR_DEAD = Color.Gray;
+	protected static const ref const Color COLOR_SAME_GROUP = Color.DarkYellow;
 	
 	[RplProp(onRplName: "OnUpdateSymbol")]
 	protected ref SCR_MilitarySymbol m_Symbol;
@@ -27,6 +28,9 @@ class FPM_MapMarkerPlayer : SCR_MapMarkerEntity
 	
 	[RplProp()]
 	protected int m_iPlayerId;
+	
+	[RplProp(onRplName: "OnUpdateGroup")]
+	protected int m_iGroupId = -1;
 	
 	//------------------------------------------------------------------------------------------------
 	override protected void EOnInit(IEntity owner)
@@ -54,6 +58,7 @@ class FPM_MapMarkerPlayer : SCR_MapMarkerEntity
 		
 		m_pFPM_MarkerWidgetComp.SetMilitarySymbolMode(true);
 		m_pFPM_MarkerWidgetComp.UpdateMilitarySymbol(m_Symbol);
+		UpdateColorBasedOnPlayerGroup();
 		m_pFPM_MarkerWidgetComp.SetColor(Color.FromInt(m_iColor));
 		m_pFPM_MarkerWidgetComp.SetText(m_sSyncedText);
 	}
@@ -85,6 +90,7 @@ class FPM_MapMarkerPlayer : SCR_MapMarkerEntity
 	//------------------------------------------------------------------------------------------------
 	protected void OnUpdateColor()
 	{
+		UpdateColorBasedOnPlayerGroup();
 		if (m_pFPM_MarkerWidgetComp)
 			m_pFPM_MarkerWidgetComp.SetColor(Color.FromInt(m_iColor));
 	}
@@ -156,5 +162,34 @@ class FPM_MapMarkerPlayer : SCR_MapMarkerEntity
 	void SetPlayerId(int playerId)
 	{
 		m_iPlayerId = playerId;
+	}
+
+	//------------------------------------------------------------------------------------------------
+	void SetGroupId(int groupId)
+	{
+		m_iGroupId = groupId;
+		Replication.BumpMe();
+	}
+	
+	//------------------------------------------------------------------------------------------------
+	void UpdateColorBasedOnPlayerGroup()
+	{
+		if (m_iPlayerId == SCR_PlayerController.GetLocalPlayerId())
+			return;
+		
+		SCR_GroupsManagerComponent groupManager = SCR_GroupsManagerComponent.GetInstance();
+		SCR_AIGroup aiGroup = groupManager.GetPlayerGroup(SCR_PlayerController.GetLocalPlayerId());
+		if (!aiGroup) return;
+
+		if (aiGroup.GetGroupID() == m_iGroupId && m_iColor != COLOR_INCAPACITATED.PackToInt() && m_iColor != COLOR_DEAD.PackToInt())
+		{
+			m_iColor = COLOR_SAME_GROUP.PackToInt();
+		}
+	}
+
+	//------------------------------------------------------------------------------------------------
+	void OnUpdateGroup()
+	{
+	    OnUpdateColor();
 	}
 }

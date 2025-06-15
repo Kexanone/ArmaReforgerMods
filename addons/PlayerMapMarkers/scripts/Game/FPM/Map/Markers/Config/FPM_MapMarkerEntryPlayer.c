@@ -271,7 +271,7 @@ class FPM_MapMarkerEntryPlayer : SCR_MapMarkerEntryDynamic
 	}
 	
 	//------------------------------------------------------------------------------------------------
-	protected void OnGroupJoined(SCR_AIGroup group, int playerID)
+	protected void OnGroupJoined_S(SCR_AIGroup group, int playerID)
 	{
 		IEntity ent = GetGame().GetPlayerManager().GetPlayerControlledEntity(playerID);
 		if (ent)
@@ -283,7 +283,7 @@ class FPM_MapMarkerEntryPlayer : SCR_MapMarkerEntryDynamic
 	}
 	
 	//------------------------------------------------------------------------------------------------
-	protected  void OnGroupLeft(SCR_AIGroup group, int playerID)
+	protected  void OnGroupLeft_S(SCR_AIGroup group, int playerID)
 	{
 		IEntity ent = GetGame().GetPlayerManager().GetPlayerControlledEntity(playerID);
 		if (ent)
@@ -291,6 +291,29 @@ class FPM_MapMarkerEntryPlayer : SCR_MapMarkerEntryDynamic
 			FPM_MapMarkerPlayer marker = m_mPlayerMarkers.Get(ent);
 			if (marker)
 				marker.SetGroupId(-1);
+		}
+	}
+	
+	//------------------------------------------------------------------------------------------------
+	protected void OnGroupJoined_C(SCR_AIGroup group, int playerID)
+	{
+		
+		foreach(SCR_MapMarkerEntity marker : m_MarkerMgr.GetDynamicMarkers())
+		{
+			FPM_MapMarkerPlayer fmpMarker = FPM_MapMarkerPlayer.Cast(marker);
+			if (fmpMarker)
+				fmpMarker.UpdateColor();
+		}
+	}
+	
+	//------------------------------------------------------------------------------------------------
+	protected  void OnGroupLeft_C(SCR_AIGroup group, int playerID)
+	{
+		foreach(SCR_MapMarkerEntity marker : m_MarkerMgr.GetDynamicMarkers())
+		{
+			FPM_MapMarkerPlayer fmpMarker = FPM_MapMarkerPlayer.Cast(marker);
+			if (fmpMarker)
+				fmpMarker.UpdateColor();
 		}
 	}
 	
@@ -312,8 +335,16 @@ class FPM_MapMarkerEntryPlayer : SCR_MapMarkerEntryDynamic
 		if (factionManager)
 			factionManager.GetOnPlayerFactionChanged_S().Insert(OnPlayerFactionChanged);
 		
-		SCR_AIGroup.GetOnPlayerAdded().Insert(OnGroupJoined);
-		SCR_AIGroup.GetOnPlayerRemoved().Insert(OnGroupLeft);
+		SCR_AIGroup.GetOnPlayerAdded().Insert(OnGroupJoined_S);
+		SCR_AIGroup.GetOnPlayerRemoved().Insert(OnGroupLeft_S);
+	}
+	
+	//------------------------------------------------------------------------------------------------
+	override void InitClientLogic()
+	{
+		super.InitClientLogic();
+		SCR_AIGroup.GetOnPlayerAdded().Insert(OnGroupJoined_C);
+		SCR_AIGroup.GetOnPlayerRemoved().Insert(OnGroupLeft_C);
 	}
 	
 	//------------------------------------------------------------------------------------------------

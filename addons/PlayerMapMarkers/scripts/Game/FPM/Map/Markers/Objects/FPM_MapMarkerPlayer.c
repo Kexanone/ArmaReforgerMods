@@ -49,6 +49,12 @@ class FPM_MapMarkerPlayer : SCR_MapMarkerEntity
 	}
 	
 	//------------------------------------------------------------------------------------------------
+	void UpdateColor()
+	{
+		OnUpdateColor();
+	}
+	
+	//------------------------------------------------------------------------------------------------
 	override void OnCreateMarker()
 	{
 		super.OnCreateMarker();
@@ -172,7 +178,7 @@ class FPM_MapMarkerPlayer : SCR_MapMarkerEntity
 	}
 	
 	//------------------------------------------------------------------------------------------------
-	void UpdateColorBasedOnPlayerGroup()
+	protected void UpdateColorBasedOnPlayerGroup()
 	{
 		if (m_iPlayerId == SCR_PlayerController.GetLocalPlayerId())
 			return;
@@ -180,15 +186,18 @@ class FPM_MapMarkerPlayer : SCR_MapMarkerEntity
 		SCR_GroupsManagerComponent groupManager = SCR_GroupsManagerComponent.GetInstance();
 		SCR_AIGroup aiGroup = groupManager.GetPlayerGroup(SCR_PlayerController.GetLocalPlayerId());
 		if (!aiGroup) return;
-
+		
 		if (aiGroup.GetGroupID() == m_iGroupId && m_iColor != COLOR_INCAPACITATED.PackToInt() && m_iColor != COLOR_DEAD.PackToInt())
 		{
 			m_iColor = COLOR_SAME_GROUP.PackToInt();
+		} else if (aiGroup.GetGroupID() != m_iGroupId && m_iColor == COLOR_SAME_GROUP.PackToInt())
+		{
+			m_iColor = m_iColorAlive;
 		}
 	}
 
 	//------------------------------------------------------------------------------------------------
-	void OnUpdateGroup()
+	protected void OnUpdateGroup()
 	{
 	    OnUpdateColor();
 	}

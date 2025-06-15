@@ -297,7 +297,6 @@ class FPM_MapMarkerEntryPlayer : SCR_MapMarkerEntryDynamic
 	//------------------------------------------------------------------------------------------------
 	protected void OnGroupJoined_C(SCR_AIGroup group, int playerID)
 	{
-		
 		foreach(SCR_MapMarkerEntity marker : m_MarkerMgr.GetDynamicMarkers())
 		{
 			FPM_MapMarkerPlayer fmpMarker = FPM_MapMarkerPlayer.Cast(marker);

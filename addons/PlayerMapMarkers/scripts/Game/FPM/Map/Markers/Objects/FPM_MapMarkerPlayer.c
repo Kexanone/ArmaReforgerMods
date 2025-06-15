@@ -10,7 +10,6 @@ class FPM_MapMarkerPlayer : SCR_MapMarkerEntity
 {
 	protected static const ref const Color COLOR_INCAPACITATED = Color.FromInt(0xFFFF3636);
 	protected static const ref const Color COLOR_DEAD = Color.Gray;
-	protected static const ref const Color COLOR_SAME_GROUP = Color.DarkYellow;
 	
 	[RplProp(onRplName: "OnUpdateSymbol")]
 	protected ref SCR_MilitarySymbol m_Symbol;
@@ -25,6 +24,9 @@ class FPM_MapMarkerPlayer : SCR_MapMarkerEntity
 	
 	[RplProp(onRplName: "InitializeColor")]
 	protected int m_iColorAlive;
+	
+	[RplProp()]
+	protected int m_iColorAliveSameGroup;
 	
 	[RplProp()]
 	protected int m_iPlayerId;
@@ -154,6 +156,8 @@ class FPM_MapMarkerPlayer : SCR_MapMarkerEntity
 		m_Symbol.SetDimension(dimension);
 		OnUpdateSymbol();
 		m_iColorAlive = faction.GetFactionColor().PackToInt();
+		SCR_Faction scrFaction = SCR_Faction.Cast(faction);
+		m_iColorAliveSameGroup = scrFaction.GetOutlineFactionColor().PackToInt();
 		InitializeColor();
 		Replication.BumpMe();
 	}
@@ -180,17 +184,14 @@ class FPM_MapMarkerPlayer : SCR_MapMarkerEntity
 	//------------------------------------------------------------------------------------------------
 	protected void UpdateColorBasedOnPlayerGroup()
 	{
-		if (m_iPlayerId == SCR_PlayerController.GetLocalPlayerId())
-			return;
-		
 		SCR_GroupsManagerComponent groupManager = SCR_GroupsManagerComponent.GetInstance();
 		SCR_AIGroup aiGroup = groupManager.GetPlayerGroup(SCR_PlayerController.GetLocalPlayerId());
 		if (!aiGroup) return;
 		
 		if (aiGroup.GetGroupID() == m_iGroupId && m_iColor != COLOR_INCAPACITATED.PackToInt() && m_iColor != COLOR_DEAD.PackToInt())
 		{
-			m_iColor = COLOR_SAME_GROUP.PackToInt();
-		} else if (aiGroup.GetGroupID() != m_iGroupId && m_iColor == COLOR_SAME_GROUP.PackToInt())
+			m_iColor = m_iColorAliveSameGroup;
+		} else if (m_iColor == m_iColorAliveSameGroup)
 		{
 			m_iColor = m_iColorAlive;
 		}

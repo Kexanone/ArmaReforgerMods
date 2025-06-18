@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{D23B4889D4155C7B}Configs/Slots/Zimnitrita/KSC_Slots_Zimnitrita.conf"
+ Configurations {
+  CONFResourceClass PC {
+  }
+  CONFResourceClass XBOX_ONE : PC {
+  }
+  CONFResourceClass XBOX_SERIES : PC {
+  }
+  CONFResourceClass PS4 : PC {
+  }
+  CONFResourceClass PS5 : PC {
+  }
+  CONFResourceClass HEADLESS : PC {
+  }
+ }
+}

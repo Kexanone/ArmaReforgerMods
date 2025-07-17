@@ -1,9 +1,9 @@
 AudioClass {
  signals {
   SignalClass {
-   id 22541
+   id 23565
    name "Signal 22"
-   tl -104.444 104.444
+   tl -120 115
    res "{9DEC40DAE4E5212C}Sounds/_SharedData/Signals/OneSignal/Trigger.sig"
    inputsport {
     1
@@ -20,20 +20,21 @@ AudioClass {
    inputvaluesmax {
     1
    }
+   path "{9DEC40DAE4E5212C}Sounds/_SharedData/Signals/OneSignal/Trigger.sig"
   }
  }
  sounds {
   SoundClass {
    id 7177
    name "SOUND_AF_AVALANCHE"
-   version 0
+   version 5
    tl 123.056 -67.917
    ins {
     ConnectionsClass connections {
      id 0
      links {
       ConnectionClass connection {
-       id 22541
+       id 23565
        port 2
       }
      }
@@ -49,7 +50,7 @@ AudioClass {
     }
    }
    pi {
-    1
+    1 0
    }
    outState 4107
    outStatePort 79879
@@ -75,11 +76,11 @@ AudioClass {
     }
    }
    pi {
-    65536
+    81920 0
    }
    path "{B764D803219C775E}Sounds/FinalMix.afm"
    inputs {
-    "ANM_Footsteps" "ANM_Voice" "WPN_Handling" "WPN_Shots" "WPN_Explosions" "WNP_BulletHits" "CHAR" "ENV_AMB_2D" "VEH_Animations" "Impacts" "Dialogue" "Music" "ENV_Doors" "VEH_Engine" "VEH_Tires" "VON" "SFX" "SFX_Reverb" "VON_Reverb" "Dialogue_Reverb" "Impacts_EXT" "ENV_AMB_3D" "WPN_SonicCracks" "CHAR_Gear" "PA" "SFX_Reverb_Exterior" "UI" "ENV_AMB_3D_Reverb_Exterior" "SFX_Direct"
+    "WPN_Handling" "WPN_Shots" "WPN_Explosions" "WNP_BulletHits" "CHAR" "ENV_AMB_2D" "VEH_Animations" "Impacts" "Dialog" "Music" "ENV_Doors" "VEH_Engine" "VEH_Tires" "VON" "SFX" "SFX_Reverb" "VON_Reverb" "Dialog_Reverb" "Impacts_EXT" "ENV_AMB_3D" "WPN_SonicCracks" "CHAR_Gear" "PA" "SFX_Reverb_Exterior" "UI" "ENV_AMB_3D_Reverb_Exterior" "SFX_Direct" "SFX_Reverb_Small" "SFX_Reverb_Medium" "SFX_Reverb_Large" "WPN_Shots_Player" "Dialog_Reverb_Small" "Dialog_Reverb_Medium" "Dialog_Reverb_Large" "WPN_TravelingProjectile" "Dialog_Delay_Exterior" "SFX_Reverb_InCabin"
    }
   }
  }
@@ -128,7 +129,7 @@ AudioClass {
     }
    }
    pi {
-    7
+    7 0
    }
   }
  }
@@ -183,17 +184,17 @@ AudioClass {
   BankLocalClass {
    id 15364
    name "Bank 15"
-   version 0
+   version 7
    tl -356.5 -183.111
    Volume 12
    "Volume variance" 2
    Pitch -24
+   "Termination Fade Out" 10000
    "Random start offset" 1
    "Fade in time" 3000
-   "Fade out time" 10000
    Samples {
     AudioBankSampleClass Sample {
-     Filename "{3E393F2196E407FB}Sounds/Environment/Ambients/2D_Wind/Environment_Wind_Meadow_Mid_LP.wav"
+     Filename "{3E393F2196E407FB}Sounds/Environment/Ambients2D/Samples/Wind/Environment_Wind_Meadow_Mid_LP.wav"
     }
    }
   }

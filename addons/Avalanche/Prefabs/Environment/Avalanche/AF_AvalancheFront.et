@@ -1,13 +1,15 @@
 AF_AvalancheFrontEntity {
  ID "60842737F2E238F7"
  components {
+  SignalsManagerComponent "{65E21603874923E7}" {
+  }
   SoundComponent "{608C3370BA0A9494}" {
    Filenames {
     "{5778792C20C16354}Sounds/Environment/AF_Environment_Avalanche.acp"
    }
   }
   MeshObject "{608427387FBA30F0}" {
-   Object "{8F67745B78C9D689}Assets/AF_AvalancheFront.xob"
+   Object "{8F67745B78C9D689}Assets/Environment/Avalanche/AF_AvalancheFront.xob"
   }
   RigidBody "{6084273BAA9431F5}" {
    Active Active
@@ -21,5 +23,5 @@ AF_AvalancheFrontEntity {
   }
  }
  Flags 0
- m_sEmitterName "{57B2E4903383A5BE}Assets/AF_AvalancheParticleEmitter.et"
+ m_sEmitterName "{57B2E4903383A5BE}Prefabs/Environment/Avalanche/AF_AvalancheParticleEmitter.et"
 }

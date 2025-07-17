@@ -22,7 +22,7 @@ class AF_AvalancheFrontEntity : GenericEntity
 	protected float m_fMinimumSpeed;
 	
 	protected ParticleEffectEntity m_pPreviousEmitter;
-	protected SoundComponent m_pSoundComponent;
+	protected SignalsManagerComponent m_pSignalsManager;
 	protected ref array<vector> m_aTrajectory = {};
 	protected ref array<vector> m_aPerps = {};
 	protected vector m_vCurrentVelocity;
@@ -47,9 +47,9 @@ class AF_AvalancheFrontEntity : GenericEntity
 	//------------------------------------------------------------------------------------------------
 	protected void InitializeFrontHandler()
 	{
-		m_pSoundComponent = SoundComponent.Cast(FindComponent(SoundComponent));
-		if (m_pSoundComponent)
-			m_pSoundComponent.SetSignalValueStr("Trigger", 1);
+		m_pSignalsManager = SignalsManagerComponent.Cast(FindComponent(SignalsManagerComponent));
+		if (m_pSignalsManager)
+			m_pSignalsManager.SetSignalValue(m_pSignalsManager.FindSignal("Trigger"), 1);
 		
 		GetGame().GetCallqueue().CallLater(FrontHandler, Math.RandomIntInclusive(1000, 1500), true);
 		FrontHandler();
@@ -77,8 +77,8 @@ class AF_AvalancheFrontEntity : GenericEntity
 		{
 			DetachCurrentEmitter();
 			
-			if (m_pSoundComponent)
-				m_pSoundComponent.SetSignalValueStr("Trigger", 0);
+			if (m_pSignalsManager)
+				m_pSignalsManager.SetSignalValue(m_pSignalsManager.FindSignal("Trigger"), 0);
 			
 			GetGame().GetCallqueue().Remove(FrontHandler);
 			

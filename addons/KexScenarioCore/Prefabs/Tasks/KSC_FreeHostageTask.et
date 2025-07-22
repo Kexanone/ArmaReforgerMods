@@ -1,0 +1,15 @@
+KSC_FreeHostageTask {
+ ID "65ECF99F1C817FC3"
+ components {
+  SCR_MapDescriptorComponent "{65ECF99F1C817F36}" {
+   VisibleOnMap 0
+   MainType Task
+  }
+ }
+ coords 1356.394 1.677 1054.424
+ m_sName "#KSC-Task_FreeHostage_Name"
+ m_sDescription "#KSC-Task_FreeHostage_Description"
+ m_sMapIconName "Icon_Task_Captive"
+ m_sTaskListIconName "Icon_Task_Captive"
+ m_sIconImageset "{10C0A9A305E8B3A4}UI/Imagesets/Tasks/Task_Icons.imageset"
+}

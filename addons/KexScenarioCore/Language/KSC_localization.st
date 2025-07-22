@@ -97,6 +97,22 @@ StringTable {
    Author "kexanone"
    LastChanged "kexanone"
   }
+  CustomStringTableItem "{65ECF99E0E74500D}" {
+   Id "KSC-Task_FreeHostage_Description"
+   Target_en_us "Free the hostage at the designated location."
+   Target_de_de "Befreie die Geisel im Zielgebiet."
+   Modified 1710031212
+   Author "Kexanone"
+   LastChanged "Kexanone"
+  }
+  CustomStringTableItem "{65ECF99E0899DFBA}" {
+   Id "KSC-Task_FreeHostage_Name"
+   Target_en_us "Free %1"
+   Target_de_de "Befreie %1"
+   Modified 1710031179
+   Author "Kexanone"
+   LastChanged "Kexanone"
+  }
   CustomStringTableItem "{60ACDABEC832AEB8}" {
    Id "KSC-Task_Kill_Description"
    Target_en_us "Kill the HVT at the designated location."

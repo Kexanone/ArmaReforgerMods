@@ -92,7 +92,7 @@ class KSC_AITasks
 	
 	//------------------------------------------------------------------------------------------------
 	//! To Do: Reset LOD after completion
-	static void ArtillerySupport(IEntity vehicle, AIGroup group, vector pos, SCR_EAIArtilleryAmmoType ammoType, int shotCount)
+	static void ArtillerySupport(Turret vehicle, AIGroup group, vector pos, SCR_EAIArtilleryAmmoType ammoType, int shotCount)
 	{
 		KSC_GroupHelper.EnableAILODs(SCR_AIGroup.Cast(group), false);
 		GetIn(vehicle, group);

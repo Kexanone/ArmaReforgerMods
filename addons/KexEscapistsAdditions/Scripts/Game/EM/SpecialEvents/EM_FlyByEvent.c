@@ -63,11 +63,11 @@ class EM_FlyByEvent : EM_SpecialEventBase
 		{
 			Vehicle aircraft;
 			
-			if (factionKey == "USSR")
+			if (factionKey == "USSR" || factionKey == "RHS_AFRF")
 			{
 				aircraft = Vehicle.Cast(GetGame().SpawnEntityPrefab(Resource.Load("{59491940105545FE}Prefabs/Vehicles/Helicopters/Mi8MT/EM_Mi8MT_ambient.et"), null, params));
 			}
-			else if (factionKey == "US")
+			else if (factionKey == "US" || factionKey == "RHS_USAF")
 			{
 				aircraft = Vehicle.Cast(GetGame().SpawnEntityPrefab(Resource.Load("{1E55F72F67A2E60D}Prefabs/Vehicles/Helicopters/UH1H/EM_UH1H_ambient.et"), null, params));
 			}

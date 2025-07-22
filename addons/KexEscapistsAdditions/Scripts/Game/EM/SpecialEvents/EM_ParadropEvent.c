@@ -24,6 +24,14 @@ class EM_ParadropEvent : EM_FlyByEvent
 			{
 				group = SCR_AIGroup.Cast(GME_ParadropHelper.SpawnGroupInVehicle(aircraft, "{DDF3799FA1387848}Prefabs/Groups/BLUFOR/Group_US_RifleSquad.et"));
 			}
+			else if (factionKey == "RHS_AFRF")
+			{
+				group = SCR_AIGroup.Cast(GME_ParadropHelper.SpawnGroupInVehicle(aircraft, "{D5BA898DF743F90B}Prefabs/Groups/OPFOR/RHS_AFRF/MSV/VKPO_3.0/Group_RHS_RF_MSV_VKPO_3.0_RifleSquad.et"));
+			}
+			else if (factionKey == "RHS_USAF")
+			{
+				group = SCR_AIGroup.Cast(GME_ParadropHelper.SpawnGroupInVehicle(aircraft, "{F831DFB4A9B46152}Prefabs/Groups/BLUFOR/RHS_USAF/RHS_USAF_USMC_MEF/Group_USAF_USMC_MEF_RifleSquad.et"));
+			}
 			else
 			{
 				PrintFormat("EM_ParadropEvent.Run: Faction not supported: %1", factionKey, level: LogLevel.WARNING);
@@ -45,7 +53,6 @@ class EM_ParadropEvent : EM_FlyByEvent
 	}
 }
 
-
 //------------------------------------------------------------------------------------------------
 class GME_ParadropHelper
 {
@@ -61,7 +68,7 @@ class GME_ParadropHelper
 		vehicle.GetWorldTransform(params.Transform);
 		SCR_AIGroup group = SCR_AIGroup.Cast(GetGame().SpawnEntityPrefab(Resource.Load(groupPrefabName), null, params));
 		group.SetPermanentLOD(0);
-		group.AddUsableVehicle(vehicle);
+		group.GetGroupUtilityComponent().AddUsableVehicle(SCR_AIVehicleUsageComponent.Cast(vehicle.FindComponent(SCR_AIVehicleUsageComponent)));
 		group.GetOnAgentAdded().Insert(OnAgentAddedToSpawnedGroup);
 		return group;
 	}
@@ -83,7 +90,7 @@ class GME_ParadropHelper
 		group.GetOnAgentAdded().Remove(OnAgentAddedToSpawnedGroup);
 		
 		array<IEntity> vehicles = {};
-		group.GetUsableVehicles(vehicles);
+		group.GetGroupUtilityComponent().m_VehicleMgr.GetAllVehicleEntities(vehicles);
 		if (vehicles.IsEmpty())
 			return;
 		
@@ -186,8 +193,7 @@ class GME_ParadropHelper
 		passenger.GetPhysics().SetActive(ActiveState.ACTIVE);
 		SCR_CompartmentAccessComponent compartmentAccess = SCR_CompartmentAccessComponent.Cast(passenger.FindComponent(SCR_CompartmentAccessComponent));
 		compartmentAccess.GetOnCompartmentLeft().Remove(OnPassengerEjected);
-		SCR_DamageManagerComponent damageManager = passenger.GetDamageManager();
-		damageManager.EnableDamageHandling(false);
+		passenger.GetDamageManager().EnableDamageHandling(false);
 		GetGame().GetCallqueue().CallLater(AddChute, 2000, false, passenger);
 	}
 	
@@ -195,30 +201,89 @@ class GME_ParadropHelper
 	static void AddChute(SCR_ChimeraCharacter passenger)
 	{
 		passenger.GetPhysics().SetActive(ActiveState.ACTIVE);
-		SCR_DamageManagerComponent damageManager = passenger.GetDamageManager();
-		damageManager.EnableDamageHandling(true);
-		Bacon_ParachuteTestLmao paraComponent = Bacon_ParachuteTestLmao.Cast(passenger.FindComponent(Bacon_ParachuteTestLmao));
-		paraComponent.Deploy();
-		paraComponent.Rpc(paraComponent.RpcDo_SetDeployFX, true);
+		passenger.GetDamageManager().EnableDamageHandling(true);
+		
+		SCR_CompartmentAccessComponent compartmentAccessComponent = SCR_CompartmentAccessComponent.Cast(passenger.GetCompartmentAccessComponent());
+		if (!compartmentAccessComponent)
+			return;
+				
+		Resource res = Resource.Load("{6B2915901ADE376F}Prefabs/Vehicles/Core/TESTCARGO.et");
+		EntitySpawnParams params = new EntitySpawnParams();
+		params.TransformMode = ETransformMode.WORLD;
+		passenger.GetWorldTransform(params.Transform);
+		Bacon_6198EC294DEC63C0_DeployedParachuteEntity chute = Bacon_6198EC294DEC63C0_DeployedParachuteEntity.Cast(GetGame().SpawnEntityPrefab(res, null, params));
+		compartmentAccessComponent.MoveInVehicle(chute, ECompartmentType.CARGO);
+		chute.GetPhysics().SetVelocity(passenger.GetPhysics().GetVelocity());
+		chute.EM_SetIsAIControlled(true);
+		chute.SetEventMask(EntityEvent.FRAME | EntityEvent.SIMULATE);
 	}
 }
 
 //------------------------------------------------------------------------------------------------
-modded class Bacon_ParachuteTestLmao : ScriptComponent
+//! Add modifications for supporting AI
+modded class Bacon_6198EC294DEC63C0_DeployedParachuteEntity: GenericEntity
 {
+	[RplProp()]
+	protected bool m_bEM_IsAIControlled = false;
+	[RplProp()]
+	protected bool m_bEM_IsTerminating = false;
+	
+	protected float m_fEM_MorphProgress = 0;
+	
 	//------------------------------------------------------------------------------------------------
-	override void EOnInit(IEntity owner)
+	void EM_SetIsAIControlled(bool isAIControlled)
 	{
-		super.EOnInit(owner);
-		
-		if (!SCR_EntityHelper.IsPlayer(owner))
-			m_PCComponent = null;
+		m_bEM_IsAIControlled = isAIControlled;
+		Replication.BumpMe();
 	}
 	
 	//------------------------------------------------------------------------------------------------
-	override void EOnPostFrame(IEntity owner, float timeSlice) {
-		if (!m_characterController.IsFalling() || m_characterController.IsSwimming()) {
-			Undeploy();
-		}
+	//! Eject AI when touching surface
+	override void EOnContact(IEntity owner, IEntity other, Contact contact)
+	{
+		super.EOnContact(owner, other, contact);
+		
+		if (!m_bEM_IsAIControlled || !Replication.IsServer())
+			return;
+		
+		BaseCompartmentManagerComponent compartmentManager = BaseCompartmentManagerComponent.Cast(FindComponent(BaseCompartmentManagerComponent));
+		if (!compartmentManager)
+			return;
+		
+		array<BaseCompartmentSlot> compartments = {};
+		compartmentManager.GetCompartments(compartments);
+		compartments[0].EjectOccupant();
+		m_bEM_IsTerminating = true;
+		Replication.BumpMe();
+		ClearEventMask(EntityEvent.CONTACT);
+	}
+	
+	//------------------------------------------------------------------------------------------------
+	//! Increase falling speed
+	override void EOnSimulate(IEntity owner, float timeSlice)
+	{
+		super.EOnSimulate(owner, timeSlice);
+		
+		if (!m_bEM_IsAIControlled || !m_RplComponent.IsOwner())
+			return;
+		
+		m_Physics.ApplyImpulse(vector.Up * m_fDownwardForce * timeSlice);
+	}
+	
+	//------------------------------------------------------------------------------------------------
+	//! Add morph transition for closing chute
+	override void EOnFrame(IEntity owner, float timeSlice)
+	{
+		super.EOnFrame(owner, timeSlice);	
+		
+		if (!m_bEM_IsAIControlled || !m_bEM_IsTerminating)
+			return;
+		
+		m_fEM_MorphProgress += timeSlice / 2;
+		
+		if (m_fEM_MorphProgress < 1)
+			m_Animation.SetMorphState(m_MorphTarget_Open, m_fEM_MorphProgress);
+		else		
+			SCR_EntityHelper.DeleteEntityAndChildren(this);
 	}
 }

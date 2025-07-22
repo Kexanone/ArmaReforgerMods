@@ -53,13 +53,14 @@ class KSC_AITasks
 	}
 	
 	//------------------------------------------------------------------------------------------------
-	static void Defend(AIGroup group, KSC_AreaBase area, float radius = 50)
+	static vector Defend(AIGroup group, KSC_AreaBase area, float radius = 50)
 	{
 		int attempts = 0;
+		vector pos;
 		
 		while (attempts < s_iMaxAttempts)
 		{
-			vector pos = area.SamplePointInArea();
+			pos = area.SamplePointInArea();
 			pos[1] = SCR_TerrainHelper.GetTerrainY(pos);
 			if (!KSC_TerrainHelper.SurfaceIsWater(pos) &&  KSC_WorldTools.IsPosEmpty(pos))
 			{
@@ -69,6 +70,8 @@ class KSC_AITasks
 			
 			attempts++;
 		}
+		
+		return pos;
 	}
 	
 	//------------------------------------------------------------------------------------------------

@@ -21,9 +21,9 @@ class KSC_Clustering_Exporter : Managed
 	//------------------------------------------------------------------------------------------------
 	void ExportTerrain()
 	{
-		BaseWorld world = GetGame().GetWorld();
-		vector mins, maxs;
-		world.GetBoundBox(mins, maxs);
+		vector size = GetGame().GetMapManager().Size();
+		vector mins = GetGame().GetMapManager().Offset();
+		vector maxs = mins + size;
 		array<ref array<float>> rectangles = {{mins[0], mins[2], maxs[0], maxs[2]}};
 		ExportTerrain(rectangles);
 	}
@@ -131,10 +131,9 @@ class KSC_Clustering_Exporter : Managed
 			m_mStreams[type] = FileIO.OpenFile(m_sWorldName + "/" + type.ToString() + ".dat", FileMode.WRITE);
 		}
 		
-		BaseWorld world = GetGame().GetWorld();
 		vector mins, maxs;
-		world.GetBoundBox(mins, maxs);
-		world.QueryEntitiesByAABB(mins, maxs, QueryExportCallback);
+		GetGame().GetWorld().GetBoundBox(mins, maxs);
+		GetGame().GetWorld().QueryEntitiesByAABB(mins, maxs, QueryExportCallback);
 		
 		foreach (FileHandle stream : m_mStreams)
 		{

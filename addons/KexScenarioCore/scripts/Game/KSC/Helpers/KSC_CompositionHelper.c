@@ -52,7 +52,7 @@ class KSC_CompositionHelper
 class KSC_CompositionHelperT<Class T>
 {
 	//------------------------------------------------------------------------------------------------
-	static void GetChildrenByType(IEntity composition, inout notnull array<IEntity> matches, bool recursive = true)
+	static void GetChildrenByType(IEntity composition, inout notnull array<T> matches, bool recursive = true)
 	{
 		IEntity child = composition.GetChildren();
 		while (child)
@@ -60,8 +60,9 @@ class KSC_CompositionHelperT<Class T>
 			if (recursive)
 				GetChildrenByType(child, matches, recursive);
 			
-			if (T.Cast(child))
-				matches.Insert(child);
+			T castedChild = T.Cast(child);
+			if (castedChild)
+				matches.Insert(castedChild);
 			
 			child = child.GetSibling();
 		}

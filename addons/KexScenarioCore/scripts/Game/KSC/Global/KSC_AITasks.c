@@ -75,6 +75,14 @@ class KSC_AITasks
 	}
 	
 	//------------------------------------------------------------------------------------------------
+	static void MoveTo(AIGroup group, vector pos, float radius = 30)
+	{
+		AIWaypoint wp = KSC_GameTools.SpawnWaypointPrefab("{FFF9518F73279473}PrefabsEditable/Auto/AI/Waypoints/E_AIWaypoint_Move.et", pos);
+		wp.SetCompletionRadius(radius);
+		group.AddWaypoint(wp);
+	}
+	
+	//------------------------------------------------------------------------------------------------
 	static void SearchAndDestroy(AIGroup group, vector pos, float radius = 30)
 	{
 		AIWaypoint wp = KSC_GameTools.SpawnWaypointPrefab("{EE9A99488B40628B}PrefabsEditable/Auto/AI/Waypoints/E_AIWaypoint_SearchAndDestroy.et", pos);

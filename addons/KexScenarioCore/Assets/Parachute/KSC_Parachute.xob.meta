@@ -1,0 +1,38 @@
+MetaFileClass {
+ Name "{9B05AFF892D7B76A}Assets/Parachute/KSC_Parachute.xob"
+ Configurations {
+  FBXResourceClass PC {
+   ExportMorphs 1
+   MaterialAssigns {
+    MaterialAssignClass "{65ED59140757B182}" {
+     SourceMaterial "parachute"
+     AssignedMaterial "{2CCEE4A9B007FD4C}Assets/Structures/Military/Camps/TentUSSR_01/Data/Tent_Soviet_01_Fabric_MLOD.emat"
+    }
+   }
+   MeshParams {
+    MeshParam Object {
+    }
+   }
+   GeometryParams {
+    GeometryParam UBX_View {
+     LayerPreset "ViewGeo"
+     SurfaceProperties {
+      "{13581C35484F3000}Common/Materials/Game/fabric.gamemat"
+     }
+     Mass 0
+     Margin 0
+    }
+   }
+  }
+  FBXResourceClass XBOX_ONE : PC {
+  }
+  FBXResourceClass XBOX_SERIES : PC {
+  }
+  FBXResourceClass PS4 : PC {
+  }
+  FBXResourceClass PS5 : PC {
+  }
+  FBXResourceClass HEADLESS : PC {
+  }
+ }
+}

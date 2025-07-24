@@ -1,0 +1,19 @@
+KSC_Parachute : "{0D226790BE615DC7}Prefabs/Helpers/ACE_AnimationHelperCompartment.et" {
+ ID "4B42E71698F5739C"
+ components {
+  MeshObject "{4B42E716914465B9}" {
+   Object "{9B05AFF892D7B76A}Assets/Parachute/KSC_Parachute.xob"
+   LODFactors {
+    1 0.1 0.1
+   }
+  }
+  VehicleAnimationComponent "{50B812962B17E60B}" {
+   AnimInstance "{EF71DF39A69DC55A}Assets/Helpers/Workspace/ACE_Captives_Surrender.asi"
+   AnimInjection AnimationAttachmentInfo "{50B812961A339FD2}" {
+    AnimInstance "{EF71DF39A69DC55A}Assets/Helpers/Workspace/ACE_Captives_Surrender.asi"
+   }
+  }
+  NwkPhysicsMovementComponent "{65EEBE2780AFC94C}" {
+  }
+ }
+}

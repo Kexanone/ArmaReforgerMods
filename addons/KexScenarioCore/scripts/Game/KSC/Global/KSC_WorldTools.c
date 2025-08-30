@@ -118,6 +118,7 @@ class KSC_WorldTools
 		return (m_fNearestDistanceSq != 0);
 	}
 	
+	//------------------------------------------------------------------------------------------------
 	static string GetBaseWorldName()
 	{
 		string worldName = FilePath.StripExtension(FilePath.StripPath(GetGame().GetWorldFile()));

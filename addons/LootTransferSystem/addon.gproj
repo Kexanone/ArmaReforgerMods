@@ -1,0 +1,8 @@
+GameProject {
+ ID "LootTransferSystem"
+ GUID "665AC4328A9856F3"
+ TITLE "Loot Transfer System"
+ Dependencies {
+  "58D0FB3206B6F859"
+ }
+}

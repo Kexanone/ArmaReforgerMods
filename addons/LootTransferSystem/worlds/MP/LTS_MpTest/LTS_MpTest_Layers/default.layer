@@ -1,0 +1,59 @@
+Vehicle Ural4320_transport1 : "{16C1F16C9B053801}Prefabs/Vehicles/Wheeled/Ural4320/Ural4320_transport.et" {
+ coords 129.501 1 121.977
+}
+GenericEntity Placeable_EquipmentBox_665AE1D4B23E1EA7 : "{64B2F8D8059AE0A4}Prefabs/PlaceableProps/Placeable_EquipmentBox.et" {
+ coords 128.948 1 127.904
+}
+$grp SCR_ChimeraCharacter : "{DCB41B3746FDD1BE}Prefabs/Characters/Factions/OPFOR/USSR_Army/Character_USSR_Rifleman.et" {
+ Character_USSR_Rifleman_665AE1D4D5FCD09F {
+  coords 124.761 1 120.798
+  EOnInit ""\
+  "		super.EOnInit(owner);"\
+  "		"\
+  "		if (!GetGame().InPlayMode() || !Replication.IsServer())"\
+  "			return;"\
+  "		"\
+  "		SCR_ChimeraCharacter ownerChar = SCR_ChimeraCharacter.Cast(owner);"\
+  "		if (!ownerChar)"\
+  "			return;"\
+  "		"\
+  "		SCR_DamageManagerComponent damageManager = ownerChar.GetDamageManager();"\
+  "		if (damageManager)"\
+  "			damageManager.SetHealthScaled(0);"\
+  "	"
+ }
+ Character_USSR_Rifleman_665AE1D4D5FCD09F2 {
+  coords 126.923 1 121.749
+  EOnInit ""\
+  "		super.EOnInit(owner);"\
+  "		"\
+  "		if (!GetGame().InPlayMode() || !Replication.IsServer())"\
+  "			return;"\
+  "		"\
+  "		SCR_ChimeraCharacter ownerChar = SCR_ChimeraCharacter.Cast(owner);"\
+  "		if (!ownerChar)"\
+  "			return;"\
+  "		"\
+  "		SCR_DamageManagerComponent damageManager = ownerChar.GetDamageManager();"\
+  "		if (damageManager)"\
+  "			damageManager.SetHealthScaled(0);"\
+  "	"
+ }
+ Character_USSR_Rifleman_665AE1D4D5FCD09F3 {
+  coords 126.643 1 118.764
+  EOnInit ""\
+  "		super.EOnInit(owner);"\
+  "		"\
+  "		if (!GetGame().InPlayMode() || !Replication.IsServer())"\
+  "			return;"\
+  "		"\
+  "		SCR_ChimeraCharacter ownerChar = SCR_ChimeraCharacter.Cast(owner);"\
+  "		if (!ownerChar)"\
+  "			return;"\
+  "		"\
+  "		SCR_DamageManagerComponent damageManager = ownerChar.GetDamageManager();"\
+  "		if (damageManager)"\
+  "			damageManager.SetHealthScaled(0);"\
+  "	"
+ }
+}

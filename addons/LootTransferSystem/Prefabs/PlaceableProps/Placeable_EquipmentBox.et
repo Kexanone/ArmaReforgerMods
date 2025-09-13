@@ -1,0 +1,20 @@
+GenericEntity : "{64B2F8D8059D6912}Prefabs/Modded/Props/Military/AmmoBoxes/EquipmentBox_Base.et" {
+ ID "5992E2EECFF48DDE"
+ components {
+  ActionsManagerComponent "{5992E2EE5A9EEC18}" {
+   additionalActions {
+    LTS_UnloadLootAction "{665AE1D5795CF05B}" {
+     ParentContextList {
+      "default"
+     }
+     UIInfo SCR_ActionUIInfo "{665AE1D571EED304}" {
+      Name "Unload loot"
+     }
+     Duration 1
+     "Sort Priority" 7
+     m_sSpecificTransfer "Unload loot from %1"
+    }
+   }
+  }
+ }
+}

@@ -11,6 +11,7 @@ Repository for my personal Arma Reforger mods, except game modes and terrains.
 - [Keep Ragdoll Pose](addons/KeepRagdollPose)
 - [Kex Escapists Additions](addons/KexEscapistsAdditions)
 - [Kex Scenario Core](addons/KexScenarioCore)
+- [Loot Transfer System](addons/LootTransferSystem)
 - [Map Marker Menu Fix](addons/MapMarkerMenuFix)
 - [Medical Notifications](addons/MedicalNotifications)
 - [No Supply System](addons/NoSupplySystem)

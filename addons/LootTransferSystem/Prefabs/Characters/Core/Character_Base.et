@@ -3,11 +3,11 @@ SCR_ChimeraCharacter {
  components {
   ActionsManagerComponent "{520EA1D2F659CE02}" {
    additionalActions {
-    LTS_LoadLootAction "{665AC4AE256B6FD8}" {
+    LTS_LoadLootAction "{665B0182B43719EB}" {
      ParentContextList {
       "LowerTorso"
      }
-     UIInfo SCR_ActionUIInfo "{665AC4AE577B8BF4}" {
+     UIInfo SCR_ActionUIInfo "{665B0182CE59699C}" {
       Name "Loot to nearest vehicle"
      }
      Duration 1

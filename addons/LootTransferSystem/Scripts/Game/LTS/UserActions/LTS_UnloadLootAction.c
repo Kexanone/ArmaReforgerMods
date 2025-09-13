@@ -8,6 +8,12 @@ class LTS_UnloadLootAction : LTS_BaseLootTransferAction
 	}
 	
 	//------------------------------------------------------------------------------------------------
+	override protected BaseInventoryStorageComponent GetTargetStorage()
+	{
+		return BaseInventoryStorageComponent.Cast(GetOwner().FindComponent(BaseInventoryStorageComponent));
+	}
+	
+	//------------------------------------------------------------------------------------------------
 	override protected ScriptedInventoryStorageManagerComponent GetSourceStorageManager()
 	{
 		return ScriptedInventoryStorageManagerComponent.Cast(m_pNearestVehicle.FindComponent(SCR_VehicleInventoryStorageManagerComponent));

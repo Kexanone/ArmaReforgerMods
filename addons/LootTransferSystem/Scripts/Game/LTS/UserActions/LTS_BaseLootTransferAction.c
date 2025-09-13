@@ -25,11 +25,15 @@ class LTS_BaseLootTransferAction : ScriptedUserAction
 		if (!targetStorageManager)
 			return;
 		
+		BaseInventoryStorageComponent targetStorage = GetTargetStorage();
+		if (!targetStorage)
+			return;
+		
 		int failureCounter = 0;
 		
 		foreach (IEntity item : FindItemsToTransfer())
 		{
-			if (!TransferItem(item, targetStorageManager))
+			if (!TransferItem(item, targetStorageManager, targetStorage))
 				++failureCounter;
 		}
 		
@@ -44,7 +48,10 @@ class LTS_BaseLootTransferAction : ScriptedUserAction
 	}
 	
 	//------------------------------------------------------------------------------------------------
-	protected ScriptedInventoryStorageManagerComponent GetTargetStorageManager();
+	protected ScriptedInventoryStorageManagerComponent GetTargetStorageManager();	
+	
+	//------------------------------------------------------------------------------------------------
+	protected BaseInventoryStorageComponent GetTargetStorage();
 	
 	//------------------------------------------------------------------------------------------------
 	protected ScriptedInventoryStorageManagerComponent GetSourceStorageManager();
@@ -60,15 +67,43 @@ class LTS_BaseLootTransferAction : ScriptedUserAction
 		sourceStorageManager.GetItems(items);
 		return items;
 	}
-	
+
 	//------------------------------------------------------------------------------------------------
-	protected bool TransferItem(IEntity item, ScriptedInventoryStorageManagerComponent targetStorageManager)
+	protected bool TransferItem(IEntity item, ScriptedInventoryStorageManagerComponent targetStorageManager, BaseInventoryStorageComponent targetStorage)
 	{
-			BaseInventoryStorageComponent targetStorage = targetStorageManager.FindStorageForItem(item, EStoragePurpose.PURPOSE_DEPOSIT);
-			if (!targetStorage)
-				return false;
+		// Skip if item has already been transferred
+		if (targetStorageManager.Contains(item))
+			return true;
+		
+		// Unload items in items, except weapon attachments
+		BaseInventoryStorageComponent pouchStorage = BaseInventoryStorageComponent.Cast(item.FindComponent(BaseInventoryStorageComponent));
+		if (pouchStorage && !WeaponAttachmentsStorageComponent.Cast(pouchStorage))
+		{
+			array<IEntity> pouchItems = {};
+			pouchStorage.GetAll(pouchItems);
 			
-			return targetStorageManager.TryMoveItemToStorage(item, targetStorage) || targetStorageManager.TryInsertItem(item, EStoragePurpose.PURPOSE_DEPOSIT);
+			foreach (IEntity pouchItem : pouchItems)
+			{
+				// Unload items from subpouches, but do not unload subpouch from pouch
+				BaseInventoryStorageComponent subPouchStorage = BaseInventoryStorageComponent.Cast(pouchItem.FindComponent(BaseInventoryStorageComponent));
+				if (subPouchStorage)
+				{
+					array<IEntity> subPouchItems = {};
+					subPouchStorage.GetAll(subPouchItems);
+					
+					foreach (IEntity subPouchItem : subPouchItems)
+					{
+						TransferItem(subPouchItem, targetStorageManager, targetStorage);
+					}
+				}
+				else
+				{
+					TransferItem(pouchItem, targetStorageManager, targetStorage);
+				}
+			}
+		}
+		
+		return (targetStorageManager.TryMoveItemToStorage(item, targetStorage) || targetStorageManager.TryInsertItem(item));
 	}
 	
 	//------------------------------------------------------------------------------------------------

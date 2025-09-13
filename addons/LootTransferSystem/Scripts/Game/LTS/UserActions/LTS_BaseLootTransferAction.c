@@ -75,7 +75,7 @@ class LTS_BaseLootTransferAction : ScriptedUserAction
 	protected void UpdateNearestVehicle()
 	{
 		LTF_WorldQueryTool<Vehicle> query = new LTF_WorldQueryTool<Vehicle>();
-		m_pNearestVehicle = query.FindFirst(GetOwner().GetOrigin(), m_fMaxDistance);
+		m_pNearestVehicle = query.FindNearest(GetOwner().GetOrigin(), m_fMaxDistance);
 	}
 	
 	//------------------------------------------------------------------------------------------------
@@ -123,50 +123,4 @@ class LTS_BaseLootTransferAction : ScriptedUserAction
 	
 	//------------------------------------------------------------------------------------------------
 	override bool CanBroadcastScript() { return false; };
-}
-
-//------------------------------------------------------------------------------------------------
-class LTF_WorldQueryTool<IEntity T> : Managed
-{
-	protected ref array<T> m_aResults;
-	protected T m_pResult;
-	
-	//------------------------------------------------------------------------------------------------
-	array<T> FindAll(vector center, float radius)
-	{
-		m_aResults = {};
-		GetGame().GetWorld().QueryEntitiesBySphere(center, radius, QueryAllCallback);
-		return m_aResults;
-	}
-	
-	//------------------------------------------------------------------------------------------------
-	T FindFirst(vector center, float radius)
-	{
-		m_pResult = null;
-		GetGame().GetWorld().QueryEntitiesBySphere(center, radius, QueryFirstCallback);
-		return m_pResult;
-	}
-	
-	//------------------------------------------------------------------------------------------------
-	protected bool QueryAllCallback(IEntity entity)
-	{
-		T castedEntity = T.Cast(entity);
-		if (castedEntity)
-			m_aResults.Insert(castedEntity);
-		
-		return true;
-	}
-	
-	//------------------------------------------------------------------------------------------------
-	protected bool QueryFirstCallback(IEntity entity)
-	{
-		T castedEntity = T.Cast(entity);
-		if (castedEntity)
-		{
-			m_pResult = castedEntity;
-			return false;
-		}
-		
-		return true;
-	}
 }

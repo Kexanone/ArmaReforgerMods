@@ -37,6 +37,10 @@ class LTS_BaseLootTransferAction : ScriptedUserAction
 				++failureCounter;
 		}
 		
+	#ifdef FREEDOM_FIGHTERS
+		JWK.GetPlayerWanted().NotifyPlayerLootAction_S(pUserEntity, pOwnerEntity);
+	#endif
+		
 		int playerID = GetGame().GetPlayerManager().GetPlayerIdFromControlledEntity(pUserEntity);
 		if (playerID == 0)
 			return;

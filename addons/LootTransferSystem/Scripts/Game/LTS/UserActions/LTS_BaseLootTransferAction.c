@@ -79,35 +79,95 @@ class LTS_BaseLootTransferAction : ScriptedUserAction
 		if (targetStorageManager.Contains(item))
 			return true;
 		
-		// Unload items in items, except weapon attachments
-		BaseInventoryStorageComponent pouchStorage = BaseInventoryStorageComponent.Cast(item.FindComponent(BaseInventoryStorageComponent));
-		if (pouchStorage && !WeaponAttachmentsStorageComponent.Cast(pouchStorage))
+		// Unload items in items
+		BaseInventoryStorageComponent innerStorage = BaseInventoryStorageComponent.Cast(item.FindComponent(BaseInventoryStorageComponent));
+		if (innerStorage)
 		{
-			array<IEntity> pouchItems = {};
-			pouchStorage.GetAll(pouchItems);
+			array<IEntity> innerItems = {};
+			innerStorage.GetAll(innerItems);
 			
-			foreach (IEntity pouchItem : pouchItems)
+			foreach (IEntity innerItem : innerItems)
 			{
-				// Unload items from subpouches, but do not unload subpouch from pouch
-				BaseInventoryStorageComponent subPouchStorage = BaseInventoryStorageComponent.Cast(pouchItem.FindComponent(BaseInventoryStorageComponent));
-				if (subPouchStorage)
-				{
-					array<IEntity> subPouchItems = {};
-					subPouchStorage.GetAll(subPouchItems);
-					
-					foreach (IEntity subPouchItem : subPouchItems)
-					{
-						TransferItem(subPouchItem, targetStorageManager, targetStorage);
-					}
-				}
-				else
-				{
-					TransferItem(pouchItem, targetStorageManager, targetStorage);
-				}
+				TransferItem(innerItem, targetStorageManager, targetStorage);
 			}
 		}
 		
+		// Do not remove attachments and pouches from vests
+		if (IsAttachedWeaponAttachment(item) || IsAttachedHelmetAttachment(item) || IsAttachedArmorPlate(item) || IsPouch(item))
+			return true;
+		
 		return (targetStorageManager.TryMoveItemToStorage(item, targetStorage) || targetStorageManager.TryInsertItem(item));
+	}
+	
+	//------------------------------------------------------------------------------------------------
+	protected IEntity GetParentSlotOwner(IEntity item)
+	{
+		InventoryItemComponent itemComponent = InventoryItemComponent.Cast(item.FindComponent(InventoryItemComponent));
+		if (!itemComponent)
+			return null;
+		
+		InventoryStorageSlot slot = itemComponent.GetParentSlot();
+		if (!slot)
+			return null;
+		
+		BaseInventoryStorageComponent storage = slot.GetStorage();
+		if (!storage)
+			return null;
+		
+		return storage.GetOwner();
+	}
+	
+	//------------------------------------------------------------------------------------------------
+	protected bool IsAttachedWeaponAttachment(IEntity item)
+	{
+		IEntity parent = item.GetParent();
+		if (parent && !ChimeraCharacter.Cast(parent) && parent.FindComponent(BaseWeaponComponent))
+			return true;
+		
+		return false;
+	}
+	
+	//------------------------------------------------------------------------------------------------
+	protected bool IsAttachedArmorPlate(IEntity item)
+	{
+		IEntity parentSlotOwner = GetParentSlotOwner(item);
+		if (!parentSlotOwner)
+			return false;
+		
+		BaseLoadoutClothComponent clothComponent = BaseLoadoutClothComponent.Cast(parentSlotOwner.FindComponent(BaseLoadoutClothComponent));
+		if (!clothComponent)
+			return false;
+		
+		return LoadoutArmoredVestSlotArea.Cast(clothComponent.GetAreaType());
+	}
+	
+	//------------------------------------------------------------------------------------------------
+	protected bool IsAttachedHelmetAttachment(IEntity item)
+	{
+		IEntity parentSlotOwner = GetParentSlotOwner(item);
+		if (!parentSlotOwner)
+			return false;
+		
+		BaseLoadoutClothComponent clothComponent = BaseLoadoutClothComponent.Cast(parentSlotOwner.FindComponent(BaseLoadoutClothComponent));
+		if (!clothComponent)
+			return false;
+		
+		return LoadoutHeadCoverArea.Cast(clothComponent.GetAreaType());
+	}
+	
+	//------------------------------------------------------------------------------------------------
+	protected bool IsPouch(IEntity item)
+	{
+		// BaseInventoryStorageComponent indicates that it has an inner storage
+		BaseInventoryStorageComponent itemComponent = BaseInventoryStorageComponent.Cast(item.FindComponent(BaseInventoryStorageComponent));
+		if (!itemComponent)
+			return false;
+		
+		InventoryStorageSlot slot = itemComponent.GetParentSlot();
+		if (!slot)
+			return false;
+		
+		return ClothNodeStorageComponent.Cast(slot.GetStorage());
 	}
 	
 	//------------------------------------------------------------------------------------------------

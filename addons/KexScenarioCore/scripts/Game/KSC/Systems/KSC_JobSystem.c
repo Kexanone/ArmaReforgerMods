@@ -32,6 +32,16 @@ class KSC_JobSystem : GameSystem
 	}
 	
 	//------------------------------------------------------------------------------------------------
+	override static void InitInfo(WorldSystemInfo outInfo)
+	{
+		super.InitInfo(outInfo);
+		outInfo.SetAbstract(false)
+			.SetUnique(true)
+			.SetLocation(WorldSystemLocation.Both)
+			.AddPoint(WorldSystemPoint.Frame);
+	}
+	
+	//------------------------------------------------------------------------------------------------
 	//! Submits a job to be scheduled for execution
 	static void Submit(KSC_IJob job)
 	{

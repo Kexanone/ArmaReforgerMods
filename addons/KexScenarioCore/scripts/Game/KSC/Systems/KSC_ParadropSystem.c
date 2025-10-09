@@ -31,8 +31,11 @@ class KSC_ParadropSystem : GameSystem
 	override static void InitInfo(WorldSystemInfo outInfo)
 	{
 		super.InitInfo(outInfo);
-		outInfo.SetLocation(ESystemLocation.Server)
-			.AddPoint(ESystemPoint.SimulatePhysics);
+		outInfo.SetAbstract(false)
+			.SetUnique(true)
+			.SetLocation(WorldSystemLocation.Server)
+			.AddPoint(WorldSystemPoint.Frame)
+			.AddPoint(WorldSystemPoint.SimulatePhysics);
 	}
 	
 	//------------------------------------------------------------------------------------------------

@@ -1,15 +1,17 @@
-KSC_KillTask {
- ID "60ACDAA4A293D917"
+KSC_KillTask : "{4EA6C9B4506A0908}Prefabs/Tasks/KSC_BaseTask.et" {
+ ID "6122B7685222DE16"
  components {
-  SCR_MapDescriptorComponent "{60ACDAA4A293D912}" {
-   VisibleOnMap 0
-   MainType Task
+  SCR_EditableEntityComponent "{6134822A405CCC8B}" {
+   m_UIInfo SCR_UIInfo "{616091CB2D599D4A}" {
+    Name "#KSC-Task_Kill_Name"
+    Description "#KSC-Task_Kill_Description"
+    IconSetName "Icon_Task_Neutralize"
+   }
   }
  }
- coords 1356.394 1.677 1054.424
- m_sName "#KSC-Task_Kill_Name"
- m_sDescription "#KSC-Task_Kill_Description"
- m_sMapIconName "Icon_Task_Neutralize"
- m_sTaskListIconName "Icon_Task_Neutralize"
- m_sIconImageset "{10C0A9A305E8B3A4}UI/Imagesets/Tasks/Task_Icons.imageset"
+ m_TaskUIInfo SCR_TaskUIInfo "{645CDE114ACB9A88}" {
+  Name "#KSC-Task_Kill_Name"
+  Description "#KSC-Task_Kill_Description"
+  IconSetName "Icon_Task_Neutralize"
+ }
 }

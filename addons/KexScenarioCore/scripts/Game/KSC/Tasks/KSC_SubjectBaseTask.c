@@ -13,23 +13,38 @@ class KSC_SubjectBaseTask : KSC_BaseTask
 	
 	protected IEntity m_pSubject;
 	
+	
+	//------------------------------------------------------------------------------------------------
+	void SetParams(Faction targetFaction, IEntity subject, array<LocalizedString> formatParams = null)
+	{
+		array<LocalizedString> formatParams_BS = {};
+		if (formatParams)
+			formatParams_BS = formatParams;
+		
+		formatParams_BS.InsertAt(GetSubjectName(subject), 0);
+		super.SetParams(targetFaction, formatParams_BS);
+		m_pSubject = subject;
+		AttachSubjectHandlers();
+	}
+	
+	//------------------------------------------------------------------------------------------------
+	//! Get the subject's name
+	LocalizedString GetSubjectName(IEntity subject)
+	{
+		SCR_EditableEntityComponent edit = SCR_EditableEntityComponent.Cast(subject.FindComponent(SCR_EditableEntityComponent));
+		if (!edit)
+			return string.Empty;
+		
+		return edit.GetDisplayName();
+		
+	}
+	
 	//------------------------------------------------------------------------------------------------
 	//! Enable FRAME event on server
 	void KSC_SubjectBaseTask(IEntitySource src, IEntity parent)
 	{
 		if (Replication.IsServer())
 			SetEventMask(EntityEvent.FRAME);
-	}
-	
-	//------------------------------------------------------------------------------------------------
-	//! Set subject and attach handlers
-	void SetSubject(IEntity subject)
-	{
-		if (m_pSubject)
-			DetachSubjectHandlers();
-		
-		m_pSubject = subject;
-		AttachSubjectHandlers();
 	}
 	
 	//------------------------------------------------------------------------------------------------
@@ -79,6 +94,6 @@ class KSC_SubjectBaseTask : KSC_BaseTask
 		if (newPos == GetOrigin())
 			return;
 		
-		m_pSupportEntity.MoveTask(newPos, GetTaskID());
+		s_pTaskSystem.MoveTask(this, newPos);
 	}	
 }

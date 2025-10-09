@@ -43,9 +43,9 @@ class KSC_KillTask : KSC_SubjectBaseTask
 	//! Finish task when subject got killed
 	void OnObjectDamage(EDamageState state)
 	{
-		if (state != EDamageState.DESTROYED || !m_pSubject || !m_pSupportEntity)
+		if (state != EDamageState.DESTROYED || !m_pSubject)
 			return;
 		
-		m_pSupportEntity.FinishTask(this);				
+		s_pTaskSystem.SetTaskState(this, SCR_ETaskState.COMPLETED);			
 	}
 }

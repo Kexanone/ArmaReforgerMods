@@ -1,7 +1,9 @@
+/*****
 //------------------------------------------------------------------------------------------------
 class KSC_BuildTaskClass: KSC_BaseTaskClass
 {
 }
+
 
 //------------------------------------------------------------------------------------------------
 //! This task gets completed when the specified structure has been built in a given area
@@ -39,7 +41,9 @@ class KSC_BuildTask : KSC_BaseTask
 			return;
 		
 		SCR_CampaignBuildingCompositionComponent.KSC_GetOnCompositionSpawnedServer().Remove(OnCompositionBuilt);
-		m_pSupportEntity.FinishTask(this);
+		
+		if (s_pTaskSystem)
+			s_pTaskSystem.SetTaskState(this, SCR_ETaskState.COMPLETED);
 	}
 	
 	//------------------------------------------------------------------------------------------------
@@ -56,3 +60,4 @@ class KSC_BuildTask : KSC_BaseTask
 		
 	}
 }
+*****/

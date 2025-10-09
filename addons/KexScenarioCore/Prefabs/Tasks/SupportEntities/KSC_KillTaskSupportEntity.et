@@ -1,4 +1,0 @@
-KSC_KillTaskSupportEntity : "{F927E136363469D2}Prefabs/Tasks/SupportEntities/BaseTaskSupportEntity.et" {
- ID "5A0AA0B3355390E7"
- m_sTaskPrefab "{5474FE33D55AB460}Prefabs/Tasks/KSC_KillTask.et"
-}

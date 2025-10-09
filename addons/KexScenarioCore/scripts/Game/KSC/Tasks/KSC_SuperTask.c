@@ -1,3 +1,4 @@
+/*****
 //------------------------------------------------------------------------------------------------
 class KSC_SuperTaskClass: KSC_BaseTaskClass
 {
@@ -29,6 +30,7 @@ class KSC_SuperTask : KSC_BaseTask
 		if (m_iFinishedChildrenCounter < m_aChildren.Count())
 			return;
 		
-		m_pSupportEntity.FinishTask(this);
+		s_pTaskSystem.SetTaskState(this, SCR_ETaskState.COMPLETED);
 	}
 }
+*****/

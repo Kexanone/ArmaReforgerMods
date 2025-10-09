@@ -1,3 +1,4 @@
+/*****
 //------------------------------------------------------------------------------------------------
 class KSC_DefendCommandPostNoFailureTaskClass : KSC_SubjectBaseTaskClass
 {
@@ -54,3 +55,4 @@ class KSC_DefendCommandPostNoFailureTask : KSC_SubjectBaseTask
 		m_pSupportEntity.FinishTask(this);			
 	}
 }
+*****/

@@ -1,125 +1,115 @@
 //------------------------------------------------------------------------------------------------
-class KSC_BaseTaskClass: SCR_BaseTaskClass
+class KSC_BaseTaskClass: SCR_TaskClass
 {
 }
 
 //------------------------------------------------------------------------------------------------
 //! Implements pop-up notifications, script invokers, title and description formatting.
-class KSC_BaseTask : SCR_BaseTask
+class KSC_BaseTask : SCR_Task
 {
-	protected string m_sFormatParam1 = string.Empty;
-	protected string m_sFormatParam2 = string.Empty;
-	protected string m_sFormatParam3 = string.Empty;
+	protected static SCR_TaskSystem s_pTaskSystem;
 	protected ref ScriptInvoker m_OnStateChanged;
 	protected ref ScriptInvoker m_OnCleanUp;
-	protected KSC_BaseTaskSupportEntity m_pSupportEntity;
-	
 	
 	//------------------------------------------------------------------------------------------------
-	void SetSupportEntity(KSC_BaseTaskSupportEntity supportEntity)
+	override void EOnInit(IEntity owner)
 	{
-		m_pSupportEntity = supportEntity;
+		super.EOnInit(owner);
+		
+		if (!GetGame().InPlayMode())
+			return;
+		
+		if (!s_pTaskSystem)
+			s_pTaskSystem = SCR_TaskSystem.GetInstance();		
 	}
 	
 	//------------------------------------------------------------------------------------------------
-	KSC_BaseTaskSupportEntity GetSupportEntity()
+	void SetParams(Faction targetFaction, array<LocalizedString> formatParams = null)
 	{
-		return m_pSupportEntity;
+		s_pTaskSystem.AddTaskFaction(this, targetFaction.GetFactionKey());
+		
+		if (formatParams)
+			SetFormatParams(formatParams);
+		
+		SetTaskState(SCR_ETaskState.CREATED);
+	}
+	
+	//------------------------------------------------------------------------------------------------
+	//! Adapted from SCR_EditorTask
+	override void SetTaskState(SCR_ETaskState state)
+	{
+		super.SetTaskState(state);
+		
+		if (m_OnStateChanged)
+			m_OnStateChanged.Invoke(this, state);
+		
+		string text;
+		bool doCleanUp = false;
+		
+		switch (state)
+		{
+			case SCR_ETaskState.CREATED:
+			{
+				text = SCR_TextsTaskManagerComponent.TASK_AVAILABLE_TEXT;
+				break;
+			}
+			case SCR_ETaskState.COMPLETED:
+			{
+				text = SCR_TextsTaskManagerComponent.TASK_COMPLETED_TEXT;
+				doCleanUp = true;
+				break;
+			}
+			case SCR_ETaskState.FAILED:
+			{
+				text = SCR_TextsTaskManagerComponent.TASK_FAILED_TEXT;
+				doCleanUp = true;
+				break;
+			}
+			case SCR_ETaskState.CANCELLED:
+			{
+				text = SCR_TextsTaskManagerComponent.TASK_CANCELLED_TEXT;
+				doCleanUp = true;
+				break;
+			}
+			default:
+				return;
+		}
+		
+		RpcDo_PopUpNotificationBroadcast(text);
+		Rpc(RpcDo_PopUpNotificationBroadcast, text);
+		
+		if (doCleanUp)
+			CleanUp();
 	}
 	
 	//------------------------------------------------------------------------------------------------
 	//! Show pop-up notification when task's state has been changed
 	//! Based on SCR_EditorTask.PopUpNotification
-	void PopUpNotification(string prefix)
+	[RplRpc(RplChannel.Reliable, RplRcver.Broadcast)]
+	protected void RpcDo_PopUpNotificationBroadcast(string prefix)
 	{
 		//--- Get player faction (prioritize respawn faction, because it's defined even when player is waiting for respawn)
 		Faction playerFaction;
 		SCR_FactionManager factionManager = SCR_FactionManager.Cast(GetGame().GetFactionManager());
 		if (factionManager)
-			playerFaction = factionManager.GetLocalPlayerFaction();		
+			playerFaction = factionManager.GetLocalPlayerFaction();
 				
 		if (!playerFaction)
 			playerFaction = SCR_PlayerController.GetLocalMainEntityFaction();
 		
+		string playerFactionKey;
+		if (playerFaction)
+			playerFactionKey = playerFaction.GetFactionKey();
+		
 		//--- Show notification when player is assigned, of the same faction, or has unlimited editor (i.e., is Game Master)
-		if (IsAssignedToLocalPlayer() || playerFaction == GetTargetFaction())
+		if (IsTaskAssignedTo(SCR_TaskExecutor.FromLocalPlayer()) || GetOwnerFactionKeys().Contains(playerFactionKey) || (!SCR_EditorManagerEntity.IsLimitedInstance()))
 		{
+			array<LocalizedString> formatParams = {};
+			LocalizedString taskName = GetTaskUIInfo().GetUnformattedName(formatParams);
+			formatParams.Resize(4);
 			//--- SCR_PopUpNotification.GetInstance() is never null, as it creates the instance if it doesn't exist yet
-			SCR_PopUpNotification.GetInstance().PopupMsg(prefix + " " + GetTitle(), prio: SCR_ECampaignPopupPriority.TASK_DONE, param1: m_sFormatParam1, param2: m_sFormatParam2, param3: m_sFormatParam3, sound: SCR_SoundEvent.TASK_SUCCEED);
+			SCR_PopUpNotification.GetInstance().PopupMsg(prefix + " " + taskName, prio: SCR_ECampaignPopupPriority.TASK_DONE, param1: formatParams[0], param2: formatParams[1], param3: formatParams[2], param4: formatParams[3], sound: SCR_SoundEvent.TASK_SUCCEED);
 		}
-	}
-	
-	//------------------------------------------------------------------------------------------------
-	//! Show pop-up notification when task is (un)assigned
-	//! Based on SCR_EditorTask.ShowPopUpNotification
-	override protected void ShowPopUpNotification(string subtitle)
-	{
-		SCR_PopUpNotification.GetInstance().PopupMsg(GetTitle(), text2: subtitle, param1: m_sFormatParam1, param2: m_sFormatParam2, param3: m_sFormatParam3);
-	}
-	
-	//------------------------------------------------------------------------------------------------
-	//! Delete task when it has been completed or cancelled and call script invoker
-	//! Based on SCR_EditorTask.OnStateChanged
-	protected override void OnStateChanged(SCR_TaskState previousState, SCR_TaskState newState)
-	{
-		if (m_OnStateChanged)
-			m_OnStateChanged.Invoke(this, previousState, newState);
-		
-		// Delete the task once it's finished
-		if (newState == SCR_TaskState.FINISHED || newState == SCR_TaskState.CANCELLED)
-		{
-			GetTaskManager().DeleteTask(this);
-		}
-	}
-	
-	//------------------------------------------------------------------------------------------------
-	//! Show pop-up notification when task is created
-	//! Based on SCR_EditorTask.Create
-	override void Create(bool showMsg = true)
-	{
-		super.Create(showMsg);
-		
-		if (showMsg)
-			PopUpNotification(TASK_AVAILABLE_TEXT);
-	}
-	
-	//------------------------------------------------------------------------------------------------
-	//! Show pop-up notification when task is finished
-	//! Based on SCR_EditorTask.Finish
-	override void Finish(bool showMsg = true)
-	{
-		super.Finish(showMsg);
-		
-		if (showMsg)
-			PopUpNotification(TASK_COMPLETED_TEXT);
-		
-		CleanUp();
-	}
-	
-	//------------------------------------------------------------------------------------------------
-	//! Show pop-up notification when task has failed
-	//! Based on SCR_EditorTask.Fail
-	override void Fail(bool showMsg = true)
-	{
-		super.Fail(showMsg);
-		
-		if (showMsg)
-			PopUpNotification(TASK_FAILED_TEXT);
-		
-		CleanUp();
-	}
-	
-	//------------------------------------------------------------------------------------------------
-	//! Show pop-up notification when task is canceled
-	//! Based on SCR_EditorTask.Cancel
-	override void Cancel(bool showMsg = true)
-	{
-		super.Cancel(showMsg);
-		
-		if (showMsg)
-			PopUpNotification(TASK_CANCELLED_TEXT);
-		
-		CleanUp();
 	}
 	
 	//------------------------------------------------------------------------------------------------
@@ -153,47 +143,21 @@ class KSC_BaseTask : SCR_BaseTask
 	
 	//------------------------------------------------------------------------------------------------
 	//! Set params for formatting task title and description
-	void SetFormatParams(string param1 = string.Empty, string param2 = string.Empty, string param3 = string.Empty)
+	void SetFormatParams(array<LocalizedString> params = null)
 	{
-		m_sFormatParam1 = param1;
-		m_sFormatParam2 = param2;
-		m_sFormatParam3 = param3;
+		SetTaskName(GetTaskName(), params);
+		SetTaskDescription(GetTaskDescription(), params);
 	}
 	
 	//------------------------------------------------------------------------------------------------
-	//! Format task title
-	override void SetTitleWidgetText(notnull TextWidget textWidget, string taskText)
+	override protected bool RplLoad(ScriptBitReader reader)
 	{
-		textWidget.SetTextFormat(taskText, m_sFormatParam1, m_sFormatParam2, m_sFormatParam3);
-	}
-	
-	//------------------------------------------------------------------------------------------------
-	//! Format task description
-	override void SetDescriptionWidgetText(notnull TextWidget textWidget, string taskText)
-	{
-		textWidget.SetTextFormat(taskText, m_sFormatParam1, m_sFormatParam2, m_sFormatParam3);
-	}
-	
-	//------------------------------------------------------------------------------------------------
-	//! Serialize params for formatting task title and description
-	override void Serialize(ScriptBitWriter writer)
-	{
-		super.Serialize(writer);
-		writer.WriteString(m_sFormatParam1);
-		writer.WriteString(m_sFormatParam2);
-		writer.WriteString(m_sFormatParam3);
-		writer.WriteBool(m_bIsPriority);
-	}
-	
-	//------------------------------------------------------------------------------------------------
-	//! Dserialize params for formatting task title and description
-	override void Deserialize(ScriptBitReader reader)
-	{
-		super.Deserialize(reader);
-		reader.ReadString(m_sFormatParam1);
-		reader.ReadString(m_sFormatParam2);
-		reader.ReadString(m_sFormatParam3);
-		reader.ReadBool(m_bIsPriority);
+		bool result = super.RplLoad(reader);
+		
+		if (GetTaskState() == SCR_ETaskState.CREATED)
+			RpcDo_PopUpNotificationBroadcast(SCR_TextsTaskManagerComponent.TASK_AVAILABLE_TEXT);
+		
+		return result;
 	}
 	
 	//------------------------------------------------------------------------------------------------

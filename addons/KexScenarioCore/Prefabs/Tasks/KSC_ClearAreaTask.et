@@ -1,16 +1,18 @@
-KSC_AreaTriggerTask {
- ID "60AD7B506D62E218"
+KSC_ClearAreaTask : "{4EA6C9B4506A0908}Prefabs/Tasks/KSC_BaseTask.et" {
+ ID "6122B7685222DE16"
  components {
-  SCR_MapDescriptorComponent "{60AD7B506D62E236}" {
-   VisibleOnMap 0
-   MainType Task
+  SCR_EditableEntityComponent "{6134822A405CCC8B}" {
+   m_UIInfo SCR_UIInfo "{616091CB2D599D4A}" {
+    Name "#KSC-Task_ClearArea_Name"
+    Description "#KSC-Task_ClearArea_Description"
+    IconSetName "Icon_Task_Sabotage"
+   }
   }
  }
- coords 1356.394 1.677 1054.424
- m_sName "#KSC-Task_ClearArea_Name"
- m_sDescription "#KSC-Task_ClearArea_Description"
- m_sMapIconName "Icon_Task_Seize"
- m_sTaskListIconName "Icon_Task_Seize"
- m_sIconImageset "{10C0A9A305E8B3A4}UI/Imagesets/Tasks/Task_Icons.imageset"
+ m_TaskUIInfo SCR_TaskUIInfo "{645CDE114ACB9A88}" {
+  Name "#KSC-Task_ClearArea_Name"
+  Description "#KSC-Task_ClearArea_Description"
+  IconSetName "Icon_Task_Sabotage"
+ }
  m_sTriggerPrefabName "{EEBDAE0AC376C688}Prefabs/ScenarioFramework/Triggers/KSC_TriggerDominance.et"
 }

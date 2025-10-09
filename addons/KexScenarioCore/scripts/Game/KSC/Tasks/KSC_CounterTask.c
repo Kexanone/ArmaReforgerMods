@@ -1,3 +1,4 @@
+/*****
 //------------------------------------------------------------------------------------------------
 class KSC_CounterTaskClass : KSC_BaseTaskClass
 {
@@ -30,3 +31,4 @@ class KSC_CounterTask : KSC_BaseTask
 		m_pSupportEntity.SetFormatParams(this, m_iCounter.ToString(), m_iTargetCount.ToString());
 	}
 }
+*****/

@@ -1,6 +1,0 @@
-KSC_LeaveAreaTaskSupportEntity {
- ID "6154F0E7F96022A7"
- coords 2.553 3.901 3.179
- m_sTaskPrefab "{93689A4B82593D57}Prefabs/Tasks/KSC_LeaveAreaTask.et"
- m_sTriggerPrefabName "{FEF3026624C3C17F}Prefabs/ScenarioFramework/Triggers/KSC_PlayerEscapeTrigger.et"
-}

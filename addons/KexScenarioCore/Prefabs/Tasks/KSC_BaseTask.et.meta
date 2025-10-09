@@ -1,5 +1,5 @@
 MetaFileClass {
- Name "{93689A4B82593D57}Prefabs/Tasks/KSC_LeaveAreaTask.et"
+ Name "{4EA6C9B4506A0908}Prefabs/Tasks/KSC_BaseTask.et"
  Configurations {
   EntityTemplateResourceClass PC {
   }

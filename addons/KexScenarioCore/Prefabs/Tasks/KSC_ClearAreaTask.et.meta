@@ -1,5 +1,5 @@
 MetaFileClass {
- Name "{37913C6494E5B74A}Prefabs/Tasks/KSC_ClearLocationTask.et"
+ Name "{2B6E6196395E9C08}Prefabs/Tasks/KSC_ClearAreaTask.et"
  Configurations {
   EntityTemplateResourceClass PC {
   }

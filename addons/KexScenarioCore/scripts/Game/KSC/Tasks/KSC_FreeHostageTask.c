@@ -44,14 +44,14 @@ class KSC_FreeHostageTask : KSC_SubjectBaseTask
 		SCR_ChimeraCharacter char = SCR_ChimeraCharacter.Cast(m_pSubject);
 		if (!char)
 		{
-			m_pSupportEntity.FailTask(this);
+			s_pTaskSystem.SetTaskState(this, SCR_ETaskState.FAILED);
 			return;
 		}
 
 		SCR_CharacterControllerComponent charController = SCR_CharacterControllerComponent.Cast(char.GetCharacterController());
 		if (!charController)
 		{
-			m_pSupportEntity.FailTask(this);
+			s_pTaskSystem.SetTaskState(this, SCR_ETaskState.FAILED);
 			return;
 		}
 		
@@ -60,10 +60,10 @@ class KSC_FreeHostageTask : KSC_SubjectBaseTask
 		
 		if (!charController || charController.GetLifeState() == ECharacterLifeState.DEAD)
 		{
-			m_pSupportEntity.FailTask(this);
+			s_pTaskSystem.SetTaskState(this, SCR_ETaskState.FAILED);
 			return;
 		}
 		
-		m_pSupportEntity.FinishTask(this);
+		s_pTaskSystem.SetTaskState(this, SCR_ETaskState.COMPLETED);
 	}
 }

@@ -19,7 +19,7 @@ class KSC_DestroyObjectTask : KSC_KillTask
 			return;
 		
 		if (Vehicle.Cast(m_pSubject))
-			GetGame().GetCallqueue().CallLater(HandleEngineDrowned, m_fDrownedHandlerTimeout*1000, true);
+			GetGame().GetCallqueue().CallLater(HandleEngineDrowned, m_fDrownedHandlerTimeout * 1000, true);
 	}
 	
 	//------------------------------------------------------------------------------------------------
@@ -36,13 +36,13 @@ class KSC_DestroyObjectTask : KSC_KillTask
 	//! Based on SCR_TaskDestroyObject.CheckEngineDrowned
 	void HandleEngineDrowned()
 	{
-		if (!m_pSubject || !m_pSupportEntity)
+		if (!m_pSubject || !s_pTaskSystem)
 			return;
 		
 		VehicleControllerComponent vehicleController = VehicleControllerComponent.Cast(m_pSubject.FindComponent(VehicleControllerComponent));
 		if (vehicleController && vehicleController.GetEngineDrowned())
 		{
-			m_pSupportEntity.FinishTask(this);
+			s_pTaskSystem.SetTaskState(this, SCR_ETaskState.COMPLETED);
 		}
 	}
 }

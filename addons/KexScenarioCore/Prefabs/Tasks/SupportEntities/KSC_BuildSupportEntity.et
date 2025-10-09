@@ -1,5 +1,0 @@
-KSC_BuildTaskSupportEntity {
- ID "623B19519EEC6962"
- coords 2.553 3.901 3.179
- m_sTaskPrefab "{8C1CC5EB50B393C8}Prefabs/Tasks/KSC_BuildTask.et"
-}

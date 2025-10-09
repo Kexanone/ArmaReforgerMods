@@ -1,5 +1,5 @@
 MetaFileClass {
- Name "{F39180AC02F2AEFD}Prefabs/ScenarioFramework/Tasks/KSC_TaskDestroy.et"
+ Name "{40E7AF0D1DC74D51}Prefabs/Tasks/KSC_DestroyTask.et"
  Configurations {
   EntityTemplateResourceClass PC {
   }

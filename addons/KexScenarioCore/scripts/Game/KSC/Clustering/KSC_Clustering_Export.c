@@ -108,7 +108,7 @@ class KSC_Clustering_Exporter : Managed
 		if (KSC_TerrainHelper.SurfaceIsWater(pos))
 			return false;
 		
-		if (!KSC_TerrainHelper.SurfaceIsFlat(pos))
+		if (!KSC_TerrainHelper.SurfaceIsFlat(pos, maxAngle: 10))
 			return false;
 		
 		if (KSC_TerrainHelper.SurfaceIsRoad(pos))

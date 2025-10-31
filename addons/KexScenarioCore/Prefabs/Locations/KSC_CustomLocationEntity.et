@@ -1,0 +1,18 @@
+KSC_CustomLocationEntity {
+ ID "669754290D91FFAB"
+ components {
+  Hierarchy "{66975429F90C9652}" {
+  }
+ }
+ coords 5666.024 420.364 6930.339
+ {
+  PolylineShapeEntity {
+   ID "669754290D91FFAA"
+   components {
+    Hierarchy "{66975429F4D98B0D}" {
+    }
+   }
+   coords -1.178 0.164 -5.248
+  }
+ }
+}

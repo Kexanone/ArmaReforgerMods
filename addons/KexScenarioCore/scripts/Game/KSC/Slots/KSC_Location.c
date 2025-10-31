@@ -21,10 +21,10 @@ class KSC_Location : ScriptAndConfig
 		if (!GetGame().InPlayMode())
 			return;
 		
-		if (m_sName.IsEmpty())
+		if (m_vCenter && m_sName.IsEmpty())
 			m_sName = KSC_WorldTools.GetLocationName(m_vCenter);
 		
-		if (!m_aPolygon.IsEmpty())
+		if (m_aPolygon && !m_aPolygon.IsEmpty())
 			m_Area = new KSC_PolygonArea(m_aPolygon);
 	}
 }

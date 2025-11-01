@@ -5,9 +5,9 @@ modded class SCR_CharacterControllerComponent : CharacterControllerComponent
 	protected static const float MAX_DROPPED_WEAPON_DISTANCE = 5; // meters
 	
 	//------------------------------------------------------------------------------------------------
-	override void OnLifeStateChanged(ECharacterLifeState previousLifeState, ECharacterLifeState newLifeState)
+	override void OnLifeStateChanged(ECharacterLifeState previousLifeState, ECharacterLifeState newLifeState, bool isJIP)
 	{
-		super.OnLifeStateChanged(previousLifeState, newLifeState);
+		super.OnLifeStateChanged(previousLifeState, newLifeState, isJIP);
 		
 		if (!Replication.IsServer() || newLifeState == ECharacterLifeState.ALIVE)
 			return;

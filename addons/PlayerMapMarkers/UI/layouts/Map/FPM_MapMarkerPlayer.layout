@@ -58,6 +58,8 @@ FrameWidgetClass {
     Alignment 0.5 0.5
     SizeToContent 1
    }
+   "Is Enabled" 0
+   "Is Visible" 0
    Clipping False
    Texture "{2EFEA2AF1F38E7F0}UI/Textures/Icons/icons_wrapperUI-64.imageset"
    Image "exclamationCircle"

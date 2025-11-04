@@ -1,0 +1,22 @@
+SCR_ChimeraCharacter {
+ ID "520EC961A090B1EE"
+ components {
+  ActionsManagerComponent "{520EA1D2F659CE02}" {
+   additionalActions {
+    ACE_Medical_RepositionUserAction "{630C32646482C8E5}" {
+     ParentContextList {
+      "LowerTorso"
+     }
+     UIInfo SCR_ActionUIInfo "{630C32679F8D254B}" {
+      Name "Put on back"
+     }
+     ActionTitle "Back position"
+     VisibilityRange 2
+     Duration 1
+     "Sort Priority" 101
+     m_eUnconsciousPose BACK
+    }
+   }
+  }
+ }
+}

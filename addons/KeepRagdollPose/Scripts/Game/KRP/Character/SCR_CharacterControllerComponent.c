@@ -25,9 +25,9 @@ modded class SCR_CharacterControllerComponent : CharacterControllerComponent
 	
 	//------------------------------------------------------------------------------------------------
 	//! Add/remove second chance when life state changes
-	override void OnLifeStateChanged(ECharacterLifeState previousLifeState, ECharacterLifeState newLifeState)
+	override void OnLifeStateChanged(ECharacterLifeState previousLifeState, ECharacterLifeState newLifeState, bool isJIP)
 	{
-		super.OnLifeStateChanged(previousLifeState, newLifeState);
+		super.OnLifeStateChanged(previousLifeState, newLifeState, isJIP);
 		
 		if (newLifeState != ECharacterLifeState.INCAPACITATED)
 			return;
@@ -71,4 +71,3 @@ modded class ACE_Medical_RepositionUserAction : ScriptedUserAction
 		ownerController.KRP_ToggleRagdollPose(false);
 	}
 }
-

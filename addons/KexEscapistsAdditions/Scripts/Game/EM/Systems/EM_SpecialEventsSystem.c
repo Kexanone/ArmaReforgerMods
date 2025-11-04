@@ -1,7 +1,6 @@
 //------------------------------------------------------------------------------------------------
 class EM_SpecialEventsSystem : GameSystem
 {
-	// -- TO DO: Make events an attribute
 	[Attribute("10", UIWidgets.EditBox, "Minimum timeout for next special event in minutes")]
 	protected float m_fMinTimeout;
 	
@@ -12,10 +11,17 @@ class EM_SpecialEventsSystem : GameSystem
 	protected ref array<ref EM_SpecialEventBase> m_aSpecialEvents;
 	
 	//------------------------------------------------------------------------------------------------
+	override static void InitInfo(WorldSystemInfo outInfo)
+	{
+		outInfo.SetAbstract(false)
+			.SetUnique(true)
+			.SetLocation(WorldSystemLocation.Server)
+			.AddPoint(WorldSystemPoint.BeforeEntitiesInitialized);
+	}
+	
+	//------------------------------------------------------------------------------------------------
 	protected override void OnInit()
 	{
-		super.OnInit();
-		
 		// Remove disabled events
 		for (int i = m_aSpecialEvents.Count() - 1; i >= 0; i--)
 		{

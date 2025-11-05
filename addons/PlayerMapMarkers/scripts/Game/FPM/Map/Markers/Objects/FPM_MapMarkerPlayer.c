@@ -191,7 +191,8 @@ class FPM_MapMarkerPlayer : SCR_MapMarkerEntity
 		if (aiGroup.GetGroupID() == m_iGroupId && m_iColor != COLOR_INCAPACITATED.PackToInt() && m_iColor != COLOR_DEAD.PackToInt())
 		{
 			m_iColor = m_iColorAliveSameGroup;
-		} else if (m_iColor == m_iColorAliveSameGroup)
+		}
+		else if (m_iColor == m_iColorAliveSameGroup)
 		{
 			m_iColor = m_iColorAlive;
 		}

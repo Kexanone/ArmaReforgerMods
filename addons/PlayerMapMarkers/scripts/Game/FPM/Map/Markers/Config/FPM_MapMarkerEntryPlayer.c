@@ -43,6 +43,11 @@ class FPM_MapMarkerEntryPlayer : SCR_MapMarkerEntryDynamic
 		if (faction)
 			marker.SetFaction(faction);
 		
+		SCR_GroupsManagerComponent groupManager = SCR_GroupsManagerComponent.GetInstance();
+		SCR_AIGroup aiGroup = groupManager.GetPlayerGroup(playerId);
+		if (aiGroup)
+			marker.SetGroupId(aiGroup.GetGroupID());
+		
 		marker.SetGlobalText(GetPlayerNameWithRank(playerId, player));
 		marker.SetGlobalSymbolIcons(EMilitarySymbolIcon.INFANTRY);
 		marker.SetGlobalVisible(true);
@@ -266,6 +271,52 @@ class FPM_MapMarkerEntryPlayer : SCR_MapMarkerEntryDynamic
 	}
 	
 	//------------------------------------------------------------------------------------------------
+	protected void OnGroupJoined_S(SCR_AIGroup group, int playerID)
+	{
+		IEntity ent = GetGame().GetPlayerManager().GetPlayerControlledEntity(playerID);
+		if (ent)
+		{
+			FPM_MapMarkerPlayer marker = m_mPlayerMarkers.Get(ent);
+			if (marker)
+				marker.SetGroupId(group.GetGroupID());
+		}
+	}
+	
+	//------------------------------------------------------------------------------------------------
+	protected  void OnGroupLeft_S(SCR_AIGroup group, int playerID)
+	{
+		IEntity ent = GetGame().GetPlayerManager().GetPlayerControlledEntity(playerID);
+		if (ent)
+		{
+			FPM_MapMarkerPlayer marker = m_mPlayerMarkers.Get(ent);
+			if (marker)
+				marker.SetGroupId(-1);
+		}
+	}
+	
+	//------------------------------------------------------------------------------------------------
+	protected void OnGroupJoined_C(SCR_AIGroup group, int playerID)
+	{
+		foreach(SCR_MapMarkerEntity marker : m_MarkerMgr.GetDynamicMarkers())
+		{
+			FPM_MapMarkerPlayer fmpMarker = FPM_MapMarkerPlayer.Cast(marker);
+			if (fmpMarker)
+				fmpMarker.UpdateColor();
+		}
+	}
+	
+	//------------------------------------------------------------------------------------------------
+	protected  void OnGroupLeft_C(SCR_AIGroup group, int playerID)
+	{
+		foreach(SCR_MapMarkerEntity marker : m_MarkerMgr.GetDynamicMarkers())
+		{
+			FPM_MapMarkerPlayer fmpMarker = FPM_MapMarkerPlayer.Cast(marker);
+			if (fmpMarker)
+				fmpMarker.UpdateColor();
+		}
+	}
+	
+	//------------------------------------------------------------------------------------------------
 	override void InitServerLogic()
 	{
 		super.InitServerLogic();
@@ -282,6 +333,17 @@ class FPM_MapMarkerEntryPlayer : SCR_MapMarkerEntryDynamic
 		SCR_FactionManager factionManager = SCR_FactionManager.Cast(GetGame().GetFactionManager());
 		if (factionManager)
 			factionManager.GetOnPlayerFactionChanged_S().Insert(OnPlayerFactionChanged);
+		
+		SCR_AIGroup.GetOnPlayerAdded().Insert(OnGroupJoined_S);
+		SCR_AIGroup.GetOnPlayerRemoved().Insert(OnGroupLeft_S);
+	}
+	
+	//------------------------------------------------------------------------------------------------
+	override void InitClientLogic()
+	{
+		super.InitClientLogic();
+		SCR_AIGroup.GetOnPlayerAdded().Insert(OnGroupJoined_C);
+		SCR_AIGroup.GetOnPlayerRemoved().Insert(OnGroupLeft_C);
 	}
 	
 	//------------------------------------------------------------------------------------------------

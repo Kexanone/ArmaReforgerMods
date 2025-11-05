@@ -140,6 +140,9 @@ class FPM_MapMarkerPlayer : SCR_MapMarkerEntity
 	{
 		super.SetFaction(faction);
 		
+		if (!faction)
+			return;
+		
 		SCR_GroupIdentityCore core = SCR_GroupIdentityCore.Cast(SCR_GroupIdentityCore.GetInstance(SCR_GroupIdentityCore));
 		if (!core)
 			return;

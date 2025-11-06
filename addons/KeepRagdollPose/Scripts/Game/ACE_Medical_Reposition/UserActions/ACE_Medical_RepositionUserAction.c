@@ -36,6 +36,9 @@ class ACE_Medical_RepositionUserAction : ScriptedUserAction
 		if (!ownerController)
 			return false;
 		
+		if (ownerController.GetLifeState() == ECharacterLifeState.DEAD)
+			return false;
+		
 		if (!ownerController.IsUnconscious() || ownerController.ACE_Medical_GetUnconsciousPose() == m_eUnconsciousPose)
 			return false;
 		

@@ -9,6 +9,13 @@ class EM_SpecialEventsSystem : GameSystem
 	
 	[Attribute(desc: "List of available events")]
 	protected ref array<ref EM_SpecialEventBase> m_aSpecialEvents;
+
+	//------------------------------------------------------------------------------------------------
+	static EM_SpecialEventsSystem GetInstance()
+	{
+		ChimeraWorld world = GetGame().GetWorld();
+		return EM_SpecialEventsSystem.Cast(world.FindSystem(EM_SpecialEventsSystem));
+	}
 	
 	//------------------------------------------------------------------------------------------------
 	override static void InitInfo(WorldSystemInfo outInfo)
@@ -28,13 +35,14 @@ class EM_SpecialEventsSystem : GameSystem
 			if (!m_aSpecialEvents[i].IsEnabled())
 				m_aSpecialEvents.RemoveOrdered(i);
 		}
-		
-		ESCT_EscapistsGameMode gamemode = ESCT_EscapistsGameMode.GetGameMode();
-		if (!gamemode)
-			return;
-		
-		gamemode.GetEscapistsManager().GetOnRunStart().Insert(ScheduleNextEvent);
+
 		PrintFormat("[Kex Escapists Additions] [%1] Special events initialized.", Type().ToString());
+	}
+	
+	//------------------------------------------------------------------------------------------------
+	void Start()
+	{
+		ScheduleNextEvent();
 	}
 	
 	//------------------------------------------------------------------------------------------------

@@ -16,7 +16,7 @@ class EM_SpecialEventsSystem : GameSystem
 		outInfo.SetAbstract(false)
 			.SetUnique(true)
 			.SetLocation(WorldSystemLocation.Server)
-			.AddPoint(WorldSystemPoint.BeforeEntitiesInitialized);
+			.AddPoint(WorldSystemPoint.EntitiesInitialized);
 	}
 	
 	//------------------------------------------------------------------------------------------------
@@ -29,14 +29,21 @@ class EM_SpecialEventsSystem : GameSystem
 				m_aSpecialEvents.RemoveOrdered(i);
 		}
 		
-		ESCT_EscapistsGameMode.GetGameMode().GetEscapistsManager().GetOnRunStart().Insert(ScheduleNextEvent);
+		ESCT_EscapistsGameMode gamemode = ESCT_EscapistsGameMode.GetGameMode();
+		if (!gamemode)
+			return;
+		
+		gamemode.GetEscapistsManager().GetOnRunStart().Insert(ScheduleNextEvent);
+		PrintFormat("[Kex Escapists Additions] [%1] Special events initialized.", Type().ToString());
 	}
 	
 	//------------------------------------------------------------------------------------------------
 	//! Schedule next event
 	protected void ScheduleNextEvent()
 	{
-		GetGame().GetCallqueue().CallLater(SelectEvent, Math.RandomIntInclusive(m_fMinTimeout*60000, m_fMaxTimeout*60000));
+		float delay = Math.RandomFloatInclusive(m_fMinTimeout, m_fMaxTimeout);
+		PrintFormat("[Kex Escapists Additions] [%1] Next event in %2 minutes.", Type().ToString(), delay);
+		GetGame().GetCallqueue().CallLater(SelectEvent, 60000 * delay);
 	}
 	
 	//------------------------------------------------------------------------------------------------
@@ -48,6 +55,7 @@ class EM_SpecialEventsSystem : GameSystem
 		if (!message.IsEmpty())
 			ShowNotification(message);
 		
+		PrintFormat("[Kex Escapists Additions] [%1] Running %2.", Type().ToString(), evt.Type().ToString());
 		evt.Run();
 		
 		ScheduleNextEvent();

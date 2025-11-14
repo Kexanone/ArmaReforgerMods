@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{5258B4ED1182275E}Assets/Structures/Houses/Prefabricated/House_Prefab_2I01/Data/House_Prefab_2I01_ext_metal.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

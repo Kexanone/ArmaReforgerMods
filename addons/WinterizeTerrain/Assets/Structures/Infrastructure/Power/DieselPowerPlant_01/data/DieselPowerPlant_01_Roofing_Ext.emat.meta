@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{A6DC7474EBF630EC}Assets/Structures/Infrastructure/Power/DieselPowerPlant_01/data/DieselPowerPlant_01_Roofing_Ext.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

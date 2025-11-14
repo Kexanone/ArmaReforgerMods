@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{0ED7C830D5B27462}Assets/Structures/Houses/Village/House_Village_E_1I03/Data/House_E_1I03_MLOD.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

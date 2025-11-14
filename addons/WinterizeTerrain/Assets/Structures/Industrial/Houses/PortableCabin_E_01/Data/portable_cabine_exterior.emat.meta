@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{C238A7AC26C57F95}Assets/Structures/Industrial/Houses/PortableCabin_E_01/Data/portable_cabine_exterior.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

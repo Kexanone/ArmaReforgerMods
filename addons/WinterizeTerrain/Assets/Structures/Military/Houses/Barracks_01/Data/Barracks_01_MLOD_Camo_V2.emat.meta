@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{BDA6A0DC8767B582}Assets/Structures/Military/Houses/Barracks_01/Data/Barracks_01_MLOD_Camo_V2.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

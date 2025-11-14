@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{B904E5B24EBE9801}Assets/Structures/Commercial/Pubs/PubVillage_E_1L01/Data/PubVillage_E_1L01_Ext_MLOD.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

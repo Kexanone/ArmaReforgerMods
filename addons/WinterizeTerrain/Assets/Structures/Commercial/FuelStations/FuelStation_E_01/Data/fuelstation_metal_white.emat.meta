@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{7A5194D1B9FDB5CC}Assets/Structures/Commercial/FuelStations/FuelStation_E_01/Data/fuelstation_metal_white.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

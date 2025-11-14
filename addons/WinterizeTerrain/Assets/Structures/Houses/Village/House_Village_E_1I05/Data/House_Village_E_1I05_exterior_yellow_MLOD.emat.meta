@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{57D1F01E5B536B51}Assets/Structures/Houses/Village/House_Village_E_1I05/Data/House_Village_E_1I05_exterior_yellow_MLOD.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

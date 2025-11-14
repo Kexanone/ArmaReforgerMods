@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{F509C68FDD5F69FE}Assets/Structures/Airport/ControlTower_01/Data/ControlTower_01_Ext_MLOD.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

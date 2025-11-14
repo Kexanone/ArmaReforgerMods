@@ -1,4 +1,3 @@
 MatPBRBasic : "{2AFD99B19C3217D6}Assets/Rocks/Granite/Data/GraniteBeach_MLOD.emat" {
- Color 0.791 0.791 0.791 1
- BCRMap "{486789ED6AB13C00}Terrains/Common/Surfaces/Data/AF_PackedSnow_01_BCR.edds"
+ GlobalLayerMode Manual
 }

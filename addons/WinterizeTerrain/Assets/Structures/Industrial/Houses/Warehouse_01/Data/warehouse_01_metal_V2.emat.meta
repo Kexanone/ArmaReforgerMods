@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{AC16BF627A69A094}Assets/Structures/Industrial/Houses/Warehouse_01/Data/warehouse_01_metal_V2.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

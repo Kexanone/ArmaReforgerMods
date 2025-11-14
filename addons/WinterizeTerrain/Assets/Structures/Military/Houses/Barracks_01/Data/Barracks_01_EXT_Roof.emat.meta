@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{BF9FBBEEF457BDF5}Assets/Structures/Military/Houses/Barracks_01/Data/Barracks_01_EXT_Roof.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{29672E0172985A94}Assets/Structures/Industrial/Containers/FuelTanks/FuelTank_03/Data/FuelTank_03_metal.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

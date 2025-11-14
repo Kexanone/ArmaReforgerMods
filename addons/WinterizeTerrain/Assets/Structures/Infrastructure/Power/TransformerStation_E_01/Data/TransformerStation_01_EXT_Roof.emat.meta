@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{F9A043026780321C}Assets/Structures/Infrastructure/Power/TransformerStation_E_01/Data/TransformerStation_01_EXT_Roof.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

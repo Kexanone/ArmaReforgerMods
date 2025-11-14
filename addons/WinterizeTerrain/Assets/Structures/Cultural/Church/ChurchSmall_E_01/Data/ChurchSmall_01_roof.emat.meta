@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{3C9BE4A4306B60E0}Assets/Structures/Cultural/Church/ChurchSmall_E_01/Data/ChurchSmall_01_roof.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

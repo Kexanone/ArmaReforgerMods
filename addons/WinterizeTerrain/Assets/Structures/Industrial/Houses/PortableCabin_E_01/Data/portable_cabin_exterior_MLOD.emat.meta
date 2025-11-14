@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{DFFBC0DD12C1D138}Assets/Structures/Industrial/Houses/PortableCabin_E_01/Data/portable_cabin_exterior_MLOD.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

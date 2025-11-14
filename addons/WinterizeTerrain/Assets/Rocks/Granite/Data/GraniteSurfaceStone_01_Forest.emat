@@ -1,4 +1,3 @@
 MatPBRMulti : "{78B08207ACDB102B}Assets/Rocks/Granite/Data/GraniteSurfaceStone_01_Forest.emat" {
- Color_3 0.791 0.791 0.791 1
- BCR_3 "{486789ED6AB13C00}Terrains/Common/Surfaces/Data/AF_PackedSnow_01_BCR.edds"
+ GlobalLayerMode Manual
 }

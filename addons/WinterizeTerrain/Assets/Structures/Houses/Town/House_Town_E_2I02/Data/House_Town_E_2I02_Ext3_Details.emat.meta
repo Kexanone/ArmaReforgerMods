@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{18C99F8C94C32ADB}Assets/Structures/Houses/Town/House_Town_E_2I02/Data/House_Town_E_2I02_Ext3_Details.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

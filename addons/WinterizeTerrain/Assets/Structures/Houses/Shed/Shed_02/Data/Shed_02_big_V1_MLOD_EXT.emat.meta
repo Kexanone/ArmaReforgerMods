@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{81CAD8A306875D1C}Assets/Structures/Houses/Shed/Shed_02/Data/Shed_02_big_V1_MLOD_EXT.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

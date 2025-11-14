@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{7F18E8BA5A5F632F}Assets/Terrain/Erosion/ErodedEmbankment_01/Data/ErodedEmbankment_01_dirt_soil.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

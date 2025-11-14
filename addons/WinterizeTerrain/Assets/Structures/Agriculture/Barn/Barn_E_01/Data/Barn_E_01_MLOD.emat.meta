@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{C4D970B3CFF186B6}Assets/Structures/Agriculture/Barn/Barn_E_01/Data/Barn_E_01_MLOD.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{1FF3472E80231617}Assets/Structures/Houses/Wooden/House_Wooden_E_1I02/Data/House_Wooden_E_1I02_EXT_roof.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{D4C9C1106078845C}Assets/Vegetation/Tree/Picea_Abies/Data/t_picea_abies_weathered_1fw_polyplane.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

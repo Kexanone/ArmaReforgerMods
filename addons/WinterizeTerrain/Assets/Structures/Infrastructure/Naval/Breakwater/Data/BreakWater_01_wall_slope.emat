@@ -1,4 +1,3 @@
 MatPBRMulti : "{9D6B33378CCAEF51}Assets/Structures/Infrastructure/Naval/Breakwater/Data/BreakWater_01_wall_slope.emat" {
- Color_1 0.644 0.644 0.644 1
- BCR_1 "{486789ED6AB13C00}Terrains/Common/Surfaces/Data/AF_PackedSnow_01_BCR.edds"
+ GlobalLayerMode Manual
 }

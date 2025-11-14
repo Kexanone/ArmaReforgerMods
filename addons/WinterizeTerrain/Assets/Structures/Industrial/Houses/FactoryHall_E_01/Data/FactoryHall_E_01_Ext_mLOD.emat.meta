@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{8259A847F9465172}Assets/Structures/Industrial/Houses/FactoryHall_E_01/Data/FactoryHall_E_01_Ext_mLOD.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

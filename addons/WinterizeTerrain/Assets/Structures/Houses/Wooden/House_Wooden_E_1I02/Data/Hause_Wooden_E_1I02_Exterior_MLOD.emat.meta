@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{2EF0ADE8ADD0D52E}Assets/Structures/Houses/Wooden/House_Wooden_E_1I02/Data/Hause_Wooden_E_1I02_Exterior_MLOD.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

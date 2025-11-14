@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{520C33D1F4317949}Assets/Structures/Houses/Village/House_Mountain_E_1I01/Data/HouseMountain_1I01_Short_Roof.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

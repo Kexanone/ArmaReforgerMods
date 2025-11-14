@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{0446AAA6FE264541}Assets/Structures/Industrial/Houses/Sawmill_E_01/Data/Sawmill_E_01_EXT_metal.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

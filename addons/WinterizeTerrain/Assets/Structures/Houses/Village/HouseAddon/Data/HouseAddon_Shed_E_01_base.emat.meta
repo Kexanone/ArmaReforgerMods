@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{FB9F84C8D4AB45B1}Assets/Structures/Houses/Village/HouseAddon/Data/HouseAddon_Shed_E_01_base.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

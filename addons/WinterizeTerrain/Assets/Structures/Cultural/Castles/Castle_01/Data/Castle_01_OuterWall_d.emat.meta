@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{77158974D9C150B5}Assets/Structures/Cultural/Castles/Castle_01/Data/Castle_01_OuterWall_d.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

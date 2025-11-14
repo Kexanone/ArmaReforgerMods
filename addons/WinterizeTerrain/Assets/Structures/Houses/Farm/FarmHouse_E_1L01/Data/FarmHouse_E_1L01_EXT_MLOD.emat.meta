@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{8AD5D6705BE83FDF}Assets/Structures/Houses/Farm/FarmHouse_E_1L01/Data/FarmHouse_E_1L01_EXT_MLOD.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

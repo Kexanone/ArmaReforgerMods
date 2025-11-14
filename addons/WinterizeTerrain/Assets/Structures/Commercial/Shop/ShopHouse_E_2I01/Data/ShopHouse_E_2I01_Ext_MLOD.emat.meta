@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{727A3B9294EEBED5}Assets/Structures/Commercial/Shop/ShopHouse_E_2I01/Data/ShopHouse_E_2I01_Ext_MLOD.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

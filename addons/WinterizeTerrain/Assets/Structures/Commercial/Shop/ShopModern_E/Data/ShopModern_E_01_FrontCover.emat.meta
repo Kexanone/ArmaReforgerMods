@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{74154FB052D5132F}Assets/Structures/Commercial/Shop/ShopModern_E/Data/ShopModern_E_01_FrontCover.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

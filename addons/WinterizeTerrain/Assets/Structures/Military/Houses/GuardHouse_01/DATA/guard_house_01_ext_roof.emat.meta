@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{B9E2F293EC519D27}Assets/Structures/Military/Houses/GuardHouse_01/DATA/guard_house_01_ext_roof.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

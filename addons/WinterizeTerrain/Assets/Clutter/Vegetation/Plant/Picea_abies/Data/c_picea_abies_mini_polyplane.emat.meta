@@ -11,7 +11,7 @@ MetaFileClass {
   }
   EMATResourceClass HEADLESS : PC {
   }
-  EMATResourceClass Xbox : PC {
+  EMATResourceClass PS5 : PC {
   }
  }
 }

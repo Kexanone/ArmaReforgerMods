@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{84A28606DADF797A}Assets/Structures/Military/Bunkers/ShelterMilitary_E_01/Data/ShelterMilitary_E_01_Large_EXT_Roof.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

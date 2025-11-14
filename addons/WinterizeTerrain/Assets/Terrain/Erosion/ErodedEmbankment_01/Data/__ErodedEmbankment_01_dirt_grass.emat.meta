@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{FA4E5282095CB542}Assets/Terrain/Erosion/ErodedEmbankment_01/Data/ErodedEmbankment_01_dirt_grass.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

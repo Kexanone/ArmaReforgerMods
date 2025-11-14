@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{7AE7B043E0F132CD}Assets/Structures/Cultural/Church/Church_01/Data/Church_01_Ext_MLOD_Red_V2.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

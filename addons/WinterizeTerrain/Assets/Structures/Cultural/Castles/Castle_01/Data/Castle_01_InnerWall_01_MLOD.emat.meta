@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{0FDFB05F79D0864B}Assets/Structures/Cultural/Castles/Castle_01/Data/Castle_01_InnerWall_01_MLOD.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

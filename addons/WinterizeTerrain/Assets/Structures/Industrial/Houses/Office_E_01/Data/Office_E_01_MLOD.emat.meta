@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{FCA9128C0A37712E}Assets/Structures/Industrial/Houses/Office_E_01/Data/Office_E_01_MLOD.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

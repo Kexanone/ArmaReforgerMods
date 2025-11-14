@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{96F402E904C24B8D}Assets/Structures/Industrial/Houses/Workshop_01/Data/Workshop_01_ext_roof.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

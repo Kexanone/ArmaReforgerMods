@@ -1,0 +1,4 @@
+MatPBRTreeCrown {
+ Color 1 1 1 0
+ OpacityMap "{DF1F056340230E00}system/textures/defBlack.edds"
+}

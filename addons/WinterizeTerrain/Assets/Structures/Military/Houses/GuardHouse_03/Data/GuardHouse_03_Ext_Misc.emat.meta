@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{4F037D8156CA76A0}Assets/Structures/Military/Houses/GuardHouse_03/Data/GuardHouse_03_Ext_Misc.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{14AFE6226964C50F}Assets/Structures/Industrial/Houses/Workshop_02/Data/workshop02_MLOD_Grey.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

@@ -1,5 +1,3 @@
 MatPBRDecal : "{4922C36288C75638}Assets/Decals/Dirt/Path/Data/Dirt_Crossroad_01.emat" {
- SurfaceProperties "{B5515B69D91D6939}Common/Materials/Game/snow.gamemat"
- BCRMap "{486789ED6AB13C00}Terrains/Common/Surfaces/Data/AF_PackedSnow_01_BCR.edds"
- PorosityScale 0.5
+ GlobalLayerMode Manual
 }

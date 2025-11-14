@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{39D2C33000A97319}Assets/Structures/Houses/Wooden/House_Wooden_E_1I01/Data/House_Wooden_E_1I01_EXT_panels_MLOD.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

@@ -1,4 +1,3 @@
 MatPBRTreeCrown : "{3ADF3932D9F3900E}Assets/Vegetation/Bush/Rubus_Idaeus/Data/b_rubus_idaeus_0s_polyplane.emat" {
- Color 0.791 0.791 0.791 1
- BCRMap "{486789ED6AB13C00}Terrains/Common/Surfaces/Data/AF_PackedSnow_01_BCR.edds"
+ GlobalLayerMode Manual
 }

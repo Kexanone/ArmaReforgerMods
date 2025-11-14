@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{40F35771EBE76057}Assets/Structures/Military/Houses/ControlTowerMilitary_E_01/Data/Ext_ControlTowerMilitary_01_Base_V2.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

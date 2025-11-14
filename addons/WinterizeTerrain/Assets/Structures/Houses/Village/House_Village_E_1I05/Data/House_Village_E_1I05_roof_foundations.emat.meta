@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{DF3955C8E663ABFE}Assets/Structures/Houses/Village/House_Village_E_1I05/Data/House_Village_E_1I05_roof_foundations.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

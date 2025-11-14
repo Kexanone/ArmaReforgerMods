@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{6EA17115BEB51F1A}Assets/Structures/Cultural/Castles/Castle_01/Data/Castle_01_StairsSurface_01.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

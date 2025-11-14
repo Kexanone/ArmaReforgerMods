@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{0E1A8EAF5B134E86}Assets/Structures/Military/Houses/GuardHouse_02/data/Guardhouse_02_EXT_MLOD.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{86034E1F34D81954}Assets/Structures/Cultural/Castles/Castle_01/Data/Castle_01_InnerWall_01.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

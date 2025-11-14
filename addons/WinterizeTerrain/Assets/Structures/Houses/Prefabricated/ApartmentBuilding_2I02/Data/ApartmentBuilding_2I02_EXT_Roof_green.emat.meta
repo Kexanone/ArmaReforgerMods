@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{2B466E461EF6F1F2}Assets/Structures/Houses/Prefabricated/ApartmentBuilding_2I02/Data/ApartmentBuilding_2I02_EXT_Roof_green.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

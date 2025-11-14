@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{E12639B59DCC9A10}Assets/Vegetation/Tree/Larix_Decidua/Data/t_larix_decidua_1s_polyplane.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{A1110E440B8C2A95}Assets/Structures/Ruins/Church_Ruin_01/Data/Church_Ruin_v2_EXT_MLOD.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

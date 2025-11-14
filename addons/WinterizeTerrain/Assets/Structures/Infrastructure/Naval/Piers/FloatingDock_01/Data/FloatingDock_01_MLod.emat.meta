@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{C5AAA06F8F6EA1CF}Assets/Structures/Infrastructure/Naval/Piers/FloatingDock_01/Data/FloatingDock_01_MLod.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

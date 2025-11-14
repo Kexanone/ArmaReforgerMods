@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{524CABC7E27F475F}Assets/Structures/Agriculture/ShedMetal_04/Data/ShedMetal04_MLOD.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

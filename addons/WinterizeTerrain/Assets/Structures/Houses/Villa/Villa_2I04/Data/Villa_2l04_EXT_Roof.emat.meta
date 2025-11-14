@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{2925458C3AB10BBE}Assets/Structures/Houses/Villa/Villa_2I04/Data/Villa_2l04_EXT_Roof.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{5026DE53D5B3C012}Assets/Vegetation/Plant/Arctium_lappa/Data/p_arctium_lappa_atlas_MLOD_aut.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{C3EB44E7E3CDBF6A}Assets/Structures/Military/Houses/Barracks_E_03/Data/EXT_Barracks_E_03_MLOD_Soviet.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

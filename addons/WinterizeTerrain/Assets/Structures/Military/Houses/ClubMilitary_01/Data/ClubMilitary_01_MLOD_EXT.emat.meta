@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{F92FA7E9FB3E701F}Assets/Structures/Military/Houses/ClubMilitary_01/Data/ClubMilitary_01_MLOD_EXT.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

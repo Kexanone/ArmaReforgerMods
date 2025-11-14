@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{41ED834ABCA94089}Assets/Structures/Military/Houses/FuelStorage_E_01/Data/FuelStorage_E_01_Roof_yellow_MLOD.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

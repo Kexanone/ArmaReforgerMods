@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{82D728628E3FB84C}Assets/Structures/Ruins/ShedMetal_Ruin_02/Data/ShedMetal_Ruin_02_EXT_Metal.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

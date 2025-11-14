@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{BC64F964A0ED9FE5}Assets/Structures/Military/Houses/BarracksWooden_01/Data/BarracksWooden_01_EXT_Roof.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

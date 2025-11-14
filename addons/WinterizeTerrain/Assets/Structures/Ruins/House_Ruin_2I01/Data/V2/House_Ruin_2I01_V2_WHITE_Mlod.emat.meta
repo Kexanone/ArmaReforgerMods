@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{EEEA827C94564835}Assets/Structures/Ruins/House_Ruin_2I01/Data/V2/House_Ruin_2I01_V2_WHITE_Mlod.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

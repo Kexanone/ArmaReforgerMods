@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{B472513CF286A40A}Assets/Structures/Ruins/Barn_Ruin_01/data/Barn_01_V1_Roof_Ruin.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

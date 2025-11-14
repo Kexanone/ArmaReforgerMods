@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{4BECC64B8D011E55}Assets/Vegetation/Plant/Arctium_lappa/Data/p_arctium_lappa_polyplane.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{AD8064416CF80A01}Assets/Structures/Military/Houses/Guardhouse_05/data/Guardhouse_USSR_05_EXT_Roof.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

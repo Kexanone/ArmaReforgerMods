@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{8C9CFF3602135B02}Assets/Structures/Recreation/Gym_02/Data/Gym_02_EXT_Details.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

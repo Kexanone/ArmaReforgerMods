@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{EE58F0DB81027832}Assets/Structures/Industrial/Houses/Office_06/Data/Office_USSR_06_EXT_Roof.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

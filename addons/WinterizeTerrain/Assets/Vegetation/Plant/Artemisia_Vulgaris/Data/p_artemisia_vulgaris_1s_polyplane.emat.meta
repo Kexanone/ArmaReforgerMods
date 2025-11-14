@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{A930F1176B2E3054}Assets/Vegetation/Plant/Artemisia_Vulgaris/Data/p_artemisia_vulgaris_1s_polyplane.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{0EB7F262CF983E0A}Assets/Vegetation/Tree/Sorbus_Aucuparia/Data/t_sorbus_aucuparia_1sw_polyplane.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

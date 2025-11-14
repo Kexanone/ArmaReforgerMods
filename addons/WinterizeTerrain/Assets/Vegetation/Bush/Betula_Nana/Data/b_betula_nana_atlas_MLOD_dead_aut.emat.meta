@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{F5A3E830EDCEFDE8}Assets/Vegetation/Bush/Betula_Nana/Data/b_betula_nana_atlas_MLOD_dead_aut.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

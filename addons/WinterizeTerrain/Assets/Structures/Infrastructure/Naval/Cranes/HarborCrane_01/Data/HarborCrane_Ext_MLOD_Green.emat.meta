@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{A3A649399A4EF5F0}Assets/Structures/Infrastructure/Naval/Cranes/HarborCrane_01/Data/HarborCrane_Ext_MLOD_Green.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

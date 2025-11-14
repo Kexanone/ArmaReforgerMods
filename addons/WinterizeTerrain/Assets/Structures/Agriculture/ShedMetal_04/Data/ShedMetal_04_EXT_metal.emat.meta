@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{2EB64FB4B91B8E1C}Assets/Structures/Agriculture/ShedMetal_04/Data/ShedMetal_04_EXT_metal.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

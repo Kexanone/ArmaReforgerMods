@@ -1,0 +1,6 @@
+GenericTerrainEntity {
+ ID "52D6BA0D59294552"
+ GlobalLayerEnabled 1
+ GlobalLayerBCR "{486789ED6AB13C00}Terrains/Common/Surfaces/Data/AF_PackedSnow_01_BCR.edds"
+ GlobalLayerNMO "{6F50C2A969F77A17}Terrains/Common/Surfaces/Data/AF_PackedSnow_01_NHO.edds"
+}

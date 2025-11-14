@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{BD5E7FF1A9B5B1A7}Terrains/Common/Surfaces/ForestConiferous_02_aut.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{96830FEA2F9D3D95}Terrains/Common/Surfaces/ForestClearing_Deciduous_01_aut.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

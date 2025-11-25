@@ -8,28 +8,33 @@ class FPM_MapMarkerEntryPlayer : SCR_MapMarkerEntryDynamic
 	//! Register marker here so it can be fetched from the map
 	void CreateMarker(int playerId, IEntity player)
 	{
-		if (!player || m_mPlayerMarkers.Contains(player))
+		SCR_ChimeraCharacter playerChar = SCR_ChimeraCharacter.Cast(player);
+		if (!playerChar)
 			return;
 		
-		FPM_MapMarkerPlayer marker = FPM_MapMarkerPlayer.Cast(m_MarkerMgr.InsertDynamicMarker(SCR_EMapMarkerType.FPM_PLAYER, player));
+		if (m_mPlayerMarkers.Contains(playerChar))
+			return;
+		
+		FPM_MapMarkerPlayer marker = FPM_MapMarkerPlayer.Cast(m_MarkerMgr.InsertDynamicMarker(SCR_EMapMarkerType.FPM_PLAYER, playerChar));
 		if (!marker)
 			return;
 	
 		marker.SetPlayerId(playerId);
 			
-		SCR_CharacterControllerComponent charCtrl = SCR_CharacterControllerComponent.Cast(player.FindComponent(SCR_CharacterControllerComponent));
+		SCR_CharacterControllerComponent charCtrl = SCR_CharacterControllerComponent.Cast(playerChar.GetCharacterController());
 		if (!charCtrl)
 			return;
 		
 		charCtrl.m_OnLifeStateChanged.Insert(marker.OnLifeStateChanged);
 		
-		SCR_CompartmentAccessComponent compartmentAccess = SCR_CompartmentAccessComponent.Cast(player.FindComponent(SCR_CompartmentAccessComponent));
-		if (!compartmentAccess)
-			return;
-
-		compartmentAccess.GetOnPlayerCompartmentEnter().Insert(OnPlayerEnterCompartment);
-		compartmentAccess.GetOnPlayerCompartmentExit().Insert(OnPlayerExitCompartment);
+		SCR_CompartmentAccessComponent compartmentAccess = SCR_CompartmentAccessComponent.Cast(playerChar.GetCompartmentAccessComponent());
+		if (compartmentAccess)
+		{
+			compartmentAccess.GetOnPlayerCompartmentEnter().Insert(OnPlayerEnterCompartment);
+			compartmentAccess.GetOnPlayerCompartmentExit().Insert(OnPlayerExitCompartment);
+		}
 		
+		playerChar.FPM_GetOnRoleSymbolIconsChanged().Insert(OnRoleSymbolIconsChanged);
 		
 		PlayerController playerController = GetGame().GetPlayerManager().GetPlayerController(playerId);
 		if (!playerController)
@@ -48,10 +53,10 @@ class FPM_MapMarkerEntryPlayer : SCR_MapMarkerEntryDynamic
 		if (aiGroup)
 			marker.SetGroupId(aiGroup.GetGroupID());
 		
-		marker.SetGlobalText(GetPlayerNameWithRank(playerId, player));
-		marker.SetGlobalSymbolIcons(EMilitarySymbolIcon.INFANTRY);
+		marker.SetGlobalText(GetPlayerNameWithRank(playerId, playerChar));
+		marker.SetGlobalSymbolIcons(playerChar.FPM_GetRoleSymbolIcons());
 		marker.SetGlobalVisible(true);
-		m_mPlayerMarkers.Insert(player, marker);
+		m_mPlayerMarkers.Insert(playerChar, marker);
 	}
 	
 	//------------------------------------------------------------------------------------------------
@@ -74,6 +79,23 @@ class FPM_MapMarkerEntryPlayer : SCR_MapMarkerEntryDynamic
 			m_MarkerMgr.RemoveDynamicMarker(marker);
 		
 		m_mPlayerMarkers.Remove(player);
+		
+		SCR_ChimeraCharacter playerChar = SCR_ChimeraCharacter.Cast(player);
+		if (!playerChar)
+			return;
+		
+		SCR_CharacterControllerComponent charCtrl = SCR_CharacterControllerComponent.Cast(playerChar.GetCharacterController());
+		if (charCtrl)
+			charCtrl.m_OnLifeStateChanged.Remove(marker.OnLifeStateChanged);
+		
+		SCR_CompartmentAccessComponent compartmentAccess = SCR_CompartmentAccessComponent.Cast(playerChar.GetCompartmentAccessComponent());
+		if (compartmentAccess)
+		{
+			compartmentAccess.GetOnPlayerCompartmentEnter().Remove(OnPlayerEnterCompartment);
+			compartmentAccess.GetOnPlayerCompartmentExit().Remove(OnPlayerExitCompartment);
+		}
+		
+		playerChar.FPM_GetOnRoleSymbolIconsChanged().Remove(OnRoleSymbolIconsChanged);
 	}
 	
 	//------------------------------------------------------------------------------------------------
@@ -138,16 +160,24 @@ class FPM_MapMarkerEntryPlayer : SCR_MapMarkerEntryDynamic
 			marker.SetGlobalVisible(isEffectiveCommander);
 			
 			if (isEffectiveCommander)
-				UpdateEffectiveCommanderMarker(marker, GetPlayerNameWithRank(playerId, occupant), vehicle, passengerCount);
-		};
+			{
+				EMilitarySymbolIcon baseIcons = EMilitarySymbolIcon.INFANTRY;
+				
+				SCR_ChimeraCharacter occupantChar = SCR_ChimeraCharacter.Cast(occupant);
+				if (occupantChar)
+					baseIcons = occupantChar.FPM_GetBaseRoleSymbolIcons();
+				
+				UpdateEffectiveCommanderMarker(marker, baseIcons, GetPlayerNameWithRank(playerId, occupant), vehicle, passengerCount);
+			}
+		}
 	}
 	
 	//------------------------------------------------------------------------------------------------
-	protected void UpdateEffectiveCommanderMarker(FPM_MapMarkerPlayer marker, string commanderName, Vehicle vehicle, int passengerCount)
+	protected void UpdateEffectiveCommanderMarker(FPM_MapMarkerPlayer marker, EMilitarySymbolIcon baseIcons, string commanderName, Vehicle vehicle, int passengerCount)
 	{
 		SCR_EditableVehicleComponent edit = SCR_EditableVehicleComponent.Cast(vehicle.FindComponent(SCR_EditableVehicleComponent));
 		if (!edit)
-			return;;
+			return;
 				
 		if (passengerCount > 0)
 		{
@@ -157,34 +187,64 @@ class FPM_MapMarkerEntryPlayer : SCR_MapMarkerEntryDynamic
 		{
 			marker.SetGlobalText(string.Format("%1 (%2)", edit.GetDisplayName(), commanderName));
 		};
-		
-		EMilitarySymbolDimension dimension = EMilitarySymbolDimension.LAND;
-		EMilitarySymbolIcon icons = 0;
 				
 		SCR_EditableEntityUIInfo entityUIInfo = SCR_EditableEntityUIInfo.Cast(edit.GetInfo());
 		if (!entityUIInfo)
 			return;
 		
-		if (entityUIInfo.HasEntityLabel(EEditableEntityLabel.VEHICLE_CAR) || entityUIInfo.HasEntityLabel(EEditableEntityLabel.VEHICLE_TRUCK))
+		EMilitarySymbolIcon outIcons;
+		EMilitarySymbolDimension outDimension;
+		ComputeVehicleMilitarySymbol(entityUIInfo, baseIcons, outIcons, outDimension);
+		marker.SetGlobalSymbolIcons(outIcons, outDimension);
+	}
+	
+	//------------------------------------------------------------------------------------------------
+	protected bool ComputeVehicleMilitarySymbol(SCR_EditableEntityUIInfo vehicleUIInfo, EMilitarySymbolIcon baseIcons, out EMilitarySymbolIcon icons, out EMilitarySymbolDimension dimension)
+	{
+		dimension = EMilitarySymbolDimension.LAND;
+		
+		if (vehicleUIInfo.HasEntityLabel(EEditableEntityLabel.TRAIT_MEDICAL))
+			icons |= EMilitarySymbolIcon.MEDICAL;
+		else if (vehicleUIInfo.HasEntityLabel(EEditableEntityLabel.TRAIT_REPAIRING) || vehicleUIInfo.HasEntityLabel(EEditableEntityLabel.TRAIT_MANAGEMENT_BASE))
+			icons |= EMilitarySymbolIcon.MAINTENANCE;
+		else if (vehicleUIInfo.HasEntityLabel(EEditableEntityLabel.TRAIT_REARMING) || vehicleUIInfo.HasEntityLabel(EEditableEntityLabel.TRAIT_REFUELING))
+			icons |= EMilitarySymbolIcon.SUPPLY;
+		else if (vehicleUIInfo.HasEntityLabel(EEditableEntityLabel.TRAIT_RADIO))
+			icons |= EMilitarySymbolIcon.SIGNAL;
+		
+		if (vehicleUIInfo.HasEntityLabel(EEditableEntityLabel.VEHICLE_CAR) || vehicleUIInfo.HasEntityLabel(EEditableEntityLabel.VEHICLE_TRUCK))
 		{
-			icons = EMilitarySymbolIcon.INFANTRY | EMilitarySymbolIcon.MOTORIZED;
+			if (!icons)
+				icons |= baseIcons;
+			
+			icons |= EMilitarySymbolIcon.MOTORIZED;
+			return true;
 		}	
-		else if (entityUIInfo.HasEntityLabel(EEditableEntityLabel.VEHICLE_APC))
+		
+		if (vehicleUIInfo.HasEntityLabel(EEditableEntityLabel.VEHICLE_APC))
 		{
-			icons = EMilitarySymbolIcon.INFANTRY | EMilitarySymbolIcon.ARMOR;		
-		}
-		else if (entityUIInfo.HasEntityLabel(EEditableEntityLabel.VEHICLE_HELICOPTER))
-		{
-			dimension = EMilitarySymbolDimension.AIR;
-			icons = EMilitarySymbolIcon.ROTARY_WING;
-		}
-		else if (entityUIInfo.HasEntityLabel(EEditableEntityLabel.VEHICLE_AIRPLANE))
-		{
-			dimension = EMilitarySymbolDimension.AIR;
-			icons = EMilitarySymbolIcon.FIXED_WING;
+			if (!icons)
+				icons |= baseIcons;
+			
+			icons |= EMilitarySymbolIcon.ARMOR;
+			return true;
 		}
 		
-		marker.SetGlobalSymbolIcons(icons, dimension);
+		if (vehicleUIInfo.HasEntityLabel(EEditableEntityLabel.VEHICLE_HELICOPTER))
+		{
+			dimension = EMilitarySymbolDimension.AIR;
+			icons |= EMilitarySymbolIcon.ROTARY_WING;
+			return true;
+		}
+		
+		if (vehicleUIInfo.HasEntityLabel(EEditableEntityLabel.VEHICLE_AIRPLANE))
+		{
+			dimension = EMilitarySymbolDimension.AIR;
+			icons |= EMilitarySymbolIcon.FIXED_WING;
+			return true;
+		}
+		
+		return false;
 	}
 	
 	//------------------------------------------------------------------------------------------------
@@ -210,9 +270,34 @@ class FPM_MapMarkerEntryPlayer : SCR_MapMarkerEntryDynamic
 		if (!marker)
 			return;
 		
+		SCR_ChimeraCharacter scriptedPlayerChar = SCR_ChimeraCharacter.Cast(playerCharacter);
+		if (!scriptedPlayerChar)
+			return;
+		
 		marker.SetGlobalText(GetPlayerNameWithRank(playerId, playerCharacter));
-		marker.SetGlobalSymbolIcons(EMilitarySymbolIcon.INFANTRY);
+		marker.SetGlobalSymbolIcons(scriptedPlayerChar.FPM_GetRoleSymbolIcons());
 		marker.SetGlobalVisible(true);
+	}
+	
+	//------------------------------------------------------------------------------------------------
+	protected void OnRoleSymbolIconsChanged(IEntity owner, int icons)
+	{
+		SCR_CompartmentAccessComponent compartmentAccess = SCR_CompartmentAccessComponent.Cast(owner.FindComponent(SCR_CompartmentAccessComponent));
+		if (!compartmentAccess)
+			return;
+		
+		Vehicle vehicle = Vehicle.Cast(compartmentAccess.GetVehicle());
+		if (vehicle)
+		{
+			UpdatePlayerMarkersInVehicle(vehicle);
+			return;
+		}
+		
+		FPM_MapMarkerPlayer marker = m_mPlayerMarkers[owner];
+		if (!marker)
+			return;
+		
+		marker.SetGlobalSymbolIcons(icons);
 	}
 	
 	//------------------------------------------------------------------------------------------------

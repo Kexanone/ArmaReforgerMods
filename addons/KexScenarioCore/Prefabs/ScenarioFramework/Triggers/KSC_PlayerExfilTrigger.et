@@ -1,0 +1,14 @@
+SCR_ScenarioFrameworkTriggerEntity : "{DA58C3DF4455555E}Prefabs/Systems/ScenarioFramework/Triggers/ScenarioFrameworkTrigger.et" {
+ ID "664CB9D4478728C4"
+ coords 144.581 1 181.515
+ SphereRadius 30
+ UpdatePeriod 2
+ RunDefaultQueryFirst 0
+ m_eActivationPresence PLAYER
+ m_fMinimumPlayersNeededPercentage 0.75
+ m_fActivationCountdownTimer 10
+ m_bNotificationEnabled 1
+ m_sPlayerActivationNotificationTitle "#AR-CombatScenario_ExfilTrigger_Notification"
+ m_bEnableAudio 1
+ m_sCountdownAudio "SOUND_RESPAWNMENU"
+}

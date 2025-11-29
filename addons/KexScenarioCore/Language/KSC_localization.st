@@ -65,6 +65,22 @@ StringTable {
    Author "kexanone"
    LastChanged "kexanone"
   }
+  CustomStringTableItem "{66F936DFC0A12BE9}" {
+   Id "KSC-Task_Exfil_Description"
+   Target_en_us "Move to the exfil point."
+   Target_de_de "Begebe dich zum Exfiltrationspunkt."
+   Modified 1727680134
+   Author "Kexanone"
+   LastChanged "Kexanone"
+  }
+  CustomStringTableItem "{66F936DFCFB2C3D7}" {
+   Id "KSC-Task_Exfil_Name"
+   Target_en_us "Exfil"
+   Target_de_de "Exfiltrieren"
+   Modified 1727679985
+   Author "Kexanone"
+   LastChanged "Kexanone"
+  }
   CustomStringTableItem "{6154F0E7781654D6}" {
    Id "KSC-Task_ExfilFrom_Description"
    Target_en_us "Leave the area."

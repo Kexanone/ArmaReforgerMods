@@ -9,6 +9,10 @@ class KSC_AreaTriggerTask : KSC_BaseTask
 	[Attribute(desc: "Prefab name of the trigger", uiwidget: UIWidgets.ResourceNamePicker, params: "et")]
 	protected ResourceName m_sTriggerPrefabName;
 	
+	// Start of queries has to be delayed, otherwise the trigger gets completed before the AI spawns
+	[Attribute(defvalue: "10", desc: "Delay in seconds for the trigger to start after spawning")]
+	protected float m_fTriggerStartDelay
+	
 	protected SCR_BaseTriggerEntity m_pTrigger;
 	
 	//------------------------------------------------------------------------------------------------
@@ -31,8 +35,7 @@ class KSC_AreaTriggerTask : KSC_BaseTask
 		m_pTrigger.GetOnActivate().Insert(OnTriggerActivate);
 		m_pTrigger.SetSphereRadius(radius);
 		m_pTrigger.EnablePeriodicQueries(false);
-		// Start of queries has to be delayed, otherwise the trigger gets completed before the AI spawns
-		GetGame().GetCallqueue().CallLater(m_pTrigger.EnablePeriodicQueries, 10000, false, true);
+		GetGame().GetCallqueue().CallLater(m_pTrigger.EnablePeriodicQueries, m_fTriggerStartDelay * 1000, false, true);
 	}
 	
 	//------------------------------------------------------------------------------------------------

@@ -12,4 +12,10 @@ class KSC_BaseTaskBuilder : ScriptAndConfig
 	{
 		return KSC_BaseTask.Cast(KSC_GameTools.SpawnPrefab(m_sTaskPrefabName, pos));
 	}
+	
+	//------------------------------------------------------------------------------------------------
+	ResourceName GetTaskResourceName()
+	{
+		return m_sTaskPrefabName;
+	}
 }

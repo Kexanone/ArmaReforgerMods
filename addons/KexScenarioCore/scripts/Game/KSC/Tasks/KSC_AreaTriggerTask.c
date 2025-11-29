@@ -48,7 +48,7 @@ class KSC_AreaTriggerTask : KSC_BaseTask
 	}
 	
 	//------------------------------------------------------------------------------------------------
-	protected void OnTriggerActivate()
+	protected void OnTriggerActivate(IEntity ent)
 	{
 		if (m_pTrigger)
 			m_pTrigger.GetOnActivate().Remove(OnTriggerActivate);

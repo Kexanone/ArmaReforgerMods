@@ -11,6 +11,9 @@ class KSC_BaseTask : SCR_Task
 	protected ref ScriptInvoker m_OnStateChanged;
 	protected ref ScriptInvoker m_OnCleanUp;
 	
+	protected static int s_iNextAutomatedTaskID = 0;
+	protected static const string GENERATED_TASK_PREFIX = "$KSC_TASK_";
+	
 	//------------------------------------------------------------------------------------------------
 	override void EOnInit(IEntity owner)
 	{
@@ -20,7 +23,13 @@ class KSC_BaseTask : SCR_Task
 			return;
 		
 		if (!s_pTaskSystem)
-			s_pTaskSystem = SCR_TaskSystem.GetInstance();		
+			s_pTaskSystem = SCR_TaskSystem.GetInstance();
+		
+		if (Replication.IsServer())
+		{
+			SetTaskID(GENERATED_TASK_PREFIX + s_iNextAutomatedTaskID);
+			s_iNextAutomatedTaskID++;
+		}
 	}
 	
 	//------------------------------------------------------------------------------------------------

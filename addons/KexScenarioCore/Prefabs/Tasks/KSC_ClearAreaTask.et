@@ -12,7 +12,7 @@ KSC_ClearAreaTask : "{4EA6C9B4506A0908}Prefabs/Tasks/KSC_BaseTask.et" {
  m_TaskUIInfo SCR_TaskUIInfo "{645CDE114ACB9A88}" {
   Name "#KSC-Task_ClearArea_Name"
   Description "#KSC-Task_ClearArea_Description"
-  IconSetName "Icon_Task_Sabotage"
+  IconSetName "Icon_Task_Seize"
  }
  m_sTriggerPrefabName "{EEBDAE0AC376C688}Prefabs/ScenarioFramework/Triggers/KSC_TriggerDominance.et"
 }

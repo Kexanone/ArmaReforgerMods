@@ -1,0 +1,17 @@
+KSC_DestroyObjectTask : "{4EA6C9B4506A0908}Prefabs/Tasks/KSC_BaseTask.et" {
+ ID "6122B7685222DE16"
+ components {
+  SCR_EditableEntityComponent "{6134822A405CCC8B}" {
+   m_UIInfo SCR_UIInfo "{616091CB2D599D4A}" {
+    Name "#KSC-Task_Destroy_Name"
+    Description "#KSC-Task_Destroy_Description"
+    IconSetName "Icon_Task_Seize"
+   }
+  }
+ }
+ m_TaskUIInfo SCR_TaskUIInfo "{645CDE114ACB9A88}" {
+  Name "#KSC-Task_Sabotage_Name"
+  Description "#KSC-Task_Destroy_Description"
+  IconSetName "Icon_Task_Sabotage"
+ }
+}

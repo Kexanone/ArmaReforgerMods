@@ -61,8 +61,8 @@ class KSC_ParadropSystem : GameSystem
 		{
 			foreach (KSC_ParadropSystem_HeloContext heloContext : m_aHeloContexts)
 			{
-				heloContext.m_pHeloPhysics.SetVelocity(heloContext.m_vTargetDir * m_fSpeed);
-				heloContext.m_pHeloPhysics.SetAngularVelocity(vector.Zero);
+				heloContext.m_pHelo.GetPhysics().SetVelocity(heloContext.m_vTargetDir * m_fSpeed);
+				heloContext.m_pHelo.GetPhysics().SetAngularVelocity(vector.Zero);
 			}
 		}
 		else if (point == ESystemPoint.Frame)
@@ -205,7 +205,6 @@ class KSC_ParadropSystem : GameSystem
 class KSC_ParadropSystem_HeloContext : Managed
 {
 	Vehicle m_pHelo;
-	Physics m_pHeloPhysics;
 	vector m_vStartPos;
 	vector m_vTargetDir;
 	AIGroup m_pCrewGroup;
@@ -220,8 +219,7 @@ class KSC_ParadropSystem_HeloContext : Managed
 	void KSC_ParadropSystem_HeloContext(Vehicle helo, AIGroup crewGroup)
 	{
 		m_pHelo = helo;
-		m_pHeloPhysics = helo.GetPhysics();
-		m_pHeloPhysics.SetActive(ActiveState.ACTIVE);
+		m_pHelo.GetPhysics().SetActive(ActiveState.ACTIVE);
 		
 		m_pCrewGroup = crewGroup;
 		SCR_ChimeraCharacter pilot = SCR_ChimeraCharacter.Cast(m_pCrewGroup.GetLeaderEntity());

@@ -16,8 +16,6 @@ modded class SCR_Math2D
 	*/
 	override static bool GetRandomPointInPolygon(notnull array<float> polygon, out float x, out float y)
 	{
-		Math.Randomize(-1);
-
 		float minX, minY, maxX, maxY;
 		if (!GetMinMaxPolygon(polygon, minX, maxX, minY, maxY))
 			return false;

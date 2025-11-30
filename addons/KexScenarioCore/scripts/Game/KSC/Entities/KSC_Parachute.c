@@ -27,7 +27,6 @@ class KSC_Parachute : ACE_AnimationHelperCompartment
 	
 	protected ChimeraWorld m_pWorld;
 	protected BaseWeatherManagerEntity m_pWeatherManager;
-	protected Physics m_pPhysics;
 	protected ref TraceParam m_pTraceParam = new TraceParam();
 	
 	//------------------------------------------------------------------------------------------------
@@ -36,9 +35,8 @@ class KSC_Parachute : ACE_AnimationHelperCompartment
 		super.Init(performer);
 		m_pWorld = GetGame().GetWorld();
 		m_pWeatherManager = m_pWorld.GetTimeAndWeatherManager();
-		m_pPhysics = GetPhysics();
-		m_pPhysics.ChangeSimulationState(SimulationState.SIMULATION);
-		m_pPhysics.SetVelocity(performer.GetPhysics().GetVelocity());
+		GetPhysics().ChangeSimulationState(SimulationState.SIMULATION);
+		GetPhysics().SetVelocity(performer.GetPhysics().GetVelocity());
 		m_pTraceParam.Flags = TraceFlags.ENTS | TraceFlags.OCEAN | TraceFlags.WORLD;
 		m_pTraceParam.Exclude = performer;
 		SetEventMask(EntityEvent.SIMULATE | EntityEvent.FIXEDFRAME);
@@ -57,14 +55,14 @@ class KSC_Parachute : ACE_AnimationHelperCompartment
 	override protected void EOnSimulate(IEntity owner, float timeSlice)
 	{
 		super.EOnSimulate(owner, timeSlice);
-		vector v = m_pPhysics.GetVelocity();
+		vector v = GetPhysics().GetVelocity();
 		vector windVelocity = m_pWeatherManager.GetWindSpeed() * vector.FromYaw(m_pWeatherManager.GetWindDirection());
 		float horizontalProgress = Math.Pow(Math.E, -m_fHorizontalRateConstant * timeSlice);
 		v[0] = windVelocity[0] + (v[0] - windVelocity[0]) * horizontalProgress;
 		v[1] = m_fTerminalVelocity + (v[1] - m_fTerminalVelocity) * Math.Pow(Math.E, -m_fVerticalRateConstant * timeSlice);
 		v[2] = windVelocity[2] + (v[2] - windVelocity[2]) * horizontalProgress;
-		m_pPhysics.SetVelocity(v);
-		m_pPhysics.SetAngularVelocity(vector.Zero);
+		GetPhysics().SetVelocity(v);
+		GetPhysics().SetAngularVelocity(vector.Zero);
 		HandleLanding(owner, timeSlice);
 	}
 	
@@ -109,9 +107,9 @@ class KSC_Parachute : ACE_AnimationHelperCompartment
 	override void Terminate(EGetOutType getOutType = EGetOutType.ANIMATED)
 	{
 		ClearEventMask(EntityEvent.SIMULATE | EntityEvent.FIXEDFRAME);
-		m_pPhysics.SetVelocity(vector.Zero);
-		m_pPhysics.SetAngularVelocity(vector.Zero);
-		m_pPhysics.ChangeSimulationState(SimulationState.NONE);
+		GetPhysics().SetVelocity(vector.Zero);
+		GetPhysics().SetAngularVelocity(vector.Zero);
+		GetPhysics().ChangeSimulationState(SimulationState.NONE);
 		m_pPerformer.GetPhysics().SetActive(ActiveState.ACTIVE);
 		
 		//! Tell clients that chute should close

@@ -99,7 +99,6 @@ class KSC_TerrainSlotTools
 			Init();
 		
 		array<EEditableEntityLabel> labels = {EEditableEntityLabel.SLOT_ROAD_SMALL, EEditableEntityLabel.SLOT_ROAD_MEDIUM, EEditableEntityLabel.SLOT_ROAD_LARGE};
-		Math.Randomize(-1);
 		SCR_ArrayHelperT<EEditableEntityLabel>.Shuffle(labels);
 		
 		foreach (EEditableEntityLabel label : labels)

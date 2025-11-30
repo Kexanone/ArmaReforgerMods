@@ -4,11 +4,9 @@ class KSC_FreeHostageTaskClass : KSC_SubjectBaseTaskClass
 }
 
 //------------------------------------------------------------------------------------------------
-//! This task gets completed with the subject has been released from captivity
+//! This task gets completed when the subject has been released from captivity
 class KSC_FreeHostageTask : KSC_SubjectBaseTask
 {
-	protected InventoryItemComponent m_pItemComponent;
-	
 	//------------------------------------------------------------------------------------------------
 	override protected void AttachSubjectHandlers()
 	{
@@ -43,27 +41,18 @@ class KSC_FreeHostageTask : KSC_SubjectBaseTask
 	{
 		SCR_ChimeraCharacter char = SCR_ChimeraCharacter.Cast(m_pSubject);
 		if (!char)
-		{
-			s_pTaskSystem.SetTaskState(this, SCR_ETaskState.FAILED);
 			return;
-		}
-
+		
 		SCR_CharacterControllerComponent charController = SCR_CharacterControllerComponent.Cast(char.GetCharacterController());
 		if (!charController)
-		{
-			s_pTaskSystem.SetTaskState(this, SCR_ETaskState.FAILED);
 			return;
-		}
 		
 		if (charController.ACE_Captives_IsCaptive())
 			return;
 		
-		if (!charController || charController.GetLifeState() == ECharacterLifeState.DEAD)
-		{
+		if (charController.GetLifeState() == ECharacterLifeState.DEAD)
 			s_pTaskSystem.SetTaskState(this, SCR_ETaskState.FAILED);
-			return;
-		}
-		
-		s_pTaskSystem.SetTaskState(this, SCR_ETaskState.COMPLETED);
+		else
+			s_pTaskSystem.SetTaskState(this, SCR_ETaskState.COMPLETED);
 	}
 }

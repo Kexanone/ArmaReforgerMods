@@ -1,5 +1,5 @@
 MetaFileClass {
- Name "{0B659585B9260580}Prefabs/Compositions/Destructible/COE_R404_Antenna.et"
+ Name "{0B659585B9260580}Prefabs/Compositions/Destructible/KSC_R404_Antenna.et"
  Configurations {
   EntityTemplateResourceClass PC {
   }

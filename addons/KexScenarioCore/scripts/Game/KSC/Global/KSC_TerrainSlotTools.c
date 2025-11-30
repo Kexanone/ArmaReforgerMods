@@ -2,6 +2,14 @@
 class KSC_TerrainSlotTools
 {
 	static ref map<EEditableEntityLabel, float> s_mSlotRadii;
+	static ref const array<EEditableEntityLabel> SLOT_LABELS = {
+		EEditableEntityLabel.SLOT_FLAT_SMALL,
+		EEditableEntityLabel.SLOT_FLAT_MEDIUM,
+		EEditableEntityLabel.SLOT_FLAT_LARGE,
+		EEditableEntityLabel.SLOT_ROAD_SMALL,
+		EEditableEntityLabel.SLOT_ROAD_MEDIUM,
+		EEditableEntityLabel.SLOT_ROAD_LARGE,
+	};
 	
 	//------------------------------------------------------------------------------------------------
 	protected static void Init()
@@ -162,5 +170,36 @@ class KSC_TerrainSlotTools
 					slots.Remove(i);
 			}
 		}
+	}
+	
+	//------------------------------------------------------------------------------------------------
+	static bool GetSlotLabel(ResourceName entityPrefabName, out EEditableEntityLabel slotLabel)
+	{
+		Resource res = Resource.Load(entityPrefabName);
+		if (!res.IsValid())
+			return false;
+		
+		IEntitySource entitySrc = SCR_BaseContainerTools.FindEntitySource(res);
+		if (!entitySrc)
+			return false;
+		
+		IEntityComponentSource editableSrc = SCR_EditableEntityComponentClass.GetEditableEntitySource(entitySrc);
+		if (!editableSrc)
+			return false;
+		
+		SCR_EditableEntityUIInfo info = SCR_EditableEntityUIInfo.Cast(SCR_EditableEntityComponentClass.GetInfo(editableSrc));
+		if (!info)
+			return false;
+		
+		foreach (EEditableEntityLabel label : SLOT_LABELS)
+		{
+			if (info.HasEntityLabel(label))
+			{
+				slotLabel = label;
+				return true;
+			}
+		}
+		
+		return false;
 	}
 }

@@ -37,8 +37,8 @@ class KSC_PickUpItemTask : KSC_SubjectBaseTask
 	
 	//------------------------------------------------------------------------------------------------
 	//! Finish task when the subject has been moved to a new slot
-	void OnParentSlotChanged(EDamageState state)
+	void OnParentSlotChanged(InventoryStorageSlot oldSlot, InventoryStorageSlot newSlot)
 	{
-		s_pTaskSystem.SetTaskState(this, SCR_ETaskState.COMPLETED);		
+		s_pTaskSystem.SetTaskState(this, SCR_ETaskState.COMPLETED);
 	}
 }

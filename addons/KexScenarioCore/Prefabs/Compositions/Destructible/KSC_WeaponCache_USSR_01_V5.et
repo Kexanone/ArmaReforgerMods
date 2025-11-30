@@ -1,0 +1,15 @@
+GenericEntity : "{FFE1DEF8CEFCDD7D}PrefabsEditable/Auto/Props/Military/AmmoBoxes/EquipmentBoxStack/E_EquipmentBoxStack_USSR_01_V5.et" {
+ ID "F0DBA538AC2A0552"
+ components {
+  SCR_DestructionMultiPhaseComponent "{58F89684469E44B1}" {
+   Enabled 1
+  }
+  SCR_EditableEntityComponent "{58EEFD4A6800D804}" {
+   m_UIInfo SCR_EditableEntityUIInfo "{5298E609432D192D}" {
+    m_aAuthoredLabels + {
+     TRAIT_ARSENAL TRAIT_DESTRUCTABLE
+    }
+   }
+  }
+ }
+}

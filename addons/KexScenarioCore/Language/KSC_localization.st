@@ -33,6 +33,22 @@ StringTable {
    Author "Kexanone"
    LastChanged "Kexanone"
   }
+  CustomStringTableItem "{66FC0A2F1C5EA7A6}" {
+   Id "KSC-Task_Capture_Description"
+   Target_en_us "Capture the HVT at the designated location."
+   Target_de_de "Nimm das hochrangige Ziel fest am angegeben Ort."
+   Modified 1727854370
+   Author "Kex"
+   LastChanged "Kex"
+  }
+  CustomStringTableItem "{66FC0A2F1AC97372}" {
+   Id "KSC-Task_Capture_Name"
+   Target_en_us "Capture %1"
+   Target_de_de "Nimm %1 fest"
+   Modified 1727854380
+   Author "Kex"
+   LastChanged "Kex"
+  }
   CustomStringTableItem "{61530DEFF898BB6E}" {
    Id "KSC-Task_ClearArea_Description"
    Target_en_us "Clear the specified area."
@@ -144,6 +160,14 @@ StringTable {
    Modified 1621949644
    Author "kexanone"
    LastChanged "kexanone"
+  }
+  CustomStringTableItem "{66FCF16C785D54B1}" {
+   Id "KSC-Task_Sabotage_Name"
+   Target_en_us "Sabotage %1"
+   Target_de_de "Sabotiere %1"
+   Modified 1727854265
+   Author "Kex"
+   LastChanged "Kex"
   }
  }
 }

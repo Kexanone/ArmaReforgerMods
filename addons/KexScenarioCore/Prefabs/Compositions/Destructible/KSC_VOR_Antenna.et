@@ -1,0 +1,12 @@
+StaticModelEntity : "{375B97602241A792}PrefabsEditable/Auto/Structures/Infrastructure/Towers/E_AntennaVOR_01.et" {
+ ID "50D67C36F43527FE"
+ components {
+  SCR_EditableEntityComponent "{58910CB43A773CB6}" {
+   m_UIInfo SCR_EditableEntityUIInfo "{5298E609432D192D}" {
+    m_aAuthoredLabels {
+     ENTITYTYPE_COMPOSITION SLOT_FLAT_LARGE SERVICE_ANTENNA TRAIT_DESTRUCTABLE
+    }
+   }
+  }
+ }
+}

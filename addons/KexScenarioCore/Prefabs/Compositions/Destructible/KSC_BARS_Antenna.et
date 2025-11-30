@@ -1,0 +1,17 @@
+StaticModelEntity : "{82CCE96E35DC6A6E}Prefabs/Structures/Military/Antennas/Antenna_BARS_01/Antenna_BARS_01_transmitter.et" {
+ ID "56ACD1C4DB91DB10"
+ components {
+  MapDescriptorComponent "{668E7EF4FEEADEEB}" {
+   Enabled 0
+  }
+  SCR_EditableEntityComponent "{66FC0A0E0DA3ACF3}" {
+   m_UIInfo SCR_EditableEntityUIInfo "{66FC0A0E058CA2EC}" {
+    Name "BARS Transmitter"
+    m_aAuthoredLabels {
+     ENTITYTYPE_COMPOSITION SLOT_FLAT_SMALL SERVICE_ANTENNA TRAIT_DESTRUCTABLE
+    }
+   }
+   m_bAutoRegister ALWAYS
+  }
+ }
+}

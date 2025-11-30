@@ -1,5 +1,5 @@
 MetaFileClass {
- Name "{48434860342A60EC}Prefabs/AI/Waypoints/COE_AIWaypoint_DefendVerySmall.et"
+ Name "{48434860342A60EC}Prefabs/AI/Waypoints/KSC_AIWaypoint_Defend_5m.et"
  Configurations {
   EntityTemplateResourceClass PC {
   }

@@ -1,5 +1,5 @@
 MetaFileClass {
- Name "{57EFA65FB424C4F3}Prefabs/ScenarioFramework/Triggers/KSC_PlayerTrigger.et"
+ Name "{57EFA65FB424C4F3}Prefabs/ScenarioFramework/Triggers/KSC_PlayerPresenceTrigger.et"
  Configurations {
   EntityTemplateResourceClass PC {
   }

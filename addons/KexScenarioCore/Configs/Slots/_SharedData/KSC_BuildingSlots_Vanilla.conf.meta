@@ -1,5 +1,5 @@
 MetaFileClass {
- Name "{17EA469D743EC627}Configs/Slots/Eden/KSC_BuildingSlots_Eden.conf"
+ Name "{17EA469D743EC627}Configs/Slots/_SharedData/KSC_BuildingSlots_Vanilla.conf"
  Configurations {
   CONFResourceClass PC {
   }

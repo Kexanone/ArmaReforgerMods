@@ -104,7 +104,7 @@ class KSC_Parachute : ACE_AnimationHelperCompartment
 	}
 	
 	//------------------------------------------------------------------------------------------------
-	override void Terminate(EGetOutType getOutType = EGetOutType.ANIMATED)
+	override void Terminate()
 	{
 		ClearEventMask(EntityEvent.SIMULATE | EntityEvent.FIXEDFRAME);
 		GetPhysics().SetVelocity(vector.Zero);
@@ -116,7 +116,7 @@ class KSC_Parachute : ACE_AnimationHelperCompartment
 		m_fMorphRate = m_fClosingMorphRate;
 		Replication.BumpMe();
 		
-		super.Terminate(getOutType);
+		super.Terminate();
 	}
 	
 	//------------------------------------------------------------------------------------------------

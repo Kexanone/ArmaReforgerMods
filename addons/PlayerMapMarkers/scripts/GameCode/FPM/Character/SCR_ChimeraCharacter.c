@@ -28,7 +28,7 @@ modded class SCR_ChimeraCharacter : ChimeraCharacter
 			return EMilitarySymbolIcon.MEDICAL;
 		
 		if (uiInfo.HasEntityLabel(EEditableEntityLabel.ROLE_SAPPER))
-			return EMilitarySymbolIcon.MAINTENANCE;
+			return EMilitarySymbolIcon.FPM_ENGINEER;
 		
 		SCR_InventoryStorageManagerComponent inventoryManager = SCR_InventoryStorageManagerComponent.Cast(FindComponent(SCR_InventoryStorageManagerComponent));
 		if (!inventoryManager)
@@ -36,9 +36,6 @@ modded class SCR_ChimeraCharacter : ChimeraCharacter
 		
 		if (inventoryManager.FPM_GetMedicalKitCount() > 0)
 			return EMilitarySymbolIcon.MEDICAL;
-		
-		if (inventoryManager.FPM_GetWrenchCount() > 0)
-			return EMilitarySymbolIcon.MAINTENANCE;
 		
 		EquipedWeaponStorageComponent equipedWeaponStorage = EquipedWeaponStorageComponent.Cast(FindComponent(EquipedWeaponStorageComponent));
 		if (!equipedWeaponStorage)
@@ -52,6 +49,9 @@ modded class SCR_ChimeraCharacter : ChimeraCharacter
 		
 		if (equipedWeaponStorage.FPM_GetWeaponTypeCount(EWeaponType.WT_MACHINEGUN) > 0)
 			return FPM_GetBaseRoleSymbolIcons() | EMilitarySymbolIcon.MACHINEGUN;
+		
+		if (inventoryManager.FPM_GetWrenchCount() > 0)
+			return EMilitarySymbolIcon.FPM_ENGINEER;
 		
 		return FPM_GetBaseRoleSymbolIcons();
 	}

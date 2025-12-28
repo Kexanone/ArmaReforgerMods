@@ -205,8 +205,10 @@ class FPM_MapMarkerEntryPlayer : SCR_MapMarkerEntryDynamic
 		
 		if (vehicleUIInfo.HasEntityLabel(EEditableEntityLabel.TRAIT_MEDICAL))
 			icons |= EMilitarySymbolIcon.MEDICAL;
-		else if (vehicleUIInfo.HasEntityLabel(EEditableEntityLabel.TRAIT_REPAIRING) || vehicleUIInfo.HasEntityLabel(EEditableEntityLabel.TRAIT_MANAGEMENT_BASE))
+		else if (vehicleUIInfo.HasEntityLabel(EEditableEntityLabel.TRAIT_REPAIRING))
 			icons |= EMilitarySymbolIcon.MAINTENANCE;
+		else if (vehicleUIInfo.HasEntityLabel(EEditableEntityLabel.TRAIT_MANAGEMENT_BASE))
+			icons |= EMilitarySymbolIcon.FPM_ENGINEER;
 		else if (vehicleUIInfo.HasEntityLabel(EEditableEntityLabel.TRAIT_REARMING) || vehicleUIInfo.HasEntityLabel(EEditableEntityLabel.TRAIT_REFUELING))
 			icons |= EMilitarySymbolIcon.SUPPLY;
 		else if (vehicleUIInfo.HasEntityLabel(EEditableEntityLabel.TRAIT_RADIO))

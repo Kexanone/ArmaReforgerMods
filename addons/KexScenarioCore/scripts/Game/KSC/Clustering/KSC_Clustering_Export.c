@@ -31,9 +31,9 @@ class KSC_Clustering_Exporter : Managed
 	//------------------------------------------------------------------------------------------------
 	void ExportTerrain(array<ref array<float>> rectangles)
 	{
-		map<KSC_Clustering_EExportType, ref FileHandle> m_mStreams = new map<KSC_Clustering_EExportType, ref FileHandle>();
-		m_mStreams[KSC_Clustering_EExportType.ROAD] = FileIO.OpenFile(m_sWorldName + "/" + "Road.bin", FileMode.WRITE);
-		m_mStreams[KSC_Clustering_EExportType.PLACEMENT] = FileIO.OpenFile(m_sWorldName + "/" + "Placement.bin", FileMode.WRITE);
+		map<KSC_Clustering_EExportType, ref FileHandle> streams = new map<KSC_Clustering_EExportType, ref FileHandle>();
+		streams[KSC_Clustering_EExportType.ROAD] = FileIO.OpenFile(m_sWorldName + "/" + "Road.bin", FileMode.WRITE);
+		streams[KSC_Clustering_EExportType.PLACEMENT] = FileIO.OpenFile(m_sWorldName + "/" + "Placement.bin", FileMode.WRITE);
 		
 		int xMin = int.MAX;
 		int zMin = int.MAX;
@@ -60,7 +60,7 @@ class KSC_Clustering_Exporter : Managed
 		}
 		
 		// Write header
-		foreach (FileHandle stream : m_mStreams)
+		foreach (FileHandle stream : streams)
 		{
 			stream.Write(xMin); stream.Write(xMax - xMin + 1);
 			stream.Write(zMin); stream.Write(zMax - zMin + 1);
@@ -83,20 +83,20 @@ class KSC_Clustering_Exporter : Managed
 					
 					if (KSC_TerrainHelper.SurfaceIsRoad(pos))
 					{
-						m_mStreams[KSC_Clustering_EExportType.ROAD].Write(x);
-						m_mStreams[KSC_Clustering_EExportType.ROAD].Write(z);
+						streams[KSC_Clustering_EExportType.ROAD].Write(x);
+						streams[KSC_Clustering_EExportType.ROAD].Write(z);
 					}
 					
 					if (IsPlacement(pos))
 					{
-						m_mStreams[KSC_Clustering_EExportType.PLACEMENT].Write(x);
-						m_mStreams[KSC_Clustering_EExportType.PLACEMENT].Write(z);
+						streams[KSC_Clustering_EExportType.PLACEMENT].Write(x);
+						streams[KSC_Clustering_EExportType.PLACEMENT].Write(z);
 					}
 				}
 			}
 		}
 		
-		foreach (FileHandle stream : m_mStreams)
+		foreach (FileHandle stream : streams)
 		{
 			stream.Close();
 		}

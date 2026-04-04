@@ -1,5 +1,4 @@
 //------------------------------------------------------------------------------------------------
-[BaseContainerProps()]
 class KSC_CooMatrix<Class T> : Managed
 {
 	[Attribute()]
@@ -27,5 +26,4 @@ class KSC_CooMatrix<Class T> : Managed
 	{
 		return m_Data;
 	}
-	
 }

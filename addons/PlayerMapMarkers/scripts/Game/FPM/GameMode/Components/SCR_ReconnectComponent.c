@@ -3,41 +3,36 @@
 modded class SCR_ReconnectData
 {
 	Faction m_pFPM_PlayerFaction;
-	
-	//------------------------------------------------------------------------------------------------
-	void SCR_ReconnectData(int playerId, IEntity entity)
-	{
-		PlayerController playerController = GetGame().GetPlayerManager().GetPlayerController(playerId);
-		if (!playerController)
-			return;
-		
-		SCR_PlayerFactionAffiliationComponent factionAffiliation = SCR_PlayerFactionAffiliationComponent.Cast(playerController.FindComponent(SCR_PlayerFactionAffiliationComponent));
-		if (!factionAffiliation)
-			return;
-				
-		m_pFPM_PlayerFaction = factionAffiliation.FPM_GetReconnectedFaction();
-	}
 }
 
 //------------------------------------------------------------------------------------------------
 modded class SCR_ReconnectComponent : SCR_BaseGameModeComponent
 {
 	//------------------------------------------------------------------------------------------------
-	override void OnPostInit(IEntity owner)
+	override protected notnull SCR_ReconnectData StoreData(int playerId)
 	{
-		super.OnPostInit(owner);
+		SCR_ReconnectData data = super.StoreData(playerId);
 		
-		if (GetGame().InPlayMode() && Replication.IsServer())
-			GetOnReconnect().Insert(FPM_OnPlayerReconnect);
+		PlayerController playerController = GetGame().GetPlayerManager().GetPlayerController(playerId);
+		if (!playerController)
+			return data;
+		
+		SCR_PlayerFactionAffiliationComponent factionAffiliation = SCR_PlayerFactionAffiliationComponent.Cast(playerController.FindComponent(SCR_PlayerFactionAffiliationComponent));
+		if (factionAffiliation)
+			data.m_pFPM_PlayerFaction = factionAffiliation.FPM_GetReconnectedFaction();
+		
+		return data;
 	}
 	
 	//------------------------------------------------------------------------------------------------
-	protected void FPM_OnPlayerReconnect(SCR_ReconnectData data)
+	override protected void ApplyData(int playerId, notnull SCR_ReconnectData data)
 	{
+		super.ApplyData(playerId, data);
+		
 		if (!data.m_pFPM_PlayerFaction)
 			return;
 		
-		PlayerController playerController = GetGame().GetPlayerManager().GetPlayerController(data.m_iPlayerId);
+		PlayerController playerController = GetGame().GetPlayerManager().GetPlayerController(playerId);
 		if (!playerController)
 			return;
 		

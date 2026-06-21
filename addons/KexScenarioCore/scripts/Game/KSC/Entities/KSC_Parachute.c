@@ -39,7 +39,7 @@ class KSC_Parachute : ACE_AnimationHelperCompartment
 		GetPhysics().SetVelocity(performer.GetPhysics().GetVelocity());
 		m_pTraceParam.Flags = TraceFlags.ENTS | TraceFlags.OCEAN | TraceFlags.WORLD;
 		m_pTraceParam.Exclude = performer;
-		SetEventMask(EntityEvent.SIMULATE | EntityEvent.FIXEDFRAME);
+		SetEventMask(EntityEvent.SIMULATE);
 		ToggleFrame(true);
 	}
 	
@@ -106,7 +106,7 @@ class KSC_Parachute : ACE_AnimationHelperCompartment
 	//------------------------------------------------------------------------------------------------
 	override void Terminate()
 	{
-		ClearEventMask(EntityEvent.SIMULATE | EntityEvent.FIXEDFRAME);
+		ClearEventMask(EntityEvent.SIMULATE);
 		GetPhysics().SetVelocity(vector.Zero);
 		GetPhysics().SetAngularVelocity(vector.Zero);
 		GetPhysics().ChangeSimulationState(SimulationState.NONE);

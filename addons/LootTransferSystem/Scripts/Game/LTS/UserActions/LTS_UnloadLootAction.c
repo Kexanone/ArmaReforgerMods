@@ -4,7 +4,7 @@ class LTS_UnloadLootAction : LTS_BaseLootTransferAction
 	//------------------------------------------------------------------------------------------------
 	override protected ScriptedInventoryStorageManagerComponent GetTargetStorageManager()
 	{
-		return ScriptedInventoryStorageManagerComponent.Cast(GetOwner().FindComponent(SCR_InventoryStorageManagerComponent));
+		return ScriptedInventoryStorageManagerComponent.Cast(GetOwner().FindComponent(ScriptedInventoryStorageManagerComponent));
 	}
 	
 	//------------------------------------------------------------------------------------------------

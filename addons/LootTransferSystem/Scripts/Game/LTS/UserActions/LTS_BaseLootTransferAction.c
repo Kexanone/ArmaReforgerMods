@@ -37,15 +37,19 @@ class LTS_BaseLootTransferAction : ScriptedUserAction
 				++failureCounter;
 		}
 		
-	#ifdef FREEDOM_FIGHTERS
-		JWK_PlayerWantedManagerComponent wantedManager = JWK.GetPlayerWanted();
-		if (wantedManager)
-			wantedManager.NotifyPlayerLootAction_S(pUserEntity, pOwnerEntity);
-	#endif
-		
 		int playerID = GetGame().GetPlayerManager().GetPlayerIdFromControlledEntity(pUserEntity);
 		if (playerID == 0)
 			return;
+		
+	#ifdef FREEDOM_FIGHTERS
+		PlayerController playerController = GetGame().GetPlayerManager().GetPlayerController(playerID);
+		if (!playerController)
+			return;
+		
+		JWK_PlayerControllerComponent jwkComponent = JWK_PlayerControllerComponent.Cast(playerController.FindComponent(JWK_PlayerControllerComponent));
+		if (jwkComponent)
+			jwkComponent.NotifyLooting(pOwnerEntity);
+	#endif
 		
 		if (failureCounter == 0)
 			SCR_NotificationsComponent.SendToPlayer(playerID, ENotification.LTS_TRANSFER_COMPLETED);

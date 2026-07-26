@@ -132,7 +132,7 @@ class KSC_ParadropHelper
 			return;
 
 		SCR_ChimeraCharacter passenger = SCR_ChimeraCharacter.Cast(compartment.GetOccupant());
-		if (!passenger)
+		if (!passenger || passenger.GetCharacterController().GetLifeState() == ECharacterLifeState.DEAD)
 			return;
 		
 		passenger.GetPhysics().SetActive(ActiveState.ACTIVE);

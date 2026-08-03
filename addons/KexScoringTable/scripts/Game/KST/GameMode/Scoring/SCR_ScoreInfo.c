@@ -1,17 +1,17 @@
 //------------------------------------------------------------------------------------------------
 modded class SCR_ScoreInfo
 {
-	int m_iKSC_SoftKills;
-	int m_iKSC_ArmorKills;
-	int m_iKSC_AirKills;
+	int m_iKST_SoftKills;
+	int m_iKST_ArmorKills;
+	int m_iKST_AirKills;
 	
 	//------------------------------------------------------------------------------------------------
 	override bool RplSave(ScriptBitWriter writer)
     {
 		super.RplSave(writer);
-        writer.WriteInt(m_iKSC_SoftKills);
-		writer.WriteInt(m_iKSC_ArmorKills);
-		writer.WriteInt(m_iKSC_AirKills);
+        writer.WriteInt(m_iKST_SoftKills);
+		writer.WriteInt(m_iKST_ArmorKills);
+		writer.WriteInt(m_iKST_AirKills);
 		return true;
     }
 
@@ -19,9 +19,9 @@ modded class SCR_ScoreInfo
     override bool RplLoad(ScriptBitReader reader)
     {
 		super.RplLoad(reader);
-		reader.ReadInt(m_iKSC_SoftKills);
-		reader.ReadInt(m_iKSC_ArmorKills);
-		reader.ReadInt(m_iKSC_AirKills);
+		reader.ReadInt(m_iKST_SoftKills);
+		reader.ReadInt(m_iKST_ArmorKills);
+		reader.ReadInt(m_iKST_AirKills);
         return true;
     }
 	
@@ -29,8 +29,8 @@ modded class SCR_ScoreInfo
 	override void Clear()
 	{
 		super.Clear();
-		m_iKSC_SoftKills = 0;
-		m_iKSC_ArmorKills = 0;
-		m_iKSC_AirKills = 0;
+		m_iKST_SoftKills = 0;
+		m_iKST_ArmorKills = 0;
+		m_iKST_AirKills = 0;
 	}
 };

@@ -1,10 +1,10 @@
 //------------------------------------------------------------------------------------------------
-class KSC_ScoringSystemComponentClass : SCR_ScoringSystemComponentClass
+class KST_ScoringSystemComponentClass : SCR_ScoringSystemComponentClass
 {
 }
 
 //------------------------------------------------------------------------------------------------
-class KSC_ScoringSystemComponent : SCR_ScoringSystemComponent
+class KST_ScoringSystemComponent : SCR_ScoringSystemComponent
 {
 	[Attribute("2", UIWidgets.EditBox, "Soft kill score multiplier", category: "Scoring: Multipliers")]
 	protected int m_iSoftKillScoreMultiplier;
@@ -19,9 +19,9 @@ class KSC_ScoringSystemComponent : SCR_ScoringSystemComponent
 	override protected int CalculateScore(SCR_ScoreInfo info)
 	{
 		int score = super.CalculateScore(info);
-		score += info.m_iKSC_SoftKills * m_iSoftKillScoreMultiplier;
-		score += info.m_iKSC_ArmorKills * m_iArmorKillScoreMultiplier;
-		score += info.m_iKSC_AirKills * m_iAirKillScoreMultiplier;
+		score += info.m_iKST_SoftKills * m_iSoftKillScoreMultiplier;
+		score += info.m_iKST_ArmorKills * m_iArmorKillScoreMultiplier;
+		score += info.m_iKST_AirKills * m_iAirKillScoreMultiplier;
 		
 		if (score < 0)
 			return 0;
@@ -85,7 +85,7 @@ class KSC_ScoringSystemComponent : SCR_ScoringSystemComponent
 		if (!info)
 			return;
 		
-		KSC_AddVehicleKill(instigator.GetInstigatorPlayerID(), info, count);	
+		KST_AddVehicleKill(instigator.GetInstigatorPlayerID(), info, count);	
 	}
 	
 	//------------------------------------------------------------------------------------------------
@@ -118,21 +118,21 @@ class KSC_ScoringSystemComponent : SCR_ScoringSystemComponent
 	//! Server-only, propagated to all clients via BC reliable RPC.
 	//! \param[in] playerId
 	//! \param[in] count
-	void KSC_AddVehicleKill(int playerId, SCR_EditableEntityUIInfo info, int count = 1)
+	void KST_AddVehicleKill(int playerId, SCR_EditableEntityUIInfo info, int count = 1)
 	{
 		// Server only
 		if (!m_pGameMode.IsMaster())
 			return;
 		
-		KSC_EScoreType type = KSC_GetVehilceScoreType(info);
+		KST_EScoreType type = KST_GetVehilceScoreType(info);
 		int factionIdx = GetPlayerFactionIndex(playerId);
-		RpcDo_KSC_AddKill(playerId, factionIdx, type, count);
-		Rpc(RpcDo_KSC_AddKill, playerId, factionIdx, type, count);
+		RpcDo_KST_AddKill(playerId, factionIdx, type, count);
+		Rpc(RpcDo_KST_AddKill, playerId, factionIdx, type, count);
 	}
 	
 	//------------------------------------------------------------------------------------------------
 	[RplRpc(RplChannel.Reliable, RplRcver.Broadcast)]
-	private void RpcDo_KSC_AddKill(int playerId, int factionIdx, KSC_EScoreType type, int count)
+	private void RpcDo_KST_AddKill(int playerId, int factionIdx, KST_EScoreType type, int count)
 	{
 		SCR_ScoreInfo playerScore = m_mPlayerScores[playerId];
 		
@@ -143,7 +143,7 @@ class KSC_ScoringSystemComponent : SCR_ScoringSystemComponent
 		
 		switch (type)
 		{
-			case KSC_EScoreType.INFANTRY:
+			case KST_EScoreType.INFANTRY:
 			{
 				playerScore.m_iKills += count;
 				
@@ -152,30 +152,30 @@ class KSC_ScoringSystemComponent : SCR_ScoringSystemComponent
 				
 				break;
 			}
-			case KSC_EScoreType.SOFT:
+			case KST_EScoreType.SOFT:
 			{
-				playerScore.m_iKSC_SoftKills += count;
+				playerScore.m_iKST_SoftKills += count;
 				
 				if (factionScore)
-					factionScore.m_iKSC_SoftKills += count;
+					factionScore.m_iKST_SoftKills += count;
 				
 				break;
 			}
-			case KSC_EScoreType.ARMOR:
+			case KST_EScoreType.ARMOR:
 			{
-				playerScore.m_iKSC_ArmorKills += count;
+				playerScore.m_iKST_ArmorKills += count;
 				
 				if (factionScore)
-					factionScore.m_iKSC_ArmorKills += count;
+					factionScore.m_iKST_ArmorKills += count;
 				
 				break;
 			}
-			case KSC_EScoreType.AIR:
+			case KST_EScoreType.AIR:
 			{
-				playerScore.m_iKSC_AirKills += count;
+				playerScore.m_iKST_AirKills += count;
 				
 				if (factionScore)
-					factionScore.m_iKSC_AirKills += count;
+					factionScore.m_iKST_AirKills += count;
 				
 				break;
 			}
@@ -188,48 +188,21 @@ class KSC_ScoringSystemComponent : SCR_ScoringSystemComponent
 	}
 	
 	//------------------------------------------------------------------------------------------------
-	protected KSC_EScoreType KSC_GetVehilceScoreType(SCR_EditableEntityUIInfo info)
+	protected KST_EScoreType KST_GetVehilceScoreType(SCR_EditableEntityUIInfo info)
 	{
 		if (info.HasEntityLabel(EEditableEntityLabel.VEHICLE_CAR))
-			return KSC_EScoreType.SOFT;
+			return KST_EScoreType.SOFT;
 		if (info.HasEntityLabel(EEditableEntityLabel.VEHICLE_TRUCK))
-			return KSC_EScoreType.SOFT;
+			return KST_EScoreType.SOFT;
 		if (info.HasEntityLabel(EEditableEntityLabel.VEHICLE_TURRET))
-			return KSC_EScoreType.SOFT;
+			return KST_EScoreType.SOFT;
 		if (info.HasEntityLabel(EEditableEntityLabel.VEHICLE_APC))
-			return KSC_EScoreType.ARMOR;
+			return KST_EScoreType.ARMOR;
 		if (info.HasEntityLabel(EEditableEntityLabel.VEHICLE_AIRPLANE))
-			return KSC_EScoreType.AIR;
+			return KST_EScoreType.AIR;
 		if (info.HasEntityLabel(EEditableEntityLabel.VEHICLE_HELICOPTER))
-			return KSC_EScoreType.AIR;
+			return KST_EScoreType.AIR;
 		
-		return KSC_EScoreType.NONE;
-	}
-}
-
-//------------------------------------------------------------------------------------------------
-enum KSC_EScoreType
-{
-	NONE,
-	INFANTRY,
-	SOFT,
-	ARMOR,
-	AIR,
-}
-
-//------------------------------------------------------------------------------------------------
-//! Remove private from helper methods
-modded class SCR_BaseScoringSystemComponent
-{
-	//------------------------------------------------------------------------------------------------
-	override protected int GetPlayerFactionIndex(int playerId)
-	{
-		return super.GetPlayerFactionIndex(playerId);
-	}
-	
-	//------------------------------------------------------------------------------------------------
-	override protected Faction GetFactionByIndex(int factionIndex)
-	{
-		return super.GetFactionByIndex(factionIndex);
+		return KST_EScoreType.NONE;
 	}
 }

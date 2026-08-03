@@ -1,0 +1,124 @@
+ButtonWidgetClass {
+ {
+  SizeLayoutWidgetClass "{5548EB41A8E48247}" {
+   Prefab "{5548EB41A8E48247}"
+   {
+    OverlayWidgetClass "{5548EB41A8E48245}" {
+     Prefab "{5548EB41A8E48245}"
+     {
+      HorizontalLayoutWidgetClass "{5578914E99EDB48D}" {
+       Prefab "{5578914E99EDB48D}"
+       {
+        SizeLayoutWidgetClass "{59106843288747BD}" {
+         Name "KST_SizeLayout0"
+         Slot LayoutSlot "{59165EA409693704}" {
+          HorizontalAlign 1
+          VerticalAlign 1
+          Padding 0 0 30 0
+         }
+         "Z Order" 1
+         AllowMinDesiredWidth 1
+         MinDesiredWidth 40
+         AllowMaxDesiredWidth 1
+         MaxDesiredWidth 40
+         {
+          RichTextWidgetClass "{6A06ECD993D22980}" : "{45BA2EA46F09C0FF}UI/layouts/WidgetLibrary/RichTextWidgets/RichText_InteractiveSmall.layout" {
+           Name "KST_SoftKills"
+           Slot LayoutSlot "{5578914BF261DE967" {
+            HorizontalAlign 1
+            VerticalAlign 1
+            SizeMode Fill
+           }
+           Text "1000"
+          }
+         }
+        }
+        SizeLayoutWidgetClass "{6A06ECDE8EE05907}" {
+         Name "KST_SizeLayout1"
+         Slot LayoutSlot "{59165EA409693704}" {
+          HorizontalAlign 1
+          VerticalAlign 1
+          Padding 0 0 30 0
+         }
+         "Z Order" 1
+         AllowMinDesiredWidth 1
+         MinDesiredWidth 40
+         AllowMaxDesiredWidth 1
+         MaxDesiredWidth 40
+         {
+          RichTextWidgetClass "{6A06ECDE8EE05906}" : "{45BA2EA46F09C0FF}UI/layouts/WidgetLibrary/RichTextWidgets/RichText_InteractiveSmall.layout" {
+           Name "KST_ArmorKills"
+           Slot LayoutSlot "{5578914BF261DE967" {
+            HorizontalAlign 1
+            VerticalAlign 1
+            SizeMode Fill
+           }
+           Text "1000"
+          }
+         }
+        }
+        SizeLayoutWidgetClass "{6A06ECDEBC755A07}" {
+         Name "KST_SizeLayout2"
+         Slot LayoutSlot "{59165EA409693704}" {
+          HorizontalAlign 1
+          VerticalAlign 1
+          Padding 0 0 30 0
+         }
+         "Z Order" 1
+         AllowMinDesiredWidth 1
+         MinDesiredWidth 40
+         AllowMaxDesiredWidth 1
+         MaxDesiredWidth 40
+         {
+          RichTextWidgetClass "{6A06ECDEBC755A06}" : "{45BA2EA46F09C0FF}UI/layouts/WidgetLibrary/RichTextWidgets/RichText_InteractiveSmall.layout" {
+           Name "KST_AirKills"
+           Slot LayoutSlot "{5578914BF261DE967" {
+            HorizontalAlign 1
+            VerticalAlign 1
+            SizeMode Fill
+           }
+           Text "1000"
+          }
+         }
+        }
+        SizeLayoutWidgetClass "{59165EA42A11233F}" {
+         Prefab "{59165EA42A11233F}"
+         Slot LayoutSlot "{59165EA42A1123EC}" {
+          Padding 0 0 30 0
+         }
+        }
+        SizeLayoutWidgetClass "{59165EA401518727}" {
+         Prefab "{59165EA401518727}"
+         Slot LayoutSlot "{59165EA401518716}" {
+          Padding 0 0 30 0
+         }
+         "Z Order" 1
+        }
+        SizeLayoutWidgetClass "{59165EA40969369A}" {
+         Prefab "{59165EA40969369A}"
+         "Z Order" 1
+        }
+        ButtonWidgetClass "{5578914C89A1E534}" {
+         Prefab "{5578914C89A1E534}"
+         "Z Order" 1
+        }
+        SizeLayoutWidgetClass "{6272B2434AD4CC91}" {
+         Prefab "{6272B2434AD4CC91}"
+         "Z Order" 1
+        }
+        ButtonWidgetClass "{5AA28B352C862CE7}" {
+         Prefab "{5AA28B352C862CE7}"
+         "Z Order" 1
+        }
+        SizeLayoutWidgetClass "{59106843288747BD}" {
+         Prefab "{59106843288747BD}"
+         "Z Order" 1
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+ }
+}

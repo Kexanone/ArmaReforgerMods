@@ -38,6 +38,7 @@ modded class SCR_PlayerListMenu : SCR_SuperMenuBase
 	}
 	
 	//------------------------------------------------------------------------------------------------
+	//! Force sorting by score when scoring is available
 	override protected void Sort(string filterName, bool sortUp)
 	{
 		if (!m_ScoringSystem)

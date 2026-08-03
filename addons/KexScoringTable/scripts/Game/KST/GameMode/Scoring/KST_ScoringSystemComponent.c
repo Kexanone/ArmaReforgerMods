@@ -91,6 +91,7 @@ class KST_ScoringSystemComponent : SCR_ScoringSystemComponent
 	//------------------------------------------------------------------------------------------------
 	protected void OnCharacterKilled(notnull SCR_InstigatorContextData instigatorContextData)
 	{
+		// Reuse vanilla implementation for player killed handling
 		super.OnPlayerKilled(instigatorContextData);
 	}
 	

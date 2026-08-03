@@ -1,6 +1,6 @@
 # Kex Scoring Table
 
-This mod adds an Arma-3-like scoring to the player list.
+This mod adds Arma-3-like scoring to the player list.
 
 Feedback tracker: https://github.com/Kexanone/ArmaReforgerMods/issues<br>
 Source Code: https://github.com/Kexanone/ArmaReforgerMods/tree/main/addons/KexScoringTable<br>

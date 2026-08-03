@@ -1,0 +1,8 @@
+SCR_BaseGameMode : "{0F307326459A1395}Prefabs/MP/Modes/GameMode_Base.et" {
+ ID "56B2B479C6B96951"
+ components {
+  KST_ScoringSystemComponent "{6A07491CB67A6005}" {
+   Enabled 0
+  }
+ }
+}

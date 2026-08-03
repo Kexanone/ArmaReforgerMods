@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{4261E9B841D6C6DE}Prefabs/MP/Modes/CaptureAndHold/GameMode_CaptureAndHold_Base.et"
+ Configurations {
+  EntityTemplateResourceClass PC {
+  }
+  EntityTemplateResourceClass XBOX_ONE : PC {
+  }
+  EntityTemplateResourceClass XBOX_SERIES : PC {
+  }
+  EntityTemplateResourceClass PS4 : PC {
+  }
+  EntityTemplateResourceClass PS5 : PC {
+  }
+  EntityTemplateResourceClass HEADLESS : PC {
+  }
+ }
+}

@@ -1,0 +1,220 @@
+FrameWidgetClass {
+ {
+  FrameWidgetClass "{54D8A1A6EA84F9B9}" {
+   Prefab "{54D8A1A6EA84F9B9}"
+   {
+    VerticalLayoutWidgetClass "{000000005ABA4553}" {
+     Prefab "{000000005ABA4553}"
+     {
+      VerticalLayoutWidgetClass "{00000000974AC4C5}" {
+       Prefab "{00000000974AC4C5}"
+       {
+        OverlayWidgetClass "{000000004446F260}" {
+         Prefab "{000000004446F260}"
+         {
+          VerticalLayoutWidgetClass "{54E4AE2F1EE7EB64}" {
+           Prefab "{54E4AE2F1EE7EB64}"
+           {
+            OverlayWidgetClass "{572B31223FA1C135}" {
+             Prefab "{572B31223FA1C135}"
+             Slot LayoutSlot "{572B31223FA1C12E}" {
+             }
+             {
+              ImageWidgetClass "{572B3122E6757B09}" {
+               Prefab "{572B3122E6757B09}"
+               Slot OverlayWidgetSlot "{572B3122E6757B52}" {
+               }
+              }
+              HorizontalLayoutWidgetClass "{572B3122DE3D0134}" {
+               Prefab "{572B3122DE3D0134}"
+               {
+                ButtonWidgetClass "{6A06ECCDD3E68C42}" : "{44D139AA0C318F8D}UI/layouts/WidgetLibrary/SortHeader/WLib_ButtonSort_Image.layout" {
+                 Name "KSC_sortSoftKills"
+                 Slot LayoutSlot "{5536D3214071F27C}" {
+                  Padding 0 0 3 0
+                 }
+                 "Z Order" 1
+                 "Is Enabled" 0
+                 components {
+                  SCR_SortElementComponent "{5728A2511B52B5A0}" {
+                   m_sName "SoftKills"
+                  }
+                 }
+                 {
+                  SizeLayoutWidgetClass "{572B0ECF1C9872EE}" {
+                   Prefab "{572B0ECF1C9872EE}"
+                   {
+                    OverlayWidgetClass "{572B0ECF1C9872E9}" {
+                     Prefab "{572B0ECF1C9872E9}"
+                     {
+                      HorizontalLayoutWidgetClass "{572B0ECF1C9872EB}" {
+                       Prefab "{572B0ECF1C9872EB}"
+                       {
+                        ImageWidgetClass "{572B0ECF1C99DB17}" {
+                         Prefab "{572B0ECF1C99DB17}"
+                         Slot LayoutSlot "{56FAD1555B9EF647}" {
+                         }
+                         Texture "{E3E46CAE9AC392E9}UI/Textures/Editor/ContentBrowser/ContentBrowser_Vehicle_Car.edds"
+                         Size 25 25
+                        }
+                        SizeLayoutWidgetClass "{5DB8E6D5CC23E084}" {
+                         Prefab "{5DB8E6D5CC23E084}"
+                         "Is Enabled" 0
+                         Opacity 0
+                        }
+                       }
+                      }
+                     }
+                    }
+                   }
+                  }
+                 }
+                }
+                ButtonWidgetClass "{6A06ECDEDA1E92EC}" : "{44D139AA0C318F8D}UI/layouts/WidgetLibrary/SortHeader/WLib_ButtonSort_Image.layout" {
+                 Name "KSC_sortArmorKills"
+                 Slot LayoutSlot "{5536D3214071F27C}" {
+                  Padding 0 0 3 0
+                 }
+                 "Z Order" 1
+                 "Is Enabled" 0
+                 components {
+                  SCR_SortElementComponent "{5728A2511B52B5A0}" {
+                   m_sName "SoftKills"
+                  }
+                 }
+                 {
+                  SizeLayoutWidgetClass "{572B0ECF1C9872EE}" {
+                   Prefab "{572B0ECF1C9872EE}"
+                   {
+                    OverlayWidgetClass "{572B0ECF1C9872E9}" {
+                     Prefab "{572B0ECF1C9872E9}"
+                     {
+                      HorizontalLayoutWidgetClass "{572B0ECF1C9872EB}" {
+                       Prefab "{572B0ECF1C9872EB}"
+                       {
+                        ImageWidgetClass "{572B0ECF1C99DB17}" {
+                         Prefab "{572B0ECF1C99DB17}"
+                         Slot LayoutSlot "{56FAD1555B9EF647}" {
+                         }
+                         Texture "{F7E6957A7A0788B4}UI/Textures/Editor/ContentBrowser/ContentBrowser_Vehicle_Apc.edds"
+                         Size 25 25
+                        }
+                        SizeLayoutWidgetClass "{5DB8E6D5CC23E084}" {
+                         Prefab "{5DB8E6D5CC23E084}"
+                         "Is Enabled" 0
+                         Opacity 0
+                        }
+                       }
+                      }
+                     }
+                    }
+                   }
+                  }
+                 }
+                }
+                ButtonWidgetClass "{6A06ECDECA27A2FC}" : "{44D139AA0C318F8D}UI/layouts/WidgetLibrary/SortHeader/WLib_ButtonSort_Image.layout" {
+                 Name "KSC_sortAirKills"
+                 Slot LayoutSlot "{5536D3214071F27C}" {
+                  Padding 0 0 3 0
+                 }
+                 "Z Order" 1
+                 "Is Enabled" 0
+                 components {
+                  SCR_SortElementComponent "{5728A2511B52B5A0}" {
+                   m_sName "SoftKills"
+                  }
+                 }
+                 {
+                  SizeLayoutWidgetClass "{572B0ECF1C9872EE}" {
+                   Prefab "{572B0ECF1C9872EE}"
+                   {
+                    OverlayWidgetClass "{572B0ECF1C9872E9}" {
+                     Prefab "{572B0ECF1C9872E9}"
+                     {
+                      HorizontalLayoutWidgetClass "{572B0ECF1C9872EB}" {
+                       Prefab "{572B0ECF1C9872EB}"
+                       {
+                        ImageWidgetClass "{572B0ECF1C99DB17}" {
+                         Prefab "{572B0ECF1C99DB17}"
+                         Slot LayoutSlot "{56FAD1555B9EF647}" {
+                         }
+                         Texture "{6C492D2DC9F2EF04}UI/Textures/Editor/ContentBrowser/ContentBrowser_Vehicle_Helicopter.edds"
+                         Size 25 25
+                        }
+                        SizeLayoutWidgetClass "{5DB8E6D5CC23E084}" {
+                         Prefab "{5DB8E6D5CC23E084}"
+                         "Is Enabled" 0
+                         Opacity 0
+                        }
+                       }
+                      }
+                     }
+                    }
+                   }
+                  }
+                 }
+                }
+                ButtonWidgetClass "{572B31225C858F01}" {
+                 Prefab "{572B31225C858F01}"
+                 Slot LayoutSlot "{5536D3214071F27B}" {
+                  Padding 0 0 3 0
+                 }
+                 {
+                  SizeLayoutWidgetClass "{572B0ECF1C9872EE}" {
+                   Prefab "{572B0ECF1C9872EE}"
+                   {
+                    OverlayWidgetClass "{572B0ECF1C9872E9}" {
+                     Prefab "{572B0ECF1C9872E9}"
+                     {
+                      HorizontalLayoutWidgetClass "{572B0ECF1C9872EB}" {
+                       Prefab "{572B0ECF1C9872EB}"
+                       Slot OverlayWidgetSlot "{556AB738D322DF80}" {
+                       }
+                      }
+                     }
+                    }
+                   }
+                  }
+                 }
+                }
+                ButtonWidgetClass "{572B31225D265DC0}" {
+                 Prefab "{572B31225D265DC0}"
+                 Slot LayoutSlot "{5536D3214071F27B}" {
+                  Padding 0 0 3 0
+                 }
+                 "Z Order" 1
+                }
+                ButtonWidgetClass "{572B31225D02D87A}" {
+                 Prefab "{572B31225D02D87A}"
+                 Slot LayoutSlot "{5536D3214071F27B}" {
+                  Padding 0 0 -5 0
+                 }
+                 "Z Order" 1
+                }
+                ButtonWidgetClass "{572B31225D6B0582}" {
+                 Prefab "{572B31225D6B0582}"
+                 Slot LayoutSlot "{5536D3214071F27B}" {
+                  Padding 0 0 12 0
+                 }
+                 "Z Order" 1
+                }
+                ButtonWidgetClass "{572B31225D52CCC7}" {
+                 Prefab "{572B31225D52CCC7}"
+                 "Z Order" 1
+                }
+               }
+              }
+             }
+            }
+           }
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+ }
+}

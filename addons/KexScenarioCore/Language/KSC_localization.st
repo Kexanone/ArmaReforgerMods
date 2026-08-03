@@ -65,6 +65,22 @@ StringTable {
    Author "kex"
    LastChanged "kex"
   }
+  CustomStringTableItem "{6A050634DE431189}" {
+   Id "KSC-Task_Demine_Description"
+   Target_en_us "Clear mines at the designated location."
+   Target_de_de "Entmine das das gegebene Gebiet."
+   Modified 1778733589
+   Author "Kex"
+   LastChanged "Kex"
+  }
+  CustomStringTableItem "{6A050634DC1234E4}" {
+   Id "KSC-Task_Demine_Name"
+   Target_en_us "Demine %1"
+   Target_de_de "Entmine %1"
+   Modified 1778733423
+   Author "Kex"
+   LastChanged "Kex"
+  }
   CustomStringTableItem "{60AC9C2910B78278}" {
    Id "KSC-Task_Destroy_Description"
    Target_en_us "Destroy the designated target."

@@ -1,0 +1,7 @@
+SCR_BaseGameMode {
+ ID "56B2B479C6B96951"
+ components {
+  KST_ScoringSystemComponent "{6A07491CB67A6005}" {
+  }
+ }
+}

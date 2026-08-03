@@ -25,9 +25,9 @@ modded class SCR_PlayerListMenu : SCR_SuperMenuBase
 			return;
 
 		// Hide K/D/S sorting headers if the re is no scoreboard
-		ButtonWidget sortSoftKills = ButtonWidget.Cast(w.FindAnyWidget("KSC_sortSoftKills"));
-		ButtonWidget sortArmorKills = ButtonWidget.Cast(w.FindAnyWidget("KSC_sortArmorKills"));
-		ButtonWidget sortAirKills = ButtonWidget.Cast(w.FindAnyWidget("KSC_sortAirKills"));
+		ButtonWidget sortSoftKills = ButtonWidget.Cast(w.FindAnyWidget("KST_sortSoftKills"));
+		ButtonWidget sortArmorKills = ButtonWidget.Cast(w.FindAnyWidget("KST_sortArmorKills"));
+		ButtonWidget sortAirKills = ButtonWidget.Cast(w.FindAnyWidget("KST_sortAirKills"));
 
 		if (sortSoftKills)
 			sortSoftKills.SetOpacity(0);
@@ -64,17 +64,17 @@ modded class SCR_PlayerListMenu : SCR_SuperMenuBase
 		if (!currentEntry || !currentEntry.m_wRow)
 			return;
 
-		currentEntry.m_wSoftKills = TextWidget.Cast(currentEntry.m_wRow.FindAnyWidget("KSC_SoftKills"));
-		currentEntry.m_wArmorKills = TextWidget.Cast(currentEntry.m_wRow.FindAnyWidget("KSC_ArmorKills"));
-		currentEntry.m_wAirKills = TextWidget.Cast(currentEntry.m_wRow.FindAnyWidget("KSC_AirKills"));
+		currentEntry.m_wSoftKills = TextWidget.Cast(currentEntry.m_wRow.FindAnyWidget("KST_SoftKills"));
+		currentEntry.m_wArmorKills = TextWidget.Cast(currentEntry.m_wRow.FindAnyWidget("KST_ArmorKills"));
+		currentEntry.m_wAirKills = TextWidget.Cast(currentEntry.m_wRow.FindAnyWidget("KST_AirKills"));
 		if (currentEntry.m_Info)
 		{
 			if (currentEntry.m_wSoftKills)
-				currentEntry.m_wSoftKills.SetText(currentEntry.m_Info.m_iKSC_SoftKills.ToString());
+				currentEntry.m_wSoftKills.SetText(currentEntry.m_Info.m_iKST_SoftKills.ToString());
 			if (currentEntry.m_wArmorKills)
-				currentEntry.m_wArmorKills.SetText(currentEntry.m_Info.m_iKSC_ArmorKills.ToString());
+				currentEntry.m_wArmorKills.SetText(currentEntry.m_Info.m_iKST_ArmorKills.ToString());
 			if (currentEntry.m_wAirKills)
-				currentEntry.m_wAirKills.SetText(currentEntry.m_Info.m_iKSC_AirKills.ToString());
+				currentEntry.m_wAirKills.SetText(currentEntry.m_Info.m_iKST_AirKills.ToString());
 		}
 		else
 		{
@@ -108,11 +108,11 @@ modded class SCR_PlayerListMenu : SCR_SuperMenuBase
 				continue;
 
 			if (entry.m_wSoftKills)
-				entry.m_wSoftKills.SetText(entry.m_Info.m_iKSC_SoftKills.ToString());
+				entry.m_wSoftKills.SetText(entry.m_Info.m_iKST_SoftKills.ToString());
 			if (entry.m_wArmorKills)
-				entry.m_wArmorKills.SetText(entry.m_Info.m_iKSC_ArmorKills.ToString());
+				entry.m_wArmorKills.SetText(entry.m_Info.m_iKST_ArmorKills.ToString());
 			if (entry.m_wAirKills)
-				entry.m_wAirKills.SetText(entry.m_Info.m_iKSC_AirKills.ToString());
+				entry.m_wAirKills.SetText(entry.m_Info.m_iKST_AirKills.ToString());
 		}
 		
 		super.UpdateScore();

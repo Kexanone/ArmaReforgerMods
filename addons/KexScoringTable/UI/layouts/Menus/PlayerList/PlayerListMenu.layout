@@ -29,7 +29,7 @@ FrameWidgetClass {
                Prefab "{572B3122DE3D0134}"
                {
                 ButtonWidgetClass "{6A06ECCDD3E68C42}" : "{44D139AA0C318F8D}UI/layouts/WidgetLibrary/SortHeader/WLib_ButtonSort_Image.layout" {
-                 Name "KSC_sortSoftKills"
+                 Name "KST_sortSoftKills"
                  Slot LayoutSlot "{5536D3214071F27C}" {
                   Padding 0 0 3 0
                  }
@@ -71,7 +71,7 @@ FrameWidgetClass {
                  }
                 }
                 ButtonWidgetClass "{6A06ECDEDA1E92EC}" : "{44D139AA0C318F8D}UI/layouts/WidgetLibrary/SortHeader/WLib_ButtonSort_Image.layout" {
-                 Name "KSC_sortArmorKills"
+                 Name "KST_sortArmorKills"
                  Slot LayoutSlot "{5536D3214071F27C}" {
                   Padding 0 0 3 0
                  }
@@ -113,7 +113,7 @@ FrameWidgetClass {
                  }
                 }
                 ButtonWidgetClass "{6A06ECDECA27A2FC}" : "{44D139AA0C318F8D}UI/layouts/WidgetLibrary/SortHeader/WLib_ButtonSort_Image.layout" {
-                 Name "KSC_sortAirKills"
+                 Name "KST_sortAirKills"
                  Slot LayoutSlot "{5536D3214071F27C}" {
                   Padding 0 0 3 0
                  }

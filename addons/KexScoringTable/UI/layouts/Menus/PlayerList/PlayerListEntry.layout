@@ -10,7 +10,7 @@ ButtonWidgetClass {
        Prefab "{5578914E99EDB48D}"
        {
         SizeLayoutWidgetClass "{59106843288747BD}" {
-         Name "KSC_SizeLayout0"
+         Name "KST_SizeLayout0"
          Slot LayoutSlot "{59165EA409693704}" {
           HorizontalAlign 1
           VerticalAlign 1
@@ -23,7 +23,7 @@ ButtonWidgetClass {
          MaxDesiredWidth 40
          {
           RichTextWidgetClass "{6A06ECD993D22980}" : "{45BA2EA46F09C0FF}UI/layouts/WidgetLibrary/RichTextWidgets/RichText_InteractiveSmall.layout" {
-           Name "KSC_SoftKills"
+           Name "KST_SoftKills"
            Slot LayoutSlot "{5578914BF261DE967" {
             HorizontalAlign 1
             VerticalAlign 1
@@ -34,7 +34,7 @@ ButtonWidgetClass {
          }
         }
         SizeLayoutWidgetClass "{6A06ECDE8EE05907}" {
-         Name "KSC_SizeLayout1"
+         Name "KST_SizeLayout1"
          Slot LayoutSlot "{59165EA409693704}" {
           HorizontalAlign 1
           VerticalAlign 1
@@ -47,7 +47,7 @@ ButtonWidgetClass {
          MaxDesiredWidth 40
          {
           RichTextWidgetClass "{6A06ECDE8EE05906}" : "{45BA2EA46F09C0FF}UI/layouts/WidgetLibrary/RichTextWidgets/RichText_InteractiveSmall.layout" {
-           Name "KSC_ArmorKills"
+           Name "KST_ArmorKills"
            Slot LayoutSlot "{5578914BF261DE967" {
             HorizontalAlign 1
             VerticalAlign 1
@@ -58,7 +58,7 @@ ButtonWidgetClass {
          }
         }
         SizeLayoutWidgetClass "{6A06ECDEBC755A07}" {
-         Name "KSC_SizeLayout2"
+         Name "KST_SizeLayout2"
          Slot LayoutSlot "{59165EA409693704}" {
           HorizontalAlign 1
           VerticalAlign 1
@@ -71,7 +71,7 @@ ButtonWidgetClass {
          MaxDesiredWidth 40
          {
           RichTextWidgetClass "{6A06ECDEBC755A06}" : "{45BA2EA46F09C0FF}UI/layouts/WidgetLibrary/RichTextWidgets/RichText_InteractiveSmall.layout" {
-           Name "KSC_AirKills"
+           Name "KST_AirKills"
            Slot LayoutSlot "{5578914BF261DE967" {
             HorizontalAlign 1
             VerticalAlign 1

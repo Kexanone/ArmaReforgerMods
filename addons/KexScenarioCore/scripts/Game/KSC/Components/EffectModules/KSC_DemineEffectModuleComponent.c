@@ -71,7 +71,10 @@ class KSC_DeminingEffectModuleComponent_MineEventsWrapper
 		
 		SCR_PressureTriggerComponent trigger = SCR_PressureTriggerComponent.Cast(mine.FindComponent(SCR_PressureTriggerComponent));
 		if (trigger)
+		{
 			trigger.KSC_GetOnDisarmTrigger().Insert(HandleDemining);
+			trigger.KSC_GetOnDoTrigger().Insert(HandleDemining);
+		}
 		
 		SCR_MineDamageManager damageManager = SCR_MineDamageManager.Cast(mine.FindComponent(SCR_MineDamageManager));
 		if (damageManager)
@@ -101,10 +104,13 @@ class KSC_DeminingEffectModuleComponent_MineEventsWrapper
 		
 		SCR_PressureTriggerComponent trigger = SCR_PressureTriggerComponent.Cast(m_Mine.FindComponent(SCR_PressureTriggerComponent));
 		if (trigger)
-			trigger.KSC_GetOnDisarmTrigger().Insert(HandleDemining);
+		{
+			trigger.KSC_GetOnDisarmTrigger().Remove(HandleDemining);
+			trigger.KSC_GetOnDoTrigger().Remove(HandleDemining);
+		}
 		
 		SCR_MineDamageManager damageManager = SCR_MineDamageManager.Cast(m_Mine.FindComponent(SCR_MineDamageManager));
 		if (damageManager)
-			damageManager.GetOnDamageStateChanged().Insert(HandleDamageStateChanged);
+			damageManager.GetOnDamageStateChanged().Remove(HandleDamageStateChanged);
 	}
 }

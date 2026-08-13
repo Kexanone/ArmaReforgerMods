@@ -4,9 +4,9 @@ modded class SCR_RemoveAIGroupCommand : SCR_BaseGroupCommand
 {
 	//------------------------------------------------------------------------------------------------
 	//! Deactivated stay alive on removed AI
-	override bool Execute(IEntity cursorTarget, IEntity target, vector targetPosition, int playerID, bool isClient)
+	override bool Execute(IEntity cursorTarget, IEntity groupEnt, vector targetPosition, int playerID, bool isClient)
 	{
-		if (!super.Execute(cursorTarget, target, targetPosition, playerID, isClient))
+		if (!super.Execute(cursorTarget, groupEnt, targetPosition, playerID, isClient))
 			return false;
 		
 		if (isClient)

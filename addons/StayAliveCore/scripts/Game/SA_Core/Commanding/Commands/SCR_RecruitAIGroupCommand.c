@@ -4,9 +4,9 @@ modded class SCR_RecruitAIGroupCommand : SCR_BaseGroupCommand
 {
 	//------------------------------------------------------------------------------------------------
 	//! Activate stay alive on recruited AI
-	override bool Execute(IEntity cursorTarget, IEntity target, vector targetPosition, int playerID, bool isClient)
+	override bool Execute(IEntity cursorTarget, IEntity groupEnt, vector targetPosition, int playerID, bool isClient)
 	{
-		if (!super.Execute(cursorTarget, target, targetPosition, playerID, isClient))
+		if (!super.Execute(cursorTarget, groupEnt, targetPosition, playerID, isClient))
 			return false;
 		
 		if (isClient)

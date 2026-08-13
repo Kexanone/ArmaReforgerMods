@@ -165,7 +165,7 @@ class AF_AvalancheFrontEntity : GenericEntity
 	{
 		m_pPreviousEmitter = ParticleEffectEntity.Cast(GetGame().SpawnEntityPrefab(Resource.Load(m_sEmitterName)));
 		AddChild(m_pPreviousEmitter, -1);
-		vector transform;
+		vector transform[4];
 		Math3D.MatrixIdentity4(transform);
 		m_pPreviousEmitter.SetLocalTransform(transform);
 	}

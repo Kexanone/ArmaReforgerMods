@@ -1,0 +1,12 @@
+GenericEntity : "{E7887B6E2B9E8F38}PrefabsEditable/EffectsModules/Mine/BaseEffectModule_MineField_Small.et" {
+ ID "5CA2D832A4C193FA"
+ components {
+  SCR_EditableEffectsModuleComponent "{5CA2D83089A8F56E}" {
+   m_UIInfo SCR_EditableEntityUIInfo "{5CA90815AF19C85A}" {
+    m_aAuthoredLabels + {
+     ROLE_ANTITANK
+    }
+   }
+  }
+ }
+}

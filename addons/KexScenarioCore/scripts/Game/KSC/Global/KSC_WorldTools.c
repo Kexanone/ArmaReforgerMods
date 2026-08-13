@@ -200,6 +200,6 @@ class KSC_WorldTools
 	//------------------------------------------------------------------------------------------------
 	static bool IsPosEmpty(vector pos, float emptyRadius = 0.5, float emptyHeight = 2)
 	{
-		return SCR_WorldTools.TraceCylinder(pos + Vector(0, emptyHeight/2, 0), emptyRadius, emptyHeight);
+		return SCR_WorldTools.TraceCilinderUtil(pos + Vector(0, emptyHeight/2, 0), emptyRadius, emptyHeight);
 	}
 }

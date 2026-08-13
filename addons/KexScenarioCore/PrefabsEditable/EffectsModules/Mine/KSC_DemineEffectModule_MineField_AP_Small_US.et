@@ -1,0 +1,15 @@
+GenericEntity : "{383E34B5B5A0DE87}PrefabsEditable/EffectsModules/Mine/EffectModule_MineField_AP_Small_US.et" {
+ ID "5CA2D832A4C193FA"
+ components {
+  KSC_DemineEffectsModuleComponent "{5CA2DE492D8BBCF5}" {
+   m_EffectConfig SCR_BarrageEffectsModule "{5D22CCE8F9AEE06D}" {
+    m_ModuleZoneData SCR_EffectsModulePositionData_Rectangle "{5D22CCE8D39ECEDA}" {
+     m_fWidth 12
+     m_fLength 12
+    }
+    m_iMinProjectilesEachBarrage 7
+    m_iMaxProjectilesEachBarrage 9
+   }
+  }
+ }
+}

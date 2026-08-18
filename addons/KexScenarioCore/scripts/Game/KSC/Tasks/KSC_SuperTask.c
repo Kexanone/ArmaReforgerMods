@@ -23,7 +23,7 @@ class KSC_SuperTask : KSC_BaseTask
 	//! Finish task when all children are finished or cancelled
 	void OnChildStateChanged(KSC_BaseTask child, SCR_TaskState previousState, SCR_TaskState newState)
 	{
-		if (newState != SCR_TaskState.FINISHED && newState != SCR_TaskState.CANCELLED)
+		if (newState != SCR_ETaskState.FINISHED && newState != SCR_ETaskState.CANCELLED)
 			return;
 		
 		m_iFinishedChildrenCounter++;

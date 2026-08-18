@@ -44,6 +44,15 @@ class KSC_BaseTask : SCR_ExtendedTask
 	}
 	
 	//------------------------------------------------------------------------------------------------
+	void UpdateParams(array<LocalizedString> formatParams, bool hasTaskProgressed = true)
+	{
+		SetFormatParams(formatParams);
+		
+		if (hasTaskProgressed)
+			SetTaskState(SCR_ETaskState.PROGRESSED);
+	}
+	
+	//------------------------------------------------------------------------------------------------
 	//! Adapted from SCR_EditorTask
 	override void SetTaskState(SCR_ETaskState state)
 	{
@@ -77,6 +86,12 @@ class KSC_BaseTask : SCR_ExtendedTask
 			case SCR_ETaskState.CANCELLED:
 			{
 				text = SCR_TextsTaskManagerComponent.TASK_CANCELLED_TEXT;
+				doCleanUp = true;
+				break;
+			}
+			case SCR_ETaskState.PROGRESSED:
+			{
+				text = SCR_TextsTaskManagerComponent.TASK_PROGRESS_TEXT;
 				doCleanUp = true;
 				break;
 			}

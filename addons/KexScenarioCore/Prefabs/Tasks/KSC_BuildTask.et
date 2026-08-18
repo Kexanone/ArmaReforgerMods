@@ -1,0 +1,13 @@
+KSC_BuildTask : "{4EA6C9B4506A0908}Prefabs/Tasks/KSC_BaseTask.et" {
+ ID "6122B7685222DE16"
+ components {
+  SCR_EditableEntityComponent "{6134822A405CCC8B}" {
+   m_UIInfo SCR_UIInfo "{616091CB2D599D4A}" {
+    IconSetName "Icon_Task_Build"
+   }
+  }
+ }
+ m_TaskUIInfo SCR_TaskUIInfo "{645CDE114ACB9A88}" {
+  IconSetName "Icon_Task_Build"
+ }
+}

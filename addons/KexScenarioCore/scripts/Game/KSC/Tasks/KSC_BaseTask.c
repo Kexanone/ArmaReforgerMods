@@ -1,11 +1,11 @@
 //------------------------------------------------------------------------------------------------
-class KSC_BaseTaskClass: SCR_TaskClass
+class KSC_BaseTaskClass: SCR_ExtendedTaskClass
 {
 }
 
 //------------------------------------------------------------------------------------------------
 //! Implements pop-up notifications, script invokers, title and description formatting.
-class KSC_BaseTask : SCR_Task
+class KSC_BaseTask : SCR_ExtendedTask
 {
 	protected static SCR_TaskSystem s_pTaskSystem;
 	protected ref ScriptInvoker m_OnStateChanged;

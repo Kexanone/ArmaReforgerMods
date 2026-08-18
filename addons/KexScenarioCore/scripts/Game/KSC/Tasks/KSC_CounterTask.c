@@ -1,4 +1,3 @@
-/*****
 //------------------------------------------------------------------------------------------------
 class KSC_CounterTaskClass : KSC_BaseTaskClass
 {
@@ -16,19 +15,34 @@ class KSC_CounterTask : KSC_BaseTask
 	void IncrementCounter()
 	{
 		m_iCounter++;
-		m_pSupportEntity.SetFormatParams(this, m_iCounter.ToString(), m_iTargetCount.ToString());
+		bool isCompleted = (m_iCounter >= m_iTargetCount);
+		UpdateParams({m_iCounter.ToString(), m_iTargetCount.ToString()}, hasTaskProgressed: !isCompleted);
 		
-		if (m_iCounter >= m_iTargetCount)
-			m_pSupportEntity.FinishTask(this);
-		else
-			m_pSupportEntity.PopUpNotification(this, TASK_PROGRESS_TEXT);
+		if (isCompleted)
+			s_pTaskSystem.SetTaskState(this, SCR_ETaskState.COMPLETED);
+	}
+	
+	//------------------------------------------------------------------------------------------------
+	void SetParams(Faction targetFaction, int count = 0, int targetCount = -1, array<LocalizedString> formatParams = null)
+	{
+		array<LocalizedString> extendedFormatParams = {};
+		if (formatParams)
+			extendedFormatParams = formatParams;
+		
+		m_iCounter = count;
+		
+		if (targetCount >= 0)
+			m_iTargetCount = targetCount;
+		
+		extendedFormatParams.InsertAt(m_iTargetCount.ToString(), 0);
+		extendedFormatParams.InsertAt(m_iCounter.ToString(), 0);
+		super.SetParams(targetFaction, extendedFormatParams);
 	}
 	
 	//------------------------------------------------------------------------------------------------
 	void SetTargetCount(int targetCount)
 	{
 		m_iTargetCount = targetCount;
-		m_pSupportEntity.SetFormatParams(this, m_iCounter.ToString(), m_iTargetCount.ToString());
+		UpdateParams({m_iCounter.ToString(), m_iTargetCount.ToString()});
 	}
 }
-*****/

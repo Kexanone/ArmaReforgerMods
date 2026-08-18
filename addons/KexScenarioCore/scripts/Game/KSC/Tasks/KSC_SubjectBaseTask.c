@@ -17,12 +17,12 @@ class KSC_SubjectBaseTask : KSC_BaseTask
 	//------------------------------------------------------------------------------------------------
 	void SetParams(Faction targetFaction, IEntity subject, array<LocalizedString> formatParams = null)
 	{
-		array<LocalizedString> formatParams_BS = {};
+		array<LocalizedString> extendedFormatParams = {};
 		if (formatParams)
-			formatParams_BS = formatParams;
+			extendedFormatParams = formatParams;
 		
-		formatParams_BS.InsertAt(GetSubjectName(subject), 0);
-		super.SetParams(targetFaction, formatParams_BS);
+		extendedFormatParams.InsertAt(GetSubjectName(subject), 0);
+		super.SetParams(targetFaction, extendedFormatParams);
 		m_pSubject = subject;
 		AttachSubjectHandlers();
 	}

@@ -5,7 +5,7 @@ KSC_FreeHostageTask : "{4EA6C9B4506A0908}Prefabs/Tasks/KSC_BaseTask.et" {
    m_UIInfo SCR_UIInfo "{616091CB2D599D4A}" {
     Name "#KSC-Task_FreeHostage_Name"
     Description "#KSC-Task_FreeHostage_Description"
-    IconSetName "Icon_Task_Captive"
+    IconSetName "Icon_Task_First_Aid"
    }
   }
  }

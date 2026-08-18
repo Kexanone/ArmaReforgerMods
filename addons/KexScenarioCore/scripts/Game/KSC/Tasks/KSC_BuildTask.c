@@ -1,4 +1,3 @@
-/*****
 //------------------------------------------------------------------------------------------------
 class KSC_BuildTaskClass: KSC_BaseTaskClass
 {
@@ -14,16 +13,6 @@ class KSC_BuildTask : KSC_BaseTask
 	
 	[Attribute(defvalue: "0", desc: "Radius within the specified structure has to be built. Anywhere if 0", category: "Build")]
 	protected float m_fBuildRadius;
-	
-	//------------------------------------------------------------------------------------------------
-	void KSC_BuildTask(IEntitySource src, IEntity parent)
-	{
-		Resource res = Resource.Load(m_sPrefabNameToBuild);
-		if (res.IsValid())
-			m_sFormatParam1 = KSC_BaseContainerTools.GetDisplayName(res.GetResource());
-		
-		SCR_CampaignBuildingCompositionComponent.KSC_GetOnCompositionSpawnedServer().Insert(OnCompositionBuilt);
-	}
 	
 	//------------------------------------------------------------------------------------------------
 	//! Complete task if built structure is of the target type
@@ -47,17 +36,23 @@ class KSC_BuildTask : KSC_BaseTask
 	}
 	
 	//------------------------------------------------------------------------------------------------
-	//! Radius within the structure has to be built
-	void SetBuildRadius(float radius)
+	void SetParams(Faction targetFaction, ResourceName prefabnameToBuild = "", float radius = -1, array<LocalizedString> formatParams = null)
 	{
-		m_fBuildRadius = radius;
-	}
-	
-	//------------------------------------------------------------------------------------------------
-	void SetTargetStructurePrefabName(ResourceName resName)
-	{
-		m_sPrefabNameToBuild = resName;
+		if (!prefabnameToBuild.IsEmpty())
+			m_sPrefabNameToBuild = prefabnameToBuild;
 		
+		if (radius > 0)
+			m_fBuildRadius = radius;
+	
+		array<LocalizedString> extendedFormatParams = {};
+		if (formatParams)
+			extendedFormatParams = formatParams;
+		
+		Resource res = Resource.Load(m_sPrefabNameToBuild);
+		if (res.IsValid())
+			extendedFormatParams.Insert(KSC_BaseContainerTools.GetDisplayName(res.GetResource()));
+		
+		super.SetParams(targetFaction, extendedFormatParams);
+		SCR_CampaignBuildingCompositionComponent.KSC_GetOnCompositionSpawnedServer().Insert(OnCompositionBuilt);
 	}
 }
-*****/

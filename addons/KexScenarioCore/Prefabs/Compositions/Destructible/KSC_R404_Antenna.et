@@ -1,6 +1,8 @@
 StaticModelEntity : "{B9AEDBE988F20A1A}Prefabs/Structures/Infrastructure/Towers/AntennaR404_01/AntennaR404_01.et" {
  ID "50D67C36F43527FE"
  components {
+  Persistence "{6A2D27C3EFDC3FAD}" {
+  }
   SCR_DestructionMultiPhaseComponent "{5A5ED31B16298711}" {
    m_fBaseHealth 1000
   }
@@ -8,7 +10,7 @@ StaticModelEntity : "{B9AEDBE988F20A1A}Prefabs/Structures/Infrastructure/Towers/
    m_UIInfo SCR_EditableEntityUIInfo "{5E750EB26E7B7D9B}" {
     Name "R404 Antenna"
     m_aAuthoredLabels {
-     5 90 901 31
+     ENTITYTYPE_COMPOSITION SLOT_FLAT_SMALL SERVICE_ANTENNA TRAIT_DESTRUCTABLE
     }
    }
    m_bAutoRegister ALWAYS
@@ -20,7 +22,7 @@ StaticModelEntity : "{B9AEDBE988F20A1A}Prefabs/Structures/Infrastructure/Towers/
   }
  }
  coords 876.486 39 2630.279
- angleY -51
+ angles 0 -51 0
  {
   GenericEntity {
    ID "5A02CEDA4E289A85"
@@ -34,7 +36,7 @@ StaticModelEntity : "{B9AEDBE988F20A1A}Prefabs/Structures/Infrastructure/Towers/
   GenericEntity : "{60AA21344D68BACE}Prefabs/Structures/Military/CamoNets/Soviet/CamoNet_Medium_Top_Soviet.et" {
    ID "5E72D220F909E335"
    coords 2.734 0 -4.504
-   angleY 41
+   angles 0 41 0
   }
   GenericEntity : "{F15B99F6B06E7200}Prefabs/Structures/Military/Radar/ApproachRadar_RPL5_01/ApproachRadar_RPL5_01_generator.et" {
    ID "5E72D220F909E331"
@@ -43,9 +45,7 @@ StaticModelEntity : "{B9AEDBE988F20A1A}Prefabs/Structures/Infrastructure/Towers/
     }
    }
    coords 1.582 0 -1.968
-   angleX 0.464
-   angleY 90.978
-   angleZ -1.946
+   angles 0.464 90.978 -1.946
   }
  }
 }

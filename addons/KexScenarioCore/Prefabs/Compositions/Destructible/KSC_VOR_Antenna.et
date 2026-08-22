@@ -1,6 +1,8 @@
-StaticModelEntity : "{375B97602241A792}PrefabsEditable/Auto/Structures/Infrastructure/Towers/E_AntennaVOR_01.et" {
+SCR_DestructibleBuildingEntity : "{375B97602241A792}PrefabsEditable/Auto/Structures/Infrastructure/Towers/E_AntennaVOR_01.et" {
  ID "50D67C36F43527FE"
  components {
+  Persistence "{6A2D27C3E499A8EF}" {
+  }
   SCR_EditableEntityComponent "{58910CB43A773CB6}" {
    m_UIInfo SCR_EditableEntityUIInfo "{5298E609432D192D}" {
     m_aAuthoredLabels {

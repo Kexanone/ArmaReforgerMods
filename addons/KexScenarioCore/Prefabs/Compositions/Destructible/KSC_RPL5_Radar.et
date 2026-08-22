@@ -1,11 +1,13 @@
 StaticModelEntity : "{2BC7C6DE43AC49E2}Prefabs/Structures/Military/Radar/ApproachRadar_RPL5_01/ApproachRadar_RPL5_01_short.et" {
  ID "56ACD1C4DB91DB10"
  components {
+  Persistence "{6A2D27E29D77AC00}" {
+  }
   SCR_EditableEntityComponent "{5E750EB2C92285BF}" {
    m_UIInfo SCR_EditableEntityUIInfo "{5E750EB20581E8AB}" {
     Name "RPL-5 Radar"
     m_aAuthoredLabels {
-     5 90 901 31
+     ENTITYTYPE_COMPOSITION SLOT_FLAT_SMALL SERVICE_ANTENNA TRAIT_DESTRUCTABLE
     }
    }
    m_bAutoRegister ALWAYS
@@ -16,11 +18,13 @@ StaticModelEntity : "{2BC7C6DE43AC49E2}Prefabs/Structures/Military/Radar/Approac
   }
  }
  coords 1392.12 0 2148.93
- angleY -36.522
+ angles 0 -36.522 0
  {
   GenericEntity : "{A528F04F41F2A2D0}Prefabs/Structures/Military/Radar/ApproachRadar_RPL5_01/ApproachRadar_RPL5_01_on.et" {
    ID "5E6F0D978F666455"
    components {
+    Persistence "{6A2D27C02F8EB54B}" {
+    }
     Hierarchy "{5E7118921C644E7D}" {
     }
    }
@@ -55,7 +59,7 @@ StaticModelEntity : "{2BC7C6DE43AC49E2}Prefabs/Structures/Military/Radar/Approac
     }
    }
    coords 5.68 0 -5.221
-   angleY 90
+   angles 0 90 0
    {
     GenericEntity : "{FCAEC0CB2F8FF8BD}Prefabs/Structures/Military/Radar/ApproachRadar_Prop_Base.et" {
      ID "5E6F0D978F666459"

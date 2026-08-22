@@ -44,7 +44,7 @@ class KSC_GroupHelper
 	}
 	
 	//------------------------------------------------------------------------------------------------
-	static array<SCR_ChimeraCharacter> GetUnits(AIGroup group)
+	static array<SCR_ChimeraCharacter> GetUnits(AIGroup group, bool excludeDead = false)
 	{
 		array<SCR_ChimeraCharacter> units = { };
 		array<AIAgent> agents = { };
@@ -53,11 +53,28 @@ class KSC_GroupHelper
 		foreach (AIAgent agent : agents)
 		{
 			SCR_ChimeraCharacter char = SCR_ChimeraCharacter.Cast(agent.GetControlledEntity());
-			if (char)
+			if (char && (excludeDead || char.GetCharacterController().GetLifeState() != ECharacterLifeState.DEAD))
 				units.Insert(char);
 		}
 
 		return units;
+	}
+	
+	//------------------------------------------------------------------------------------------------
+	//! Returns the unit count based on the prefab data of the group
+	static int GetPrefabUnitCount(SCR_AIGroup group)
+	{
+		if (!group)
+			return 0;
+		
+		EntityPrefabData data = group.GetPrefabData();
+		if (!data)
+			return 0;
+		
+		BaseContainer container = data.GetPrefab();
+		array<ResourceName> units = {};
+		container.Get("m_aUnitPrefabSlots", units);
+		return units.Count();
 	}
 	
 	//------------------------------------------------------------------------------------------------

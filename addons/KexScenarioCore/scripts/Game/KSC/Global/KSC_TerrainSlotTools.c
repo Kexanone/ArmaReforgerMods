@@ -148,7 +148,8 @@ class KSC_TerrainSlotTools
 		if (slots.IsEmpty())
 			return false;
 		
-		slot = slots.GetRandomElement();
+		// Slot counts can be quite large, so we our own sampler, as Math::RandomInt only supports 16-bit int.
+		slot = slots.Get(KSC_Math.RandomInt(0, slots.Count()));
 		
 		if (doBlock)
 			BlockSlots(terrainSlots, slot, s_mSlotRadii[slotLabel]);

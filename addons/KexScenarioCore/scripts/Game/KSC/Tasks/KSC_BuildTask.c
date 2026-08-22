@@ -8,8 +8,8 @@ class KSC_BuildTaskClass: KSC_BaseTaskClass
 //! This task gets completed when the specified structure has been built in a given area
 class KSC_BuildTask : KSC_BaseTask
 {
-	[Attribute(desc: "The name of the prefab to be built", category: "Build")]
-	protected ResourceName m_sPrefabNameToBuild;
+	[Attribute(desc: "Required labels for the structure to build", uiwidget: UIWidgets.SearchComboBox, enums: ParamEnumArray.FromEnum(EEditableEntityLabel), category: "Build")]
+	protected ref array<EEditableEntityLabel> m_aRequiredLabels;
 	
 	[Attribute(defvalue: "0", desc: "Radius within the specified structure has to be built. Anywhere if 0", category: "Build")]
 	protected float m_fBuildRadius;
@@ -18,16 +18,19 @@ class KSC_BuildTask : KSC_BaseTask
 	//! Complete task if built structure is of the target type
 	protected void OnCompositionBuilt(IEntity structure)
 	{
-		EntityPrefabData data = structure.GetPrefabData();
-		if (!data)
+		SCR_EditableEntityComponent editableStructure = SCR_EditableEntityComponent.GetEditableEntity(structure);
+		if (!editableStructure)
 			return;
 		
-		BaseContainer container = data.GetPrefab();
-		if (!container)
+		SCR_EditableEntityUIInfo info = SCR_EditableEntityUIInfo.Cast(editableStructure.GetInfo());
+		if (!info)
 			return;
 		
-		if (!SCR_BaseContainerTools.IsKindOf(container, m_sPrefabNameToBuild))
-			return;
+		foreach (EEditableEntityLabel label : m_aRequiredLabels)
+		{
+			if (!info.HasEntityLabel(label))
+				return;
+		}
 		
 		SCR_CampaignBuildingCompositionComponent.KSC_GetOnCompositionSpawnedServer().Remove(OnCompositionBuilt);
 		
@@ -36,10 +39,10 @@ class KSC_BuildTask : KSC_BaseTask
 	}
 	
 	//------------------------------------------------------------------------------------------------
-	void SetParams(Faction targetFaction, ResourceName prefabnameToBuild = "", float radius = -1, array<LocalizedString> formatParams = null)
+	void SetParams(Faction targetFaction, array<EEditableEntityLabel> requiredLabels = null, float radius = -1, array<LocalizedString> formatParams = null)
 	{
-		if (!prefabnameToBuild.IsEmpty())
-			m_sPrefabNameToBuild = prefabnameToBuild;
+		if (requiredLabels)
+			m_aRequiredLabels = requiredLabels;
 		
 		if (radius > 0)
 			m_fBuildRadius = radius;
@@ -48,10 +51,7 @@ class KSC_BuildTask : KSC_BaseTask
 		if (formatParams)
 			extendedFormatParams = formatParams;
 		
-		Resource res = Resource.Load(m_sPrefabNameToBuild);
-		if (res.IsValid())
-			extendedFormatParams.Insert(KSC_BaseContainerTools.GetDisplayName(res.GetResource()));
-		
+		extendedFormatParams.InsertAt(KSC_WorldTools.GetLocationName(GetOrigin()), 0);
 		super.SetParams(targetFaction, extendedFormatParams);
 		SCR_CampaignBuildingCompositionComponent.KSC_GetOnCompositionSpawnedServer().Insert(OnCompositionBuilt);
 	}

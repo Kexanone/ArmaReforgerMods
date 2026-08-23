@@ -3,10 +3,7 @@ StaticModelEntity : "{B9AEDBE988F20A1A}Prefabs/Structures/Infrastructure/Towers/
  components {
   Persistence "{6A2D27C3EFDC3FAD}" {
   }
-  SCR_DestructionMultiPhaseComponent "{5A5ED31B16298711}" {
-   m_fBaseHealth 1000
-  }
-  SCR_EditableEntityComponent "{5E750EB265ED97F9}" {
+  KSC_EditableDestructibleStructureComponent "{5E750EB265ED97F9}" {
    m_UIInfo SCR_EditableEntityUIInfo "{5E750EB26E7B7D9B}" {
     Name "R404 Antenna"
     m_aAuthoredLabels {
@@ -14,6 +11,9 @@ StaticModelEntity : "{B9AEDBE988F20A1A}Prefabs/Structures/Infrastructure/Towers/
     }
    }
    m_bAutoRegister ALWAYS
+  }
+  SCR_DestructionMultiPhaseComponent "{5A5ED31B16298711}" {
+   m_fBaseHealth 1000
   }
   SCR_MapDescriptorComponent "{56F2C33183C309B2}" {
    Enabled 0

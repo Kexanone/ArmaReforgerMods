@@ -7,57 +7,33 @@ class KSC_EditableDestructibleStructureComponentClass : SCR_EditableEntityCompon
 //------------------------------------------------------------------------------------------------
 class KSC_EditableDestructibleStructureComponent : SCR_EditableEntityComponent
 {
-	protected SCR_DamageManagerComponent m_DamageManager;
-	
-	//------------------------------------------------------------------------------------------------
-	override protected void OnPostInit(IEntity owner)
-	{
-		super.OnPostInit(owner);
-		SetEventMask(owner, EntityEvent.INIT);
-	}
-	
-	//------------------------------------------------------------------------------------------------
-	override protected void EOnInit(IEntity owner)
-	{
-		super.EOnInit(owner);
-				
-		m_DamageManager = SCR_DamageManagerComponent.Cast(owner.FindComponent(SCR_DamageManagerComponent));
-		if (!m_DamageManager)
-		{
-			IEntity child = owner.GetChildren();
-			while (child)
-			{
-				m_DamageManager = SCR_DamageManagerComponent.Cast(child.FindComponent(SCR_DamageManagerComponent));
-				if (m_DamageManager)
-					break;
-				
-				child = child.GetSibling();
-			}
-		}
-	}
+	private SCR_DamageManagerComponent m_DamageManager;
 	
 	//------------------------------------------------------------------------------------------------
 	override bool CanDestroy()
 	{
-		if (!m_DamageManager)
+		SCR_DamageManagerComponent damageManager = GetDamageManager();
+		if (!damageManager)
 			return false;
 		
-		return m_DamageManager.IsDamageHandlingEnabled();
+		return damageManager.IsDamageHandlingEnabled();
 	}
 	
 	//------------------------------------------------------------------------------------------------
 	override bool IsDestroyed()
 	{
-		if (!m_DamageManager)
+		SCR_DamageManagerComponent damageManager = GetDamageManager();
+		if (!damageManager)
 			return false;
 		
-		return m_DamageManager.GetState() == EDamageState.DESTROYED;
+		return damageManager.GetState() == EDamageState.DESTROYED;
 	}
 	
 	//------------------------------------------------------------------------------------------------
 	override bool Destroy(int editorPlayerID = 0)
 	{
-		if (!m_DamageManager)
+		SCR_DamageManagerComponent damageManager = GetDamageManager();
+		if (!damageManager)
 			return false;
 		
 		if (!IsServer())
@@ -67,14 +43,31 @@ class KSC_EditableDestructibleStructureComponent : SCR_EditableEntityComponent
 			return false;
 		
 		Instigator instigator = Instigator.CreateInstigatorGM(editorPlayerID);
-		m_DamageManager.SetAndReplicateInstigator(instigator);
-		m_DamageManager.Kill(instigator);
+		damageManager.SetAndReplicateInstigator(instigator);
+		damageManager.Kill(instigator);
 		return IsDestroyed();
 	}
 	
 	//------------------------------------------------------------------------------------------------
-	DamageManagerComponent GetDamageManager()
+	SCR_DamageManagerComponent GetDamageManager()
 	{
+		if (!m_DamageManager && m_Owner)
+		{
+			m_DamageManager = SCR_DamageManagerComponent.Cast(m_Owner.FindComponent(SCR_DamageManagerComponent));
+			if (!m_DamageManager)
+			{
+				IEntity child = m_Owner.GetChildren();
+				while (child)
+				{
+					m_DamageManager = SCR_DamageManagerComponent.Cast(child.FindComponent(SCR_DamageManagerComponent));
+					if (m_DamageManager)
+						break;
+					
+					child = child.GetSibling();
+				}
+			}
+		}
+		
 		return m_DamageManager;
 	}
 }

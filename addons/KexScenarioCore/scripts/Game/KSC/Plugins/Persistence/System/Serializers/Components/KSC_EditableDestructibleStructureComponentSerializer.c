@@ -32,7 +32,7 @@ class KSC_EditableDestructibleStructureComponentSerializer : SCR_EditableEntityC
 		KSC_EditableDestructibleStructureComponent editable = KSC_EditableDestructibleStructureComponent.Cast(component);
 		
 		int version;
-		context.Read(version);
+		context.ReadValue("ksc_version", version);
 		
 		bool isDestroyed;
 		if (context.ReadValue("ksc_destroyed", isDestroyed) && isDestroyed)

@@ -10,32 +10,48 @@ class KSC_EditableDestructibleStructureComponentSerializer : SCR_EditableEntityC
 	//------------------------------------------------------------------------------------------------
 	override protected ESerializeResult Serialize(notnull IEntity owner, notnull GenericComponent component, notnull SaveContext context)
 	{
-		ESerializeResult result = super.Serialize(owner, component, context);
-		if (result == ESerializeResult.ERROR)
+		const KSC_EditableDestructibleStructureComponent editable = KSC_EditableDestructibleStructureComponent.Cast(component);
+		
+		context.StartObject("base");
+		const ESerializeResult baseResult = super.Serialize(owner, component, context);
+		context.EndObject();
+		
+		if (baseResult == ESerializeResult.ERROR)
 			return ESerializeResult.ERROR;
 		
-		const KSC_EditableDestructibleStructureComponent editable = KSC_EditableDestructibleStructureComponent.Cast(component);
-		if (!editable.IsDestroyed())
-			return ESerializeResult.DEFAULT;
+		const bool destroyed = editable.IsDestroyed();
 		
-		context.WriteValue("ksc_version", 1);
-		context.WriteValue("ksc_destroyed", true);
+		if (baseResult == ESerializeResult.DEFAULT &&
+			!destroyed)
+		{
+			return ESerializeResult.DEFAULT;
+		}
+		
+		context.WriteValue("version", 1);
+		context.WriteDefault(destroyed, false);
 		return ESerializeResult.OK;
 	}
 	
 	//------------------------------------------------------------------------------------------------
 	override protected bool Deserialize(notnull IEntity owner, notnull GenericComponent component, notnull LoadContext context)
 	{
-		if (!super.Deserialize(owner, component, context))
-			return false;
-		
 		KSC_EditableDestructibleStructureComponent editable = KSC_EditableDestructibleStructureComponent.Cast(component);
 		
-		int version;
-		context.ReadValue("ksc_version", version);
+		if (context.DoesObjectExist("base"))
+		{
+			if (!context.StartObject("base") ||
+				!super.Deserialize(owner, component, context) ||
+				!context.EndObject())
+			{
+				return false;
+			}
+		}
 		
-		bool isDestroyed;
-		if (context.ReadValue("ksc_destroyed", isDestroyed) && isDestroyed)
+		int version;
+		context.Read(version);
+		
+		bool destroyed;
+		if (context.Read(destroyed) && destroyed)
 			editable.Destroy();
 		
 		return true;

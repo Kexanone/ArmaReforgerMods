@@ -1,0 +1,10 @@
+Grass {
+ OpacityMap "{DF1F056340230E00}system/textures/defBlack.edds"
+ Height 0.05
+ HeightRandomOffset 0
+ FarHide 0
+ Edge 0.025
+ EdgeRandomOffset 0
+ EdgeBottomScale 0
+ ZenithRandomOffset 0
+}

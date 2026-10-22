@@ -429,6 +429,7 @@ class FPM_MapMarkerEntryPlayer : SCR_MapMarkerEntryDynamic
 	override void InitClientLogic()
 	{
 		super.InitClientLogic();
+		m_MarkerMgr = SCR_MapMarkerManagerComponent.GetInstance();
 		SCR_AIGroup.GetOnPlayerAdded().Insert(OnGroupJoined_C);
 		SCR_AIGroup.GetOnPlayerRemoved().Insert(OnGroupLeft_C);
 	}
